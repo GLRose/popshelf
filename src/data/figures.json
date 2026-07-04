@@ -1,0 +1,1690 @@
+[
+  {
+    "id": "skullpanda-the-warmth-the-raining-day",
+    "series": "skullpanda",
+    "set": "The Warmth",
+    "name": "The Raining Day",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-the-warmth-the-encounter",
+    "series": "skullpanda",
+    "set": "The Warmth",
+    "name": "The Encounter",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-the-warmth-the-day-off",
+    "series": "skullpanda",
+    "set": "The Warmth",
+    "name": "The Day Off",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-the-warmth-enjoy-oneself",
+    "series": "skullpanda",
+    "set": "The Warmth",
+    "name": "Enjoy Oneself",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-the-warmth-mind-with-the-wind",
+    "series": "skullpanda",
+    "set": "The Warmth",
+    "name": "Mind With the Wind",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-the-warmth-doodling",
+    "series": "skullpanda",
+    "set": "The Warmth",
+    "name": "Doodling",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-the-warmth-wandering",
+    "series": "skullpanda",
+    "set": "The Warmth",
+    "name": "Wandering",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-the-warmth-recall-the-past",
+    "series": "skullpanda",
+    "set": "The Warmth",
+    "name": "Recall the Past",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-the-warmth-chirping",
+    "series": "skullpanda",
+    "set": "The Warmth",
+    "name": "Chirping",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-the-warmth-loosening",
+    "series": "skullpanda",
+    "set": "The Warmth",
+    "name": "Loosening",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-the-warmth-taste-from-the-memory",
+    "series": "skullpanda",
+    "set": "The Warmth",
+    "name": "Taste From the Memory",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-the-warmth-the-scent",
+    "series": "skullpanda",
+    "set": "The Warmth",
+    "name": "The Scent",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-the-warmth-the-warmth",
+    "series": "skullpanda",
+    "set": "The Warmth",
+    "name": "The Warmth",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-everyday-wonderland-the-bold",
+    "series": "skullpanda",
+    "set": "Everyday Wonderland",
+    "name": "The Bold",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-everyday-wonderland-the-anxious",
+    "series": "skullpanda",
+    "set": "Everyday Wonderland",
+    "name": "The Anxious",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-everyday-wonderland-the-preachy",
+    "series": "skullpanda",
+    "set": "Everyday Wonderland",
+    "name": "The Preachy",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-everyday-wonderland-the-sophisticated",
+    "series": "skullpanda",
+    "set": "Everyday Wonderland",
+    "name": "The Sophisticated",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-everyday-wonderland-the-sleepless",
+    "series": "skullpanda",
+    "set": "Everyday Wonderland",
+    "name": "The Sleepless",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-everyday-wonderland-the-fidgety",
+    "series": "skullpanda",
+    "set": "Everyday Wonderland",
+    "name": "The Fidgety",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-everyday-wonderland-the-fatuous",
+    "series": "skullpanda",
+    "set": "Everyday Wonderland",
+    "name": "The Fatuous",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-everyday-wonderland-the-petulant",
+    "series": "skullpanda",
+    "set": "Everyday Wonderland",
+    "name": "The Petulant",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-everyday-wonderland-the-timid",
+    "series": "skullpanda",
+    "set": "Everyday Wonderland",
+    "name": "The Timid",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-everyday-wonderland-the-obedient",
+    "series": "skullpanda",
+    "set": "Everyday Wonderland",
+    "name": "The Obedient",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-everyday-wonderland-the-cold-hearted",
+    "series": "skullpanda",
+    "set": "Everyday Wonderland",
+    "name": "The Cold hearted",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-everyday-wonderland-the-lethargic",
+    "series": "skullpanda",
+    "set": "Everyday Wonderland",
+    "name": "The Lethargic",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-everyday-wonderland-thing-in-itself",
+    "series": "skullpanda",
+    "set": "Everyday Wonderland",
+    "name": "Thing in Itself",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-the-ink-plum-blossom-the-forest",
+    "series": "skullpanda",
+    "set": "The Ink Plum Blossom",
+    "name": "The Forest",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-the-ink-plum-blossom-the-moss",
+    "series": "skullpanda",
+    "set": "The Ink Plum Blossom",
+    "name": "The Moss",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-the-ink-plum-blossom-the-bamboo",
+    "series": "skullpanda",
+    "set": "The Ink Plum Blossom",
+    "name": "The Bamboo",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-the-ink-plum-blossom-the-snow",
+    "series": "skullpanda",
+    "set": "The Ink Plum Blossom",
+    "name": "The Snow",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-the-ink-plum-blossom-the-wind",
+    "series": "skullpanda",
+    "set": "The Ink Plum Blossom",
+    "name": "The Wind",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-the-ink-plum-blossom-the-bridge",
+    "series": "skullpanda",
+    "set": "The Ink Plum Blossom",
+    "name": "The Bridge",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-the-ink-plum-blossom-the-moon",
+    "series": "skullpanda",
+    "set": "The Ink Plum Blossom",
+    "name": "The Moon",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-the-ink-plum-blossom-the-root",
+    "series": "skullpanda",
+    "set": "The Ink Plum Blossom",
+    "name": "The Root",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-the-ink-plum-blossom-the-valley",
+    "series": "skullpanda",
+    "set": "The Ink Plum Blossom",
+    "name": "The Valley",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-the-ink-plum-blossom-the-spring",
+    "series": "skullpanda",
+    "set": "The Ink Plum Blossom",
+    "name": "The Spring",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-the-ink-plum-blossom-the-scene",
+    "series": "skullpanda",
+    "set": "The Ink Plum Blossom",
+    "name": "The Scene",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-the-ink-plum-blossom-the-courtyard",
+    "series": "skullpanda",
+    "set": "The Ink Plum Blossom",
+    "name": "The Courtyard",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-the-ink-plum-blossom-the-plum-blossom",
+    "series": "skullpanda",
+    "set": "The Ink Plum Blossom",
+    "name": "The Plum Blossom",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-image-of-reality-the-timelapse",
+    "series": "skullpanda",
+    "set": "Image of Reality",
+    "name": "The Timelapse",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-image-of-reality-the-paradox",
+    "series": "skullpanda",
+    "set": "Image of Reality",
+    "name": "The Paradox",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-image-of-reality-the-pivot",
+    "series": "skullpanda",
+    "set": "Image of Reality",
+    "name": "The Pivot",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-image-of-reality-the-merchant",
+    "series": "skullpanda",
+    "set": "Image of Reality",
+    "name": "The Merchant",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-image-of-reality-the-soar",
+    "series": "skullpanda",
+    "set": "Image of Reality",
+    "name": "The Soar",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-image-of-reality-the-constraint",
+    "series": "skullpanda",
+    "set": "Image of Reality",
+    "name": "The Constraint",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-image-of-reality-the-duality-white",
+    "series": "skullpanda",
+    "set": "Image of Reality",
+    "name": "The Duality White",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-image-of-reality-the-duality-black",
+    "series": "skullpanda",
+    "set": "Image of Reality",
+    "name": "The Duality Black",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-image-of-reality-the-philosophy",
+    "series": "skullpanda",
+    "set": "Image of Reality",
+    "name": "The Philosophy",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-image-of-reality-the-imagination",
+    "series": "skullpanda",
+    "set": "Image of Reality",
+    "name": "The Imagination",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-image-of-reality-the-disguise",
+    "series": "skullpanda",
+    "set": "Image of Reality",
+    "name": "The Disguise",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-image-of-reality-the-antigravity",
+    "series": "skullpanda",
+    "set": "Image of Reality",
+    "name": "The Antigravity",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-image-of-reality-the-onlooker",
+    "series": "skullpanda",
+    "set": "Image of Reality",
+    "name": "The Onlooker",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-the-sound-the-joy",
+    "series": "skullpanda",
+    "set": "The Sound",
+    "name": "The Joy",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-the-sound-the-anger",
+    "series": "skullpanda",
+    "set": "The Sound",
+    "name": "The Anger",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-the-sound-the-serenity",
+    "series": "skullpanda",
+    "set": "The Sound",
+    "name": "The Serenity",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-the-sound-the-pensiveness",
+    "series": "skullpanda",
+    "set": "The Sound",
+    "name": "The Pensiveness",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-the-sound-the-trust",
+    "series": "skullpanda",
+    "set": "The Sound",
+    "name": "The Trust",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-the-sound-the-disgust",
+    "series": "skullpanda",
+    "set": "The Sound",
+    "name": "The Disgust",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-the-sound-the-ecstasy",
+    "series": "skullpanda",
+    "set": "The Sound",
+    "name": "The Ecstasy",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-the-sound-the-grief",
+    "series": "skullpanda",
+    "set": "The Sound",
+    "name": "The Grief",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-the-sound-the-admiration",
+    "series": "skullpanda",
+    "set": "The Sound",
+    "name": "The Admiration",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-the-sound-the-terror",
+    "series": "skullpanda",
+    "set": "The Sound",
+    "name": "The Terror",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-the-sound-the-vigilance",
+    "series": "skullpanda",
+    "set": "The Sound",
+    "name": "The Vigilance",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-the-sound-the-awe",
+    "series": "skullpanda",
+    "set": "The Sound",
+    "name": "The Awe",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-the-sound-the-equilibrium",
+    "series": "skullpanda",
+    "set": "The Sound",
+    "name": "The Equilibrium",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-tell-me-what-you-want-tell-me-what-you-want-series-still-on-the-job",
+    "series": "skullpanda",
+    "set": "Tell Me What You Want",
+    "name": "Tell Me What You Want Series Still on the Job",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-tell-me-what-you-want-tell-me-what-you-want-series-fun-ride",
+    "series": "skullpanda",
+    "set": "Tell Me What You Want",
+    "name": "Tell Me What You Want Series Fun Ride",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-tell-me-what-you-want-tell-me-what-you-want-series-baking-best-wishes",
+    "series": "skullpanda",
+    "set": "Tell Me What You Want",
+    "name": "Tell Me What You Want Series Baking Best Wishes",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-tell-me-what-you-want-tell-me-what-you-want-series-getting-dressed",
+    "series": "skullpanda",
+    "set": "Tell Me What You Want",
+    "name": "Tell Me What You Want Series Getting Dressed",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-tell-me-what-you-want-tell-me-what-you-want-series-sweetest-rebel",
+    "series": "skullpanda",
+    "set": "Tell Me What You Want",
+    "name": "Tell Me What You Want Series Sweetest Rebel",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-tell-me-what-you-want-tell-me-what-you-want-series-let-it-snow",
+    "series": "skullpanda",
+    "set": "Tell Me What You Want",
+    "name": "Tell Me What You Want Series Let it Snow",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-tell-me-what-you-want-tell-me-what-you-want-series-on-schedule",
+    "series": "skullpanda",
+    "set": "Tell Me What You Want",
+    "name": "Tell Me What You Want Series On Schedule",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-tell-me-what-you-want-tell-me-what-you-want-series-home-alone",
+    "series": "skullpanda",
+    "set": "Tell Me What You Want",
+    "name": "Tell Me What You Want Series Home Alone",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-tell-me-what-you-want-tell-me-what-you-want-series-as-i-wish",
+    "series": "skullpanda",
+    "set": "Tell Me What You Want",
+    "name": "Tell Me What You Want Series As I Wish",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-city-of-night-naughty-bodyguard",
+    "series": "skullpanda",
+    "set": "City of Night",
+    "name": "Naughty Bodyguard",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "skullpanda-city-of-night-pet-cat",
+    "series": "skullpanda",
+    "set": "City of Night",
+    "name": "Pet Cat",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "skullpanda-city-of-night-the-princess",
+    "series": "skullpanda",
+    "set": "City of Night",
+    "name": "The Princess",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "skullpanda-city-of-night-dj-player",
+    "series": "skullpanda",
+    "set": "City of Night",
+    "name": "DJ Player",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "skullpanda-city-of-night-law-executor",
+    "series": "skullpanda",
+    "set": "City of Night",
+    "name": "Law Executor",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "skullpanda-city-of-night-traveller",
+    "series": "skullpanda",
+    "set": "City of Night",
+    "name": "Traveller",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "skullpanda-city-of-night-meditator",
+    "series": "skullpanda",
+    "set": "City of Night",
+    "name": "Meditator",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "skullpanda-city-of-night-puppet-singer",
+    "series": "skullpanda",
+    "set": "City of Night",
+    "name": "Puppet Singer",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "skullpanda-city-of-night-ardent-youth",
+    "series": "skullpanda",
+    "set": "City of Night",
+    "name": "Ardent Youth",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "skullpanda-city-of-night-dancer",
+    "series": "skullpanda",
+    "set": "City of Night",
+    "name": "Dancer",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "skullpanda-city-of-night-heart-seeker",
+    "series": "skullpanda",
+    "set": "City of Night",
+    "name": "Heart Seeker",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "skullpanda-city-of-night-scroll-delivery",
+    "series": "skullpanda",
+    "set": "City of Night",
+    "name": "Scroll Delivery",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "skullpanda-city-of-night-guardian-of-night",
+    "series": "skullpanda",
+    "set": "City of Night",
+    "name": "Guardian of Night",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "skullpanda-ancient-castle-phantom",
+    "series": "skullpanda",
+    "set": "Ancient Castle",
+    "name": "Phantom",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "skullpanda-ancient-castle-chamberlain",
+    "series": "skullpanda",
+    "set": "Ancient Castle",
+    "name": "Chamberlain",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "skullpanda-ancient-castle-bell-ringer",
+    "series": "skullpanda",
+    "set": "Ancient Castle",
+    "name": "Bell ringer",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "skullpanda-ancient-castle-bloody-rose",
+    "series": "skullpanda",
+    "set": "Ancient Castle",
+    "name": "Bloody Rose",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "skullpanda-ancient-castle-nurse",
+    "series": "skullpanda",
+    "set": "Ancient Castle",
+    "name": "Nurse",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "skullpanda-ancient-castle-baby-zombie",
+    "series": "skullpanda",
+    "set": "Ancient Castle",
+    "name": "Baby Zombie",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "skullpanda-ancient-castle-fake-evil",
+    "series": "skullpanda",
+    "set": "Ancient Castle",
+    "name": "Fake Evil",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "skullpanda-ancient-castle-fake-angel",
+    "series": "skullpanda",
+    "set": "Ancient Castle",
+    "name": "Fake Angel",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "skullpanda-ancient-castle-boring-explorer",
+    "series": "skullpanda",
+    "set": "Ancient Castle",
+    "name": "Boring Explorer",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "skullpanda-ancient-castle-gargoyle",
+    "series": "skullpanda",
+    "set": "Ancient Castle",
+    "name": "Gargoyle",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "skullpanda-ancient-castle-vampire",
+    "series": "skullpanda",
+    "set": "Ancient Castle",
+    "name": "Vampire",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "skullpanda-ancient-castle-skeleton",
+    "series": "skullpanda",
+    "set": "Ancient Castle",
+    "name": "Skeleton",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "skullpanda-ancient-castle-bloody-knight",
+    "series": "skullpanda",
+    "set": "Ancient Castle",
+    "name": "Bloody Knight",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "skullpanda-the-mare-of-animals-the-fox",
+    "series": "skullpanda",
+    "set": "The Mare of Animals",
+    "name": "The Fox",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "skullpanda-the-mare-of-animals-the-penguin",
+    "series": "skullpanda",
+    "set": "The Mare of Animals",
+    "name": "The Penguin",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "skullpanda-the-mare-of-animals-the-unicorn",
+    "series": "skullpanda",
+    "set": "The Mare of Animals",
+    "name": "The Unicorn",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "skullpanda-the-mare-of-animals-the-rat",
+    "series": "skullpanda",
+    "set": "The Mare of Animals",
+    "name": "The Rat",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "skullpanda-the-mare-of-animals-the-blue-morpho",
+    "series": "skullpanda",
+    "set": "The Mare of Animals",
+    "name": "The Blue Morpho",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "skullpanda-the-mare-of-animals-the-passenger-pigeon",
+    "series": "skullpanda",
+    "set": "The Mare of Animals",
+    "name": "The Passenger Pigeon",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "skullpanda-the-mare-of-animals-the-rabbit",
+    "series": "skullpanda",
+    "set": "The Mare of Animals",
+    "name": "The Rabbit",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "skullpanda-the-mare-of-animals-the-polar-bear",
+    "series": "skullpanda",
+    "set": "The Mare of Animals",
+    "name": "The Polar Bear",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "skullpanda-the-mare-of-animals-the-halobios",
+    "series": "skullpanda",
+    "set": "The Mare of Animals",
+    "name": "The Halobios",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "skullpanda-the-mare-of-animals-the-feline",
+    "series": "skullpanda",
+    "set": "The Mare of Animals",
+    "name": "The Feline",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "skullpanda-the-mare-of-animals-the-elephant",
+    "series": "skullpanda",
+    "set": "The Mare of Animals",
+    "name": "The Elephant",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "skullpanda-the-mare-of-animals-the-moth",
+    "series": "skullpanda",
+    "set": "The Mare of Animals",
+    "name": "The Moth",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "skullpanda-the-mare-of-animals-the-dream-eater",
+    "series": "skullpanda",
+    "set": "The Mare of Animals",
+    "name": "The Dream Eater",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "skullpanda-the-mirage-the-puppetry",
+    "series": "skullpanda",
+    "set": "The Mirage",
+    "name": "The Puppetry",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "skullpanda-the-mirage-the-carousel-lantern",
+    "series": "skullpanda",
+    "set": "The Mirage",
+    "name": "The Carousel Lantern",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "skullpanda-the-mirage-the-skeleton-fantasy-show",
+    "series": "skullpanda",
+    "set": "The Mirage",
+    "name": "The Skeleton Fantasy Show",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "skullpanda-the-mirage-the-hill-censer",
+    "series": "skullpanda",
+    "set": "The Mirage",
+    "name": "The Hill Censer",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "skullpanda-the-mirage-the-frame",
+    "series": "skullpanda",
+    "set": "The Mirage",
+    "name": "The Frame",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "skullpanda-the-mirage-the-pricket",
+    "series": "skullpanda",
+    "set": "The Mirage",
+    "name": "The Pricket",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "skullpanda-the-mirage-the-konghou",
+    "series": "skullpanda",
+    "set": "The Mirage",
+    "name": "The Konghou",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "skullpanda-the-mirage-the-pan-flute",
+    "series": "skullpanda",
+    "set": "The Mirage",
+    "name": "The Pan Flute",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "skullpanda-the-mirage-the-ghanta",
+    "series": "skullpanda",
+    "set": "The Mirage",
+    "name": "The Ghanta",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "skullpanda-the-mirage-the-butterfly-dream",
+    "series": "skullpanda",
+    "set": "The Mirage",
+    "name": "The Butterfly Dream",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "skullpanda-laid-back-tomorrow-full-of-sweetness",
+    "series": "skullpanda",
+    "set": "Laid Back Tomorrow",
+    "name": "Full of Sweetness",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "skullpanda-laid-back-tomorrow-easy-off-roading",
+    "series": "skullpanda",
+    "set": "Laid Back Tomorrow",
+    "name": "Easy Off roading",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "skullpanda-laid-back-tomorrow-catch-the-moment",
+    "series": "skullpanda",
+    "set": "Laid Back Tomorrow",
+    "name": "Catch the Moment",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "skullpanda-laid-back-tomorrow-hasty-trail",
+    "series": "skullpanda",
+    "set": "Laid Back Tomorrow",
+    "name": "Hasty Trail",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "skullpanda-laid-back-tomorrow-rushing-out",
+    "series": "skullpanda",
+    "set": "Laid Back Tomorrow",
+    "name": "Rushing Out",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "skullpanda-laid-back-tomorrow-dispatch-surprise",
+    "series": "skullpanda",
+    "set": "Laid Back Tomorrow",
+    "name": "Dispatch Surprise",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "skullpanda-laid-back-tomorrow-fantasy-route",
+    "series": "skullpanda",
+    "set": "Laid Back Tomorrow",
+    "name": "Fantasy Route",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "skullpanda-laid-back-tomorrow-blue-water-shortcut",
+    "series": "skullpanda",
+    "set": "Laid Back Tomorrow",
+    "name": "Blue Water Shortcut",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "skullpanda-laid-back-tomorrow-out-in-the-street",
+    "series": "skullpanda",
+    "set": "Laid Back Tomorrow",
+    "name": "Out in the Street",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "skullpanda-laid-back-tomorrow-coffee-express",
+    "series": "skullpanda",
+    "set": "Laid Back Tomorrow",
+    "name": "Coffee Express",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "skullpanda-the-addams-family-quiet-wednesday",
+    "series": "skullpanda",
+    "set": "The Addams Family",
+    "name": "Quiet Wednesday",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "skullpanda-the-addams-family-parker",
+    "series": "skullpanda",
+    "set": "The Addams Family",
+    "name": "Parker",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "skullpanda-the-addams-family-pugsley",
+    "series": "skullpanda",
+    "set": "The Addams Family",
+    "name": "Pugsley",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "skullpanda-the-addams-family-uncle-fester",
+    "series": "skullpanda",
+    "set": "The Addams Family",
+    "name": "Uncle Fester",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "skullpanda-the-addams-family-kitty",
+    "series": "skullpanda",
+    "set": "The Addams Family",
+    "name": "Kitty",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "skullpanda-the-addams-family-scarlet-morticia",
+    "series": "skullpanda",
+    "set": "The Addams Family",
+    "name": "Scarlet Morticia",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "skullpanda-the-addams-family-gomez",
+    "series": "skullpanda",
+    "set": "The Addams Family",
+    "name": "Gomez",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "skullpanda-the-addams-family-grandma",
+    "series": "skullpanda",
+    "set": "The Addams Family",
+    "name": "Grandma",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "skullpanda-the-addams-family-it",
+    "series": "skullpanda",
+    "set": "The Addams Family",
+    "name": "IT",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "skullpanda-the-addams-family-great-auntie-sloom",
+    "series": "skullpanda",
+    "set": "The Addams Family",
+    "name": "Great Auntie Sloom",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "skullpanda-the-addams-family-lurch",
+    "series": "skullpanda",
+    "set": "The Addams Family",
+    "name": "Lurch",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "skullpanda-the-addams-family-dark-night-morticia",
+    "series": "skullpanda",
+    "set": "The Addams Family",
+    "name": "Dark Night Morticia",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "skullpanda-the-addams-family-deadpan-wednesday",
+    "series": "skullpanda",
+    "set": "The Addams Family",
+    "name": "Deadpan Wednesday",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "skullpanda-candy-monster-town-candy-monster-tower-sugar-rabbit",
+    "series": "skullpanda",
+    "set": "Candy Monster Town",
+    "name": "Candy Monster Tower Sugar Rabbit",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "skullpanda-candy-monster-town-candy-monster-tower-fairy-godmother",
+    "series": "skullpanda",
+    "set": "Candy Monster Town",
+    "name": "Candy Monster Tower Fairy Godmother",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "skullpanda-candy-monster-town-candy-monster-tower-strawberry-clown",
+    "series": "skullpanda",
+    "set": "Candy Monster Town",
+    "name": "Candy Monster Tower Strawberry Clown",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "skullpanda-candy-monster-town-candy-monster-tower-milk-ghost",
+    "series": "skullpanda",
+    "set": "Candy Monster Town",
+    "name": "Candy Monster Tower Milk Ghost",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "skullpanda-candy-monster-town-candy-monster-tower-bubble-ghost",
+    "series": "skullpanda",
+    "set": "Candy Monster Town",
+    "name": "Candy Monster Tower Bubble Ghost",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "skullpanda-candy-monster-town-candy-monster-tower-chicken-hunter",
+    "series": "skullpanda",
+    "set": "Candy Monster Town",
+    "name": "Candy Monster Tower Chicken Hunter",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "skullpanda-candy-monster-town-candy-monster-tower-gummy-bear-baby",
+    "series": "skullpanda",
+    "set": "Candy Monster Town",
+    "name": "Candy Monster Tower Gummy Bear Baby",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "skullpanda-candy-monster-town-candy-monster-tower-octopus-monster",
+    "series": "skullpanda",
+    "set": "Candy Monster Town",
+    "name": "Candy Monster Tower Octopus Monster",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "skullpanda-candy-monster-town-candy-monster-tower-elf",
+    "series": "skullpanda",
+    "set": "Candy Monster Town",
+    "name": "Candy Monster Tower Elf",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "skullpanda-candy-monster-town-candy-monster-tower-marshmallow-unicorn",
+    "series": "skullpanda",
+    "set": "Candy Monster Town",
+    "name": "Candy Monster Tower Marshmallow Unicorn",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "skullpanda-candy-monster-town-candy-monster-tower-candy-thief",
+    "series": "skullpanda",
+    "set": "Candy Monster Town",
+    "name": "Candy Monster Tower Candy Thief",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "skullpanda-candy-monster-town-candy-monster-tower-cookie-racoon",
+    "series": "skullpanda",
+    "set": "Candy Monster Town",
+    "name": "Candy Monster Tower Cookie Racoon",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "skullpanda-candy-monster-town-candy-monster-tower-adorkable-magician",
+    "series": "skullpanda",
+    "set": "Candy Monster Town",
+    "name": "Candy Monster Tower Adorkable Magician",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "skullpanda-action-cut-grumpy-maintenance",
+    "series": "skullpanda",
+    "set": "Action Cut",
+    "name": "Grumpy Maintenance",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "skullpanda-action-cut-stunt-man",
+    "series": "skullpanda",
+    "set": "Action Cut",
+    "name": "Stunt Man",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "skullpanda-action-cut-afternoon-beauty",
+    "series": "skullpanda",
+    "set": "Action Cut",
+    "name": "Afternoon Beauty",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "skullpanda-action-cut-stand-in",
+    "series": "skullpanda",
+    "set": "Action Cut",
+    "name": "Stand in",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "skullpanda-action-cut-craft-service",
+    "series": "skullpanda",
+    "set": "Action Cut",
+    "name": "Craft Service",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "skullpanda-action-cut-gluttonous-security",
+    "series": "skullpanda",
+    "set": "Action Cut",
+    "name": "Gluttonous Security",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "skullpanda-action-cut-fashionable-clapper-loader",
+    "series": "skullpanda",
+    "set": "Action Cut",
+    "name": "Fashionable Clapper Loader",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "skullpanda-action-cut-rising-star",
+    "series": "skullpanda",
+    "set": "Action Cut",
+    "name": "Rising Star",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "skullpanda-action-cut-comedian",
+    "series": "skullpanda",
+    "set": "Action Cut",
+    "name": "Comedian",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "skullpanda-action-cut-musty-extra-actor",
+    "series": "skullpanda",
+    "set": "Action Cut",
+    "name": "Musty Extra Actor",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "skullpanda-action-cut-resting-leading-lady",
+    "series": "skullpanda",
+    "set": "Action Cut",
+    "name": "Resting Leading Lady",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "skullpanda-action-cut-leading-man",
+    "series": "skullpanda",
+    "set": "Action Cut",
+    "name": "Leading Man",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "skullpanda-action-cut-cool-director",
+    "series": "skullpanda",
+    "set": "Action Cut",
+    "name": "Cool Director",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "skullpanda-hypepanda-vintage-boy",
+    "series": "skullpanda",
+    "set": "HYPEPANDA",
+    "name": "Vintage Boy",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "skullpanda-hypepanda-skater-boy",
+    "series": "skullpanda",
+    "set": "HYPEPANDA",
+    "name": "Skater Boy",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "skullpanda-hypepanda-mix-match-style",
+    "series": "skullpanda",
+    "set": "HYPEPANDA",
+    "name": "Mix Match Style",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "skullpanda-hypepanda-elegant-girl",
+    "series": "skullpanda",
+    "set": "HYPEPANDA",
+    "name": "Elegant Girl",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "skullpanda-hypepanda-idol-trainee",
+    "series": "skullpanda",
+    "set": "HYPEPANDA",
+    "name": "Idol Trainee",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "skullpanda-hypepanda-hip-pop-singer",
+    "series": "skullpanda",
+    "set": "HYPEPANDA",
+    "name": "Hip Pop Singer",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "skullpanda-hypepanda-dancer",
+    "series": "skullpanda",
+    "set": "HYPEPANDA",
+    "name": "Dancer",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "skullpanda-hypepanda-milk-baby",
+    "series": "skullpanda",
+    "set": "HYPEPANDA",
+    "name": "Milk Baby",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "skullpanda-hypepanda-milk-tea-girl",
+    "series": "skullpanda",
+    "set": "HYPEPANDA",
+    "name": "Milk Tea Girl",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "skullpanda-hypepanda-fashion-icon",
+    "series": "skullpanda",
+    "set": "HYPEPANDA",
+    "name": "Fashion Icon",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "skullpanda-hypepanda-rapper",
+    "series": "skullpanda",
+    "set": "HYPEPANDA",
+    "name": "Rapper",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "skullpanda-hypepanda-pink-girl",
+    "series": "skullpanda",
+    "set": "HYPEPANDA",
+    "name": "Pink Girl",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "skullpanda-hypepanda-stylist",
+    "series": "skullpanda",
+    "set": "HYPEPANDA",
+    "name": "Stylist",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "peachriot-rise-up-frankie-diva",
+    "series": "peachriot",
+    "set": "Rise Up",
+    "name": "Frankie Diva",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "peachriot-rise-up-frankie-sick-beats",
+    "series": "peachriot",
+    "set": "Rise Up",
+    "name": "Frankie Sick Beats",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "peachriot-rise-up-frankie-the-boss",
+    "series": "peachriot",
+    "set": "Rise Up",
+    "name": "Frankie The Boss",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "peachriot-rise-up-frankie-the-rhythm",
+    "series": "peachriot",
+    "set": "Rise Up",
+    "name": "Frankie The Rhythm",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "peachriot-rise-up-gigi-brain-stormer",
+    "series": "peachriot",
+    "set": "Rise Up",
+    "name": "Gigi Brain Stormer",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "peachriot-rise-up-gigi-lil-27-lead",
+    "series": "peachriot",
+    "set": "Rise Up",
+    "name": "Gigi Lil%27 Lead",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "peachriot-rise-up-gigi-pop-star",
+    "series": "peachriot",
+    "set": "Rise Up",
+    "name": "Gigi Pop Star",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "peachriot-rise-up-gigi-the-singer",
+    "series": "peachriot",
+    "set": "Rise Up",
+    "name": "Gigi The Singer",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "peachriot-rise-up-poppy-baddie-on-bass",
+    "series": "peachriot",
+    "set": "Rise Up",
+    "name": "Poppy Baddie On Bass",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "peachriot-rise-up-poppy-business",
+    "series": "peachriot",
+    "set": "Rise Up",
+    "name": "Poppy Business",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "peachriot-rise-up-poppy-cutie",
+    "series": "peachriot",
+    "set": "Rise Up",
+    "name": "Poppy Cutie",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "peachriot-rise-up-poppy-electric-funk",
+    "series": "peachriot",
+    "set": "Rise Up",
+    "name": "Poppy Electric Funk",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "peachriot-rise-up-gigi-the-gleeman",
+    "series": "peachriot",
+    "set": "Rise Up",
+    "name": "Gigi The Gleeman",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "peachriot-punk-fairy-frankie-lily-pad",
+    "series": "peachriot",
+    "set": "Punk Fairy",
+    "name": "Frankie Lily Pad",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "peachriot-punk-fairy-frankie-moonrise",
+    "series": "peachriot",
+    "set": "Punk Fairy",
+    "name": "Frankie Moonrise",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "peachriot-punk-fairy-frankie-rainstorm",
+    "series": "peachriot",
+    "set": "Punk Fairy",
+    "name": "Frankie Rainstorm",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "peachriot-punk-fairy-frankie-sunflower",
+    "series": "peachriot",
+    "set": "Punk Fairy",
+    "name": "Frankie Sunflower",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "peachriot-punk-fairy-gigi-ice",
+    "series": "peachriot",
+    "set": "Punk Fairy",
+    "name": "Gigi Ice",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "peachriot-punk-fairy-gigi-leaf",
+    "series": "peachriot",
+    "set": "Punk Fairy",
+    "name": "Gigi Leaf",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "peachriot-punk-fairy-gigi-mushroom",
+    "series": "peachriot",
+    "set": "Punk Fairy",
+    "name": "Gigi Mushroom",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "peachriot-punk-fairy-gigi-sweet-pea",
+    "series": "peachriot",
+    "set": "Punk Fairy",
+    "name": "Gigi Sweet Pea",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "peachriot-punk-fairy-poppy-acorn",
+    "series": "peachriot",
+    "set": "Punk Fairy",
+    "name": "Poppy Acorn",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "peachriot-punk-fairy-poppy-daisy",
+    "series": "peachriot",
+    "set": "Punk Fairy",
+    "name": "Poppy Daisy",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "peachriot-punk-fairy-poppy-morning-dew",
+    "series": "peachriot",
+    "set": "Punk Fairy",
+    "name": "Poppy Morning Dew",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "peachriot-punk-fairy-poppy-tree-stump",
+    "series": "peachriot",
+    "set": "Punk Fairy",
+    "name": "Poppy Tree Stump",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "peachriot-punk-fairy-poppy-strawberry",
+    "series": "peachriot",
+    "set": "Punk Fairy",
+    "name": "Poppy Strawberry",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  }
+]

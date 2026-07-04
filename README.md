@@ -1,56 +1,71 @@
-# Welcome to your Expo app 👋
+# PopShelf
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Browse every **Skullpanda** and **Peach Riot** figure from Pop Mart, build a collection, favorite the ones you love, and display them on a customizable virtual shelf.
 
-## Get started
+Built with **Expo + Expo Router + React Native Web** so the same codebase runs on the web today and can ship to iOS/Android later with no rewrite.
 
-1. Install dependencies
+## Features
 
-   ```bash
-   npm install
-   ```
+- **Browse** - toggle between Skullpanda and Peach Riot, browse figures grouped by series/set. Tap **+** to collect, **♥** to favorite. Per-series collection progress.
+- **Shelf** - your collected figures sit as cutouts on a paginated shelf. Customize **shelf color** and **background**. Edit mode to remove figures.
+- **Favorites** - favorited figures kept separately, off the shelf. Unfavorite anytime.
+- **Local persistence** - collection, favorites, and shelf settings are saved on-device (localStorage on web, AsyncStorage on native) and restored on return.
 
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Run locally
 
 ```bash
-npm run reset-project
+npm install
+npm run web        # http://localhost:8081
+# npm run ios / npm run android for native
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Deploy to Vercel
 
-### Other setup steps
+`vercel.json` is already configured. Import the repo in Vercel (or `vercel --prod`). It runs `expo export --platform web` and serves the SPA from `dist/`.
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+## Data & images
 
-## Learn more
+The catalog (`src/data/figures.json`, 211 figures) and per-figure image URLs
+(`scripts/sources.json`) are scraped from collector databases with real figure
+names and clean product renders:
 
-To learn more about developing your project with Expo, look at the following resources:
+- **Skullpanda** - [skullpandaworld.com](https://skullpandaworld.com) (17 series)
+- **Peach Riot** - [thetoypool.com](https://thetoypool.com) (Rise Up, Punk Fairy)
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Full refresh:
 
-## Join the community
+```bash
+npm run refresh    # catalog -> scrape -> cutout -> imagemap
+```
 
-Join our community of developers creating universal apps.
+Or step by step:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+1. `npm run catalog` - scrape names + image URLs → `figures.json` + `sources.json`.
+2. `npm run scrape` - download raw images to `assets/figures/raw/` (gitignored).
+3. `npm run cutout` - background-remove to transparent `assets/figures/<id>.png`.
+   Uses a pure-JS edge flood-fill (`jimp`) - no native deps or ML model - which
+   works because the source renders sit on clean white backgrounds.
+4. `npm run imagemap` - regenerate `src/data/figureImages.ts` (static `require()`
+   map so React Native can bundle the PNGs).
+
+**Coverage / known gaps:** all 17 documented Skullpanda blind-box series are
+included. Peach Riot is limited to the two series with a clean image source
+(Rise Up, Punk Fairy) - other Peach Riot sets need an image source before they
+can be added. Any figure without a cutout falls back to a styled placeholder
+automatically. Images are Pop Mart's copyright - intended for personal use.
+
+## Going mobile later
+
+The UI is 100% React Native primitives + Expo modules, so `eas build -p ios` / `-p android` produces native apps from this same repo. State/persistence (`@react-native-async-storage/async-storage`) and images (static `require` map) already work on native.
+
+## Structure
+
+```
+src/
+  app/(tabs)/    index (Browse), shelf, favorites + _layout (tabs)
+  components/    FigureCard, FigureImage, SeriesToggle, Shelf, ShelfItem, Paginator, ShelfCustomizer
+  store/         useCollection (zustand + persist)
+  data/          figures.json, figures.ts, figureImages.ts
+  constants/     palette, appTheme
+scripts/         gen-catalog, scrape, remove-bg, gen-image-map
+```

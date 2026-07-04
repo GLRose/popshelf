@@ -41,3 +41,6 @@ example
 # generated native folders
 /ios
 /android
+
+# intermediate scrape output (raw images before background removal)
+assets/figures/raw/
