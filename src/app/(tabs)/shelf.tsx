@@ -39,17 +39,9 @@ export default function ShelfScreen() {
 
   const pageCount = Math.max(1, Math.ceil(figures.length / perPage));
 
-  // Reset to the first page when switching shelves (adjust state during render).
-  const [prevShelfId, setPrevShelfId] = useState(activeShelfId);
-  if (prevShelfId !== activeShelfId) {
-    setPrevShelfId(activeShelfId);
-    setPage(0);
-  }
-
-  // Keep the page in range as the collection shrinks (derive, don't store).
-  const safePage = Math.min(page, pageCount - 1);
-
-  const pageFigures = figures.slice(safePage * perPage, safePage * perPage + perPage);
+  // Clamp during render so the page stays in range as the collection shrinks/grows.
+  const currentPage = Math.min(page, pageCount - 1);
+  const pageFigures = figures.slice(currentPage * perPage, currentPage * perPage + perPage);
   const onBg = readableOn(shelf.background);
 
   return (
@@ -105,7 +97,7 @@ export default function ShelfScreen() {
                 onDelete={removeOwned}
               />
             </View>
-            <Paginator page={safePage} pageCount={pageCount} onChange={setPage} />
+            <Paginator page={currentPage} pageCount={pageCount} onChange={setPage} />
           </>
         )}
       </View>
