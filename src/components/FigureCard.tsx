@@ -13,10 +13,16 @@ interface Props {
 }
 
 export const FigureCard = memo(function FigureCard({ figure, width }: Props) {
-  const owned = useCollection((s) => s.collection.includes(figure.id));
+  const shelves = useCollection((s) => s.shelves);
+  const activeShelfId = useCollection((s) => s.activeShelfId);
   const favorite = useCollection((s) => s.favorites.includes(figure.id));
-  const toggleOwned = useCollection((s) => s.toggleOwned);
+  const addToActiveShelf = useCollection((s) => s.addToActiveShelf);
+  const removeOwned = useCollection((s) => s.removeOwned);
   const toggleFavorite = useCollection((s) => s.toggleFavorite);
+
+  const location = shelves.find((sh) => sh.figureIds.includes(figure.id));
+  const onActiveShelf = location?.id === activeShelfId;
+  const onOtherShelf = !!location && !onActiveShelf;
 
   const imgSize = width - 20; // padding 10 each side
 
@@ -53,20 +59,29 @@ export const FigureCard = memo(function FigureCard({ figure, width }: Props) {
       </Text>
 
       <Pressable
-        onPress={() => toggleOwned(figure.id)}
+        onPress={() => (onActiveShelf ? removeOwned(figure.id) : addToActiveShelf(figure.id))}
         style={({ pressed }) => [
           styles.addBtn,
-          owned && styles.addBtnOwned,
+          onActiveShelf && styles.addBtnOwned,
+          onOtherShelf && styles.addBtnOther,
           pressed && styles.pressed,
         ]}
-        accessibilityLabel={owned ? 'Remove from collection' : 'Add to collection'}>
+        accessibilityLabel={
+          onActiveShelf
+            ? 'Remove from this shelf'
+            : onOtherShelf
+              ? `Move here from ${location!.name}`
+              : 'Add to shelf'
+        }>
         <Ionicons
-          name={owned ? 'checkmark' : 'add'}
+          name={onActiveShelf ? 'checkmark' : onOtherShelf ? 'swap-horizontal' : 'add'}
           size={16}
-          color={owned ? '#fff' : T.text}
+          color={onActiveShelf ? '#fff' : T.text}
         />
-        <Text style={[styles.addText, owned && styles.addTextOwned]}>
-          {owned ? 'In collection' : 'Add'}
+        <Text
+          numberOfLines={1}
+          style={[styles.addText, onActiveShelf && styles.addTextOwned]}>
+          {onActiveShelf ? location!.name : onOtherShelf ? `On ${location!.name}` : 'Add'}
         </Text>
       </Pressable>
     </View>
@@ -121,6 +136,7 @@ const styles = StyleSheet.create({
     backgroundColor: T.chip,
   },
   addBtnOwned: { backgroundColor: '#4CAF6E', borderColor: '#4CAF6E' },
+  addBtnOther: { backgroundColor: T.card, borderColor: T.muted, borderStyle: 'dashed' },
   addText: { fontSize: 13, fontWeight: '700', color: T.text },
   addTextOwned: { color: '#fff' },
   pressed: { opacity: 0.65 },

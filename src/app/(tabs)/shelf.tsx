@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Shelf } from '@/components/Shelf';
 import { ShelfCustomizer } from '@/components/ShelfCustomizer';
+import { ShelfSelector } from '@/components/ShelfSelector';
 import { Paginator } from '@/components/Paginator';
 import { Radius, T } from '@/constants/appTheme';
 import { getFigure } from '@/data/figures';
@@ -16,15 +17,19 @@ const MAX_WIDTH = 900;
 
 export default function ShelfScreen() {
   const { width, height } = useWindowDimensions();
-  const collection = useCollection((s) => s.collection);
-  const shelf = useCollection((s) => s.shelf);
+  const shelves = useCollection((s) => s.shelves);
+  const activeShelfId = useCollection((s) => s.activeShelfId);
   const removeOwned = useCollection((s) => s.removeOwned);
+
+  const shelf = shelves.find((s) => s.id === activeShelfId) ?? shelves[0];
 
   const [page, setPage] = useState(0);
   const [editing, setEditing] = useState(false);
   const [customizing, setCustomizing] = useState(false);
 
-  const figures = collection.map(getFigure).filter((f): f is NonNullable<typeof f> => !!f);
+  const figures = shelf.figureIds
+    .map(getFigure)
+    .filter((f): f is NonNullable<typeof f> => !!f);
 
   const contentWidth = Math.min(width, MAX_WIDTH) - H_PADDING * 2;
   const columns = Math.min(8, Math.max(3, Math.floor((contentWidth - 24) / 112)));
@@ -43,8 +48,8 @@ export default function ShelfScreen() {
     <SafeAreaView style={styles.safe} edges={['top']}>
       <View style={styles.container}>
         <View style={styles.header}>
-          <View>
-            <Text style={styles.h1}>My Shelf</Text>
+          <View style={styles.headerText}>
+            <ShelfSelector variant="title" />
             <Text style={styles.subtitle}>
               {figures.length} {figures.length === 1 ? 'figure' : 'figures'} on display
             </Text>
@@ -139,7 +144,7 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     paddingBottom: 14,
   },
-  h1: { fontSize: 30, fontWeight: '900', color: T.text, letterSpacing: -0.5 },
+  headerText: { flex: 1, marginRight: 10 },
   subtitle: { marginTop: 2, fontSize: 13, color: T.muted },
   actions: { flexDirection: 'row', gap: 10 },
   iconBtn: {
