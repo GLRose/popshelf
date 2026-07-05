@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { Radius, T } from '@/constants/appTheme';
+import { T } from '@/constants/appTheme';
 
 interface Props {
   page: number; // 0-based

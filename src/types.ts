@@ -15,6 +15,19 @@ export interface Figure {
   color?: string;
 }
 
+export interface Shelf {
+  /** Stable unique id */
+  id: string;
+  /** User-facing shelf name */
+  name: string;
+  /** Ledge color value */
+  color: string;
+  /** Background color value */
+  background: string;
+  /** Owned figure ids on this shelf, most-recently-added last */
+  figureIds: string[];
+}
+
 export interface SeriesMeta {
   id: Series;
   label: string;

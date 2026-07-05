@@ -11,9 +11,12 @@ interface Props {
 }
 
 export function ShelfCustomizer({ visible, onClose }: Props) {
-  const shelf = useCollection((s) => s.shelf);
+  const shelves = useCollection((s) => s.shelves);
+  const activeShelfId = useCollection((s) => s.activeShelfId);
   const setShelfColor = useCollection((s) => s.setShelfColor);
   const setShelfBackground = useCollection((s) => s.setShelfBackground);
+
+  const shelf = shelves.find((s) => s.id === activeShelfId) ?? shelves[0];
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
@@ -21,7 +24,9 @@ export function ShelfCustomizer({ visible, onClose }: Props) {
       <View style={styles.sheet}>
         <View style={styles.handle} />
         <View style={styles.headerRow}>
-          <Text style={styles.title}>Customize shelf</Text>
+          <Text style={styles.title} numberOfLines={1}>
+            Customize {shelf.name}
+          </Text>
           <Pressable onPress={onClose} hitSlop={8} style={styles.close}>
             <Ionicons name="close" size={20} color={T.text} />
           </Pressable>
@@ -34,7 +39,7 @@ export function ShelfCustomizer({ visible, onClose }: Props) {
               key={c.id}
               value={c.value}
               selected={shelf.color === c.value}
-              onPress={() => setShelfColor(c.value)}
+              onPress={() => setShelfColor(shelf.id, c.value)}
             />
           ))}
         </View>
@@ -46,7 +51,7 @@ export function ShelfCustomizer({ visible, onClose }: Props) {
               key={b.id}
               value={b.value}
               selected={shelf.background === b.value}
-              onPress={() => setShelfBackground(b.value)}
+              onPress={() => setShelfBackground(shelf.id, b.value)}
             />
           ))}
         </View>

@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { FigureCard } from '@/components/FigureCard';
 import { SeriesToggle } from '@/components/SeriesToggle';
+import { ShelfSelector } from '@/components/ShelfSelector';
 import { Radius, T } from '@/constants/appTheme';
 import { SERIES } from '@/constants/palette';
 import { figuresBySeries, setsForSeries } from '@/data/figures';
@@ -17,7 +18,12 @@ const MAX_WIDTH = 900;
 export default function BrowseScreen() {
   const [series, setSeries] = useState<Series>('skullpanda');
   const { width } = useWindowDimensions();
-  const collection = useCollection((s) => s.collection);
+  const shelves = useCollection((s) => s.shelves);
+
+  const ownedIds = useMemo(
+    () => new Set(shelves.flatMap((sh) => sh.figureIds)),
+    [shelves],
+  );
 
   const contentWidth = Math.min(width, MAX_WIDTH) - H_PADDING * 2;
   const columns = Math.max(2, Math.floor((contentWidth + GAP) / (170 + GAP)));
@@ -34,7 +40,7 @@ export default function BrowseScreen() {
   );
 
   const seriesFigures = figuresBySeries(series);
-  const ownedInSeries = seriesFigures.filter((f) => collection.includes(f.id)).length;
+  const ownedInSeries = seriesFigures.filter((f) => ownedIds.has(f.id)).length;
   const meta = SERIES[series];
 
   return (
@@ -49,7 +55,9 @@ export default function BrowseScreen() {
           <View style={styles.header}>
             <Text style={styles.h1}>Browse</Text>
             <Text style={styles.subtitle}>Tap + to collect, ♥ to favorite</Text>
-            <View style={{ height: 14 }} />
+            <View style={styles.addingToRow}>
+              <ShelfSelector label="Adding to" />
+            </View>
             <SeriesToggle value={series} onChange={setSeries} />
             <View style={styles.progressRow}>
               <Text style={[styles.tagline, { color: meta.accent }]}>{meta.tagline}</Text>
@@ -88,6 +96,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   header: { paddingTop: 8, paddingBottom: 4 },
+  addingToRow: { marginTop: 14, marginBottom: 4, flexDirection: 'row' },
   h1: { fontSize: 30, fontWeight: '900', color: T.text, letterSpacing: -0.5 },
   subtitle: { marginTop: 2, fontSize: 13, color: T.muted },
   progressRow: {
