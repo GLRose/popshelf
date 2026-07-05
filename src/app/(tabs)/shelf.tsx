@@ -1,5 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -34,12 +34,9 @@ export default function ShelfScreen() {
 
   const pageCount = Math.max(1, Math.ceil(figures.length / perPage));
 
-  // Keep page in range as the collection shrinks/grows.
-  useEffect(() => {
-    if (page > pageCount - 1) setPage(pageCount - 1);
-  }, [page, pageCount]);
-
-  const pageFigures = figures.slice(page * perPage, page * perPage + perPage);
+  // Clamp during render so the page stays in range as the collection shrinks/grows.
+  const currentPage = Math.min(page, pageCount - 1);
+  const pageFigures = figures.slice(currentPage * perPage, currentPage * perPage + perPage);
   const onBg = readableOn(shelf.background);
 
   return (
@@ -95,7 +92,7 @@ export default function ShelfScreen() {
                 onDelete={removeOwned}
               />
             </View>
-            <Paginator page={page} pageCount={pageCount} onChange={setPage} />
+            <Paginator page={currentPage} pageCount={pageCount} onChange={setPage} />
           </>
         )}
       </View>
