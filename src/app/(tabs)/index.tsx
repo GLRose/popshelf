@@ -6,7 +6,6 @@ import { FigureCard } from '@/components/FigureCard';
 import { SeriesToggle } from '@/components/SeriesToggle';
 import { ShelfSelector } from '@/components/ShelfSelector';
 import { Radius, T } from '@/constants/appTheme';
-import { SERIES } from '@/constants/palette';
 import { figuresBySeries, setsForSeries } from '@/data/figures';
 import { useCollection } from '@/store/useCollection';
 import type { Figure, Series } from '@/types';
@@ -41,7 +40,6 @@ export default function BrowseScreen() {
 
   const seriesFigures = figuresBySeries(series);
   const ownedInSeries = seriesFigures.filter((f) => ownedIds.has(f.id)).length;
-  const meta = SERIES[series];
 
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
@@ -60,7 +58,6 @@ export default function BrowseScreen() {
             </View>
             <SeriesToggle value={series} onChange={setSeries} />
             <View style={styles.progressRow}>
-              <Text style={[styles.tagline, { color: meta.accent }]}>{meta.tagline}</Text>
               <Text style={styles.progress}>
                 {ownedInSeries}/{seriesFigures.length} collected
               </Text>
@@ -103,9 +100,8 @@ const styles = StyleSheet.create({
     marginTop: 12,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
   },
-  tagline: { fontSize: 13, fontWeight: '700', fontStyle: 'italic' },
   progress: { fontSize: 12, fontWeight: '700', color: T.muted },
   sectionHeader: {
     flexDirection: 'row',

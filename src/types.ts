@@ -31,7 +31,5 @@ export interface Shelf {
 export interface SeriesMeta {
   id: Series;
   label: string;
-  /** Short tagline shown under the toggle */
-  tagline: string;
   accent: string;
 }
