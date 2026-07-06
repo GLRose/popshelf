@@ -7,7 +7,6 @@ import { SeriesToggle } from '@/components/SeriesToggle';
 import { SetFilter } from '@/components/SetFilter';
 import { ShelfSelector } from '@/components/ShelfSelector';
 import { Radius, T } from '@/constants/appTheme';
-import { SERIES } from '@/constants/palette';
 import { figuresBySeries, setsForSeries } from '@/data/figures';
 import { useCollection } from '@/store/useCollection';
 import type { Figure, Series } from '@/types';
@@ -46,21 +45,8 @@ export default function BrowseScreen() {
     [sets, selectedSet],
   );
 
-  const changeSeries = (next: Series) => {
-    setSeries(next);
-    setSelectedSet(null);
-  };
-
-  // Progress reflects the active view: a single set when filtered, else the series.
-  const shownFigures = useMemo(
-    () =>
-      selectedSet === null
-        ? figuresBySeries(series)
-        : (sets.find((s) => s.set === selectedSet)?.figures ?? []),
-    [series, sets, selectedSet],
-  );
-  const ownedShown = shownFigures.filter((f) => ownedIds.has(f.id)).length;
-  const meta = SERIES[series];
+  const seriesFigures = figuresBySeries(series);
+  const ownedInSeries = seriesFigures.filter((f) => ownedIds.has(f.id)).length;
 
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
@@ -87,7 +73,6 @@ export default function BrowseScreen() {
               />
             </View>
             <View style={styles.progressRow}>
-              <Text style={[styles.tagline, { color: meta.accent }]}>{meta.tagline}</Text>
               <Text style={styles.progress}>
                 {ownedShown}/{shownFigures.length} collected
               </Text>
@@ -131,9 +116,8 @@ const styles = StyleSheet.create({
     marginTop: 12,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
   },
-  tagline: { fontSize: 13, fontWeight: '700', fontStyle: 'italic' },
   progress: { fontSize: 12, fontWeight: '700', color: T.muted },
   sectionHeader: {
     flexDirection: 'row',
