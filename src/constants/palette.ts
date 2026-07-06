@@ -15,13 +15,11 @@ export const SERIES: Record<string, SeriesMeta> = {
   skullpanda: {
     id: 'skullpanda',
     label: 'SKULLPANDA',
-    tagline: 'Moody, dreamy, ever-changing',
     accent: Palette.skullpanda,
   },
   peachriot: {
     id: 'peachriot',
     label: 'PEACH RIOT',
-    tagline: 'Sweet but rebellious',
     accent: Palette.peachriot,
   },
 };
