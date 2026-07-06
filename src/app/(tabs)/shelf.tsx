@@ -4,16 +4,37 @@ import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-na
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Shelf } from '@/components/Shelf';
+import { ShelfBackground } from '@/components/ShelfBackground';
 import { ShelfCustomizer } from '@/components/ShelfCustomizer';
 import { ShelfSelector } from '@/components/ShelfSelector';
 import { Paginator } from '@/components/Paginator';
 import { Radius, T } from '@/constants/appTheme';
+import { getBackground, getTexture } from '@/constants/palette';
 import { getFigure } from '@/data/figures';
-import { readableOn } from '@/lib/color';
 import { useCollection } from '@/store/useCollection';
 
 const H_PADDING = 16;
 const MAX_WIDTH = 900;
+
+// Shelf-card geometry, kept in sync with the card padding here and the per-row
+// layout in Shelf.tsx, so we can pack rows without measuring each one.
+const CARD_V_PADDING = 30 + 12; // shelfCard paddingTop + paddingBottom
+const ROW_GAP = 22; // Shelf `wrap` gap between rows
+const LEDGE_HEIGHT = 14 + 7 - 2; // ledge + ledge front, minus ledgeWrap margin
+const EDIT_HINT_HEIGHT = 35; // pill + its marginBottom, only while editing
+const MAX_ROWS = 8;
+
+/**
+ * Fit as many shelf rows as the measured area allows. Falls back to a
+ * height-based estimate for the first frame, before the card has laid out.
+ */
+function computeRows(areaHeight: number, figureSize: number, editing: boolean, windowHeight: number) {
+  if (areaHeight <= 0) return windowHeight < 720 ? 2 : 3;
+  const rowHeight = figureSize + LEDGE_HEIGHT;
+  const usable = areaHeight - CARD_V_PADDING - (editing ? EDIT_HINT_HEIGHT : 0);
+  const fit = Math.floor((usable + ROW_GAP) / (rowHeight + ROW_GAP));
+  return Math.max(1, Math.min(MAX_ROWS, fit));
+}
 
 export default function ShelfScreen() {
   const { width, height } = useWindowDimensions();
@@ -26,6 +47,8 @@ export default function ShelfScreen() {
   const [page, setPage] = useState(0);
   const [editing, setEditing] = useState(false);
   const [customizing, setCustomizing] = useState(false);
+  // Height available to the shelf card, measured once it lays out.
+  const [shelfAreaHeight, setShelfAreaHeight] = useState(0);
 
   const figures = shelf.figureIds
     .map(getFigure)
@@ -33,16 +56,23 @@ export default function ShelfScreen() {
 
   const contentWidth = Math.min(width, MAX_WIDTH) - H_PADDING * 2;
   const columns = Math.min(8, Math.max(3, Math.floor((contentWidth - 24) / 112)));
-  const rows = height < 720 ? 2 : 3;
-  const perPage = columns * rows;
   const cellWidth = Math.floor((contentWidth - 24) / columns);
+  const figureSize = Math.floor(cellWidth * 0.82);
+
+  // Fit as many rows as the device height allows. These constants mirror the
+  // shelf card padding and the per-row height built in Shelf.tsx (figure +
+  // ledge + inter-row gap), so the last row always clears the tab bar.
+  const rows = computeRows(shelfAreaHeight, figureSize, editing, height);
+  const perPage = columns * rows;
 
   const pageCount = Math.max(1, Math.ceil(figures.length / perPage));
 
   // Clamp during render so the page stays in range as the collection shrinks/grows.
   const currentPage = Math.min(page, pageCount - 1);
   const pageFigures = figures.slice(currentPage * perPage, currentPage * perPage + perPage);
-  const onBg = readableOn(shelf.background);
+  const background = getBackground(shelf.background);
+  const texture = getTexture(shelf.texture).kind;
+  const onBg = background.foreground;
 
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
@@ -79,23 +109,28 @@ export default function ShelfScreen() {
           </View>
         ) : (
           <>
-            <View style={[styles.shelfCard, { backgroundColor: shelf.background }]}>
-              {editing && (
-                <View style={[styles.editHint, { borderColor: onBg }]}>
-                  <Text style={[styles.editHintText, { color: onBg }]}>
-                    Tap ✕ to remove a figure
-                  </Text>
-                </View>
-              )}
-              <Shelf
-                figures={pageFigures}
-                columns={columns}
-                rows={rows}
-                cellWidth={cellWidth}
-                shelfColor={shelf.color}
-                editing={editing}
-                onDelete={removeOwned}
-              />
+            <View
+              style={styles.shelfArea}
+              onLayout={(e) => setShelfAreaHeight(e.nativeEvent.layout.height)}>
+              <ShelfBackground background={background} style={styles.shelfCard}>
+                {editing && (
+                  <View style={[styles.editHint, { borderColor: onBg }]}>
+                    <Text style={[styles.editHintText, { color: onBg }]}>
+                      Tap ✕ to remove a figure
+                    </Text>
+                  </View>
+                )}
+                <Shelf
+                  figures={pageFigures}
+                  columns={columns}
+                  rows={rows}
+                  cellWidth={cellWidth}
+                  shelfColor={shelf.color}
+                  texture={texture}
+                  editing={editing}
+                  onDelete={removeOwned}
+                />
+              </ShelfBackground>
             </View>
             <Paginator page={currentPage} pageCount={pageCount} onChange={setPage} />
           </>
@@ -158,7 +193,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   iconBtnActive: { backgroundColor: '#4CAF6E', borderColor: '#4CAF6E' },
+  shelfArea: { flex: 1 },
   shelfCard: {
+    flex: 1,
     borderRadius: Radius.lg,
     paddingTop: 30,
     paddingBottom: 12,

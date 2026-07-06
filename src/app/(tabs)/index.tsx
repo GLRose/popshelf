@@ -29,6 +29,13 @@ export default function BrowseScreen() {
   };
   const shelves = useCollection((s) => s.shelves);
 
+  const meta = SERIES[series];
+  // Switching series clears the set filter, since sets are series-specific.
+  const changeSeries = (s: Series) => {
+    setSeries(s);
+    setSelectedSet(null);
+  };
+
   const ownedIds = useMemo(
     () => new Set(shelves.flatMap((sh) => sh.figureIds)),
     [shelves],
