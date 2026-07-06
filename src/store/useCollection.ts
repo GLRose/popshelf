@@ -2,7 +2,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
-import { SHELF_BACKGROUNDS, SHELF_COLORS } from '@/constants/palette';
+import {
+  DEFAULT_BACKGROUND_ID,
+  DEFAULT_TEXTURE_ID,
+  normalizeBackgroundId,
+  SHELF_COLORS,
+} from '@/constants/palette';
 import type { Shelf } from '@/types';
 
 function makeId() {
@@ -14,7 +19,8 @@ function defaultShelf(name = 'My Shelf', figureIds: string[] = []): Shelf {
     id: makeId(),
     name,
     color: SHELF_COLORS[0].value,
-    background: SHELF_BACKGROUNDS[0].value,
+    background: DEFAULT_BACKGROUND_ID,
+    texture: DEFAULT_TEXTURE_ID,
     figureIds,
   };
 }
@@ -52,6 +58,7 @@ interface CollectionState {
   setActiveShelf: (id: string) => void;
   setShelfColor: (id: string, color: string) => void;
   setShelfBackground: (id: string, background: string) => void;
+  setShelfTexture: (id: string, texture: string) => void;
 }
 
 export const useCollection = create<CollectionState>()(
@@ -139,11 +146,16 @@ export const useCollection = create<CollectionState>()(
           set((s) => ({
             shelves: s.shelves.map((sh) => (sh.id === id ? { ...sh, background } : sh)),
           })),
+
+        setShelfTexture: (id, texture) =>
+          set((s) => ({
+            shelves: s.shelves.map((sh) => (sh.id === id ? { ...sh, texture } : sh)),
+          })),
       };
     },
     {
       name: 'popshelf-v1',
-      version: 1,
+      version: 3,
       storage: createJSONStorage(() => AsyncStorage),
       partialize: (s) => ({
         shelves: s.shelves,
@@ -152,19 +164,35 @@ export const useCollection = create<CollectionState>()(
       }),
       migrate: (persisted: any, version) => {
         if (!persisted) return persisted;
+        // v0 -> v1: fold the single legacy shelf/collection into a shelves array.
         if (version < 1) {
           const shelf: Shelf = {
             id: makeId(),
             name: 'My Shelf',
             color: persisted.shelf?.color ?? SHELF_COLORS[0].value,
-            background: persisted.shelf?.background ?? SHELF_BACKGROUNDS[0].value,
+            background: persisted.shelf?.background ?? DEFAULT_BACKGROUND_ID,
+            texture: DEFAULT_TEXTURE_ID,
             figureIds: persisted.collection ?? [],
           };
-          return {
+          persisted = {
             shelves: [shelf],
             activeShelfId: shelf.id,
             favorites: persisted.favorites ?? [],
           };
+        }
+        // v1 -> v2: backgrounds are now ids; map any legacy hex values across.
+        if (version < 2 && Array.isArray(persisted.shelves)) {
+          persisted.shelves = persisted.shelves.map((sh: Shelf) => ({
+            ...sh,
+            background: normalizeBackgroundId(sh.background),
+          }));
+        }
+        // v2 -> v3: ledges gained a texture; default existing shelves to smooth.
+        if (version < 3 && Array.isArray(persisted.shelves)) {
+          persisted.shelves = persisted.shelves.map((sh: Shelf) => ({
+            ...sh,
+            texture: sh.texture ?? DEFAULT_TEXTURE_ID,
+          }));
         }
         return persisted;
       },

@@ -22,8 +22,10 @@ export interface Shelf {
   name: string;
   /** Ledge color value */
   color: string;
-  /** Background color value */
+  /** Background id (see SHELF_BACKGROUNDS); resolves to a color or wallpaper */
   background: string;
+  /** Ledge texture id (see SHELF_TEXTURES) */
+  texture: string;
   /** Owned figure ids on this shelf, most-recently-added last */
   figureIds: string[];
 }

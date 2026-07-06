@@ -7,7 +7,8 @@ import { SeriesToggle } from '@/components/SeriesToggle';
 import { SetFilter } from '@/components/SetFilter';
 import { ShelfSelector } from '@/components/ShelfSelector';
 import { Radius, T } from '@/constants/appTheme';
-import { figuresBySeries, setsForSeries } from '@/data/figures';
+import { SERIES } from '@/constants/palette';
+import { setsForSeries } from '@/data/figures';
 import { useCollection } from '@/store/useCollection';
 import type { Figure, Series } from '@/types';
 
@@ -20,6 +21,13 @@ export default function BrowseScreen() {
   const [selectedSet, setSelectedSet] = useState<string | null>(null);
   const { width } = useWindowDimensions();
   const shelves = useCollection((s) => s.shelves);
+
+  const meta = SERIES[series];
+  // Switching series clears the set filter, since sets are series-specific.
+  const changeSeries = (s: Series) => {
+    setSeries(s);
+    setSelectedSet(null);
+  };
 
   const ownedIds = useMemo(
     () => new Set(shelves.flatMap((sh) => sh.figureIds)),
@@ -45,8 +53,12 @@ export default function BrowseScreen() {
     [sets, selectedSet],
   );
 
-  const seriesFigures = figuresBySeries(series);
-  const ownedInSeries = seriesFigures.filter((f) => ownedIds.has(f.id)).length;
+  // Figures currently visible (respecting the set filter) and how many are owned.
+  const shownFigures = useMemo(() => sections.flatMap((s) => s.data[0] ?? []), [sections]);
+  const ownedShown = useMemo(
+    () => shownFigures.filter((f) => ownedIds.has(f.id)).length,
+    [shownFigures, ownedIds],
+  );
 
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>

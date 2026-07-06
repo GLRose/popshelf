@@ -1,8 +1,8 @@
-import { LinearGradient } from 'expo-linear-gradient';
 import { StyleSheet, View } from 'react-native';
 
+import { Ledge } from '@/components/Ledge';
 import { ShelfItem } from '@/components/ShelfItem';
-import { shade } from '@/lib/color';
+import type { TextureKind } from '@/constants/palette';
 import type { Figure } from '@/types';
 
 interface Props {
@@ -12,11 +12,12 @@ interface Props {
   rows: number;
   cellWidth: number;
   shelfColor: string;
+  texture: TextureKind;
   editing: boolean;
   onDelete: (id: string) => void;
 }
 
-export function Shelf({ figures, columns, rows, cellWidth, shelfColor, editing, onDelete }: Props) {
+export function Shelf({ figures, columns, rows, cellWidth, shelfColor, texture, editing, onDelete }: Props) {
   const figureSize = Math.floor(cellWidth * 0.82);
   // Split page figures into rows of `columns`
   const rowChunks: Figure[][] = [];
@@ -40,14 +41,7 @@ export function Shelf({ figures, columns, rows, cellWidth, shelfColor, editing, 
               />
             ))}
           </View>
-          {/* ledge */}
-          <View style={styles.ledgeWrap}>
-            <LinearGradient
-              colors={[shade(shelfColor, 0.14), shelfColor, shade(shelfColor, -0.28)]}
-              style={styles.ledge}
-            />
-            <View style={[styles.ledgeFront, { backgroundColor: shade(shelfColor, -0.34) }]} />
-          </View>
+          <Ledge color={shelfColor} texture={texture} />
         </View>
       ))}
     </View>
@@ -61,16 +55,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'center',
-  },
-  ledgeWrap: { marginTop: -2 },
-  ledge: {
-    height: 14,
-    borderTopLeftRadius: 4,
-    borderTopRightRadius: 4,
-  },
-  ledgeFront: {
-    height: 7,
-    borderBottomLeftRadius: 3,
-    borderBottomRightRadius: 3,
   },
 });
