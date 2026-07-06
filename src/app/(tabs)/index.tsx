@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { FigureCard } from '@/components/FigureCard';
 import { SeriesToggle } from '@/components/SeriesToggle';
+import { SetFilter } from '@/components/SetFilter';
 import { ShelfSelector } from '@/components/ShelfSelector';
 import { Radius, T } from '@/constants/appTheme';
 import { figuresBySeries, setsForSeries } from '@/data/figures';
@@ -16,6 +17,7 @@ const MAX_WIDTH = 900;
 
 export default function BrowseScreen() {
   const [series, setSeries] = useState<Series>('skullpanda');
+  const [selectedSet, setSelectedSet] = useState<string | null>(null);
   const { width } = useWindowDimensions();
   const shelves = useCollection((s) => s.shelves);
 
@@ -28,14 +30,19 @@ export default function BrowseScreen() {
   const columns = Math.max(2, Math.floor((contentWidth + GAP) / (170 + GAP)));
   const cardWidth = Math.floor((contentWidth - GAP * (columns - 1)) / columns);
 
+  const sets = useMemo(() => setsForSeries(series), [series]);
+  const setNames = useMemo(() => sets.map((s) => s.set), [sets]);
+
   const sections = useMemo(
     () =>
-      setsForSeries(series).map((s) => ({
-        title: s.set,
-        count: s.figures.length,
-        data: [s.figures] as Figure[][],
-      })),
-    [series],
+      sets
+        .filter((s) => selectedSet === null || s.set === selectedSet)
+        .map((s) => ({
+          title: s.set,
+          count: s.figures.length,
+          data: [s.figures] as Figure[][],
+        })),
+    [sets, selectedSet],
   );
 
   const seriesFigures = figuresBySeries(series);
@@ -56,10 +63,18 @@ export default function BrowseScreen() {
             <View style={styles.addingToRow}>
               <ShelfSelector label="Adding to" />
             </View>
-            <SeriesToggle value={series} onChange={setSeries} />
+            <SeriesToggle value={series} onChange={changeSeries} />
+            <View style={styles.setFilterRow}>
+              <SetFilter
+                sets={setNames}
+                value={selectedSet}
+                onChange={setSelectedSet}
+                accent={meta.accent}
+              />
+            </View>
             <View style={styles.progressRow}>
               <Text style={styles.progress}>
-                {ownedInSeries}/{seriesFigures.length} collected
+                {ownedShown}/{shownFigures.length} collected
               </Text>
             </View>
           </View>
@@ -94,6 +109,7 @@ const styles = StyleSheet.create({
   },
   header: { paddingTop: 8, paddingBottom: 4 },
   addingToRow: { marginTop: 14, marginBottom: 4, flexDirection: 'row' },
+  setFilterRow: { marginTop: 10, marginHorizontal: -H_PADDING, paddingHorizontal: H_PADDING },
   h1: { fontSize: 30, fontWeight: '900', color: T.text, letterSpacing: -0.5 },
   subtitle: { marginTop: 2, fontSize: 13, color: T.muted },
   progressRow: {
