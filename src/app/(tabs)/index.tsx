@@ -7,7 +7,8 @@ import { SeriesToggle } from '@/components/SeriesToggle';
 import { SetFilter } from '@/components/SetFilter';
 import { ShelfSelector } from '@/components/ShelfSelector';
 import { Radius, T } from '@/constants/appTheme';
-import { figuresBySeries, setsForSeries } from '@/data/figures';
+import { SERIES } from '@/constants/palette';
+import { setsForSeries } from '@/data/figures';
 import { useCollection } from '@/store/useCollection';
 import type { Figure, Series } from '@/types';
 
@@ -19,6 +20,13 @@ export default function BrowseScreen() {
   const [series, setSeries] = useState<Series>('skullpanda');
   const [selectedSet, setSelectedSet] = useState<string | null>(null);
   const { width } = useWindowDimensions();
+
+  const meta = SERIES[series];
+
+  const changeSeries = (next: Series) => {
+    setSeries(next);
+    setSelectedSet(null);
+  };
   const shelves = useCollection((s) => s.shelves);
 
   const ownedIds = useMemo(
@@ -45,8 +53,11 @@ export default function BrowseScreen() {
     [sets, selectedSet],
   );
 
-  const seriesFigures = figuresBySeries(series);
-  const ownedInSeries = seriesFigures.filter((f) => ownedIds.has(f.id)).length;
+  const shownFigures = useMemo(
+    () => sections.flatMap((s) => s.data[0]),
+    [sections],
+  );
+  const ownedShown = shownFigures.filter((f) => ownedIds.has(f.id)).length;
 
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
