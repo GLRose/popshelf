@@ -5,6 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import { figureImage } from '@/data/figures';
 import { readableOn, shade } from '@/lib/color';
+import { useUserImages } from '@/store/useUserImages';
 import type { Figure } from '@/types';
 
 interface Props {
@@ -21,7 +22,8 @@ interface Props {
  * gradient placeholder so the app is fully usable before images are scraped.
  */
 export function FigureImage({ figure, size, rounded = true, bare = false }: Props) {
-  const src = figureImage(figure.id);
+  const userUri = useUserImages((s) => s.uris[figure.id]);
+  const src = figureImage(figure.id) ?? userUri;
   const accent = figure.color ?? '#8A7BF0';
 
   if (src) {

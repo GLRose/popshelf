@@ -1,10 +1,13 @@
 import { Ionicons } from '@expo/vector-icons';
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
+import { AddImageModal } from '@/components/AddImageModal';
 import { FigureImage } from '@/components/FigureImage';
 import { Radius, T } from '@/constants/appTheme';
+import { figureImage } from '@/data/figures';
 import { useCollection } from '@/store/useCollection';
+import { useUserImages } from '@/store/useUserImages';
 import type { Figure } from '@/types';
 
 interface Props {
@@ -23,6 +26,11 @@ export const FigureCard = memo(function FigureCard({ figure, width }: Props) {
   const location = shelves.find((sh) => sh.figureIds.includes(figure.id));
   const onActiveShelf = location?.id === activeShelfId;
   const onOtherShelf = !!location && !onActiveShelf;
+
+  // Figures without a bundled cutout can be given a user image.
+  const hasUserImage = useUserImages((s) => !!s.uris[figure.id]);
+  const editableImage = !figureImage(figure.id);
+  const [imageModalOpen, setImageModalOpen] = useState(false);
 
   const imgSize = width - 20; // padding 10 each side
 
@@ -49,7 +57,23 @@ export const FigureCard = memo(function FigureCard({ figure, width }: Props) {
             color={favorite ? '#FF4D6D' : T.muted}
           />
         </Pressable>
+
+        {editableImage && (
+          <Pressable
+            onPress={() => setImageModalOpen(true)}
+            hitSlop={8}
+            style={({ pressed }) => [styles.camera, pressed && styles.pressed]}
+            accessibilityLabel={
+              hasUserImage ? `Edit image for ${figure.name}` : `Add image for ${figure.name}`
+            }>
+            <Ionicons name={hasUserImage ? 'camera' : 'camera-outline'} size={17} color={T.muted} />
+          </Pressable>
+        )}
       </View>
+
+      {imageModalOpen && (
+        <AddImageModal figure={figure} onClose={() => setImageModalOpen(false)} />
+      )}
 
       <Text numberOfLines={1} style={styles.name}>
         {figure.name}
@@ -113,6 +137,17 @@ const styles = StyleSheet.create({
   heart: {
     position: 'absolute',
     top: 6,
+    right: 6,
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: 'rgba(255,255,255,0.9)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  camera: {
+    position: 'absolute',
+    bottom: 6,
     right: 6,
     width: 32,
     height: 32,
