@@ -31,68 +31,70 @@ export function ShelfCustomizer({ visible, onClose }: Props) {
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <Pressable style={styles.backdrop} onPress={onClose} />
-      <View style={styles.sheet}>
-        <View style={styles.handle} />
-        <View style={styles.headerRow}>
-          <Text style={styles.title} numberOfLines={1}>
-            Customize {shelf.name}
-          </Text>
-          <Pressable onPress={onClose} hitSlop={8} style={styles.close}>
-            <Ionicons name="close" size={20} color={T.text} />
-          </Pressable>
+      <View style={styles.sheetWrap} pointerEvents="box-none">
+        <View style={styles.sheet}>
+          <View style={styles.handle} />
+          <View style={styles.headerRow}>
+            <Text style={styles.title} numberOfLines={1}>
+              Customize {shelf.name}
+            </Text>
+            <Pressable onPress={onClose} hitSlop={8} style={styles.close}>
+              <Ionicons name="close" size={20} color={T.text} />
+            </Pressable>
+          </View>
+
+          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scroll}>
+            <Text style={styles.label}>Shelf color</Text>
+            <View style={styles.swatchRow}>
+              {SHELF_COLORS.map((c) => (
+                <ColorSwatch
+                  key={c.id}
+                  value={c.value}
+                  selected={shelf.color === c.value}
+                  onPress={() => setShelfColor(shelf.id, c.value)}
+                />
+              ))}
+            </View>
+
+            <Text style={styles.label}>Shelf texture</Text>
+            <View style={styles.swatchRow}>
+              {SHELF_TEXTURES.map((t) => (
+                <TextureSwatch
+                  key={t.id}
+                  texture={t}
+                  color={shelf.color}
+                  selected={shelf.texture === t.id}
+                  onPress={() => setShelfTexture(shelf.id, t.id)}
+                />
+              ))}
+            </View>
+
+            <Text style={styles.label}>Background</Text>
+            <View style={styles.swatchRow}>
+              {SHELF_SOLIDS.map((b) => (
+                <BgSwatch
+                  key={b.id}
+                  background={b}
+                  selected={shelf.background === b.id}
+                  onPress={() => setShelfBackground(shelf.id, b.id)}
+                />
+              ))}
+            </View>
+
+            <Text style={styles.label}>Wallpapers</Text>
+            <View style={styles.swatchRow}>
+              {SHELF_WALLPAPERS.map((b) => (
+                <BgSwatch
+                  key={b.id}
+                  background={b}
+                  selected={shelf.background === b.id}
+                  onPress={() => setShelfBackground(shelf.id, b.id)}
+                  showLabel
+                />
+              ))}
+            </View>
+          </ScrollView>
         </View>
-
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scroll}>
-          <Text style={styles.label}>Shelf color</Text>
-          <View style={styles.swatchRow}>
-            {SHELF_COLORS.map((c) => (
-              <ColorSwatch
-                key={c.id}
-                value={c.value}
-                selected={shelf.color === c.value}
-                onPress={() => setShelfColor(shelf.id, c.value)}
-              />
-            ))}
-          </View>
-
-          <Text style={styles.label}>Shelf texture</Text>
-          <View style={styles.swatchRow}>
-            {SHELF_TEXTURES.map((t) => (
-              <TextureSwatch
-                key={t.id}
-                texture={t}
-                color={shelf.color}
-                selected={shelf.texture === t.id}
-                onPress={() => setShelfTexture(shelf.id, t.id)}
-              />
-            ))}
-          </View>
-
-          <Text style={styles.label}>Background</Text>
-          <View style={styles.swatchRow}>
-            {SHELF_SOLIDS.map((b) => (
-              <BgSwatch
-                key={b.id}
-                background={b}
-                selected={shelf.background === b.id}
-                onPress={() => setShelfBackground(shelf.id, b.id)}
-              />
-            ))}
-          </View>
-
-          <Text style={styles.label}>Wallpapers</Text>
-          <View style={styles.swatchRow}>
-            {SHELF_WALLPAPERS.map((b) => (
-              <BgSwatch
-                key={b.id}
-                background={b}
-                selected={shelf.background === b.id}
-                onPress={() => setShelfBackground(shelf.id, b.id)}
-                showLabel
-              />
-            ))}
-          </View>
-        </ScrollView>
       </View>
     </Modal>
   );
@@ -181,11 +183,18 @@ const styles = StyleSheet.create({
     bottom: 0,
     backgroundColor: 'rgba(0,0,0,0.35)',
   },
-  sheet: {
+  // Positioning lives on a flex wrapper because react-native-web ignores
+  // alignSelf/auto margins on absolutely-positioned views, which pinned the
+  // sheet to the left edge on wide viewports.
+  sheetWrap: {
     position: 'absolute',
     left: 0,
     right: 0,
     bottom: 0,
+    alignItems: 'center',
+    maxHeight: '85%',
+  },
+  sheet: {
     backgroundColor: T.card,
     borderTopLeftRadius: Radius.lg,
     borderTopRightRadius: Radius.lg,
@@ -193,8 +202,7 @@ const styles = StyleSheet.create({
     paddingBottom: 34,
     maxWidth: 560,
     width: '100%',
-    alignSelf: 'center',
-    maxHeight: '85%',
+    maxHeight: '100%',
   },
   scroll: { paddingBottom: 8 },
   handle: {
