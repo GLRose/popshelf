@@ -9,7 +9,7 @@ Built with **Expo + Expo Router + React Native Web** so the same codebase runs o
 - **Browse** - toggle between Skullpanda and Peach Riot, browse figures grouped by series/set. Tap **+** to collect, **♥** to favorite. Per-series collection progress.
 - **Shelf** - your collected figures sit as cutouts on a paginated shelf. Customize **shelf color** and **background**. Edit mode to remove figures.
 - **Favorites** - favorited figures kept separately, off the shelf. Unfavorite anytime.
-- **Local persistence** - collection, favorites, and shelf settings are saved on-device (localStorage on web, AsyncStorage on native) and restored on return.
+- **Local persistence** - collection, favorites, and shelf settings are saved on-device and restored on return.
 
 ## Run locally
 
