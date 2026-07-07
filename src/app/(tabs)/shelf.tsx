@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { LEDGE_HEIGHT, ROW_GAP, Shelf } from '@/components/Shelf';
+import { Shelf } from '@/components/Shelf';
 import { ShelfBackground } from '@/components/ShelfBackground';
 import { ShelfCustomizer } from '@/components/ShelfCustomizer';
 import { ShelfSelector } from '@/components/ShelfSelector';
@@ -19,6 +19,8 @@ const MAX_WIDTH = 900;
 // Shelf-card geometry, kept in sync with the card padding here and the per-row
 // layout in Shelf.tsx, so we can pack rows without measuring each one.
 const CARD_V_PADDING = 30 + 12; // shelfCard paddingTop + paddingBottom
+const ROW_GAP = 22; // Shelf `wrap` gap between rows
+const LEDGE_HEIGHT = 14 + 7 - 2; // ledge + ledge front, minus ledgeWrap margin
 const EDIT_HINT_HEIGHT = 35; // pill + its marginBottom, only while editing
 const MAX_ROWS = 8;
 
@@ -39,7 +41,6 @@ export default function ShelfScreen() {
   const shelves = useCollection((s) => s.shelves);
   const activeShelfId = useCollection((s) => s.activeShelfId);
   const removeOwned = useCollection((s) => s.removeOwned);
-  const moveFigure = useCollection((s) => s.moveFigure);
 
   const shelf = shelves.find((s) => s.id === activeShelfId) ?? shelves[0];
 
@@ -128,9 +129,6 @@ export default function ShelfScreen() {
                   texture={texture}
                   editing={editing}
                   onDelete={removeOwned}
-                  onMoveFigure={(figureId, localIndex) =>
-                    moveFigure(shelf.id, figureId, currentPage * perPage + localIndex)
-                  }
                 />
               </ShelfBackground>
             </View>
