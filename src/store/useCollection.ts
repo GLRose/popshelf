@@ -47,6 +47,8 @@ interface CollectionState {
   addToActiveShelf: (id: string) => void;
   /** Remove a figure from whichever shelf holds it */
   removeOwned: (id: string) => void;
+  /** Move a figure to a new index within its shelf's display order */
+  moveFigure: (shelfId: string, figureId: string, toIndex: number) => void;
   toggleFavorite: (id: string) => void;
   removeFavorite: (id: string) => void;
 
@@ -103,6 +105,17 @@ export const useCollection = create<CollectionState>()(
                 ? { ...sh, figureIds: sh.figureIds.filter((x) => x !== id) }
                 : sh,
             ),
+          })),
+
+        moveFigure: (shelfId, figureId, toIndex) =>
+          set((s) => ({
+            shelves: s.shelves.map((sh) => {
+              if (sh.id !== shelfId) return sh;
+              const ids = sh.figureIds.filter((x) => x !== figureId);
+              const clamped = Math.max(0, Math.min(toIndex, ids.length));
+              ids.splice(clamped, 0, figureId);
+              return { ...sh, figureIds: ids };
+            }),
           })),
 
         toggleFavorite: (id) =>
