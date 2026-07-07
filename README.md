@@ -23,15 +23,6 @@ npm run web        # http://localhost:8081
 
 `vercel.json` is already configured. Import the repo in Vercel (or `vercel --prod`). It runs `expo export --platform web` and serves the SPA from `dist/`.
 
-## Data & images
-
-The catalog (`src/data/figures.json`, 211 figures) and per-figure image URLs
-(`scripts/sources.json`) are scraped from collector databases with real figure
-names and clean product renders:
-
-- **Skullpanda** - [skullpandaworld.com](https://skullpandaworld.com) (17 series)
-- **Peach Riot** - [thetoypool.com](https://thetoypool.com) (Rise Up, Punk Fairy)
-
 Full refresh:
 
 ```bash

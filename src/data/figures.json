@@ -1686,5 +1686,541 @@
     "name": "Poppy Strawberry",
     "rarity": "regular",
     "color": "#9B6AB0"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-loading-frankie-dancer",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Loading",
+    "name": "Frankie Dancer",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-loading-frankie-knight",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Loading",
+    "name": "Frankie Knight",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-loading-frankie-mage",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Loading",
+    "name": "Frankie Mage",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-loading-frankie-scout",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Loading",
+    "name": "Frankie Scout",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-loading-gigi-cheerleader",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Loading",
+    "name": "Gigi Cheerleader",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-loading-gigi-darkness",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Loading",
+    "name": "Gigi Darkness",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-loading-gigi-fire",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Loading",
+    "name": "Gigi Fire",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-loading-gigi-thief",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Loading",
+    "name": "Gigi Thief",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-loading-poppy-princess",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Loading",
+    "name": "Poppy Princess",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-loading-poppy-saint",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Loading",
+    "name": "Poppy Saint",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-loading-poppy-starlight",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Loading",
+    "name": "Poppy Starlight",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-loading-poppy-valkyrie",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Loading",
+    "name": "Poppy Valkyrie",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-loading-gigi-stylist",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Loading",
+    "name": "Gigi Stylist",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "peachriot-rush-hour-gigi-diner",
+    "series": "peachriot",
+    "set": "Rush Hour",
+    "name": "Gigi Diner",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "peachriot-rush-hour-frankie-barista",
+    "series": "peachriot",
+    "set": "Rush Hour",
+    "name": "Frankie Barista",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "peachriot-rush-hour-poppy-ice-cream-parlor",
+    "series": "peachriot",
+    "set": "Rush Hour",
+    "name": "Poppy Ice Cream Parlor",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "peachriot-rush-hour-gigi-housekeeping",
+    "series": "peachriot",
+    "set": "Rush Hour",
+    "name": "Gigi Housekeeping",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "peachriot-rush-hour-frankie-autoshop",
+    "series": "peachriot",
+    "set": "Rush Hour",
+    "name": "Frankie Autoshop",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "peachriot-rush-hour-poppy-scientist",
+    "series": "peachriot",
+    "set": "Rush Hour",
+    "name": "Poppy Scientist",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "peachriot-rush-hour-gigi-mail-delivery",
+    "series": "peachriot",
+    "set": "Rush Hour",
+    "name": "Gigi Mail Delivery",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "peachriot-rush-hour-frankie-tutor",
+    "series": "peachriot",
+    "set": "Rush Hour",
+    "name": "Frankie Tutor",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "peachriot-rush-hour-poppy-receptionist",
+    "series": "peachriot",
+    "set": "Rush Hour",
+    "name": "Poppy Receptionist",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "peachriot-rush-hour-gigi-cat-walker",
+    "series": "peachriot",
+    "set": "Rush Hour",
+    "name": "Gigi Cat Walker",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "peachriot-rush-hour-frankie-camp-counselor",
+    "series": "peachriot",
+    "set": "Rush Hour",
+    "name": "Frankie Camp Counselor",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "peachriot-rush-hour-poppy-life-guard",
+    "series": "peachriot",
+    "set": "Rush Hour",
+    "name": "Poppy Life Guard",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "peachriot-rush-hour-frankie-streamer",
+    "series": "peachriot",
+    "set": "Rush Hour",
+    "name": "Frankie Streamer",
+    "rarity": "secret",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "peachriot-power-chords-poppy-the-sea",
+    "series": "peachriot",
+    "set": "Power Chords",
+    "name": "Poppy The Sea",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "peachriot-power-chords-gigi-the-hunt",
+    "series": "peachriot",
+    "set": "Power Chords",
+    "name": "Gigi The Hunt",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "peachriot-power-chords-frankie-the-strategist",
+    "series": "peachriot",
+    "set": "Power Chords",
+    "name": "Frankie The Strategist",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "peachriot-power-chords-poppy-the-beauty",
+    "series": "peachriot",
+    "set": "Power Chords",
+    "name": "Poppy The Beauty",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "peachriot-power-chords-frankie-the-harvest",
+    "series": "peachriot",
+    "set": "Power Chords",
+    "name": "Frankie The Harvest",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "peachriot-power-chords-gigi-the-celebration",
+    "series": "peachriot",
+    "set": "Power Chords",
+    "name": "Gigi The Celebration",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "peachriot-power-chords-poppy-the-guardian",
+    "series": "peachriot",
+    "set": "Power Chords",
+    "name": "Poppy The Guardian",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "peachriot-power-chords-gigi-the-anthem",
+    "series": "peachriot",
+    "set": "Power Chords",
+    "name": "Gigi The Anthem",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "peachriot-power-chords-frankie-the-thunder",
+    "series": "peachriot",
+    "set": "Power Chords",
+    "name": "Frankie The Thunder",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "peachriot-power-chords-poppy-the-poet",
+    "series": "peachriot",
+    "set": "Power Chords",
+    "name": "Poppy The Poet",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "peachriot-power-chords-gigi-the-messenger",
+    "series": "peachriot",
+    "set": "Power Chords",
+    "name": "Gigi The Messenger",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "peachriot-power-chords-frankie-the-forger",
+    "series": "peachriot",
+    "set": "Power Chords",
+    "name": "Frankie The Forger",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "peachriot-power-chords-gigi-the-underworld",
+    "series": "peachriot",
+    "set": "Power Chords",
+    "name": "Gigi The Underworld",
+    "rarity": "secret",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-sleepover-gigi-brush-teeth",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Sleepover",
+    "name": "Gigi Brush Teeth",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-sleepover-poppy-yawn",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Sleepover",
+    "name": "Poppy Yawn",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-sleepover-frankie-night-tea",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Sleepover",
+    "name": "Frankie Night Tea",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-sleepover-gigi-prank-call",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Sleepover",
+    "name": "Gigi Prank Call",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-sleepover-poppy-face-mask",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Sleepover",
+    "name": "Poppy Face Mask",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-sleepover-frankie-pillow-fight",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Sleepover",
+    "name": "Frankie Pillow Fight",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-sleepover-gigi-star",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Sleepover",
+    "name": "Gigi Star",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-sleepover-poppy-cloud",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Sleepover",
+    "name": "Poppy Cloud",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-sleepover-frankie-moon",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Sleepover",
+    "name": "Frankie Moon",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-sleepover-gigi-alarm",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Sleepover",
+    "name": "Gigi Alarm",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-sleepover-poppy-breakfast",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Sleepover",
+    "name": "Poppy Breakfast",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-sleepover-frankie-morning-coffee",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Sleepover",
+    "name": "Frankie Morning Coffee",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "peachriot-lil-peach-riot-sleepover-poppy-dream",
+    "series": "peachriot",
+    "set": "Lil Peach Riot Sleepover",
+    "name": "Poppy Dream",
+    "rarity": "secret",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "peachriot-witchy-punk-frankie",
+    "series": "peachriot",
+    "set": "Witchy Punk",
+    "name": "Frankie",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "peachriot-witchy-punk-gigi",
+    "series": "peachriot",
+    "set": "Witchy Punk",
+    "name": "Gigi",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "peachriot-witchy-punk-poppy",
+    "series": "peachriot",
+    "set": "Witchy Punk",
+    "name": "Poppy",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "peachriot-la-mode-gigi-mint-chocolate",
+    "series": "peachriot",
+    "set": "À La Mode",
+    "name": "Gigi Mint Chocolate",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "peachriot-la-mode-frankie-truffle",
+    "series": "peachriot",
+    "set": "À La Mode",
+    "name": "Frankie Truffle",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "peachriot-la-mode-poppy-banana-pudding",
+    "series": "peachriot",
+    "set": "À La Mode",
+    "name": "Poppy Banana Pudding",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "peachriot-winter-break-ootd-frankie",
+    "series": "peachriot",
+    "set": "Winter Break OOTD",
+    "name": "Frankie",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "peachriot-winter-break-ootd-gigi",
+    "series": "peachriot",
+    "set": "Winter Break OOTD",
+    "name": "Gigi",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "peachriot-winter-break-ootd-poppy",
+    "series": "peachriot",
+    "set": "Winter Break OOTD",
+    "name": "Poppy",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "peachriot-western-riot-frankie",
+    "series": "peachriot",
+    "set": "Western Riot",
+    "name": "Frankie",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "peachriot-western-riot-gigi",
+    "series": "peachriot",
+    "set": "Western Riot",
+    "name": "Gigi",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "peachriot-western-riot-poppy",
+    "series": "peachriot",
+    "set": "Western Riot",
+    "name": "Poppy",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "peachriot-off-duty-new-york-city-frankie",
+    "series": "peachriot",
+    "set": "Off-Duty: New York City",
+    "name": "Frankie",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "peachriot-off-duty-new-york-city-gigi",
+    "series": "peachriot",
+    "set": "Off-Duty: New York City",
+    "name": "Gigi",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "peachriot-off-duty-new-york-city-poppy",
+    "series": "peachriot",
+    "set": "Off-Duty: New York City",
+    "name": "Poppy",
+    "rarity": "regular",
+    "color": "#5E7CE2"
   }
 ]
