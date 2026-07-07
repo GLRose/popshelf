@@ -84,6 +84,7 @@ async function scrapeSkullpanda(setSlug, label) {
 const PEACHRIOT_SETS = [
   ['rise-up-series', 'Rise Up', 'Rise-Up-Series-Peach-Riot-Series-Pop-Mart-Figure'],
   ['punk-fairy-series', 'Punk Fairy', 'Punk-Fairy-Series-Peach-Riot-Series-Pop-Mart-Figure'],
+  ['lil-peach-riot,-loading!-series', 'Lil Peach Riot Loading', 'Lil-Peach-Riot-Loading-Series-Pop-Mart-Figure'],
 ];
 
 async function scrapePeachRiot(setSlug, label, tail) {
@@ -106,6 +107,59 @@ async function scrapePeachRiot(setSlug, label, tail) {
   return [...byName.entries()].map(([name, url]) => ({ name, rarity: 'regular', url }));
 }
 
+// --- Peach Riot: manual data ---------------------------------------------
+// Series that no clean image source exposes for automated scraping (Pop Mart's
+// own API requires signed requests; retail/fan sites have no per-figure renders).
+// We record the catalog data now so the app is complete; each figure shows the
+// styled placeholder until an official render is dropped into assets/figures/raw/
+// keyed by the figure id and scripts/scrape.mjs -> cutout -> imagemap is re-run.
+// Rosters compiled 2026-07-06 from Pop Mart product listings + collector guides.
+const MANUAL_PEACHRIOT = [
+  ['Rush Hour', [
+    ['Gigi Diner', 'regular'], ['Frankie Barista', 'regular'],
+    ['Poppy Ice Cream Parlor', 'regular'], ['Gigi Housekeeping', 'regular'],
+    ['Frankie Autoshop', 'regular'], ['Poppy Scientist', 'regular'],
+    ['Gigi Mail Delivery', 'regular'], ['Frankie Tutor', 'regular'],
+    ['Poppy Receptionist', 'regular'], ['Gigi Cat Walker', 'regular'],
+    ['Frankie Camp Counselor', 'regular'], ['Poppy Life Guard', 'regular'],
+    ['Frankie Streamer', 'secret'],
+  ]],
+  ['Power Chords', [
+    ['Poppy The Sea', 'regular'], ['Gigi The Hunt', 'regular'],
+    ['Frankie The Strategist', 'regular'], ['Poppy The Beauty', 'regular'],
+    ['Frankie The Harvest', 'regular'], ['Gigi The Celebration', 'regular'],
+    ['Poppy The Guardian', 'regular'], ['Gigi The Anthem', 'regular'],
+    ['Frankie The Thunder', 'regular'], ['Poppy The Poet', 'regular'],
+    ['Gigi The Messenger', 'regular'], ['Frankie The Forger', 'regular'],
+    ['Gigi The Underworld', 'secret'],
+  ]],
+  ['Lil Peach Riot Sleepover', [
+    ['Gigi Brush Teeth', 'regular'], ['Poppy Yawn', 'regular'],
+    ['Frankie Night Tea', 'regular'], ['Gigi Prank Call', 'regular'],
+    ['Poppy Face Mask', 'regular'], ['Frankie Pillow Fight', 'regular'],
+    ['Gigi Star', 'regular'], ['Poppy Cloud', 'regular'],
+    ['Frankie Moon', 'regular'], ['Gigi Alarm', 'regular'],
+    ['Poppy Breakfast', 'regular'], ['Frankie Morning Coffee', 'regular'],
+    ['Poppy Dream', 'secret'],
+  ]],
+  ['Witchy Punk', [
+    ['Frankie', 'regular'], ['Gigi', 'regular'], ['Poppy', 'regular'],
+  ]],
+  ['À La Mode', [
+    ['Gigi Mint Chocolate', 'regular'], ['Frankie Truffle', 'regular'],
+    ['Poppy Banana Pudding', 'regular'],
+  ]],
+  ['Winter Break OOTD', [
+    ['Frankie', 'regular'], ['Gigi', 'regular'], ['Poppy', 'regular'],
+  ]],
+  ['Western Riot', [
+    ['Frankie', 'regular'], ['Gigi', 'regular'], ['Poppy', 'regular'],
+  ]],
+  ['Off-Duty: New York City', [
+    ['Frankie', 'regular'], ['Gigi', 'regular'], ['Poppy', 'regular'],
+  ]],
+];
+
 // --- Build ----------------------------------------------------------------
 const figures = [];
 const sources = {};
@@ -122,7 +176,9 @@ async function addSeries(series, setSlug, label, items) {
     while (seen.has(id)) id = `${base}-${++n}`;
     seen.add(id);
     figures.push({ id, series, set: label, name: it.name, rarity: it.rarity, color });
-    sources[id] = it.url;
+    // Manual/data-only figures have no image yet; the UI shows a placeholder
+    // until a render is dropped in and scripts/scrape.mjs is re-run.
+    if (it.url) sources[id] = it.url;
   }
   console.log(`  ${label}: ${items.length} figures`);
 }
@@ -147,6 +203,12 @@ for (const [setSlug, label, tail] of PEACHRIOT_SETS) {
   } catch (e) {
     console.warn(`  ${label}: ERROR ${e.message}`);
   }
+}
+
+console.log('Peach Riot (manual - data only, images pending):');
+for (const [label, rows] of MANUAL_PEACHRIOT) {
+  const items = rows.map(([name, rarity]) => ({ name, rarity, url: null }));
+  await addSeries('peachriot', slug(label), label, items);
 }
 
 writeFileSync(resolve(__dirname, '../src/data/figures.json'), JSON.stringify(figures, null, 2) + '\n');
