@@ -1,13 +1,21 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
-import { createJSONStorage, persist } from 'zustand/middleware';
 
 import {
   DEFAULT_BACKGROUND_ID,
   DEFAULT_TEXTURE_ID,
-  normalizeBackgroundId,
   SHELF_COLORS,
 } from '@/constants/palette';
+import { loadAndClearLegacyCollection } from '@/lib/legacyCollectionMigration';
+import {
+  addFavoriteRemote,
+  deleteShelfRemote,
+  fetchCollection,
+  migrateLegacyCollection,
+  removeFavoriteRemote,
+  setActiveShelfRemote,
+  upsertShelfRemote,
+} from '@/lib/remoteCollection';
+import { supabase } from '@/lib/supabase';
 import type { Shelf } from '@/types';
 
 function makeId() {
@@ -25,6 +33,11 @@ function defaultShelf(name = 'My Shelf', figureIds: string[] = []): Shelf {
   };
 }
 
+/** Fire-and-forget push of a shelf's current fields to Supabase. */
+function pushShelf(shelf: Shelf) {
+  upsertShelfRemote(shelf).catch((e) => console.warn('Failed to sync shelf', e));
+}
+
 interface CollectionState {
   /** All shelves; at least one always exists */
   shelves: Shelf[];
@@ -32,8 +45,11 @@ interface CollectionState {
   activeShelfId: string;
   /** Favorited figure ids (independent of ownership) */
   favorites: string[];
-  /** Set once persisted state has loaded, so the UI can avoid a flash */
+  /** Set once the initial Supabase load has finished, so the UI can avoid a flash */
   hydrated: boolean;
+
+  /** Loads shelves/favorites from Supabase (migrating a legacy local collection up once, if found) */
+  hydrate: () => Promise<void>;
 
   /** The currently active shelf (falls back to the first shelf) */
   activeShelf: () => Shelf;
@@ -61,154 +77,156 @@ interface CollectionState {
   setShelfTexture: (id: string, texture: string) => void;
 }
 
-export const useCollection = create<CollectionState>()(
-  persist(
-    (set, get) => {
-      const initial = defaultShelf();
-      return {
-        shelves: [initial],
-        activeShelfId: initial.id,
-        favorites: [],
-        hydrated: false,
+export const useCollection = create<CollectionState>()((set, get) => {
+  const initial = defaultShelf();
 
-        activeShelf: () => {
-          const s = get();
-          return s.shelves.find((sh) => sh.id === s.activeShelfId) ?? s.shelves[0];
-        },
-
-        shelfOf: (figureId) => get().shelves.find((sh) => sh.figureIds.includes(figureId)),
-
-        isOwned: (id) => get().shelves.some((sh) => sh.figureIds.includes(id)),
-        isFavorite: (id) => get().favorites.includes(id),
-
-        addToActiveShelf: (id) =>
-          set((s) => ({
-            shelves: s.shelves.map((sh) => {
-              if (sh.id === s.activeShelfId) {
-                return sh.figureIds.includes(id)
-                  ? sh
-                  : { ...sh, figureIds: [...sh.figureIds, id] };
-              }
-              // Remove it from any other shelf so a figure lives in one place.
-              return sh.figureIds.includes(id)
-                ? { ...sh, figureIds: sh.figureIds.filter((x) => x !== id) }
-                : sh;
-            }),
-          })),
-
-        removeOwned: (id) =>
-          set((s) => ({
-            shelves: s.shelves.map((sh) =>
-              sh.figureIds.includes(id)
-                ? { ...sh, figureIds: sh.figureIds.filter((x) => x !== id) }
-                : sh,
-            ),
-          })),
-
-        toggleFavorite: (id) =>
-          set((s) => ({
-            favorites: s.favorites.includes(id)
-              ? s.favorites.filter((x) => x !== id)
-              : [...s.favorites, id],
-          })),
-
-        removeFavorite: (id) => set((s) => ({ favorites: s.favorites.filter((x) => x !== id) })),
-
-        createShelf: (name) => {
-          const shelf = defaultShelf(name.trim() || 'New Shelf');
-          set((s) => ({ shelves: [...s.shelves, shelf], activeShelfId: shelf.id }));
-          return shelf.id;
-        },
-
-        renameShelf: (id, name) =>
-          set((s) => ({
-            shelves: s.shelves.map((sh) =>
-              sh.id === id ? { ...sh, name: name.trim() || sh.name } : sh,
-            ),
-          })),
-
-        removeShelf: (id) =>
-          set((s) => {
-            if (s.shelves.length <= 1) return s;
-            const shelves = s.shelves.filter((sh) => sh.id !== id);
-            const activeShelfId = s.activeShelfId === id ? shelves[0].id : s.activeShelfId;
-            return { shelves, activeShelfId };
-          }),
-
-        setActiveShelf: (id) => set({ activeShelfId: id }),
-
-        setShelfColor: (id, color) =>
-          set((s) => ({
-            shelves: s.shelves.map((sh) => (sh.id === id ? { ...sh, color } : sh)),
-          })),
-
-        setShelfBackground: (id, background) =>
-          set((s) => ({
-            shelves: s.shelves.map((sh) => (sh.id === id ? { ...sh, background } : sh)),
-          })),
-
-        setShelfTexture: (id, texture) =>
-          set((s) => ({
-            shelves: s.shelves.map((sh) => (sh.id === id ? { ...sh, texture } : sh)),
-          })),
-      };
-    },
-    {
-      name: 'popshelf-v1',
-      version: 3,
-      storage: createJSONStorage(() => AsyncStorage),
-      partialize: (s) => ({
-        shelves: s.shelves,
-        activeShelfId: s.activeShelfId,
-        favorites: s.favorites,
+  /** Updates one shelf via `updater`, applies it locally, and pushes it to Supabase. */
+  function patchShelf(id: string, updater: (sh: Shelf) => Shelf) {
+    let updated: Shelf | undefined;
+    set((s) => ({
+      shelves: s.shelves.map((sh) => {
+        if (sh.id !== id) return sh;
+        updated = updater(sh);
+        return updated;
       }),
-      migrate: (persisted: any, version) => {
-        if (!persisted) return persisted;
-        // v0 -> v1: fold the single legacy shelf/collection into a shelves array.
-        if (version < 1) {
-          const shelf: Shelf = {
-            id: makeId(),
-            name: 'My Shelf',
-            color: persisted.shelf?.color ?? SHELF_COLORS[0].value,
-            background: persisted.shelf?.background ?? DEFAULT_BACKGROUND_ID,
-            texture: DEFAULT_TEXTURE_ID,
-            figureIds: persisted.collection ?? [],
-          };
-          persisted = {
-            shelves: [shelf],
-            activeShelfId: shelf.id,
-            favorites: persisted.favorites ?? [],
-          };
+    }));
+    if (updated) pushShelf(updated);
+  }
+
+  return {
+    shelves: [initial],
+    activeShelfId: initial.id,
+    favorites: [],
+    hydrated: false,
+
+    hydrate: async () => {
+      if (!supabase) {
+        set({ hydrated: true });
+        return;
+      }
+
+      try {
+        const remote = await fetchCollection();
+        if (remote) {
+          set({
+            shelves: remote.shelves,
+            activeShelfId: remote.activeShelfId,
+            favorites: remote.favorites,
+            hydrated: true,
+          });
+          return;
         }
-        // v1 -> v2: backgrounds are now ids; map any legacy hex values across.
-        if (version < 2 && Array.isArray(persisted.shelves)) {
-          persisted.shelves = persisted.shelves.map((sh: Shelf) => ({
-            ...sh,
-            background: normalizeBackgroundId(sh.background),
-          }));
+
+        const legacy = await loadAndClearLegacyCollection();
+        if (legacy) {
+          set({
+            shelves: legacy.shelves,
+            activeShelfId: legacy.activeShelfId,
+            favorites: legacy.favorites,
+            hydrated: true,
+          });
+          migrateLegacyCollection(legacy.shelves, legacy.activeShelfId, legacy.favorites).catch((e) =>
+            console.warn('Failed to migrate legacy collection to Supabase', e),
+          );
+          return;
         }
-        // v2 -> v3: ledges gained a texture; default existing shelves to smooth.
-        if (version < 3 && Array.isArray(persisted.shelves)) {
-          persisted.shelves = persisted.shelves.map((sh: Shelf) => ({
-            ...sh,
-            texture: sh.texture ?? DEFAULT_TEXTURE_ID,
-          }));
-        }
-        return persisted;
-      },
-      onRehydrateStorage: () => (state) => {
-        // Guarantee at least one shelf and a valid active id after loading.
-        if (state) {
-          if (!state.shelves || state.shelves.length === 0) {
-            const shelf = defaultShelf();
-            state.shelves = [shelf];
-            state.activeShelfId = shelf.id;
-          } else if (!state.shelves.some((sh) => sh.id === state.activeShelfId)) {
-            state.activeShelfId = state.shelves[0].id;
-          }
-        }
-        useCollection.setState({ hydrated: true });
-      },
+
+        // Brand new install: keep the in-memory default shelf, and create it remotely.
+        const { shelves } = get();
+        upsertShelfRemote(shelves[0], true).catch((e) =>
+          console.warn('Failed to create default shelf remotely', e),
+        );
+        set({ hydrated: true });
+      } catch (e) {
+        console.warn('Failed to hydrate collection from Supabase', e);
+        set({ hydrated: true });
+      }
     },
-  ),
-);
+
+    activeShelf: () => {
+      const s = get();
+      return s.shelves.find((sh) => sh.id === s.activeShelfId) ?? s.shelves[0];
+    },
+
+    shelfOf: (figureId) => get().shelves.find((sh) => sh.figureIds.includes(figureId)),
+
+    isOwned: (id) => get().shelves.some((sh) => sh.figureIds.includes(id)),
+    isFavorite: (id) => get().favorites.includes(id),
+
+    addToActiveShelf: (id) => {
+      const before = get().shelves;
+      const activeShelfId = get().activeShelfId;
+      const after = before.map((sh) => {
+        if (sh.id === activeShelfId) {
+          return sh.figureIds.includes(id) ? sh : { ...sh, figureIds: [...sh.figureIds, id] };
+        }
+        // Remove it from any other shelf so a figure lives in one place.
+        return sh.figureIds.includes(id)
+          ? { ...sh, figureIds: sh.figureIds.filter((x) => x !== id) }
+          : sh;
+      });
+      set({ shelves: after });
+      after.forEach((sh, i) => {
+        if (sh !== before[i]) pushShelf(sh);
+      });
+    },
+
+    removeOwned: (id) => {
+      const before = get().shelves;
+      const after = before.map((sh) =>
+        sh.figureIds.includes(id) ? { ...sh, figureIds: sh.figureIds.filter((x) => x !== id) } : sh,
+      );
+      set({ shelves: after });
+      after.forEach((sh, i) => {
+        if (sh !== before[i]) pushShelf(sh);
+      });
+    },
+
+    toggleFavorite: (id) => {
+      const wasFavorite = get().favorites.includes(id);
+      set((s) => ({
+        favorites: wasFavorite ? s.favorites.filter((x) => x !== id) : [...s.favorites, id],
+      }));
+      (wasFavorite ? removeFavoriteRemote(id) : addFavoriteRemote(id)).catch((e) =>
+        console.warn('Failed to sync favorite', e),
+      );
+    },
+
+    removeFavorite: (id) => {
+      set((s) => ({ favorites: s.favorites.filter((x) => x !== id) }));
+      removeFavoriteRemote(id).catch((e) => console.warn('Failed to sync favorite removal', e));
+    },
+
+    createShelf: (name) => {
+      const shelf = defaultShelf(name.trim() || 'New Shelf');
+      set((s) => ({ shelves: [...s.shelves, shelf], activeShelfId: shelf.id }));
+      upsertShelfRemote(shelf)
+        .then(() => setActiveShelfRemote(shelf.id))
+        .catch((e) => console.warn('Failed to create shelf remotely', e));
+      return shelf.id;
+    },
+
+    renameShelf: (id, name) => patchShelf(id, (sh) => ({ ...sh, name: name.trim() || sh.name })),
+
+    removeShelf: (id) => {
+      const s = get();
+      if (s.shelves.length <= 1) return;
+      const shelves = s.shelves.filter((sh) => sh.id !== id);
+      const wasActive = s.activeShelfId === id;
+      const activeShelfId = wasActive ? shelves[0].id : s.activeShelfId;
+      set({ shelves, activeShelfId });
+      deleteShelfRemote(id)
+        .then(() => (wasActive ? setActiveShelfRemote(activeShelfId) : undefined))
+        .catch((e) => console.warn('Failed to remove shelf remotely', e));
+    },
+
+    setActiveShelf: (id) => {
+      set({ activeShelfId: id });
+      setActiveShelfRemote(id).catch((e) => console.warn('Failed to sync active shelf', e));
+    },
+
+    setShelfColor: (id, color) => patchShelf(id, (sh) => ({ ...sh, color })),
+    setShelfBackground: (id, background) => patchShelf(id, (sh) => ({ ...sh, background })),
+    setShelfTexture: (id, texture) => patchShelf(id, (sh) => ({ ...sh, texture })),
+  };
+});
