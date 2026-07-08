@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react';
+import { useRouter } from 'expo-router';
+import { useMemo, useRef, useState } from 'react';
 import { SectionList, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -17,11 +18,29 @@ const H_PADDING = 16;
 const MAX_WIDTH = 900;
 
 export default function BrowseScreen() {
+  const router = useRouter();
   const [series, setSeries] = useState<Series>('skullpanda');
   const [selectedSet, setSelectedSet] = useState<string | null>(null);
   const { width } = useWindowDimensions();
 
   const meta = SERIES[series];
+
+  // Five quick taps opens the admin menu, so it's reachable without a
+  // long-press (long-press doesn't fire from a mouse click on web).
+  const tapCount = useRef(0);
+  const tapTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const handleTitlePress = () => {
+    tapCount.current += 1;
+    if (tapTimer.current) clearTimeout(tapTimer.current);
+    if (tapCount.current >= 5) {
+      tapCount.current = 0;
+      router.push('/admin');
+      return;
+    }
+    tapTimer.current = setTimeout(() => {
+      tapCount.current = 0;
+    }, 1500);
+  };
 
   // Switching series clears the set filter, since sets are series-specific.
   const changeSeries = (next: Series) => {
@@ -70,7 +89,9 @@ export default function BrowseScreen() {
         stickySectionHeadersEnabled={false}
         ListHeaderComponent={
           <View style={styles.header}>
-            <Text style={styles.h1}>Browse</Text>
+            <Text style={styles.h1} onPress={handleTitlePress} onLongPress={() => router.push('/admin')}>
+              Browse
+            </Text>
             <Text style={styles.subtitle}>Tap + to collect, ♥ to favorite</Text>
             <View style={styles.addingToRow}>
               <ShelfSelector label="Adding to" />
