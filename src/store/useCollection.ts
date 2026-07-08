@@ -5,14 +5,14 @@ import {
   DEFAULT_TEXTURE_ID,
   SHELF_COLORS,
 } from '@/constants/palette';
-import { loadAndClearLegacyCollection } from '@/lib/legacyCollectionMigration';
+import { loadLocalCollection, saveLocalCollection } from '@/lib/localCollection';
 import {
   addFavoriteRemote,
   deleteShelfRemote,
   fetchCollection,
-  migrateLegacyCollection,
   removeFavoriteRemote,
   setActiveShelfRemote,
+  syncCollectionToRemote,
   upsertShelfRemote,
 } from '@/lib/remoteCollection';
 import { supabase } from '@/lib/supabase';
@@ -45,10 +45,10 @@ interface CollectionState {
   activeShelfId: string;
   /** Favorited figure ids (independent of ownership) */
   favorites: string[];
-  /** Set once the initial Supabase load has finished, so the UI can avoid a flash */
+  /** Set once the initial local load has finished, so the UI can avoid a flash */
   hydrated: boolean;
 
-  /** Loads shelves/favorites from Supabase (migrating a legacy local collection up once, if found) */
+  /** Loads shelves/favorites from the on-device store, then reconciles with Supabase in the background */
   hydrate: () => Promise<void>;
 
   /** The currently active shelf (falls back to the first shelf) */
@@ -100,33 +100,42 @@ export const useCollection = create<CollectionState>()((set, get) => {
     hydrated: false,
 
     hydrate: async () => {
-      if (!supabase) {
+      // The on-device store is the source of truth: load it first so the
+      // UI never depends on Supabase being reachable or even configured.
+      const local = await loadLocalCollection();
+      if (local) {
+        set({
+          shelves: local.shelves,
+          activeShelfId: local.activeShelfId,
+          favorites: local.favorites,
+          hydrated: true,
+        });
+      } else {
         set({ hydrated: true });
-        return;
       }
 
+      if (!supabase) return;
+
       try {
+        if (local) {
+          // Already have a local collection; keep Supabase's mirror of it current.
+          syncCollectionToRemote(local.shelves, local.activeShelfId, local.favorites).catch((e) =>
+            console.warn('Failed to sync local collection to Supabase', e),
+          );
+          return;
+        }
+
+        // First run on this device: adopt a remote collection if one exists
+        // (e.g. a reinstall), and cache it locally from now on.
         const remote = await fetchCollection();
         if (remote) {
           set({
             shelves: remote.shelves,
             activeShelfId: remote.activeShelfId,
             favorites: remote.favorites,
-            hydrated: true,
           });
-          return;
-        }
-
-        const legacy = await loadAndClearLegacyCollection();
-        if (legacy) {
-          set({
-            shelves: legacy.shelves,
-            activeShelfId: legacy.activeShelfId,
-            favorites: legacy.favorites,
-            hydrated: true,
-          });
-          migrateLegacyCollection(legacy.shelves, legacy.activeShelfId, legacy.favorites).catch((e) =>
-            console.warn('Failed to migrate legacy collection to Supabase', e),
+          saveLocalCollection(remote).catch((e) =>
+            console.warn('Failed to cache remote collection locally', e),
           );
           return;
         }
@@ -136,10 +145,8 @@ export const useCollection = create<CollectionState>()((set, get) => {
         upsertShelfRemote(shelves[0], true).catch((e) =>
           console.warn('Failed to create default shelf remotely', e),
         );
-        set({ hydrated: true });
       } catch (e) {
-        console.warn('Failed to hydrate collection from Supabase', e);
-        set({ hydrated: true });
+        console.warn('Failed to reconcile collection with Supabase', e);
       }
     },
 
@@ -229,4 +236,15 @@ export const useCollection = create<CollectionState>()((set, get) => {
     setShelfBackground: (id, background) => patchShelf(id, (sh) => ({ ...sh, background })),
     setShelfTexture: (id, texture) => patchShelf(id, (sh) => ({ ...sh, texture })),
   };
+});
+
+// Mirrors every post-hydration change to the on-device store, so shelves and
+// favorites survive regardless of Supabase's availability or configuration.
+useCollection.subscribe((state) => {
+  if (!state.hydrated) return;
+  saveLocalCollection({
+    shelves: state.shelves,
+    activeShelfId: state.activeShelfId,
+    favorites: state.favorites,
+  }).catch((e) => console.warn('Failed to save collection locally', e));
 });
