@@ -7,6 +7,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider, initialWindowMetrics } from 'react-native-safe-area-context';
 
 import { FONT_FAMILY } from '@/lib/globalFont';
+import { useCollection } from '@/store/useCollection';
 import { useUserImages } from '@/store/useUserImages';
 
 SplashScreen.preventAutoHideAsync();
@@ -24,6 +25,7 @@ export default function RootLayout() {
 
   useEffect(() => {
     useUserImages.getState().hydrate();
+    useCollection.getState().hydrate();
   }, []);
 
   if (!fontsLoaded && !fontError) return null;

@@ -128,3 +128,64 @@ grant execute on function public.approve_figure_image(uuid) to anon;
 -- Moderation: open the app, tap the "Browse" title 5 times to reach the
 -- hidden moderation screen, and approve/reject from the pending queue.
 -- See src/app/admin.tsx and src/lib/adminModeration.ts.
+
+-- Shelves + favorites: the app's collection data, formerly AsyncStorage-only
+-- (key 'popshelf-v1'), now the source of truth here. There's still no login
+-- for regular users, so each install signs in via Supabase anonymous auth
+-- (a real auth.uid(), just no email/password) and owns its rows under that
+-- id. This requires enabling "Anonymous Sign-Ins" in the dashboard under
+-- Authentication > Sign In / Providers - it can't be turned on from SQL.
+-- See src/store/useCollection.ts and src/lib/remoteCollection.ts.
+
+create table if not exists public.shelves (
+  id text primary key,
+  owner_id uuid not null references auth.users(id) on delete cascade,
+  name text not null,
+  color text not null,
+  background text not null,
+  texture text not null,
+  figure_ids text[] not null default '{}',
+  is_active boolean not null default false,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create index if not exists shelves_owner_id_idx on public.shelves (owner_id);
+
+-- Mirrors the "one approved image per figure" partial index above: at most
+-- one active shelf per owner. Callers must clear the old active shelf
+-- before setting a new one (see setActiveShelfRemote in remoteCollection.ts)
+-- since a partial unique index isn't deferrable.
+create unique index if not exists shelves_one_active_per_owner
+  on public.shelves (owner_id) where is_active;
+
+create table if not exists public.favorites (
+  owner_id uuid not null references auth.users(id) on delete cascade,
+  figure_id text not null,
+  created_at timestamptz not null default now(),
+  primary key (owner_id, figure_id)
+);
+
+create index if not exists favorites_owner_id_idx on public.favorites (owner_id);
+
+alter table public.shelves enable row level security;
+alter table public.favorites enable row level security;
+
+-- This script is safe to re-run, same as the figure_images section above.
+drop policy if exists "owner can manage own shelves" on public.shelves;
+drop policy if exists "owner can manage own favorites" on public.favorites;
+
+-- RLS targets `authenticated`, not `anon`: anonymous Supabase sessions are
+-- authenticated users with a real auth.uid(), so this correctly scopes each
+-- owner to their own rows only.
+create policy "owner can manage own shelves"
+  on public.shelves for all
+  to authenticated
+  using (owner_id = auth.uid())
+  with check (owner_id = auth.uid());
+
+create policy "owner can manage own favorites"
+  on public.favorites for all
+  to authenticated
+  using (owner_id = auth.uid())
+  with check (owner_id = auth.uid());

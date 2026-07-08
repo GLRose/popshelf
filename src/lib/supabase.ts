@@ -27,3 +27,25 @@ export const supabase: SupabaseClient | null =
         },
       })
     : null;
+
+/**
+ * Every install gets its own anonymous Supabase session so per-device data
+ * (shelves, favorites - see src/lib/remoteCollection.ts) can be scoped to a
+ * real auth.uid() under RLS, without requiring a login. The session persists
+ * across launches via the AsyncStorage-backed auth storage configured above,
+ * so this only signs in once per install. Requires "Anonymous Sign-Ins" to be
+ * enabled in the Supabase dashboard (Authentication > Sign In / Providers).
+ */
+export async function ensureAnonSession(): Promise<string | null> {
+  if (!supabase) return null;
+
+  const { data } = await supabase.auth.getSession();
+  if (data.session) return data.session.user.id;
+
+  const { data: signInData, error } = await supabase.auth.signInAnonymously();
+  if (error) {
+    console.warn('Failed to start anonymous session', error);
+    return null;
+  }
+  return signInData.user?.id ?? null;
+}
