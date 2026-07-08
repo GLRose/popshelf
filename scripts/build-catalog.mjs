@@ -158,6 +158,36 @@ const MANUAL_PEACHRIOT = [
   ['Off-Duty: New York City', [
     ['Frankie', 'regular'], ['Gigi', 'regular'], ['Poppy', 'regular'],
   ]],
+  ['Lil Holiday Mixtape', [
+    ['Frankie It\'s Snowing', 'regular'], ['Gigi All is Calm', 'regular'],
+    ['Poppy Check Off My Holiday List', 'regular'], ['Poppy Angry Bells', 'regular'],
+    ['Frankie I Gave You My Heart', 'regular'], ['Gigi Rock the Night Away', 'regular'],
+    ['Frankie Make My Wish Come True', 'secret'],
+  ]],
+  ['Carry The Music', [
+    ['Frankie Jam Sesh', 'regular'], ['Frankie Day Off', 'regular'],
+    ['Gigi In The Studio', 'regular'], ['Gigi After Hours', 'regular'],
+    ['Poppy Producer', 'regular'], ['Poppy Cozy Nook', 'regular'],
+    ['Poppy Chill Weekend', 'secret'],
+  ]],
+  ['Street Style', [
+    ['Frankie', 'regular'], ['Gigi', 'regular'], ['Poppy', 'regular'],
+  ]],
+  ['Bloody Valentine', [
+    ['Frankie', 'regular'], ['Gigi', 'regular'], ['Poppy', 'regular'],
+  ]],
+  ['Angel', [
+    ['Frankie Virtues', 'regular'], ['Gigi Dark Angel', 'regular'], ['Poppy Seraphim', 'regular'],
+  ]],
+  ['Siren\'s Song', [
+    ['Frankie', 'regular'], ['Gigi', 'regular'], ['Poppy', 'regular'],
+  ]],
+  ['Rainbow Riot', [
+    ['Frankie', 'regular'], ['Gigi', 'regular'], ['Poppy', 'regular'],
+  ]],
+  ['Fruit Punch (Pendant\'s)', [
+    ['Frankie', 'regular'], ['Gigi', 'regular'], ['Poppy', 'regular'],
+  ]],
 ];
 
 // --- Build ----------------------------------------------------------------

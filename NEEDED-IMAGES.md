@@ -1,6 +1,6 @@
 # Images still needed
 
-51 of 278 figures have no cutout yet and render the placeholder.
+83 of 310 figures have no cutout yet and render the placeholder.
 
 **How to add one:** drop a clean render (ideally a plain white / near-white background so the auto-cutout works) into `assets/figures/raw/` named exactly `<id>.<ext>` (png/jpg/jpeg/webp), then run:
 
@@ -79,4 +79,60 @@ npm run cutout && npm run imagemap
 - [ ] `peachriot-off-duty-new-york-city-frankie.png` - Frankie
 - [ ] `peachriot-off-duty-new-york-city-gigi.png` - Gigi
 - [ ] `peachriot-off-duty-new-york-city-poppy.png` - Poppy
+
+## peachriot - Lil Holiday Mixtape (7)
+
+- [ ] `peachriot-lil-holiday-mixtape-frankie-it-s-snowing.png` - Frankie It's Snowing
+- [ ] `peachriot-lil-holiday-mixtape-gigi-all-is-calm.png` - Gigi All is Calm
+- [ ] `peachriot-lil-holiday-mixtape-poppy-check-off-my-holiday-list.png` - Poppy Check Off My Holiday List
+- [ ] `peachriot-lil-holiday-mixtape-poppy-angry-bells.png` - Poppy Angry Bells
+- [ ] `peachriot-lil-holiday-mixtape-frankie-i-gave-you-my-heart.png` - Frankie I Gave You My Heart
+- [ ] `peachriot-lil-holiday-mixtape-gigi-rock-the-night-away.png` - Gigi Rock the Night Away
+- [ ] `peachriot-lil-holiday-mixtape-frankie-make-my-wish-come-true.png` - Frankie Make My Wish Come True _(secret)_
+
+## peachriot - Carry The Music (7)
+
+- [ ] `peachriot-carry-the-music-frankie-jam-sesh.png` - Frankie Jam Sesh
+- [ ] `peachriot-carry-the-music-frankie-day-off.png` - Frankie Day Off
+- [ ] `peachriot-carry-the-music-gigi-in-the-studio.png` - Gigi In The Studio
+- [ ] `peachriot-carry-the-music-gigi-after-hours.png` - Gigi After Hours
+- [ ] `peachriot-carry-the-music-poppy-producer.png` - Poppy Producer
+- [ ] `peachriot-carry-the-music-poppy-cozy-nook.png` - Poppy Cozy Nook
+- [ ] `peachriot-carry-the-music-poppy-chill-weekend.png` - Poppy Chill Weekend _(secret)_
+
+## peachriot - Street Style (3)
+
+- [ ] `peachriot-street-style-frankie.png` - Frankie
+- [ ] `peachriot-street-style-gigi.png` - Gigi
+- [ ] `peachriot-street-style-poppy.png` - Poppy
+
+## peachriot - Bloody Valentine (3)
+
+- [ ] `peachriot-bloody-valentine-frankie.png` - Frankie
+- [ ] `peachriot-bloody-valentine-gigi.png` - Gigi
+- [ ] `peachriot-bloody-valentine-poppy.png` - Poppy
+
+## peachriot - Angel (3)
+
+- [ ] `peachriot-angel-frankie-virtues.png` - Frankie Virtues
+- [ ] `peachriot-angel-gigi-dark-angel.png` - Gigi Dark Angel
+- [ ] `peachriot-angel-poppy-seraphim.png` - Poppy Seraphim
+
+## peachriot - Siren's Song (3)
+
+- [ ] `peachriot-siren-s-song-frankie.png` - Frankie
+- [ ] `peachriot-siren-s-song-gigi.png` - Gigi
+- [ ] `peachriot-siren-s-song-poppy.png` - Poppy
+
+## peachriot - Rainbow Riot (3)
+
+- [ ] `peachriot-rainbow-riot-frankie.png` - Frankie
+- [ ] `peachriot-rainbow-riot-gigi.png` - Gigi
+- [ ] `peachriot-rainbow-riot-poppy.png` - Poppy
+
+## peachriot - Fruit Punch (Pendant's) (3)
+
+- [ ] `peachriot-fruit-punch-pendant-s-frankie.png` - Frankie
+- [ ] `peachriot-fruit-punch-pendant-s-gigi.png` - Gigi
+- [ ] `peachriot-fruit-punch-pendant-s-poppy.png` - Poppy
 
