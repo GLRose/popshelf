@@ -113,8 +113,12 @@ export async function removeFavoriteRemote(figureId: string): Promise<void> {
     .eq('figure_id', figureId);
 }
 
-/** Bulk-uploads a pre-Supabase local collection exactly once. No-op when unconfigured. */
-export async function migrateLegacyCollection(
+/**
+ * Bulk-uploads the local collection as a best-effort backfill/sync - the
+ * local copy in src/lib/localCollection.ts is the source of truth, this is
+ * just keeping Supabase's mirror of it current. No-op when unconfigured.
+ */
+export async function syncCollectionToRemote(
   shelves: Shelf[],
   activeShelfId: string,
   favorites: string[],

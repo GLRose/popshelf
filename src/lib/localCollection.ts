@@ -8,13 +8,14 @@ import {
 } from '@/constants/palette';
 import type { Shelf } from '@/types';
 
-const LEGACY_KEY = 'popshelf-v1';
+const STORAGE_KEY = 'popshelf-v1';
+const CURRENT_VERSION = 3;
 
 function makeId() {
   return `shelf_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 6)}`;
 }
 
-interface LegacyPersisted {
+interface PersistedCollection {
   shelves?: Shelf[];
   activeShelfId?: string;
   favorites?: string[];
@@ -25,10 +26,10 @@ interface LegacyPersisted {
 /**
  * The transform chain the old Zustand `persist` middleware used to run on
  * load (versions 0-3 of the 'popshelf-v1' AsyncStorage entry), preserved
- * verbatim so a one-time import from a pre-Supabase install still lands on
- * the current shape.
+ * verbatim so a collection written by any past version of the app still
+ * lands on the current shape.
  */
-function migrate(persisted: LegacyPersisted, version: number): LegacyPersisted {
+function migrate(persisted: PersistedCollection, version: number): PersistedCollection {
   // v0 -> v1: fold the single legacy shelf/collection into a shelves array.
   if (version < 1) {
     const shelf: Shelf = {
@@ -62,24 +63,25 @@ function migrate(persisted: LegacyPersisted, version: number): LegacyPersisted {
   return persisted;
 }
 
-export interface LegacyCollection {
+export interface LocalCollection {
   shelves: Shelf[];
   activeShelfId: string;
   favorites: string[];
 }
 
 /**
- * One-time import: reads the pre-Supabase 'popshelf-v1' AsyncStorage entry
- * (if any), migrates it to the current shape, deletes the key, and returns
- * the result - so it never gets read or migrated twice. Returns null when
- * there's nothing to import.
+ * Reads and migrates the on-device 'popshelf-v1' AsyncStorage entry, if any.
+ * This is the durable store: it's the source of truth for shelves and
+ * favorites regardless of whether Supabase is reachable or configured, so a
+ * backend hiccup (or a device that's never had Supabase set up) can't wipe
+ * a collection. Returns null only on a device that's never persisted one.
  */
-export async function loadAndClearLegacyCollection(): Promise<LegacyCollection | null> {
-  const raw = await AsyncStorage.getItem(LEGACY_KEY);
+export async function loadLocalCollection(): Promise<LocalCollection | null> {
+  const raw = await AsyncStorage.getItem(STORAGE_KEY);
   if (!raw) return null;
 
   try {
-    const parsed = JSON.parse(raw) as { state?: LegacyPersisted; version?: number };
+    const parsed = JSON.parse(raw) as { state?: PersistedCollection; version?: number };
     const migrated = migrate(parsed.state ?? {}, parsed.version ?? 0);
     if (!migrated.shelves || migrated.shelves.length === 0) return null;
 
@@ -92,9 +94,15 @@ export async function loadAndClearLegacyCollection(): Promise<LegacyCollection |
       favorites: migrated.favorites ?? [],
     };
   } catch (e) {
-    console.warn('Failed to parse legacy collection data', e);
+    console.warn('Failed to parse local collection data', e);
     return null;
-  } finally {
-    await AsyncStorage.removeItem(LEGACY_KEY);
   }
+}
+
+/** Writes the current collection to the on-device store. */
+export async function saveLocalCollection(collection: LocalCollection): Promise<void> {
+  await AsyncStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify({ state: collection, version: CURRENT_VERSION }),
+  );
 }
