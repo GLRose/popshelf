@@ -2222,5 +2222,261 @@
     "name": "Poppy",
     "rarity": "regular",
     "color": "#5E7CE2"
+  },
+  {
+    "id": "peachriot-lil-holiday-mixtape-frankie-it-s-snowing",
+    "series": "peachriot",
+    "set": "Lil Holiday Mixtape",
+    "name": "Frankie It's Snowing",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "peachriot-lil-holiday-mixtape-gigi-all-is-calm",
+    "series": "peachriot",
+    "set": "Lil Holiday Mixtape",
+    "name": "Gigi All is Calm",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "peachriot-lil-holiday-mixtape-poppy-check-off-my-holiday-list",
+    "series": "peachriot",
+    "set": "Lil Holiday Mixtape",
+    "name": "Poppy Check Off My Holiday List",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "peachriot-lil-holiday-mixtape-poppy-angry-bells",
+    "series": "peachriot",
+    "set": "Lil Holiday Mixtape",
+    "name": "Poppy Angry Bells",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "peachriot-lil-holiday-mixtape-frankie-i-gave-you-my-heart",
+    "series": "peachriot",
+    "set": "Lil Holiday Mixtape",
+    "name": "Frankie I Gave You My Heart",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "peachriot-lil-holiday-mixtape-gigi-rock-the-night-away",
+    "series": "peachriot",
+    "set": "Lil Holiday Mixtape",
+    "name": "Gigi Rock the Night Away",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "peachriot-lil-holiday-mixtape-frankie-make-my-wish-come-true",
+    "series": "peachriot",
+    "set": "Lil Holiday Mixtape",
+    "name": "Frankie Make My Wish Come True",
+    "rarity": "secret",
+    "color": "#C6415A"
+  },
+  {
+    "id": "peachriot-carry-the-music-frankie-jam-sesh",
+    "series": "peachriot",
+    "set": "Carry The Music",
+    "name": "Frankie Jam Sesh",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "peachriot-carry-the-music-frankie-day-off",
+    "series": "peachriot",
+    "set": "Carry The Music",
+    "name": "Frankie Day Off",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "peachriot-carry-the-music-gigi-in-the-studio",
+    "series": "peachriot",
+    "set": "Carry The Music",
+    "name": "Gigi In The Studio",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "peachriot-carry-the-music-gigi-after-hours",
+    "series": "peachriot",
+    "set": "Carry The Music",
+    "name": "Gigi After Hours",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "peachriot-carry-the-music-poppy-producer",
+    "series": "peachriot",
+    "set": "Carry The Music",
+    "name": "Poppy Producer",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "peachriot-carry-the-music-poppy-cozy-nook",
+    "series": "peachriot",
+    "set": "Carry The Music",
+    "name": "Poppy Cozy Nook",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "peachriot-carry-the-music-poppy-chill-weekend",
+    "series": "peachriot",
+    "set": "Carry The Music",
+    "name": "Poppy Chill Weekend",
+    "rarity": "secret",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "peachriot-street-style-frankie",
+    "series": "peachriot",
+    "set": "Street Style",
+    "name": "Frankie",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "peachriot-street-style-gigi",
+    "series": "peachriot",
+    "set": "Street Style",
+    "name": "Gigi",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "peachriot-street-style-poppy",
+    "series": "peachriot",
+    "set": "Street Style",
+    "name": "Poppy",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "peachriot-bloody-valentine-frankie",
+    "series": "peachriot",
+    "set": "Bloody Valentine",
+    "name": "Frankie",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "peachriot-bloody-valentine-gigi",
+    "series": "peachriot",
+    "set": "Bloody Valentine",
+    "name": "Gigi",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "peachriot-bloody-valentine-poppy",
+    "series": "peachriot",
+    "set": "Bloody Valentine",
+    "name": "Poppy",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "peachriot-angel-frankie-virtues",
+    "series": "peachriot",
+    "set": "Angel",
+    "name": "Frankie Virtues",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "peachriot-angel-gigi-dark-angel",
+    "series": "peachriot",
+    "set": "Angel",
+    "name": "Gigi Dark Angel",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "peachriot-angel-poppy-seraphim",
+    "series": "peachriot",
+    "set": "Angel",
+    "name": "Poppy Seraphim",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "peachriot-siren-s-song-frankie",
+    "series": "peachriot",
+    "set": "Siren's Song",
+    "name": "Frankie",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "peachriot-siren-s-song-gigi",
+    "series": "peachriot",
+    "set": "Siren's Song",
+    "name": "Gigi",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "peachriot-siren-s-song-poppy",
+    "series": "peachriot",
+    "set": "Siren's Song",
+    "name": "Poppy",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "peachriot-rainbow-riot-frankie",
+    "series": "peachriot",
+    "set": "Rainbow Riot",
+    "name": "Frankie",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "peachriot-rainbow-riot-gigi",
+    "series": "peachriot",
+    "set": "Rainbow Riot",
+    "name": "Gigi",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "peachriot-rainbow-riot-poppy",
+    "series": "peachriot",
+    "set": "Rainbow Riot",
+    "name": "Poppy",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "peachriot-fruit-punch-pendant-s-frankie",
+    "series": "peachriot",
+    "set": "Fruit Punch (Pendant's)",
+    "name": "Frankie",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "peachriot-fruit-punch-pendant-s-gigi",
+    "series": "peachriot",
+    "set": "Fruit Punch (Pendant's)",
+    "name": "Gigi",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "peachriot-fruit-punch-pendant-s-poppy",
+    "series": "peachriot",
+    "set": "Fruit Punch (Pendant's)",
+    "name": "Poppy",
+    "rarity": "regular",
+    "color": "#B5687F"
   }
 ]
