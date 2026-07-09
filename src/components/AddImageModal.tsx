@@ -71,7 +71,14 @@ export function AddImageModal({ figure, onClose }: Props) {
     setBusy(true);
     setError(null);
     try {
-      await add(figure.id, processed.uri);
+      const { submitted } = await add(figure.id, processed.uri);
+      if (!submitted) {
+        setError(
+          "Saved on this device, but it couldn't be sent for review, so it won't show up for anyone else. Check your connection and try again.",
+        );
+        setBusy(false);
+        return;
+      }
       onClose();
     } catch {
       setError('Could not save the image on this device.');

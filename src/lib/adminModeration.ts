@@ -13,7 +13,11 @@ export interface PendingImage {
   signedUrl: string | null;
 }
 
-/** Oldest-first queue of everything still awaiting a decision. */
+/**
+ * Oldest-first queue of everything still awaiting a decision. Throws on
+ * failure rather than reporting an empty queue, so a misconfigured backend
+ * can't masquerade as "all caught up".
+ */
 export async function fetchPendingImages(): Promise<PendingImage[]> {
   if (!supabase) return [];
 
@@ -22,7 +26,8 @@ export async function fetchPendingImages(): Promise<PendingImage[]> {
     .select('id, figure_id, storage_path, created_at')
     .eq('status', 'pending')
     .order('created_at', { ascending: true });
-  if (error || !data) return [];
+  if (error) throw error;
+  if (!data) return [];
 
   return Promise.all(
     data.map(async ({ id, figure_id, storage_path, created_at }) => {
@@ -47,8 +52,18 @@ export async function approveImage(id: string): Promise<void> {
   if (error) throw error;
 }
 
+/**
+ * `.select()` matters: an UPDATE that RLS filters out is not an error, it just
+ * matches zero rows. Without reading the updated row back, a policy that
+ * doesn't cover the caller's role looks exactly like a successful rejection.
+ */
 export async function rejectImage(id: string): Promise<void> {
   if (!supabase) return;
-  const { error } = await supabase.from('figure_images').update({ status: 'rejected' }).eq('id', id);
+  const { data, error } = await supabase
+    .from('figure_images')
+    .update({ status: 'rejected' })
+    .eq('id', id)
+    .select('id');
   if (error) throw error;
+  if (!data?.length) throw new Error(`Rejecting image ${id} affected no rows (blocked by RLS?)`);
 }
