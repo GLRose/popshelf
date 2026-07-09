@@ -1,19 +1,44 @@
 import { Platform } from 'react-native';
 
-import { supabase } from '@/lib/supabase';
+import { anonSessionError, ensureAnonSession, supabase } from '@/lib/supabase';
 
 const BUCKET = 'figure-images';
 const SIGNED_URL_TTL_SECONDS = 60 * 60 * 24 * 7; // re-signed on every app launch anyway
+
+/** An image the community has approved, as it exists on the server right now. */
+export interface ApprovedImage {
+  /** The `figure_images` row id. Changes when a figure's image is replaced, which is how the local cache knows to re-download. */
+  id: string;
+  signedUrl: string;
+}
+
+/** Enough to delete an image: the bytes to remove, and the row to remove after. */
+export interface DeletableImage {
+  id: string;
+  storagePath: string;
+}
 
 /**
  * Uploads a processed image and queues it for moderation. Resolves once
  * queued, not once approved - see supabase/schema.sql for the review flow.
  * No-ops when Supabase isn't configured.
+ *
+ * Submissions are owned, so this needs an auth.uid() and throws without one.
+ * Every install normally has an anonymous session; a project with anonymous
+ * sign-in disabled can browse approved images but not contribute.
  */
 export async function submitForReview(figureId: string, uri: string): Promise<void> {
   if (!supabase) return;
 
-  const path = `pending/${figureId}/${Date.now()}.png`;
+  const ownerId = await ensureAnonSession();
+  if (!ownerId) {
+    const cause = anonSessionError();
+    throw new Error(
+      `Cannot submit an image without a session to own it${cause ? `: ${cause.message}` : ''}`,
+    );
+  }
+
+  const path = `submissions/${ownerId}/${figureId}/${Date.now()}.png`;
   const body = await readForUpload(uri);
   const { error: uploadError } = await supabase.storage
     .from(BUCKET)
@@ -22,29 +47,29 @@ export async function submitForReview(figureId: string, uri: string): Promise<vo
 
   const { error: insertError } = await supabase
     .from('figure_images')
-    .insert({ figure_id: figureId, storage_path: path });
+    .insert({ figure_id: figureId, storage_path: path, owner_id: ownerId });
   if (insertError) throw insertError;
 }
 
 /**
- * Every figureId -> signed uri for images the community has approved. Throws
- * when the query fails: an RLS denial here reads as an empty result set rather
- * than an error, so swallowing genuine errors on top of that would leave no
- * way at all to tell "nothing approved yet" from "we can't see the table".
+ * Every figureId -> the approved image for it. Throws when the query fails: an
+ * RLS denial here reads as an empty result set rather than an error, so
+ * swallowing genuine errors on top of that would leave no way at all to tell
+ * "nothing approved yet" from "we can't see the table".
  */
-export async function fetchApprovedImages(): Promise<Record<string, string>> {
+export async function fetchApprovedImages(): Promise<Record<string, ApprovedImage>> {
   if (!supabase) return {};
 
   const { data, error } = await supabase
     .from('figure_images')
-    .select('figure_id, storage_path')
+    .select('id, figure_id, storage_path')
     .eq('status', 'approved');
   if (error) throw error;
   if (!data) return {};
 
-  const uris: Record<string, string> = {};
+  const approved: Record<string, ApprovedImage> = {};
   await Promise.all(
-    data.map(async ({ figure_id, storage_path }) => {
+    data.map(async ({ id, figure_id, storage_path }) => {
       const { data: signed, error: signError } = await supabase!.storage
         .from(BUCKET)
         .createSignedUrl(storage_path, SIGNED_URL_TTL_SECONDS);
@@ -52,10 +77,64 @@ export async function fetchApprovedImages(): Promise<Record<string, string>> {
         console.warn(`Failed to sign approved image for ${figure_id}`, signError);
         return;
       }
-      uris[figure_id] = signed.signedUrl;
+      approved[figure_id] = { id, signedUrl: signed.signedUrl };
     }),
   );
-  return uris;
+  return approved;
+}
+
+/**
+ * Removes images from the bucket and then from the table.
+ *
+ * Order matters. Deleting the bytes first means a failure part-way through
+ * leaves a row whose object is already gone - visible, and retried by
+ * purgeRejected(). Deleting the row first would leave the bytes in the bucket
+ * with nothing left pointing at them, unfindable and billable forever.
+ *
+ * `.select()` on the delete is the same guard rejectImage() uses: a DELETE that
+ * RLS filters out is not an error, it just matches zero rows, so without
+ * reading the deleted rows back a missing policy looks like success.
+ */
+export async function deleteImages(images: DeletableImage[]): Promise<void> {
+  if (!supabase || images.length === 0) return;
+
+  const { error: removeError } = await supabase.storage
+    .from(BUCKET)
+    .remove(images.map((i) => i.storagePath));
+  if (removeError) throw removeError;
+
+  const ids = images.map((i) => i.id);
+  const { data, error } = await supabase.from('figure_images').delete().in('id', ids).select('id');
+  if (error) throw error;
+  if (data?.length !== ids.length) {
+    throw new Error(
+      `Deleting ${ids.length} figure_images row(s) removed ${data?.length ?? 0} (blocked by RLS?)`,
+    );
+  }
+}
+
+/**
+ * Withdraws this device's own still-pending submissions for a figure, used when
+ * the submitter removes their image before anyone has reviewed it. Approved
+ * images are deliberately out of scope: once published they belong to everyone,
+ * and only a moderator's revoke takes them down.
+ */
+export async function withdrawPendingSubmissions(figureId: string): Promise<void> {
+  if (!supabase) return;
+
+  const ownerId = await ensureAnonSession();
+  if (!ownerId) return;
+
+  const { data, error } = await supabase
+    .from('figure_images')
+    .select('id, storage_path')
+    .eq('figure_id', figureId)
+    .eq('owner_id', ownerId)
+    .eq('status', 'pending');
+  if (error) throw error;
+  if (!data?.length) return;
+
+  await deleteImages(data.map(({ id, storage_path }) => ({ id, storagePath: storage_path })));
 }
 
 /** RN's Blob over local file:// uris is unreliable; arraybuffer is the documented workaround. */

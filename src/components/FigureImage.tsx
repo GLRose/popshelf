@@ -22,8 +22,12 @@ interface Props {
  * gradient placeholder so the app is fully usable before images are scraped.
  */
 export function FigureImage({ figure, size, rounded = true, bare = false }: Props) {
-  const userUri = useUserImages((s) => s.uris[figure.id]);
-  const src = figureImage(figure.id) ?? userUri;
+  // The user's own pick beats the community's: it's an explicit choice, and
+  // removing it reveals the community image underneath rather than clearing
+  // the figure.
+  const mineUri = useUserImages((s) => s.mine[figure.id]);
+  const communityUri = useUserImages((s) => s.community[figure.id]);
+  const src = figureImage(figure.id) ?? mineUri ?? communityUri;
   const accent = figure.color ?? '#8A7BF0';
 
   if (src) {
