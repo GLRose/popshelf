@@ -63,6 +63,8 @@ interface CollectionState {
   addToActiveShelf: (id: string) => void;
   /** Remove a figure from whichever shelf holds it */
   removeOwned: (id: string) => void;
+  /** Swap a figure with the neighbour `delta` slots away on its shelf (no-op at the ends) */
+  moveOwned: (id: string, delta: number) => void;
   toggleFavorite: (id: string) => void;
   removeFavorite: (id: string) => void;
 
@@ -186,6 +188,19 @@ export const useCollection = create<CollectionState>()((set, get) => {
       set({ shelves: after });
       after.forEach((sh, i) => {
         if (sh !== before[i]) pushShelf(sh);
+      });
+    },
+
+    moveOwned: (id, delta) => {
+      const shelf = get().shelves.find((sh) => sh.figureIds.includes(id));
+      if (!shelf) return;
+      const from = shelf.figureIds.indexOf(id);
+      const to = from + delta;
+      if (to < 0 || to >= shelf.figureIds.length) return;
+      patchShelf(shelf.id, (sh) => {
+        const figureIds = [...sh.figureIds];
+        [figureIds[from], figureIds[to]] = [figureIds[to], figureIds[from]];
+        return { ...sh, figureIds };
       });
     },
 
