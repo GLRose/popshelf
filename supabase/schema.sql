@@ -5,8 +5,21 @@
 --
 -- No auth/permissions yet - this app has no login, and until release the
 -- moderation screen is only ever used by Garrett himself. Every policy here
--- is 'anon', including moderation (read pending/rejected + flip status).
+-- covers both 'anon' and 'authenticated', including moderation (read
+-- pending/rejected + flip status).
 -- Before release, this needs real access control on the moderation actions.
+--
+-- Why both roles, and not just 'anon': a regular user of this app is NOT the
+-- 'anon' role. Every install opens a Supabase anonymous session at startup
+-- (ensureAnonSession in src/lib/supabase.ts, added for shelves/favorites),
+-- and an anonymous session is a real authenticated user - a genuine
+-- auth.uid() with the 'authenticated' role, just no email/password. Once that
+-- session exists, supabase-js sends its access token in place of the anon key
+-- on every rest + storage request (SupabaseClient._getAccessToken returns
+-- `session?.access_token ?? supabaseKey`), so policies granted only `to anon`
+-- stop matching and uploads, reads and moderation all fail. 'anon' is kept
+-- alongside 'authenticated' so the feature still works on installs where
+-- anonymous sign-in is disabled or fails and no session is ever created.
 
 create table if not exists public.figure_images (
   id uuid primary key default gen_random_uuid(),
@@ -26,29 +39,32 @@ alter table public.figure_images enable row level security;
 
 -- This script is safe to re-run: every `create policy` is preceded by a
 -- `drop policy if exists`, including the names used by earlier iterations of
--- this schema (approved-only reads, and the since-removed admin/auth
--- policies), so it converges to the same end state no matter what's already
--- in your project.
+-- this schema (approved-only reads, the since-removed admin/auth policies,
+-- and the anon-only policies these replace), so it converges to the same end
+-- state no matter what's already in your project.
 drop policy if exists "anon can submit pending images" on public.figure_images;
 drop policy if exists "anon can list approved images" on public.figure_images;
 drop policy if exists "anon can read all figure_images" on public.figure_images;
 drop policy if exists "anon can update figure_images" on public.figure_images;
 drop policy if exists "admin can read all figure_images" on public.figure_images;
 drop policy if exists "admin can update figure_images" on public.figure_images;
+drop policy if exists "anyone can submit pending images" on public.figure_images;
+drop policy if exists "anyone can read all figure_images" on public.figure_images;
+drop policy if exists "anyone can update figure_images" on public.figure_images;
 
-create policy "anon can submit pending images"
+create policy "anyone can submit pending images"
   on public.figure_images for insert
-  to anon
+  to anon, authenticated
   with check (status = 'pending');
 
-create policy "anon can read all figure_images"
+create policy "anyone can read all figure_images"
   on public.figure_images for select
-  to anon
+  to anon, authenticated
   using (true);
 
-create policy "anon can update figure_images"
+create policy "anyone can update figure_images"
   on public.figure_images for update
-  to anon
+  to anon, authenticated
   using (true)
   with check (true);
 
@@ -68,18 +84,23 @@ drop policy if exists "anon can upload pending figure images" on storage.objects
 drop policy if exists "anon can read approved figure images" on storage.objects;
 drop policy if exists "anon can read all figure images" on storage.objects;
 drop policy if exists "admin can read all figure images" on storage.objects;
+drop policy if exists "anyone can upload pending figure images" on storage.objects;
+drop policy if exists "anyone can read all figure images" on storage.objects;
 
-create policy "anon can upload pending figure images"
+create policy "anyone can upload pending figure images"
   on storage.objects for insert
-  to anon
+  to anon, authenticated
   with check (
     bucket_id = 'figure-images'
     and (storage.foldername(name))[1] = 'pending'
   );
 
-create policy "anon can read all figure images"
+-- Also covers createSignedUrl(): signing a path requires select on the object,
+-- so without this the review queue and the approved-image sync both come back
+-- empty rather than erroring.
+create policy "anyone can read all figure images"
   on storage.objects for select
-  to anon
+  to anon, authenticated
   using (bucket_id = 'figure-images');
 
 -- Atomically re-point the "one approved image per figure" slot: demote the
@@ -122,8 +143,14 @@ begin
 end;
 $$;
 
+-- `security invoker`, so the UPDATEs above still run under the caller's RLS -
+-- the "anyone can update figure_images" policy is what lets them through.
+-- EXECUTE must cover 'authenticated' too: a moderator on a device that has an
+-- anonymous session calls this as 'authenticated', and an anon-only grant
+-- fails the call outright with `permission denied for function` (42501),
+-- independently of RLS.
 revoke all on function public.approve_figure_image(uuid) from public;
-grant execute on function public.approve_figure_image(uuid) to anon;
+grant execute on function public.approve_figure_image(uuid) to anon, authenticated;
 
 -- Moderation: open the app, tap the "Browse" title 5 times to reach the
 -- hidden moderation screen, and approve/reject from the pending queue.

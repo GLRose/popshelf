@@ -9,12 +9,13 @@ const anonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY;
  * (see .env.example), so the app works fully offline/local-only before
  * Supabase is configured.
  *
- * Regular users never call supabase.auth.* - browsing/submitting always run
- * as the 'anon' role and nothing is ever written to AsyncStorage for them.
- * Session persistence is enabled here solely so the hidden admin/moderation
- * screen (src/app/admin.tsx) can keep a signed-in reviewer session across app
- * launches; see supabase/schema.sql for the RLS that gates what a signed-in
- * session can actually do.
+ * Note that once ensureAnonSession() below has run - which it does on every
+ * launch, via useCollection.hydrate() - this client stops sending the anon key
+ * on rest/storage requests and sends the session's access token instead, whose
+ * role claim is 'authenticated' (see SupabaseClient._getAccessToken). So a
+ * plain browsing/submitting user hits RLS as 'authenticated', not as 'anon'.
+ * Any policy in supabase/schema.sql that should apply to regular users has to
+ * name both roles; granting only `to anon` silently denies everyone.
  */
 export const supabase: SupabaseClient | null =
   url && anonKey

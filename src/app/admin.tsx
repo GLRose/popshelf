@@ -9,31 +9,53 @@ import { T } from '@/constants/appTheme';
 import { approveImage, fetchPendingImages, rejectImage, type PendingImage } from '@/lib/adminModeration';
 import { supabase } from '@/lib/supabase';
 
+/** Never rejects: turns a failed fetch into a queue-level error to render. */
+async function loadQueue(): Promise<{ items: PendingImage[]; error: string | null }> {
+  try {
+    return { items: await fetchPendingImages(), error: null };
+  } catch (e) {
+    console.warn('Failed to load the review queue', e);
+    return { items: [], error: 'Could not reach the review queue.' };
+  }
+}
+
 export default function AdminScreen() {
   const router = useRouter();
   const [items, setItems] = useState<PendingImage[] | null>(null);
   const [busyId, setBusyId] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
-
-  const load = async () => {
-    setItems(await fetchPendingImages());
-  };
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (supabase) fetchPendingImages().then(setItems);
+    if (!supabase) return;
+    let cancelled = false;
+    loadQueue().then((res) => {
+      if (cancelled) return;
+      setItems(res.items);
+      setError(res.error);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const refresh = async () => {
     setRefreshing(true);
-    await load();
+    const res = await loadQueue();
+    setItems(res.items);
+    setError(res.error);
     setRefreshing(false);
   };
 
   const decide = async (id: string, action: 'approve' | 'reject') => {
     setBusyId(id);
+    setError(null);
     try {
       await (action === 'approve' ? approveImage(id) : rejectImage(id));
       setItems((prev) => prev?.filter((i) => i.id !== id) ?? null);
+    } catch (e) {
+      console.warn(`Failed to ${action} image ${id}`, e);
+      setError(`Could not ${action} that image - it's still in the queue.`);
     } finally {
       setBusyId(null);
     }
@@ -64,6 +86,14 @@ export default function AdminScreen() {
           keyExtractor={(i) => i.id}
           refreshControl={<RefreshControl refreshing={refreshing} onRefresh={refresh} />}
           ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
+          ListHeaderComponent={
+            error && items.length > 0 ? (
+              <View style={styles.banner}>
+                <Ionicons name="alert-circle" size={16} color={T.danger} />
+                <Text style={styles.bannerText}>{error}</Text>
+              </View>
+            ) : null
+          }
           renderItem={({ item }) => (
             <PendingImageCard
               item={item}
@@ -74,9 +104,19 @@ export default function AdminScreen() {
           )}
           ListEmptyComponent={
             <View style={styles.center}>
-              <Ionicons name="checkmark-done-outline" size={48} color={T.muted} />
-              <Text style={styles.emptyTitle}>All caught up</Text>
-              <Text style={styles.emptyText}>No pending submissions right now.</Text>
+              {error ? (
+                <>
+                  <Ionicons name="alert-circle-outline" size={48} color={T.danger} />
+                  <Text style={styles.emptyTitle}>Couldn&apos;t load the queue</Text>
+                  <Text style={styles.emptyText}>{error} Pull down to retry.</Text>
+                </>
+              ) : (
+                <>
+                  <Ionicons name="checkmark-done-outline" size={48} color={T.muted} />
+                  <Text style={styles.emptyTitle}>All caught up</Text>
+                  <Text style={styles.emptyText}>No pending submissions right now.</Text>
+                </>
+              )}
             </View>
           }
         />
@@ -114,4 +154,17 @@ const styles = StyleSheet.create({
   emptyTitle: { fontSize: 18, fontWeight: '800', color: T.text },
   emptyText: { fontSize: 14, color: T.muted, textAlign: 'center', lineHeight: 20 },
   list: { padding: 16, paddingTop: 0, flexGrow: 1 },
+  banner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: 10,
+    backgroundColor: T.card,
+    borderWidth: 1,
+    borderColor: T.danger,
+  },
+  bannerText: { flex: 1, fontSize: 13, color: T.text, lineHeight: 18 },
 });

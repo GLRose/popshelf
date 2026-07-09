@@ -17,8 +17,13 @@ interface UserImagesState {
 
   /** Load stored images into memory and sync down community approvals; called once at app start */
   hydrate: () => Promise<void>;
-  /** Cache a processed image for a figure, start displaying it, and queue it for review */
-  add: (figureId: string, uri: string) => Promise<void>;
+  /**
+   * Cache a processed image for a figure, start displaying it, and queue it for
+   * review. Rejects only if the local save failed. `submitted` is false when the
+   * image is on this device but never reached the review queue, so callers can
+   * say so instead of implying it's now visible to everyone.
+   */
+  add: (figureId: string, uri: string) => Promise<{ submitted: boolean }>;
   /** Delete a figure's user image from this device's cache */
   remove: (figureId: string) => Promise<void>;
 }
@@ -52,7 +57,16 @@ export const useUserImages = create<UserImagesState>()((set) => ({
   add: async (figureId, uri) => {
     const stored = await saveUserImage(figureId, uri);
     set((s) => ({ uris: { ...s.uris, [figureId]: stored } }));
-    submitForReview(figureId, uri).catch((e) => console.warn('Failed to submit image for review', e));
+
+    // The local cache is authoritative for display, so a failed upload must not
+    // undo the save - but it does mean nobody else will ever see this image.
+    try {
+      await submitForReview(figureId, uri);
+      return { submitted: true };
+    } catch (e) {
+      console.warn('Failed to submit image for review', e);
+      return { submitted: false };
+    }
   },
 
   remove: async (figureId) => {

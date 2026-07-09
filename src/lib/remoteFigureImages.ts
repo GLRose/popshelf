@@ -26,7 +26,12 @@ export async function submitForReview(figureId: string, uri: string): Promise<vo
   if (insertError) throw insertError;
 }
 
-/** Every figureId -> signed uri for images the community has approved. */
+/**
+ * Every figureId -> signed uri for images the community has approved. Throws
+ * when the query fails: an RLS denial here reads as an empty result set rather
+ * than an error, so swallowing genuine errors on top of that would leave no
+ * way at all to tell "nothing approved yet" from "we can't see the table".
+ */
 export async function fetchApprovedImages(): Promise<Record<string, string>> {
   if (!supabase) return {};
 
@@ -34,15 +39,20 @@ export async function fetchApprovedImages(): Promise<Record<string, string>> {
     .from('figure_images')
     .select('figure_id, storage_path')
     .eq('status', 'approved');
-  if (error || !data) return {};
+  if (error) throw error;
+  if (!data) return {};
 
   const uris: Record<string, string> = {};
   await Promise.all(
     data.map(async ({ figure_id, storage_path }) => {
-      const { data: signed } = await supabase!.storage
+      const { data: signed, error: signError } = await supabase!.storage
         .from(BUCKET)
         .createSignedUrl(storage_path, SIGNED_URL_TTL_SECONDS);
-      if (signed) uris[figure_id] = signed.signedUrl;
+      if (signError || !signed) {
+        console.warn(`Failed to sign approved image for ${figure_id}`, signError);
+        return;
+      }
+      uris[figure_id] = signed.signedUrl;
     }),
   );
   return uris;
