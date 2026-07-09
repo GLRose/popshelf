@@ -12,7 +12,7 @@ interface Props {
 
 /**
  * Horizontally scrollable set selector shown below the series toggle. Lets the
- * user narrow a large series (e.g. Skullpanda's 15 sets) down to one set at a
+ * user narrow a large series (e.g. Skullpanda's 19 sets) down to one set at a
  * time so Browse stays a short scroll. Mirrors SeriesToggle's pill language.
  */
 export function SetFilter({ sets, value, onChange, accent }: Props) {

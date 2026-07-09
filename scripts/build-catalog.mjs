@@ -14,6 +14,16 @@ const slug = (s) =>
   s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 const titleize = (s) => s.replace(/-/g, ' ').replace(/\s+/g, ' ').trim();
 
+const decodeEntities = (s) =>
+  s
+    .replace(/&#(\d+);/g, (_, d) => String.fromCharCode(Number(d)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCharCode(parseInt(h, 16)))
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&nbsp;/g, ' ');
+
 const ACCENTS = [
   '#8A7BF0', '#6C7BD1', '#C77D5A', '#6FB2A0', '#556070', '#8E9AAE', '#5E7CE2',
   '#C6415A', '#3D4C7A', '#7A5C8E', '#7F9B6E', '#D98AA6', '#C98A3E', '#5B8D88',
@@ -22,62 +32,64 @@ const ACCENTS = [
 
 // --- Skullpanda: skullpandaworld.com -------------------------------------
 // Core blind-box figure series (accessories/magnets/pendants excluded).
+// Third column is the series name exactly as it appears in each figure's `alt`
+// text, which is the field we read names from. It differs from our display
+// label often enough (typos, punctuation, "!") that it has to be spelled out:
+// "the-pardaox-series" is the site's own misspelling of The Paradox.
 const SKULLPANDA_SETS = [
-  ['warmth-series', 'The Warmth'],
-  ['everyday-wonderland-series', 'Everyday Wonderland'],
-  ['the-ink-plum-blossom-series', 'The Ink Plum Blossom'],
-  ['image-of-reality-series', 'Image of Reality'],
-  ['the-sound-series', 'The Sound'],
-  ['tell-me-what-you-want-series', 'Tell Me What You Want'],
-  ['city-of-night-series', 'City of Night'],
-  ['ancient-castle-series', 'Ancient Castle'],
-  ['the-mare-of-animals-series', 'The Mare of Animals'],
-  ['the-pardaox-series', 'The Paradox'],
-  ['the-mirage-series', 'The Mirage'],
-  ['limpressionnisme-series', "L'Impressionnisme"],
-  ['winter-symphony-series', 'Winter Symphony'],
-  ['laid-back-tomorrow-series', 'Laid Back Tomorrow'],
-  ['the-addams-family-series', 'The Addams Family'],
-  ['candy-monster-town-series', 'Candy Monster Town'],
-  ['action-cut-series', 'Action Cut'],
-  ['hypepanda-series', 'HYPEPANDA'],
-  ['you-found-me-series', 'You Found Me'],
+  ['warmth-series', 'The Warmth', 'Warmth Series'],
+  ['everyday-wonderland-series', 'Everyday Wonderland', 'Everyday Wonderland Series'],
+  ['the-ink-plum-blossom-series', 'The Ink Plum Blossom', 'The Ink Plum Blossom Series'],
+  ['image-of-reality-series', 'Image of Reality', 'Image Of Reality Series'],
+  ['the-sound-series', 'The Sound', 'The Sound Series'],
+  ['tell-me-what-you-want-series', 'Tell Me What You Want', 'Tell Me What You Want Series'],
+  ['city-of-night-series', 'City of Night', 'City of Night Series'],
+  ['ancient-castle-series', 'Ancient Castle', 'Ancient Castle Series'],
+  ['the-mare-of-animals-series', 'The Mare of Animals', 'The Mare of Animals Series'],
+  ['the-pardaox-series', 'The Paradox', 'The Pardaox Series'],
+  ['the-mirage-series', 'The Mirage', 'The Mirage Series'],
+  ['limpressionnisme-series', "L'Impressionnisme", 'L’impressionnisme Series'],
+  ['winter-symphony-series', 'Winter Symphony', 'Winter Symphony Series'],
+  ['laid-back-tomorrow-series', 'Laid Back Tomorrow', 'Laid Back Tomorrow Series'],
+  ['the-addams-family-series', 'The Addams Family', 'The Addams Family Series'],
+  ['candy-monster-town-series', 'Candy Monster Town', 'Candy Monster Town Series'],
+  ['action-cut-series', 'Action Cut', 'Action! Cut! Series'],
+  ['hypepanda-series', 'HYPEPANDA', 'Hypepanda Series'],
+  ['you-found-me-series', 'You Found Me', 'You Found Me! Series'],
 ];
-
-const NON_FIGURE = /-Cover|favicon|Background|Banner|-bg|-Box|-Package|-Display|-Lineup|-Set-|-Group|-All-/i;
 
 function canon(u) {
   return u.replace(/-\d+x\d+(?=\.[a-z]+$)/i, '');
 }
 
-async function scrapeSkullpanda(setSlug, label) {
+// Names come from each grid image's `alt` ("SKULLPANDA <series> - <name>"), never its
+// filename: only some series use the "SkullPandaWorld-Regular-<series>-<name>" convention,
+// while the rest name files after the figure alone ("Out-of-the-Mud-2.jpg"). `alt` is
+// uniform across every series and preserves real punctuation ("The Duality (White)").
+async function scrapeSkullpanda(setSlug, altSeries) {
   const res = await fetch(`https://skullpandaworld.com/series/${setSlug}/`, { headers: UA });
   if (!res.ok) return [];
   const html = await res.text();
-  const all = [
-    ...html.matchAll(
-      /https:\/\/skullpandaworld\.com\/wp-content\/uploads\/[^"'()\\ ]+\.(?:jpg|jpeg|png|webp)/gi,
-    ),
-  ].map((m) => m[0]);
-  const cover = all.find((u) => /-Cover\./i.test(u));
-  const token = cover?.match(/SkullPandaWorld-(?:Regular|Secret)-(.*?)-Cover/i)?.[1] ?? null;
 
+  // `product-grid-img` marks the per-figure renders, excluding covers, banners and
+  // the cross-series links in the sidebar.
+  const prefix = `SKULLPANDA ${altSeries} - `;
   const byName = new Map();
-  for (const u of all) {
-    if (NON_FIGURE.test(u)) continue;
-    const m = u.match(/SkullPandaWorld-(Regular|Secret)-(.*?)\.(?:jpg|jpeg|png|webp)/i);
-    if (!m) continue;
-    let rest = m[2];
-    let name = token && rest.startsWith(token + '-') ? rest.slice(token.length + 1) : rest;
-    name = name.replace(/-\d+x\d+$/, '');
-    if (!name || /^\d+x\d+$/.test(name)) continue;
-    if (!byName.has(name)) byName.set(name, { rarity: m[1].toLowerCase(), url: canon(u) });
+  for (const [tag] of html.matchAll(/<img\b[^>]*>/gi)) {
+    if (!/class="[^"]*\bproduct-grid-img\b/.test(tag)) continue;
+    const src = tag.match(/\ssrc="([^"]+)"/)?.[1];
+    const alt = tag.match(/\salt="([^"]*)"/)?.[1];
+    if (!src || !alt) continue;
+    const decoded = decodeEntities(alt);
+    if (!decoded.startsWith(prefix)) continue;
+    const name = decoded.slice(prefix.length).trim();
+    if (!name) continue;
+    // The site publishes every figure as "Regular"; secrets are kept back. Honour the
+    // marker anyway so they get picked up if that ever changes.
+    const rarity = /-Secret-/i.test(src) ? 'secret' : 'regular';
+    if (!byName.has(name)) byName.set(name, { rarity, url: canon(src) });
   }
-  return [...byName.entries()].map(([name, v]) => ({
-    name: titleize(name),
-    rarity: v.rarity,
-    url: v.url,
-  }));
+  return [...byName.entries()].map(([name, v]) => ({ name, rarity: v.rarity, url: v.url }));
 }
 
 // --- Peach Riot: thetoypool.com ------------------------------------------
@@ -213,14 +225,18 @@ async function addSeries(series, setSlug, label, items) {
   console.log(`  ${label}: ${items.length} figures`);
 }
 
+// A set that scrapes to nothing means the source markup moved, not that the set is empty.
+// Abort before writing rather than ship a catalog that is quietly missing a series.
+const failures = [];
+
 console.log('Skullpanda (skullpandaworld.com):');
-for (const [setSlug, label] of SKULLPANDA_SETS) {
+for (const [setSlug, label, altSeries] of SKULLPANDA_SETS) {
   try {
-    const items = await scrapeSkullpanda(setSlug, label);
+    const items = await scrapeSkullpanda(setSlug, altSeries);
     if (items.length) await addSeries('skullpanda', setSlug, label, items);
-    else console.log(`  ${label}: 0 (skipped)`);
+    else failures.push(`skullpanda/${label}: scraped 0 figures`);
   } catch (e) {
-    console.warn(`  ${label}: ERROR ${e.message}`);
+    failures.push(`skullpanda/${label}: ${e.message}`);
   }
 }
 
@@ -229,9 +245,9 @@ for (const [setSlug, label, tail] of PEACHRIOT_SETS) {
   try {
     const items = await scrapePeachRiot(setSlug, label, tail);
     if (items.length) await addSeries('peachriot', setSlug, label, items);
-    else console.log(`  ${label}: 0 (skipped)`);
+    else failures.push(`peachriot/${label}: scraped 0 figures`);
   } catch (e) {
-    console.warn(`  ${label}: ERROR ${e.message}`);
+    failures.push(`peachriot/${label}: ${e.message}`);
   }
 }
 
@@ -239,6 +255,12 @@ console.log('Peach Riot (manual - data only, images pending):');
 for (const [label, rows] of MANUAL_PEACHRIOT) {
   const items = rows.map(([name, rarity]) => ({ name, rarity, url: null }));
   await addSeries('peachriot', slug(label), label, items);
+}
+
+if (failures.length) {
+  console.error('\nAborting without writing; these sets yielded no figures:');
+  for (const f of failures) console.error(`  - ${f}`);
+  process.exit(1);
 }
 
 writeFileSync(resolve(__dirname, '../src/data/figures.json'), JSON.stringify(figures, null, 2) + '\n');
