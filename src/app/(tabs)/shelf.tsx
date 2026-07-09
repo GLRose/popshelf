@@ -41,6 +41,7 @@ export default function ShelfScreen() {
   const shelves = useCollection((s) => s.shelves);
   const activeShelfId = useCollection((s) => s.activeShelfId);
   const removeOwned = useCollection((s) => s.removeOwned);
+  const moveOwned = useCollection((s) => s.moveOwned);
 
   const shelf = shelves.find((s) => s.id === activeShelfId) ?? shelves[0];
 
@@ -69,10 +70,20 @@ export default function ShelfScreen() {
 
   // Clamp during render so the page stays in range as the collection shrinks/grows.
   const currentPage = Math.min(page, pageCount - 1);
-  const pageFigures = figures.slice(currentPage * perPage, currentPage * perPage + perPage);
+  const startIndex = currentPage * perPage;
+  const pageFigures = figures.slice(startIndex, startIndex + perPage);
   const background = getBackground(shelf.background);
   const texture = getTexture(shelf.texture).kind;
   const onBg = background.foreground;
+
+  // Shift a figure one slot, following it to the next/previous page when the
+  // swap carries it off the one being viewed.
+  function handleMove(id: string, delta: number) {
+    const to = figures.findIndex((f) => f.id === id) + delta;
+    if (to < 0 || to >= figures.length) return;
+    setPage(Math.floor(to / perPage));
+    moveOwned(id, delta);
+  }
 
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
@@ -116,12 +127,14 @@ export default function ShelfScreen() {
                 {editing && (
                   <View style={[styles.editHint, { borderColor: onBg }]}>
                     <Text style={[styles.editHintText, { color: onBg }]}>
-                      Tap ✕ to remove a figure
+                      Tap ✕ to remove, ‹ › to reorder
                     </Text>
                   </View>
                 )}
                 <Shelf
                   figures={pageFigures}
+                  startIndex={startIndex}
+                  totalFigures={figures.length}
                   columns={columns}
                   rows={rows}
                   cellWidth={cellWidth}
@@ -129,6 +142,7 @@ export default function ShelfScreen() {
                   texture={texture}
                   editing={editing}
                   onDelete={removeOwned}
+                  onMove={handleMove}
                 />
               </ShelfBackground>
             </View>
