@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { createClient, type SupabaseClient } from '@supabase/supabase-js';
+import { createClient, type AuthError, type SupabaseClient } from '@supabase/supabase-js';
 
 const url = process.env.EXPO_PUBLIC_SUPABASE_URL;
 const anonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY;
@@ -29,24 +29,58 @@ export const supabase: SupabaseClient | null =
       })
     : null;
 
+let lastError: AuthError | null = null;
+let reportedCode: string | undefined;
+
+/** Why the last anonymous sign-in failed, for callers that need to explain themselves. */
+export function anonSessionError(): AuthError | null {
+  return lastError;
+}
+
 /**
  * Every install gets its own anonymous Supabase session so per-device data
- * (shelves, favorites - see src/lib/remoteCollection.ts) can be scoped to a
- * real auth.uid() under RLS, without requiring a login. The session persists
- * across launches via the AsyncStorage-backed auth storage configured above,
- * so this only signs in once per install. Requires "Anonymous Sign-Ins" to be
- * enabled in the Supabase dashboard (Authentication > Sign In / Providers).
+ * (shelves, favorites - see src/lib/remoteCollection.ts) and owned image
+ * submissions (figure_images.owner_id) can be scoped to a real auth.uid() under
+ * RLS, without requiring a login. The session persists across launches via the
+ * AsyncStorage-backed auth storage configured above, so this only signs in once
+ * per install. Requires "Anonymous Sign-Ins" to be enabled in the Supabase
+ * dashboard (Authentication > Sign In / Providers).
+ *
+ * Still returns null rather than throwing, because most callers legitimately
+ * treat "no session" as "skip the remote mirror" - but it says so at error
+ * level, once per distinct reason. A silent warn was survivable when a missing
+ * session only meant shelves didn't sync; now it also means a submitted image
+ * can never be shared with anyone, which is worth shouting about.
  */
 export async function ensureAnonSession(): Promise<string | null> {
   if (!supabase) return null;
 
   const { data } = await supabase.auth.getSession();
-  if (data.session) return data.session.user.id;
+  if (data.session) return succeed(data.session.user.id);
 
   const { data: signInData, error } = await supabase.auth.signInAnonymously();
   if (error) {
-    console.warn('Failed to start anonymous session', error);
+    lastError = error;
+    // Deduped: six call sites hit this per launch, and six identical stack
+    // traces bury the one line that explains the cause.
+    if (reportedCode !== error.code) {
+      reportedCode = error.code;
+      console.error(
+        `Anonymous sign-in failed (${error.code ?? error.status ?? 'unknown'}): ${error.message}. ` +
+          'Until this succeeds, shelves and favorites never reach Supabase, and any image ' +
+          'submitted for review is stranded on this device. In Authentication > Sign In / ' +
+          'Providers, BOTH "Anonymous Sign-Ins" and "Allow new users to sign up" must be on: ' +
+          'signInAnonymously() is implemented as a signup, so disabling signups disables it too.',
+        error,
+      );
+    }
     return null;
   }
-  return signInData.user?.id ?? null;
+  return succeed(signInData.user?.id ?? null);
+}
+
+function succeed(id: string | null): string | null {
+  lastError = null;
+  reportedCode = undefined;
+  return id;
 }

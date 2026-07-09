@@ -20,11 +20,17 @@ interface Props {
  * pick an image, preview the auto background removal, then save it to the
  * on-device image store. Existing user images can be replaced, removed, or
  * (on web) downloaded as `<id>.png` to graduate into the bundled assets.
+ *
+ * Only the user's own image can be removed here. An approved community image
+ * belongs to everyone and comes down through moderation, so removing yours
+ * reveals it rather than clearing the figure.
  */
 export function AddImageModal({ figure, onClose }: Props) {
-  const existingUri = useUserImages((s) => s.uris[figure.id]);
+  const mineUri = useUserImages((s) => s.mine[figure.id]);
+  const communityUri = useUserImages((s) => s.community[figure.id]);
   const add = useUserImages((s) => s.add);
   const remove = useUserImages((s) => s.remove);
+  const existingUri = mineUri ?? communityUri;
 
   const [pickedUri, setPickedUri] = useState<string | null>(null);
   const [processed, setProcessed] = useState<ProcessedImage | null>(null);
@@ -88,8 +94,16 @@ export function AddImageModal({ figure, onClose }: Props) {
 
   const removeImage = async () => {
     setBusy(true);
+    setError(null);
     try {
-      await remove(figure.id);
+      const { withdrawn } = await remove(figure.id);
+      if (!withdrawn) {
+        setError(
+          "Removed from this device, but your submission couldn't be recalled, so it may still be published after review.",
+        );
+        setBusy(false);
+        return;
+      }
       onClose();
     } catch {
       setError('Could not remove the image.');
@@ -120,7 +134,7 @@ export function AddImageModal({ figure, onClose }: Props) {
                 {figure.name} · {figure.set}
               </Text>
             </View>
-            <Pressable onPress={onClose} hitSlop={8} style={styles.close}>
+            <Pressable onPress={onClose} hitSlop={8} style={styles.close} accessibilityLabel="Close">
               <Ionicons name="close" size={20} color={T.text} />
             </Pressable>
           </View>
@@ -147,6 +161,15 @@ export function AddImageModal({ figure, onClose }: Props) {
             <Text style={styles.hint}>
               You&apos;ll see it right away; it&apos;ll be shared with everyone else after a quick
               review.
+            </Text>
+          )}
+          {!processed && !!existingUri && (
+            <Text style={styles.hint}>
+              {!mineUri
+                ? "This image was added by the community. Choosing your own replaces it on this device."
+                : communityUri
+                  ? "Showing your image. Remove it to show the community's image instead."
+                  : "Showing your image."}
             </Text>
           )}
           {weakCutout && (
@@ -186,10 +209,10 @@ export function AddImageModal({ figure, onClose }: Props) {
             {Platform.OS === 'web' && !!previewUri && (
               <ActionButton icon="download-outline" label="Download PNG" onPress={download} disabled={busy} />
             )}
-            {!!existingUri && (
+            {!!mineUri && (
               <ActionButton
                 icon="trash-outline"
-                label="Remove image"
+                label={communityUri ? 'Remove my image' : 'Remove image'}
                 onPress={removeImage}
                 disabled={busy}
                 danger

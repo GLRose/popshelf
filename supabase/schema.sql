@@ -4,9 +4,10 @@
 -- storage bucket for the actual image bytes, and RLS policies.
 --
 -- No auth/permissions yet - this app has no login, and until release the
--- moderation screen is only ever used by Garrett himself. Every policy here
--- covers both 'anon' and 'authenticated', including moderation (read
--- pending/rejected + flip status).
+-- moderation screen is only ever used by Garrett himself. The moderation
+-- policies here (read pending/rejected, flip status, DELETE rows and objects)
+-- cover both 'anon' and 'authenticated', which means any client can approve or
+-- destroy any image.
 -- Before release, this needs real access control on the moderation actions.
 --
 -- Why both roles, and not just 'anon': a regular user of this app is NOT the
@@ -17,10 +18,22 @@
 -- session exists, supabase-js sends its access token in place of the anon key
 -- on every rest + storage request (SupabaseClient._getAccessToken returns
 -- `session?.access_token ?? supabaseKey`), so policies granted only `to anon`
--- stop matching and uploads, reads and moderation all fail. 'anon' is kept
--- alongside 'authenticated' so the feature still works on installs where
--- anonymous sign-in is disabled or fails and no session is ever created.
+-- stop matching and reads and moderation all fail. 'anon' is kept alongside
+-- 'authenticated' so those still work on installs where anonymous sign-in is
+-- disabled or fails and no session is ever created.
+--
+-- Submitting is the exception: it is 'authenticated' only. A submission is
+-- owned (figure_images.owner_id, and the owner's id in the storage path), and
+-- there is no owner without an auth.uid(). So an install with no session can
+-- still browse approved images, it just can't contribute one.
 
+-- 'rejected' is a tombstone, not an archive: it means "this row and its bytes
+-- are pending deletion". Nothing reads rejected rows. The client deletes the
+-- storage object first and the row second (see deleteImages in
+-- src/lib/remoteFigureImages.ts), so an interrupted purge leaves a rejected row
+-- pointing at missing bytes - harmless, and swept up by purgeRejected() on the
+-- next moderation-screen load. Deleting the row first would strand the bytes in
+-- the bucket with nothing left to find them by.
 create table if not exists public.figure_images (
   id uuid primary key default gen_random_uuid(),
   figure_id text not null,
@@ -28,6 +41,14 @@ create table if not exists public.figure_images (
   status text not null default 'pending' check (status in ('pending', 'approved', 'rejected')),
   created_at timestamptz not null default now()
 );
+
+-- Added after the table shipped, so it's an alter rather than a column above.
+-- Nullable: rows submitted before ownership existed have no owner and can only
+-- ever be removed by a moderator. New rows must set it (see the insert policy).
+alter table public.figure_images
+  add column if not exists owner_id uuid references auth.users(id) on delete cascade;
+
+create index if not exists figure_images_owner_id_idx on public.figure_images (owner_id);
 
 -- Only one approved image per figure at a time. When approving a replacement
 -- for a figure that already has one, set the old row to 'rejected' first.
@@ -51,11 +72,15 @@ drop policy if exists "admin can update figure_images" on public.figure_images;
 drop policy if exists "anyone can submit pending images" on public.figure_images;
 drop policy if exists "anyone can read all figure_images" on public.figure_images;
 drop policy if exists "anyone can update figure_images" on public.figure_images;
+drop policy if exists "owners can submit pending images" on public.figure_images;
+drop policy if exists "anyone can delete figure_images" on public.figure_images;
 
-create policy "anyone can submit pending images"
+-- 'authenticated' only, and the row must be owned by the caller: you cannot
+-- submit an image you don't own. See the note on submitting at the top.
+create policy "owners can submit pending images"
   on public.figure_images for insert
-  to anon, authenticated
-  with check (status = 'pending');
+  to authenticated
+  with check (status = 'pending' and owner_id = auth.uid());
 
 create policy "anyone can read all figure_images"
   on public.figure_images for select
@@ -67,6 +92,18 @@ create policy "anyone can update figure_images"
   to anon, authenticated
   using (true)
   with check (true);
+
+-- Deleting is how a bad approval is actually revoked, and how a submitter
+-- withdraws their own still-pending image (withdrawPendingSubmissions in
+-- src/lib/remoteFigureImages.ts scopes that to owner_id = auth.uid() client
+-- side). This policy does not distinguish the two, for the same reason the
+-- update policy above doesn't: there is no moderator identity yet. It grants
+-- no more than the update policy already does - a client that can flip any row
+-- to 'approved' is not meaningfully held back from deleting it.
+create policy "anyone can delete figure_images"
+  on public.figure_images for delete
+  to anon, authenticated
+  using (true);
 
 -- Leftover from an earlier iteration that added admin auth; never released,
 -- so safe to drop unconditionally if it was ever applied.
@@ -86,13 +123,27 @@ drop policy if exists "anon can read all figure images" on storage.objects;
 drop policy if exists "admin can read all figure images" on storage.objects;
 drop policy if exists "anyone can upload pending figure images" on storage.objects;
 drop policy if exists "anyone can read all figure images" on storage.objects;
+drop policy if exists "owners can upload figure images" on storage.objects;
+drop policy if exists "anyone can delete figure images" on storage.objects;
 
-create policy "anyone can upload pending figure images"
+-- Objects live at `submissions/<owner_id>/<figure_id>/<timestamp>.png`.
+--
+-- The old layout was `pending/<figure_id>/<timestamp>.png`, which became a lie
+-- the moment an image was approved: approving flips a row, it never relocates
+-- the object. 'submissions' stays true for the object's whole life, and the
+-- owner id in the path is what lets this policy scope writes to the owner at
+-- the storage layer rather than trusting the client to pick an honest path.
+--
+-- Objects still at the old `pending/` prefix keep working: the select and
+-- delete policies below are bucket-wide, and existing rows keep the
+-- storage_path they recorded. Only new uploads use the new prefix.
+create policy "owners can upload figure images"
   on storage.objects for insert
-  to anon, authenticated
+  to authenticated
   with check (
     bucket_id = 'figure-images'
-    and (storage.foldername(name))[1] = 'pending'
+    and (storage.foldername(name))[1] = 'submissions'
+    and (storage.foldername(name))[2] = auth.uid()::text
   );
 
 -- Also covers createSignedUrl(): signing a path requires select on the object,
@@ -100,6 +151,14 @@ create policy "anyone can upload pending figure images"
 -- empty rather than erroring.
 create policy "anyone can read all figure images"
   on storage.objects for select
+  to anon, authenticated
+  using (bucket_id = 'figure-images');
+
+-- Bucket-wide rather than owner-scoped, because revoking a bad approval means
+-- deleting someone else's bytes, and moderators have no identity yet. Same
+-- caveat as "anyone can delete figure_images" above.
+create policy "anyone can delete figure images"
+  on storage.objects for delete
   to anon, authenticated
   using (bucket_id = 'figure-images');
 
@@ -153,7 +212,11 @@ revoke all on function public.approve_figure_image(uuid) from public;
 grant execute on function public.approve_figure_image(uuid) to anon, authenticated;
 
 -- Moderation: open the app, tap the "Browse" title 5 times to reach the
--- hidden moderation screen, and approve/reject from the pending queue.
+-- hidden moderation screen. Approve/reject from the pending queue, or revoke
+-- an image from the approved list. Rejecting and revoking are the same
+-- operation - both tombstone the row, then purge its bytes and the row itself.
+-- Because approve_figure_image demotes the image it replaces, approving a
+-- replacement purges the one it displaced too.
 -- See src/app/admin.tsx and src/lib/adminModeration.ts.
 
 -- Shelves + favorites: the app's collection data, formerly AsyncStorage-only

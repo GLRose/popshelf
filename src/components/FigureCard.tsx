@@ -27,8 +27,9 @@ export const FigureCard = memo(function FigureCard({ figure, width }: Props) {
   const onActiveShelf = location?.id === activeShelfId;
   const onOtherShelf = !!location && !onActiveShelf;
 
-  // Figures without a bundled cutout can be given a user image.
-  const hasUserImage = useUserImages((s) => !!s.uris[figure.id]);
+  // Figures without a bundled cutout can be given a user image. Either the
+  // user's own or the community's counts - the modal opens on whichever shows.
+  const hasUserImage = useUserImages((s) => !!(s.mine[figure.id] ?? s.community[figure.id]));
   const editableImage = !figureImage(figure.id);
   const [imageModalOpen, setImageModalOpen] = useState(false);
 
