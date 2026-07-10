@@ -1,4 +1,6 @@
-import { ensureAnonSession, supabase } from '@/lib/supabase';
+import type { Session } from '@supabase/supabase-js';
+
+import { createDetachedClient, ensureAnonSession, supabase } from '@/lib/supabase';
 import type { Shelf } from '@/types';
 
 interface ShelfRow {
@@ -117,6 +119,13 @@ export async function removeFavoriteRemote(figureId: string): Promise<void> {
  * Bulk-uploads the local collection as a best-effort backfill/sync - the
  * local copy in src/lib/localCollection.ts is the source of truth, this is
  * just keeping Supabase's mirror of it current. No-op when unconfigured.
+ *
+ * Uploads every shelf inactive, then activates one, for the same reason
+ * setActiveShelfRemote does it in two steps: shelves_one_active_per_owner is a
+ * non-deferrable partial unique index, and a multi-row upsert that activates
+ * one shelf before deactivating the previously-active one trips it mid-
+ * statement. Sending them all as inactive first means there is never a moment
+ * with two.
  */
 export async function syncCollectionToRemote(
   shelves: Shelf[],
@@ -136,13 +145,40 @@ export async function syncCollectionToRemote(
       background: shelf.background,
       texture: shelf.texture,
       figure_ids: shelf.figureIds,
-      is_active: shelf.id === activeShelfId,
+      is_active: false,
     })),
   );
+  await setActiveShelfRemote(activeShelfId);
 
   if (favorites.length > 0) {
     await supabase
       .from('favorites')
       .upsert(favorites.map((figureId) => ({ owner_id: ownerId, figure_id: figureId })));
   }
+}
+
+/**
+ * Deletes the given session's shelves and favorites, acting as that user on a
+ * detached client. Used to clear an anonymous user's rows once we have signed
+ * in as somebody else and can no longer act as them (see verifyEmailCode in
+ * src/lib/auth.ts). Their local copy has already been captured for the merge.
+ *
+ * RLS scopes both deletes to the session's own rows; the explicit owner_id
+ * filter just makes that visible at the call site.
+ */
+export async function purgeCollectionAs(session: Session): Promise<void> {
+  const detached = createDetachedClient();
+  if (!detached) return;
+
+  await detached.auth.setSession({
+    access_token: session.access_token,
+    refresh_token: session.refresh_token,
+  });
+  const ownerId = session.user.id;
+
+  const [{ error: shelfError }, { error: favError }] = await Promise.all([
+    detached.from('shelves').delete().eq('owner_id', ownerId),
+    detached.from('favorites').delete().eq('owner_id', ownerId),
+  ]);
+  if (shelfError || favError) throw shelfError ?? favError;
 }

@@ -5,7 +5,12 @@ import {
   DEFAULT_TEXTURE_ID,
   SHELF_COLORS,
 } from '@/constants/palette';
-import { loadLocalCollection, saveLocalCollection } from '@/lib/localCollection';
+import {
+  clearLocalCollection,
+  loadLocalCollection,
+  saveLocalCollection,
+} from '@/lib/localCollection';
+import { mergeCollections } from '@/lib/mergeCollection';
 import {
   addFavoriteRemote,
   deleteShelfRemote,
@@ -50,6 +55,10 @@ interface CollectionState {
 
   /** Loads shelves/favorites from the on-device store, then reconciles with Supabase in the background */
   hydrate: () => Promise<void>;
+  /** After a sign-in: union this device's shelves with the account's, then push the result back up */
+  adoptRemoteCollection: () => Promise<void>;
+  /** After a sign-out: forget this device's collection and start over as a new anonymous user */
+  resetToEmpty: () => Promise<void>;
 
   /** The currently active shelf (falls back to the first shelf) */
   activeShelf: () => Shelf;
@@ -150,6 +159,50 @@ export const useCollection = create<CollectionState>()((set, get) => {
       } catch (e) {
         console.warn('Failed to reconcile collection with Supabase', e);
       }
+    },
+
+    /**
+     * Called once a sign-in has settled on a final auth.uid(). Cannot lean on
+     * hydrate()'s "adopt a remote collection" branch: that only runs when the
+     * device has no local collection at all, which stops being true after the
+     * very first launch. So fetch and merge explicitly.
+     *
+     * The merge is a no-op on the 'link' path (auth.uid() was preserved, so the
+     * account's shelves *are* this device's shelves). It does the real work on
+     * the 'signin' path, where the account was built on some other device.
+     */
+    adoptRemoteCollection: async () => {
+      if (!supabase) return;
+      const { shelves, activeShelfId, favorites } = get();
+      const local = { shelves, activeShelfId, favorites };
+
+      const remote = await fetchCollection();
+      const merged = remote ? mergeCollections(local, remote) : local;
+      set({
+        shelves: merged.shelves,
+        activeShelfId: merged.activeShelfId,
+        favorites: merged.favorites,
+      });
+
+      // Already saved locally by the subscriber below, so a failed push is
+      // recoverable: the next hydrate() syncs local up to the account.
+      await syncCollectionToRemote(merged.shelves, merged.activeShelfId, merged.favorites).catch(
+        (e) => console.warn('Failed to push the merged collection to Supabase', e),
+      );
+    },
+
+    /**
+     * Called after signing out. The shelves being dropped are safe in the
+     * account that was just left, and return on the next sign-in; what is left
+     * behind is an empty starter shelf owned by a brand-new anonymous user.
+     */
+    resetToEmpty: async () => {
+      await clearLocalCollection();
+      const shelf = defaultShelf();
+      set({ shelves: [shelf], activeShelfId: shelf.id, favorites: [], hydrated: true });
+      upsertShelfRemote(shelf, true).catch((e) =>
+        console.warn('Failed to create the post-sign-out shelf remotely', e),
+      );
     },
 
     activeShelf: () => {

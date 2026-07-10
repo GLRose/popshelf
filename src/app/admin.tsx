@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { ScreenHeader } from '@/components/ScreenHeader';
 import { ApprovedImageCard } from '@/components/admin/ApprovedImageCard';
 import { PendingImageCard } from '@/components/admin/PendingImageCard';
 import { T } from '@/constants/appTheme';
@@ -246,31 +247,8 @@ function TabButton({
   );
 }
 
-function ScreenHeader({ title, onClose }: { title: string; onClose: () => void }) {
-  return (
-    <View style={styles.header}>
-      <Text style={styles.h1} numberOfLines={1}>
-        {title}
-      </Text>
-      <Pressable onPress={onClose} hitSlop={8} style={styles.headerBtn} accessibilityLabel="Close">
-        <Ionicons name="close" size={22} color={T.text} />
-      </Pressable>
-    </View>
-  );
-}
-
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: T.bg },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingTop: 8,
-    paddingBottom: 12,
-  },
-  h1: { flex: 1, fontSize: 20, fontWeight: '900', color: T.text, letterSpacing: -0.4 },
-  headerBtn: { padding: 4 },
   tabs: { flexDirection: 'row', gap: 8, paddingHorizontal: 16, paddingBottom: 14 },
   tab: {
     paddingVertical: 8,

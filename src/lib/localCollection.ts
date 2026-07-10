@@ -106,3 +106,12 @@ export async function saveLocalCollection(collection: LocalCollection): Promise<
     JSON.stringify({ state: collection, version: CURRENT_VERSION }),
   );
 }
+
+/**
+ * Forgets this device's collection, on sign-out. Safe only because the shelves
+ * being dropped are mirrored under the account that is being signed out of, and
+ * come back on the next sign-in - see useCollection.adoptRemoteCollection().
+ */
+export async function clearLocalCollection(): Promise<void> {
+  await AsyncStorage.removeItem(STORAGE_KEY);
+}
