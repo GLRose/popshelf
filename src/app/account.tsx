@@ -17,7 +17,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ScreenHeader } from '@/components/ScreenHeader';
 import { Radius, T } from '@/constants/appTheme';
-import { sendEmailCode, verifyEmailCode, type CodeMode } from '@/lib/auth';
+import { sendEmailCode, sendSignInCode, verifyEmailCode, type CodeMode } from '@/lib/auth';
 import { supabase } from '@/lib/supabase';
 import { useAuth } from '@/store/useAuth';
 import { useCollection } from '@/store/useCollection';
@@ -143,10 +143,20 @@ function SignedIn({ email, onDone }: { email: string | null; onDone: () => void 
 
 type Step = 'email' | 'code';
 
+/**
+ * 'new'      - the user has said nothing about whether they have an account, so
+ *              sendEmailCode() works it out. The default: on a first install
+ *              the overwhelmingly common case is an unclaimed address.
+ * 'existing' - the user has told us they already have an account, typically
+ *              because this is their second device. Skips the guess entirely.
+ */
+type Intent = 'new' | 'existing';
+
 function SignIn({ onDone }: { onDone: () => void }) {
   const adoptRemoteCollection = useCollection((s) => s.adoptRemoteCollection);
 
   const [step, setStep] = useState<Step>('email');
+  const [intent, setIntent] = useState<Intent>('new');
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
   const [mode, setMode] = useState<CodeMode>('link');
@@ -161,6 +171,12 @@ function SignIn({ onDone }: { onDone: () => void }) {
     onDone();
   };
 
+  /** Switching intent invalidates whatever the previous one put on screen. */
+  const chooseIntent = (next: Intent) => {
+    setIntent(next);
+    setError(null);
+  };
+
   const send = async () => {
     if (!EMAIL_RE.test(address)) {
       setError("That doesn't look like a valid email address.");
@@ -169,7 +185,8 @@ function SignIn({ onDone }: { onDone: () => void }) {
     setBusy(true);
     setError(null);
     try {
-      const { mode: next, alreadyLinked } = await sendEmailCode(address);
+      const { mode: next, alreadyLinked } =
+        intent === 'existing' ? await sendSignInCode(address) : await sendEmailCode(address);
       setMode(next);
       if (alreadyLinked) {
         await finish();
@@ -242,16 +259,19 @@ function SignIn({ onDone }: { onDone: () => void }) {
     );
   }
 
+  const existing = intent === 'existing';
+
   return (
     <>
       <View style={styles.hero}>
         <View style={styles.heroIcon}>
-          <Ionicons name="bookmark-outline" size={26} color={T.gold} />
+          <Ionicons name={existing ? 'log-in-outline' : 'bookmark-outline'} size={26} color={T.gold} />
         </View>
-        <Text style={styles.title}>Keep your shelves forever</Text>
+        <Text style={styles.title}>{existing ? 'Welcome back' : 'Keep your shelves forever'}</Text>
         <Text style={styles.body_}>
-          Right now your figures live on this device only. Add an email and they&apos;ll survive a
-          reinstall, a new phone, or a cleared browser.
+          {existing
+            ? 'Sign in and the shelves from your account appear on this device, alongside anything already here.'
+            : "Right now your figures live on this device only. Add an email and they'll survive a reinstall, a new phone, or a cleared browser."}
         </Text>
       </View>
 
@@ -273,10 +293,23 @@ function SignIn({ onDone }: { onDone: () => void }) {
         accessibilityLabel="Email address"
       />
 
-      <PrimaryButton label="Send code" onPress={send} busy={busy} disabled={!address} />
+      <PrimaryButton
+        label={existing ? 'Sign in' : 'Send code'}
+        onPress={send}
+        busy={busy}
+        disabled={!address}
+      />
       <Text style={styles.fineprint}>
         No password. We&apos;ll email you a {CODE_LENGTH}-digit code to confirm it&apos;s you.
       </Text>
+
+      <View style={styles.switchRow}>
+        <LinkButton
+          label={existing ? 'Set up a new account instead' : 'I already have an account'}
+          onPress={() => chooseIntent(existing ? 'new' : 'existing')}
+          disabled={busy}
+        />
+      </View>
     </>
   );
 }
@@ -458,6 +491,7 @@ const styles = StyleSheet.create({
   confirmRow: { flexDirection: 'row', gap: 10 },
 
   linkRow: { flexDirection: 'row', justifyContent: 'space-between', paddingTop: 4 },
+  switchRow: { alignItems: 'center', paddingTop: 4 },
   link: { fontSize: 13, fontWeight: '700', color: T.muted },
   fineprint: { fontSize: 12, color: T.muted, textAlign: 'center', lineHeight: 17 },
 

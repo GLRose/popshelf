@@ -30,18 +30,61 @@ function client() {
 }
 
 /**
+ * Both flows below mail a 6-digit code, but only if the project's email
+ * templates render it. Supabase always mints the token and verifyOtp() always
+ * accepts it, yet the stock "Magic Link" and "Change email address" templates
+ * interpolate `{{ .ConfirmationURL }}` alone, so the user receives a link and
+ * no code. Both templates must include `{{ .Token }}`; neither should keep the
+ * URL, since the app sets detectSessionInUrl: false and registers no deep-link
+ * handler, making that link a dead end. This is dashboard state, invisible to
+ * supabase/schema.sql, and it is not something the client can detect.
+ */
+
+/**
+ * Emails a code to an address that is expected to already have an account,
+ * skipping the link attempt entirely.
+ *
+ * This is the "I already have an account" path, and it is what makes a second
+ * device work deterministically. sendEmailCode() below can only *infer* the
+ * same intent from an `email_exists` error, which assumes updateUser() reports
+ * the collision rather than swallowing it for enumeration reasons - a project
+ * setting we cannot see from here. When the user tells us outright, believe
+ * them instead of probing.
+ *
+ * Never creates a user: on a typo'd address shouldCreateUser would silently
+ * mint an empty account and strand the real one. `user_not_found` surfaces to
+ * the user as "no account exists for that email", which is the honest answer
+ * once they have claimed one exists.
+ */
+export async function sendSignInCode(email: string): Promise<CodeRequest> {
+  const sb = client();
+  await ensureAnonSession();
+
+  const { error } = await sb.auth.signInWithOtp({
+    email,
+    options: { shouldCreateUser: false },
+  });
+  if (error) throw error;
+
+  return { mode: 'signin', alreadyLinked: false };
+}
+
+/**
  * Emails a 6-digit code, choosing between linking and signing in based on
  * whether the address is already taken. Deliberately does not tell the caller
  * (or the user) which one happened before the code is verified: "is this email
- * registered?" is not a question an unauthenticated form should answer.
+ * registered?" is not a question an unprompted form should answer.
+ *
+ * Used when the user has expressed no intent either way. If they have said they
+ * already have an account, call sendSignInCode() - it does not have to guess.
  */
 export async function sendEmailCode(email: string): Promise<CodeRequest> {
   const sb = client();
   await ensureAnonSession();
 
   // Try to claim the address for the anonymous user we already are. Supabase
-  // sends a confirmation to the new address containing both a link and a
-  // 6-digit code; we verify the code below with type 'email_change'.
+  // sends a confirmation to the new address containing a 6-digit code; we
+  // verify it below with type 'email_change'.
   const { data, error } = await sb.auth.updateUser({ email });
 
   if (!error) {
@@ -54,16 +97,8 @@ export async function sendEmailCode(email: string): Promise<CodeRequest> {
 
   if (error.code !== 'email_exists') throw error;
 
-  // The address belongs to someone already. Sign in as them instead. Never
-  // create a user here: `email_exists` proves one exists, and shouldCreateUser
-  // would otherwise silently mint an empty account on a typo'd address.
-  const { error: otpError } = await sb.auth.signInWithOtp({
-    email,
-    options: { shouldCreateUser: false },
-  });
-  if (otpError) throw otpError;
-
-  return { mode: 'signin', alreadyLinked: false };
+  // The address belongs to someone already, so sign in as them instead.
+  return sendSignInCode(email);
 }
 
 export interface VerifyResult {
