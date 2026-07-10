@@ -29,6 +29,21 @@ export const supabase: SupabaseClient | null =
       })
     : null;
 
+/**
+ * A second client that shares no auth state with `supabase` above: it neither
+ * reads nor writes the persisted session. Used to act as a user we have just
+ * stopped being - see purgeCollectionAs() in src/lib/remoteCollection.ts, which
+ * cleans up an abandoned anonymous user's rows after signing in as someone
+ * else. Calling setSession() on the main client would clobber the session we
+ * just established.
+ */
+export function createDetachedClient(): SupabaseClient | null {
+  if (!url || !anonKey) return null;
+  return createClient(url, anonKey, {
+    auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
+  });
+}
+
 let lastError: AuthError | null = null;
 let reportedCode: string | undefined;
 

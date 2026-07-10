@@ -7,6 +7,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider, initialWindowMetrics } from 'react-native-safe-area-context';
 
 import { FONT_FAMILY } from '@/lib/globalFont';
+import { useAuth } from '@/store/useAuth';
 import { useCollection } from '@/store/useCollection';
 import { useUserImages } from '@/store/useUserImages';
 
@@ -24,6 +25,9 @@ export default function RootLayout() {
   }, [fontsLoaded, fontError]);
 
   useEffect(() => {
+    // Subscribe before hydrating: useCollection.hydrate() establishes the
+    // anonymous session, and the auth store should see that arrive.
+    useAuth.getState().hydrate();
     useUserImages.getState().hydrate();
     useCollection.getState().hydrate();
   }, []);
@@ -37,6 +41,7 @@ export default function RootLayout() {
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="(tabs)" />
           <Stack.Screen name="admin" options={{ presentation: 'modal' }} />
+          <Stack.Screen name="account" options={{ presentation: 'modal' }} />
         </Stack>
       </SafeAreaProvider>
     </GestureHandlerRootView>
