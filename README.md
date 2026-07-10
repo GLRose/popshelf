@@ -19,6 +19,34 @@ npm run web        # http://localhost:8081
 # npm run ios / npm run android for native
 ```
 
+## Supabase auth config
+
+Sign-in emails a verification link (`src/lib/auth.ts`), and that depends on project settings that live in the Supabase dashboard rather than in this repo.
+Get them wrong and the failure is silent, because `/auth/v1/verify` consumes the token *before* it redirects.
+A project ships with Site URL set to `http://localhost:3000`, so every link lands on a dead port, and yet an email-change link still appears to work (it mutates the user the app is already signed in as) while a magic-link sign-in does not (its session is delivered to that dead redirect and thrown away).
+That asymmetry reads as flakiness rather than as a misconfiguration.
+
+Site URL and the redirect allow list are versioned in `scripts/push-auth-config.mjs`, and pushed to the hosted project with:
+
+```bash
+SUPABASE_ACCESS_TOKEN=sbp_... npm run auth:config   # add --dry-run to preview
+```
+
+Create the token at <https://supabase.com/dashboard/account/tokens>.
+The script reads the config back afterwards to confirm it landed.
+Note that `supabase/config.toml` cannot do this job, since it only ever configures a local dev stack.
+
+The dashboard must also have **Anonymous Sign-Ins** and **Allow new users to sign up** enabled, under Authentication > Sign In / Providers.
+
+### Email delivery is not production ready
+
+Supabase's built-in email sender **only delivers to members of the project's organization**.
+Everyone else gets `Email address not authorized` and cannot sign in at all, which is invisible while testing because the person testing is always on the team.
+It is also capped at two emails per hour, and a free-tier project using it is forbidden from editing its email templates.
+
+That template lock is why this is a link flow and not a 6-digit code flow: the stock templates render `{{ .ConfirmationURL }}` and never `{{ .Token }}`, so no code can ever reach a user.
+Configuring custom SMTP under Authentication > Emails lifts all three limits at once, and is required before release.
+
 ## Deploy to Vercel
 
 `vercel.json` is already configured. Import the repo in Vercel (or `vercel --prod`). It runs `expo export --platform web` and serves the SPA from `dist/`.

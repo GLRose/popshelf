@@ -47,6 +47,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "expo lint",
+    "auth:config": "node scripts/push-auth-config.mjs",
     "build:web": "expo export --platform web",
     "catalog": "node scripts/build-catalog.mjs",
     "scrape": "node scripts/scrape.mjs",

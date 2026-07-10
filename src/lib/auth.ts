@@ -1,5 +1,6 @@
 import type { Session } from '@supabase/supabase-js';
 
+import { authRedirectTo, fragmentParams } from '@/lib/authRedirect';
 import { purgeCollectionAs } from '@/lib/remoteCollection';
 import { ensureAnonSession, supabase } from '@/lib/supabase';
 
@@ -16,11 +17,11 @@ import { ensureAnonSession, supabase } from '@/lib/supabase';
  *            we sign in as them and get a *different* auth.uid(). The device's
  *            shelves are merged up into that account afterwards.
  */
-export type CodeMode = 'link' | 'signin';
+export type LinkMode = 'link' | 'signin';
 
-export interface CodeRequest {
-  mode: CodeMode;
-  /** True when the project has email confirmations off and 'link' completed outright, so no code is coming. */
+export interface LinkRequest {
+  mode: LinkMode;
+  /** True when the project has email confirmations off and 'link' completed outright, so no mail is coming. */
   alreadyLinked: boolean;
 }
 
@@ -30,22 +31,28 @@ function client() {
 }
 
 /**
- * Both flows below mail a 6-digit code, but only if the project's email
- * templates render it. Supabase always mints the token and verifyOtp() always
- * accepts it, yet the stock "Magic Link" and "Change email address" templates
- * interpolate `{{ .ConfirmationURL }}` alone, so the user receives a link and
- * no code. Both templates must include `{{ .Token }}`; neither should keep the
- * URL, since the app sets detectSessionInUrl: false and registers no deep-link
- * handler, making that link a dead end. This is dashboard state, invisible to
- * supabase/schema.sql, and it is not something the client can detect.
+ * Both flows below mail a verification link, and the user finishes by opening
+ * it. completeAuthFromUrl() below picks the session back up when Supabase
+ * bounces them into the app.
+ *
+ * Supabase mints a 6-digit token alongside that link, and this used to be a
+ * code-entry flow. It cannot be, on this project: a free-tier project using the
+ * built-in email sender is forbidden from editing its email templates, and the
+ * stock templates render {{ .ConfirmationURL }} and never {{ .Token }}, so no
+ * code ever reaches the user. The link and the code are the same single-use
+ * token either way, so a link-only flow loses nothing.
+ *
+ * That same built-in sender also refuses to deliver to any address outside the
+ * project's organization. Until custom SMTP is configured, sign-in works for
+ * the project's own members and for nobody else.
  */
 
 /**
- * Emails a code to an address that is expected to already have an account,
- * skipping the link attempt entirely.
+ * Emails a sign-in link to an address that is expected to already have an
+ * account, skipping the link attempt entirely.
  *
  * This is the "I already have an account" path, and it is what makes a second
- * device work deterministically. sendEmailCode() below can only *infer* the
+ * device work deterministically. sendEmailLink() below can only *infer* the
  * same intent from an `email_exists` error, which assumes updateUser() reports
  * the collision rather than swallowing it for enumeration reasons - a project
  * setting we cannot see from here. When the user tells us outright, believe
@@ -56,13 +63,13 @@ function client() {
  * the user as "no account exists for that email", which is the honest answer
  * once they have claimed one exists.
  */
-export async function sendSignInCode(email: string): Promise<CodeRequest> {
+export async function sendSignInLink(email: string): Promise<LinkRequest> {
   const sb = client();
   await ensureAnonSession();
 
   const { error } = await sb.auth.signInWithOtp({
     email,
-    options: { shouldCreateUser: false },
+    options: { shouldCreateUser: false, emailRedirectTo: authRedirectTo() },
   });
   if (error) throw error;
 
@@ -70,27 +77,31 @@ export async function sendSignInCode(email: string): Promise<CodeRequest> {
 }
 
 /**
- * Emails a 6-digit code, choosing between linking and signing in based on
+ * Emails a verification link, choosing between linking and signing in based on
  * whether the address is already taken. Deliberately does not tell the caller
- * (or the user) which one happened before the code is verified: "is this email
+ * (or the user) which one happened before the link is opened: "is this email
  * registered?" is not a question an unprompted form should answer.
  *
  * Used when the user has expressed no intent either way. If they have said they
- * already have an account, call sendSignInCode() - it does not have to guess.
+ * already have an account, call sendSignInLink() - it does not have to guess.
  */
-export async function sendEmailCode(email: string): Promise<CodeRequest> {
+export async function sendEmailLink(email: string): Promise<LinkRequest> {
   const sb = client();
   await ensureAnonSession();
 
   // Try to claim the address for the anonymous user we already are. Supabase
-  // sends a confirmation to the new address containing a 6-digit code; we
-  // verify it below with type 'email_change'.
-  const { data, error } = await sb.auth.updateUser({ email });
+  // mails a confirmation to the new address; opening it lands back in
+  // completeAuthFromUrl() with type=email_change.
+  const { data, error } = await sb.auth.updateUser(
+    { email },
+    { emailRedirectTo: authRedirectTo() },
+  );
 
   if (!error) {
-    // With "Confirm email change" disabled project-side, updateUser applies
-    // immediately and no code is ever sent. Detect that rather than parking
-    // the user on a code screen forever waiting for mail that isn't coming.
+    // With "Confirm email" disabled project-side, updateUser applies
+    // immediately and no mail is ever sent. Detect that rather than parking
+    // the user on a "check your inbox" screen forever waiting for a link
+    // that isn't coming.
     const pendingConfirmation = Boolean(data.user?.new_email);
     return { mode: 'link', alreadyLinked: !pendingConfirmation };
   }
@@ -98,55 +109,86 @@ export async function sendEmailCode(email: string): Promise<CodeRequest> {
   if (error.code !== 'email_exists') throw error;
 
   // The address belongs to someone already, so sign in as them instead.
-  return sendSignInCode(email);
+  return sendSignInLink(email);
 }
 
-export interface VerifyResult {
-  userId: string;
-  /**
-   * The anonymous user we abandoned to sign in as someone else, if any. Its
-   * shelves and favorites have already been deleted by the time this returns;
-   * the device's local copy is what gets merged into the account.
-   */
-  abandonedUserId: string | null;
-}
+export type AuthLinkResult =
+  | {
+      ok: true;
+      userId: string;
+      /**
+       * The anonymous user we abandoned to sign in as someone else, if any. Its
+       * shelves and favorites have already been deleted by the time this returns;
+       * the device's local copy is what gets merged into the account.
+       */
+      abandonedUserId: string | null;
+    }
+  | { ok: false; errorCode: string | null; message: string };
 
 /**
- * Confirms the 6-digit code. On the 'signin' path this changes auth.uid(), so
- * it also clears the rows the old anonymous user owned - otherwise they would
- * collide, unfixably, with the merge that follows: shelves.id is a global
- * primary key, and RLS's `using (owner_id = auth.uid())` forbids re-owning a
- * row you no longer own, so the upsert would be denied rather than reassigned.
- *
- * The purge runs only after the code is known good, using a detached client
- * still holding the anonymous session. A wrong code must not destroy anything.
+ * Supabase states this failure as "Email link is invalid or has expired", which
+ * tells a user who clicked a link they were mailed twenty minutes ago nothing
+ * they can act on. Both codes arrive together on a spent link.
  */
-export async function verifyEmailCode(
-  email: string,
-  token: string,
-  mode: CodeMode,
-): Promise<VerifyResult> {
+const LINK_ERRORS: Record<string, string> = {
+  otp_expired: 'That link has expired or was already used. Request a new one.',
+  access_denied: 'That link has expired or was already used. Request a new one.',
+};
+
+/**
+ * Adopts the session Supabase put in the URL fragment after verifying an email
+ * link, and returns null for an ordinary launch with no link in the URL.
+ *
+ * On the 'signin' path this changes auth.uid(), so it also clears the rows the
+ * old anonymous user owned - otherwise they would collide, unfixably, with the
+ * merge that follows: shelves.id is a global primary key, and RLS's
+ * `using (owner_id = auth.uid())` forbids re-owning a row you no longer own, so
+ * the upsert would be denied rather than reassigned.
+ *
+ * The anonymous session has to be read *before* setSession() replaces it, which
+ * is also why the client sets detectSessionInUrl: false. Left to its own
+ * devices supabase-js swallows the fragment during construction, and by the
+ * time any of our code runs the identity we needed to clean up is gone.
+ */
+export async function completeAuthFromUrl(url: string): Promise<AuthLinkResult | null> {
   const sb = client();
 
-  if (mode === 'link') {
-    const { data, error } = await sb.auth.verifyOtp({ email, token, type: 'email_change' });
-    if (error) throw error;
-    if (!data.user) throw new Error('Verification returned no user');
-    return { userId: data.user.id, abandonedUserId: null };
+  const params = fragmentParams(url);
+  if (!params) return null;
+
+  if (params.error || params.error_code) {
+    const code = params.error_code ?? params.error ?? null;
+    return {
+      ok: false,
+      errorCode: code,
+      message:
+        (code && LINK_ERRORS[code]) ||
+        params.error_description ||
+        'That sign-in link did not work.',
+    };
   }
+
+  const accessToken = params.access_token;
+  const refreshToken = params.refresh_token;
+  if (!accessToken || !refreshToken) return null;
 
   const { data: before } = await sb.auth.getSession();
   const anonSession = before.session?.user.is_anonymous ? before.session : null;
 
-  const { data, error } = await sb.auth.verifyOtp({ email, token, type: 'email' });
-  if (error) throw error;
-  if (!data.user) throw new Error('Verification returned no user');
+  const { data, error } = await sb.auth.setSession({
+    access_token: accessToken,
+    refresh_token: refreshToken,
+  });
+  if (error) return { ok: false, errorCode: error.code ?? null, message: error.message };
 
-  if (anonSession && anonSession.user.id !== data.user.id) {
+  const user = data.user ?? data.session?.user;
+  if (!user) return { ok: false, errorCode: null, message: 'That link returned no user.' };
+
+  if (anonSession && anonSession.user.id !== user.id) {
     await purgeAbandonedAnon(anonSession);
-    return { userId: data.user.id, abandonedUserId: anonSession.user.id };
+    return { ok: true, userId: user.id, abandonedUserId: anonSession.user.id };
   }
-  return { userId: data.user.id, abandonedUserId: null };
+  return { ok: true, userId: user.id, abandonedUserId: null };
 }
 
 /**

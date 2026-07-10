@@ -18,9 +18,17 @@ interface AuthState {
   status: AuthStatus;
   email: string | null;
   userId: string | null;
+  /**
+   * Why the email link the user just opened failed, if it did. Set during
+   * launch, before any screen exists to be told, so it is parked here for the
+   * account screen to show whenever it opens.
+   */
+  linkError: string | null;
 
   /** Reads the current session and subscribes to future changes. Idempotent. */
   hydrate: () => void;
+  setLinkError: (message: string | null) => void;
+  clearLinkError: () => void;
   /** Signs out, drops this device's collection, and returns to a fresh anonymous identity. */
   signOut: () => Promise<void>;
 }
@@ -31,6 +39,7 @@ export const useAuth = create<AuthState>()((set) => ({
   status: supabase ? 'loading' : 'unconfigured',
   email: null,
   userId: null,
+  linkError: null,
 
   hydrate: () => {
     if (!supabase || subscribed) return;
@@ -52,6 +61,9 @@ export const useAuth = create<AuthState>()((set) => ({
       });
     });
   },
+
+  setLinkError: (message) => set({ linkError: message }),
+  clearLinkError: () => set({ linkError: null }),
 
   signOut: async () => {
     await signOutToAnon();

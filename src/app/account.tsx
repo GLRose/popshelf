@@ -17,12 +17,11 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ScreenHeader } from '@/components/ScreenHeader';
 import { Radius, T } from '@/constants/appTheme';
-import { sendEmailCode, sendSignInCode, verifyEmailCode, type CodeMode } from '@/lib/auth';
+import { sendEmailLink, sendSignInLink } from '@/lib/auth';
 import { supabase } from '@/lib/supabase';
 import { useAuth } from '@/store/useAuth';
 import { useCollection } from '@/store/useCollection';
 
-const CODE_LENGTH = 6;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
@@ -38,10 +37,15 @@ function friendlyError(e: unknown): string {
     case 'over_request_rate_limit':
       return 'Too many codes requested. Wait a minute, then try again.';
     case 'otp_expired':
-      return 'That code has expired or is wrong. Request a new one.';
+      return 'That link has expired or was already used. Request a new one.';
     case 'email_address_invalid':
     case 'validation_failed':
       return "That doesn't look like a valid email address.";
+    // Supabase's built-in email sender only delivers to members of the project's
+    // organization. Nothing the user did is wrong, and nothing they can do fixes
+    // it, so say so plainly rather than blaming their address.
+    case 'email_address_not_authorized':
+      return 'This app cannot send email to that address yet. Sign-in is still being set up.';
     case 'email_provider_disabled':
       return 'Email sign-in is turned off for this app.';
     case 'signup_disabled':
@@ -141,7 +145,7 @@ function SignedIn({ email, onDone }: { email: string | null; onDone: () => void 
   );
 }
 
-type Step = 'email' | 'code';
+type Step = 'email' | 'sent';
 
 /**
  * 'new'      - the user has said nothing about whether they have an account, so
@@ -154,27 +158,29 @@ type Intent = 'new' | 'existing';
 
 function SignIn({ onDone }: { onDone: () => void }) {
   const adoptRemoteCollection = useCollection((s) => s.adoptRemoteCollection);
+  const linkError = useAuth((s) => s.linkError);
+  const clearLinkError = useAuth((s) => s.clearLinkError);
 
   const [step, setStep] = useState<Step>('email');
   const [intent, setIntent] = useState<Intent>('new');
   const [email, setEmail] = useState('');
-  const [code, setCode] = useState('');
-  const [mode, setMode] = useState<CodeMode>('link');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const address = email.trim().toLowerCase();
 
-  /** Both paths end here: the account is settled, so fold this device's shelves into it. */
-  const finish = async () => {
-    await adoptRemoteCollection();
-    onDone();
+  /** An expired link reported by the last launch, until the user acts again. */
+  const shown = error ?? linkError;
+
+  const clearErrors = () => {
+    setError(null);
+    clearLinkError();
   };
 
   /** Switching intent invalidates whatever the previous one put on screen. */
   const chooseIntent = (next: Intent) => {
     setIntent(next);
-    setError(null);
+    clearErrors();
   };
 
   const send = async () => {
@@ -183,39 +189,29 @@ function SignIn({ onDone }: { onDone: () => void }) {
       return;
     }
     setBusy(true);
-    setError(null);
+    clearErrors();
     try {
-      const { mode: next, alreadyLinked } =
-        intent === 'existing' ? await sendSignInCode(address) : await sendEmailCode(address);
-      setMode(next);
+      const { alreadyLinked } =
+        intent === 'existing' ? await sendSignInLink(address) : await sendEmailLink(address);
+
+      // Confirmations are off project-side, so the address is already attached
+      // and no link is coming. Settle the account here instead of sending the
+      // user to an inbox that will stay empty.
       if (alreadyLinked) {
-        await finish();
+        await adoptRemoteCollection();
+        onDone();
         return;
       }
-      setCode('');
-      setStep('code');
+      setStep('sent');
     } catch (e) {
-      console.warn('Failed to send the sign-in code', e);
+      console.warn('Failed to send the sign-in link', e);
       setError(friendlyError(e));
     } finally {
       setBusy(false);
     }
   };
 
-  const verify = async () => {
-    setBusy(true);
-    setError(null);
-    try {
-      await verifyEmailCode(address, code.trim(), mode);
-      await finish();
-    } catch (e) {
-      console.warn('Failed to verify the sign-in code', e);
-      setError(friendlyError(e));
-      setBusy(false);
-    }
-  };
-
-  if (step === 'code') {
+  if (step === 'sent') {
     return (
       <>
         <View style={styles.hero}>
@@ -224,36 +220,27 @@ function SignIn({ onDone }: { onDone: () => void }) {
           </View>
           <Text style={styles.title}>Check your email</Text>
           <Text style={styles.body_}>
-            We sent a {CODE_LENGTH}-digit code to <Text style={styles.strong}>{address}</Text>.
+            We sent a sign-in link to <Text style={styles.strong}>{address}</Text>. Open it on this
+            device and your shelves will be waiting.
           </Text>
         </View>
 
-        {error && <ErrorBanner message={error} />}
+        {shown && <ErrorBanner message={shown} />}
 
-        <TextInput
-          style={[styles.input, styles.codeInput]}
-          value={code}
-          onChangeText={(t) => setCode(t.replace(/\D/g, '').slice(0, CODE_LENGTH))}
-          placeholder="000000"
-          placeholderTextColor={T.muted}
-          keyboardType="number-pad"
-          textContentType="oneTimeCode"
-          autoComplete="one-time-code"
-          autoFocus
-          maxLength={CODE_LENGTH}
-          editable={!busy}
-          accessibilityLabel="Verification code"
-        />
+        <Text style={styles.fineprint}>
+          The link works once, and expires after an hour. You can close this screen.
+        </Text>
 
-        <PrimaryButton
-          label="Verify"
-          onPress={verify}
-          busy={busy}
-          disabled={code.length < CODE_LENGTH}
-        />
         <View style={styles.linkRow}>
-          <LinkButton label="Use a different email" onPress={() => setStep('email')} disabled={busy} />
-          <LinkButton label="Resend code" onPress={send} disabled={busy} />
+          <LinkButton
+            label="Use a different email"
+            onPress={() => {
+              clearErrors();
+              setStep('email');
+            }}
+            disabled={busy}
+          />
+          <LinkButton label="Resend link" onPress={send} disabled={busy} />
         </View>
       </>
     );
@@ -275,7 +262,7 @@ function SignIn({ onDone }: { onDone: () => void }) {
         </Text>
       </View>
 
-      {error && <ErrorBanner message={error} />}
+      {shown && <ErrorBanner message={shown} />}
 
       <TextInput
         style={styles.input}
@@ -294,13 +281,13 @@ function SignIn({ onDone }: { onDone: () => void }) {
       />
 
       <PrimaryButton
-        label={existing ? 'Sign in' : 'Send code'}
+        label={existing ? 'Send sign-in link' : 'Send link'}
         onPress={send}
         busy={busy}
         disabled={!address}
       />
       <Text style={styles.fineprint}>
-        No password. We&apos;ll email you a {CODE_LENGTH}-digit code to confirm it&apos;s you.
+        No password. We&apos;ll email you a link to confirm it&apos;s you.
       </Text>
 
       <View style={styles.switchRow}>
@@ -441,14 +428,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: T.text,
   },
-  codeInput: {
-    textAlign: 'center',
-    fontSize: 28,
-    fontWeight: '800',
-    letterSpacing: 8,
-    paddingVertical: 14,
-  },
-
   primary: {
     backgroundColor: T.text,
     borderRadius: Radius.sm,
