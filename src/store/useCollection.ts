@@ -9,7 +9,7 @@ import {
   clearLocalCollection,
   loadLocalCollection,
   saveLocalCollection,
-  type LocalCollection,
+  type SyncCollection,
 } from '@/lib/localCollection';
 import { mergeCollections } from '@/lib/mergeCollection';
 import {
@@ -53,7 +53,7 @@ function defaultShelf(name = DEFAULT_SHELF_NAME, figureIds: string[] = []): Shel
  * so "is there a saved collection?" answers yes on a device that has never been
  * used, while "does it hold anything?" stays honest.
  */
-function isUntouched({ shelves, favorites }: LocalCollection): boolean {
+function isUntouched({ shelves, favorites }: SyncCollection): boolean {
   if (favorites.length > 0 || shelves.length !== 1) return false;
   const [shelf] = shelves;
   return (
@@ -77,6 +77,8 @@ interface CollectionState {
   activeShelfId: string;
   /** Favorited figure ids (independent of ownership) */
   favorites: string[];
+  /** User-saved wheel colors, shared across shelves. Device-local, not synced to Supabase. */
+  customColors: string[];
   /** Set once the initial local load has finished, so the UI can avoid a flash */
   hydrated: boolean;
 
@@ -103,6 +105,9 @@ interface CollectionState {
   moveOwned: (id: string, delta: number) => void;
   toggleFavorite: (id: string) => void;
   removeFavorite: (id: string) => void;
+  /** Add a wheel-picked hex color to the saved palette (no-op if already saved) */
+  addCustomColor: (color: string) => void;
+  removeCustomColor: (color: string) => void;
 
   /** Create a new shelf, make it active, and return its id */
   createShelf: (name: string) => string;
@@ -135,6 +140,7 @@ export const useCollection = create<CollectionState>()((set, get) => {
     shelves: [initial],
     activeShelfId: initial.id,
     favorites: [],
+    customColors: [],
     hydrated: false,
 
     hydrate: async () => {
@@ -146,6 +152,7 @@ export const useCollection = create<CollectionState>()((set, get) => {
           shelves: local.shelves,
           activeShelfId: local.activeShelfId,
           favorites: local.favorites,
+          customColors: local.customColors,
           hydrated: true,
         });
       } else {
@@ -223,7 +230,13 @@ export const useCollection = create<CollectionState>()((set, get) => {
     resetToEmpty: async () => {
       await clearLocalCollection();
       const shelf = defaultShelf();
-      set({ shelves: [shelf], activeShelfId: shelf.id, favorites: [], hydrated: true });
+      set({
+        shelves: [shelf],
+        activeShelfId: shelf.id,
+        favorites: [],
+        customColors: [],
+        hydrated: true,
+      });
     },
 
     activeShelf: () => {
@@ -293,6 +306,12 @@ export const useCollection = create<CollectionState>()((set, get) => {
       removeFavoriteRemote(id).catch((e) => console.warn('Failed to sync favorite removal', e));
     },
 
+    addCustomColor: (color) =>
+      set((s) => (s.customColors.includes(color) ? s : { customColors: [...s.customColors, color] })),
+
+    removeCustomColor: (color) =>
+      set((s) => ({ customColors: s.customColors.filter((c) => c !== color) })),
+
     createShelf: (name) => {
       const shelf = defaultShelf(name.trim() || 'New Shelf');
       set((s) => ({ shelves: [...s.shelves, shelf], activeShelfId: shelf.id }));
@@ -335,5 +354,6 @@ useCollection.subscribe((state) => {
     shelves: state.shelves,
     activeShelfId: state.activeShelfId,
     favorites: state.favorites,
+    customColors: state.customColors,
   }).catch((e) => console.warn('Failed to save collection locally', e));
 });

@@ -19,6 +19,7 @@ interface PersistedCollection {
   shelves?: Shelf[];
   activeShelfId?: string;
   favorites?: string[];
+  customColors?: string[];
   shelf?: { color?: string; background?: string };
   collection?: string[];
 }
@@ -63,10 +64,16 @@ function migrate(persisted: PersistedCollection, version: number): PersistedColl
   return persisted;
 }
 
-export interface LocalCollection {
+/** The subset of the collection that is unioned with Supabase on sign-in. */
+export interface SyncCollection {
   shelves: Shelf[];
   activeShelfId: string;
   favorites: string[];
+}
+
+export interface LocalCollection extends SyncCollection {
+  /** User-saved wheel colors, kept device-local (not synced to Supabase). */
+  customColors: string[];
 }
 
 /**
@@ -92,6 +99,7 @@ export async function loadLocalCollection(): Promise<LocalCollection | null> {
           ? migrated.activeShelfId
           : migrated.shelves[0].id,
       favorites: migrated.favorites ?? [],
+      customColors: migrated.customColors ?? [],
     };
   } catch (e) {
     console.warn('Failed to parse local collection data', e);

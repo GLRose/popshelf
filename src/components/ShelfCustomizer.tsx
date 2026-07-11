@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
-import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import ColorPicker, { BrightnessSlider, Panel3, PreviewText } from 'reanimated-color-picker';
 
 import { Ledge } from '@/components/Ledge';
@@ -8,7 +8,6 @@ import { ShelfBackground } from '@/components/ShelfBackground';
 import { Radius, T } from '@/constants/appTheme';
 import {
   SHELF_COLORS,
-  SHELF_SOLIDS,
   SHELF_TEXTURES,
   SHELF_WALLPAPERS,
   getBackground,
@@ -24,18 +23,22 @@ interface Props {
 }
 
 export function ShelfCustomizer({ visible, onClose }: Props) {
+  const { height: windowHeight } = useWindowDimensions();
   const shelves = useCollection((s) => s.shelves);
   const activeShelfId = useCollection((s) => s.activeShelfId);
+  const customColors = useCollection((s) => s.customColors);
   const setShelfColor = useCollection((s) => s.setShelfColor);
   const setShelfBackground = useCollection((s) => s.setShelfBackground);
   const setShelfTexture = useCollection((s) => s.setShelfTexture);
+  const addCustomColor = useCollection((s) => s.addCustomColor);
+  const removeCustomColor = useCollection((s) => s.removeCustomColor);
 
   const shelf = shelves.find((s) => s.id === activeShelfId) ?? shelves[0];
   const resolvedBg = getBackground(shelf.background);
   const customActive = isCustomBackground(shelf.background);
 
   const [customOpen, setCustomOpen] = useState(false);
-  // Live picker value while dragging; only committed to the store on "Set background".
+  // Live picker value while dragging; only added to the saved palette on "Save color".
   const [liveColor, setLiveColor] = useState(() =>
     resolvedBg.kind === 'solid' ? resolvedBg.color : shelf.color,
   );
@@ -43,19 +46,32 @@ export function ShelfCustomizer({ visible, onClose }: Props) {
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
       <Pressable style={styles.backdrop} onPress={onClose} />
+      {/* The cap lives on `sheet` itself as a plain number, not a '%' string.
+          A percentage maxHeight only resolves against a parent with a
+          *definite* height - sheetWrap only has a maxHeight of its own, which
+          doesn't count, so the percentage was silently ignored and the sheet
+          grew to fit all its content instead of capping and scrolling it. */}
       <View style={styles.sheetWrap} pointerEvents="box-none">
-        <View style={styles.sheet}>
+        <View style={[styles.sheet, { maxHeight: windowHeight * 0.85 }]}>
           <View style={styles.handle} />
           <View style={styles.headerRow}>
             <Text style={styles.title} numberOfLines={1}>
               Customize {shelf.name}
             </Text>
-            <Pressable onPress={onClose} hitSlop={8} style={styles.close}>
+            <Pressable
+              onPress={onClose}
+              hitSlop={8}
+              accessibilityRole="button"
+              accessibilityLabel="Close"
+              style={styles.close}>
               <Ionicons name="close" size={20} color={T.text} />
             </Pressable>
           </View>
 
-          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scroll}>
+          <ScrollView
+            style={styles.scrollView}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.scroll}>
             <Text style={styles.label}>Shelf color</Text>
             <View style={styles.swatchRow}>
               {SHELF_COLORS.map((c) => (
@@ -81,27 +97,36 @@ export function ShelfCustomizer({ visible, onClose }: Props) {
               ))}
             </View>
 
-            <Text style={styles.label}>Background</Text>
+            <View style={styles.labelRow}>
+              <Text style={styles.label}>Background</Text>
+              {customColors.length > 0 && (
+                <Text style={styles.hint}>Hold a color to remove it</Text>
+              )}
+            </View>
             <View style={styles.swatchRow}>
-              {SHELF_SOLIDS.map((b) => (
-                <BgSwatch
-                  key={b.id}
-                  background={b}
-                  selected={shelf.background === b.id}
+              {customColors.map((color) => (
+                <ColorSwatch
+                  key={color}
+                  value={color}
+                  selected={shelf.background === color}
+                  accessibilityLabel={`Saved color ${color}`}
                   onPress={() => {
-                    setShelfBackground(shelf.id, b.id);
+                    setShelfBackground(shelf.id, color);
                     setCustomOpen(false);
                   }}
+                  onLongPress={() => removeCustomColor(color)}
                 />
               ))}
               <Pressable
                 onPress={() => setCustomOpen((v) => !v)}
+                accessibilityRole="button"
+                accessibilityLabel="Pick a custom color"
                 style={[
                   styles.swatch,
                   customActive ? { backgroundColor: liveColor } : styles.customSwatch,
                   (customActive || customOpen) && styles.swatchSelected,
                 ]}>
-                {customActive ? <Check /> : <Ionicons name="color-palette-outline" size={18} color={T.muted} />}
+                {customActive ? <Check /> : <Ionicons name="eyedrop-outline" size={18} color={T.muted} />}
               </Pressable>
             </View>
 
@@ -117,12 +142,10 @@ export function ShelfCustomizer({ visible, onClose }: Props) {
                   <PreviewText style={styles.previewText} colorFormat="hex" />
                 </ColorPicker>
                 <Pressable
-                  onPress={() => {
-                    setShelfBackground(shelf.id, liveColor);
-                    setCustomOpen(false);
-                  }}
+                  onPress={() => addCustomColor(liveColor)}
+                  accessibilityRole="button"
                   style={styles.applyBtn}>
-                  <Text style={styles.applyBtnText}>Set background</Text>
+                  <Text style={styles.applyBtnText}>Save color</Text>
                 </Pressable>
               </View>
             )}
@@ -153,13 +176,23 @@ function ColorSwatch({
   value,
   selected,
   onPress,
+  onLongPress,
+  accessibilityLabel,
 }: {
   value: string;
   selected: boolean;
   onPress: () => void;
+  onLongPress?: () => void;
+  accessibilityLabel?: string;
 }) {
   return (
-    <Pressable onPress={onPress} style={[styles.swatch, { backgroundColor: value }, selected && styles.swatchSelected]}>
+    <Pressable
+      onPress={onPress}
+      onLongPress={onLongPress}
+      delayLongPress={400}
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
+      style={[styles.swatch, { backgroundColor: value }, selected && styles.swatchSelected]}>
       {selected && <Check />}
     </Pressable>
   );
@@ -177,7 +210,7 @@ function BgSwatch({
   showLabel?: boolean;
 }) {
   return (
-    <Pressable onPress={onPress} style={styles.bgSwatch}>
+    <Pressable onPress={onPress} accessibilityRole="button" style={styles.bgSwatch}>
       <ShelfBackground
         background={background}
         style={[styles.swatch, styles.swatchClip, selected && styles.swatchSelected]}>
@@ -204,7 +237,7 @@ function TextureSwatch({
   onPress: () => void;
 }) {
   return (
-    <Pressable onPress={onPress} style={styles.bgSwatch}>
+    <Pressable onPress={onPress} accessibilityRole="button" style={styles.bgSwatch}>
       <View style={[styles.textureSwatch, selected && styles.swatchSelected]}>
         <Ledge color={color} texture={texture.kind} />
       </View>
@@ -241,7 +274,6 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     alignItems: 'center',
-    maxHeight: '85%',
   },
   sheet: {
     backgroundColor: T.card,
@@ -251,8 +283,12 @@ const styles = StyleSheet.create({
     paddingBottom: 34,
     maxWidth: 560,
     width: '100%',
-    maxHeight: '100%',
+    overflow: 'hidden',
   },
+  // minHeight: 0 overrides the flexbox default of min-height: auto, which
+  // otherwise refuses to shrink a flex child below its content size on web -
+  // flexShrink: 1 alone was not enough to make this actually scroll.
+  scrollView: { flexShrink: 1, minHeight: 0 },
   scroll: { paddingBottom: 8 },
   handle: {
     alignSelf: 'center',
@@ -266,6 +302,8 @@ const styles = StyleSheet.create({
   title: { fontSize: 18, fontWeight: '800', color: T.text },
   close: { padding: 4 },
   label: { marginTop: 20, marginBottom: 10, fontSize: 13, fontWeight: '700', color: T.muted },
+  labelRow: { flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between' },
+  hint: { fontSize: 11, color: T.muted, fontStyle: 'italic' },
   swatchRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 12 },
   swatch: {
     width: 46,
