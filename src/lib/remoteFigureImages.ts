@@ -1,6 +1,6 @@
 import { Platform } from 'react-native';
 
-import { anonSessionError, ensureAnonSession, supabase } from '@/lib/supabase';
+import { currentUserId, supabase } from '@/lib/supabase';
 
 const BUCKET = 'figure-images';
 const SIGNED_URL_TTL_SECONDS = 60 * 60 * 24 * 7; // re-signed on every app launch anyway
@@ -23,19 +23,18 @@ export interface DeletableImage {
  * queued, not once approved - see supabase/schema.sql for the review flow.
  * No-ops when Supabase isn't configured.
  *
- * Submissions are owned, so this needs an auth.uid() and throws without one.
- * Every install normally has an anonymous session; a project with anonymous
- * sign-in disabled can browse approved images but not contribute.
+ * A submission is owned (figure_images.owner_id, and the owner's id in the
+ * storage path), so it needs an account and throws without one. Signed-out users
+ * can still pick an image and see it on their own shelf - useUserImages.add()
+ * keeps the local copy and reports `submitted: false` - it just stays on the
+ * device instead of going to the review queue.
  */
 export async function submitForReview(figureId: string, uri: string): Promise<void> {
   if (!supabase) return;
 
-  const ownerId = await ensureAnonSession();
+  const ownerId = await currentUserId();
   if (!ownerId) {
-    const cause = anonSessionError();
-    throw new Error(
-      `Cannot submit an image without a session to own it${cause ? `: ${cause.message}` : ''}`,
-    );
+    throw new Error('Sign in to share an image: a submission needs an account to own it.');
   }
 
   const path = `submissions/${ownerId}/${figureId}/${Date.now()}.png`;
@@ -122,7 +121,7 @@ export async function deleteImages(images: DeletableImage[]): Promise<void> {
 export async function withdrawPendingSubmissions(figureId: string): Promise<void> {
   if (!supabase) return;
 
-  const ownerId = await ensureAnonSession();
+  const ownerId = await currentUserId();
   if (!ownerId) return;
 
   const { data, error } = await supabase

@@ -17,37 +17,37 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ScreenHeader } from '@/components/ScreenHeader';
 import { Radius, T } from '@/constants/appTheme';
-import { sendEmailCode, sendSignInCode, verifyEmailCode, type CodeMode } from '@/lib/auth';
+import { MIN_PASSWORD_LENGTH } from '@/lib/auth';
 import { supabase } from '@/lib/supabase';
 import { useAuth } from '@/store/useAuth';
-import { useCollection } from '@/store/useCollection';
 
-const CODE_LENGTH = 6;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
  * Auth errors reach the user verbatim otherwise, and Supabase's wording assumes
- * you know what an OTP and an identity are. Anything unmapped keeps its own
- * message: an unfamiliar failure is more useful spelled out than flattened into
- * "something went wrong".
+ * you know what an identity and a credential grant are. Anything unmapped keeps
+ * its own message: an unfamiliar failure is more useful spelled out than
+ * flattened into "something went wrong".
  */
 function friendlyError(e: unknown): string {
   if (!isAuthError(e)) return e instanceof Error ? e.message : 'Something went wrong.';
   switch (e.code) {
-    case 'over_email_send_rate_limit':
-    case 'over_request_rate_limit':
-      return 'Too many codes requested. Wait a minute, then try again.';
-    case 'otp_expired':
-      return 'That code has expired or is wrong. Request a new one.';
+    case 'invalid_credentials':
+      return "That email and password don't match an account.";
+    case 'user_already_exists':
+    case 'email_exists':
+      return 'An account already exists for that email address. Sign in instead.';
+    case 'weak_password':
+      return `Pick a longer password - at least ${MIN_PASSWORD_LENGTH} characters.`;
+    case 'email_not_confirmed':
+      return 'Confirm your email address first, then sign in.';
     case 'email_address_invalid':
     case 'validation_failed':
       return "That doesn't look like a valid email address.";
-    case 'email_provider_disabled':
-      return 'Email sign-in is turned off for this app.';
+    case 'over_request_rate_limit':
+      return 'Too many attempts. Wait a minute, then try again.';
     case 'signup_disabled':
       return 'New accounts are turned off for this app.';
-    case 'user_not_found':
-      return 'No account exists for that email address.';
     default:
       return e.message;
   }
@@ -79,7 +79,7 @@ export default function AccountScreen() {
           {status === 'signedIn' ? (
             <SignedIn email={email} onDone={() => router.back()} />
           ) : (
-            <SignIn onDone={() => router.back()} />
+            <SignedOut onDone={() => router.back()} />
           )}
         </ScrollView>
       </KeyboardAvoidingView>
@@ -141,137 +141,101 @@ function SignedIn({ email, onDone }: { email: string | null; onDone: () => void 
   );
 }
 
-type Step = 'email' | 'code';
-
 /**
- * 'new'      - the user has said nothing about whether they have an account, so
- *              sendEmailCode() works it out. The default: on a first install
- *              the overwhelmingly common case is an unclaimed address.
- * 'existing' - the user has told us they already have an account, typically
- *              because this is their second device. Skips the guess entirely.
+ * 'signin' - the default. Over the app's life returning users outnumber new
+ *            ones, and a wrong guess costs one tap to correct.
+ * 'signup' - creating an account. Whatever shelves this device already holds
+ *            are folded into it, so nothing built before signing up is lost.
  */
-type Intent = 'new' | 'existing';
+type Mode = 'signin' | 'signup';
 
-function SignIn({ onDone }: { onDone: () => void }) {
-  const adoptRemoteCollection = useCollection((s) => s.adoptRemoteCollection);
+function SignedOut({ onDone }: { onDone: () => void }) {
+  const authSignIn = useAuth((s) => s.signIn);
+  const authSignUp = useAuth((s) => s.signUp);
 
-  const [step, setStep] = useState<Step>('email');
-  const [intent, setIntent] = useState<Intent>('new');
+  const [mode, setMode] = useState<Mode>('signin');
   const [email, setEmail] = useState('');
-  const [code, setCode] = useState('');
-  const [mode, setMode] = useState<CodeMode>('link');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [checkEmail, setCheckEmail] = useState(false);
 
   const address = email.trim().toLowerCase();
+  const signingUp = mode === 'signup';
 
-  /** Both paths end here: the account is settled, so fold this device's shelves into it. */
-  const finish = async () => {
-    await adoptRemoteCollection();
-    onDone();
-  };
-
-  /** Switching intent invalidates whatever the previous one put on screen. */
-  const chooseIntent = (next: Intent) => {
-    setIntent(next);
+  const switchMode = () => {
+    setMode(signingUp ? 'signin' : 'signup');
     setError(null);
   };
 
-  const send = async () => {
+  const submit = async () => {
     if (!EMAIL_RE.test(address)) {
       setError("That doesn't look like a valid email address.");
       return;
     }
+    // Enforced on the way in only. An existing account may predate this minimum,
+    // and rejecting its owner's correct password would lock them out of their
+    // own shelves over a rule that did not exist when they signed up.
+    if (signingUp && password.length < MIN_PASSWORD_LENGTH) {
+      setError(`Pick a password of at least ${MIN_PASSWORD_LENGTH} characters.`);
+      return;
+    }
+
     setBusy(true);
     setError(null);
     try {
-      const { mode: next, alreadyLinked } =
-        intent === 'existing' ? await sendSignInCode(address) : await sendEmailCode(address);
-      setMode(next);
-      if (alreadyLinked) {
-        await finish();
-        return;
+      if (signingUp) {
+        const { needsConfirmation } = await authSignUp(address, password);
+        if (needsConfirmation) {
+          setCheckEmail(true);
+          return;
+        }
+      } else {
+        await authSignIn(address, password);
       }
-      setCode('');
-      setStep('code');
+      onDone();
     } catch (e) {
-      console.warn('Failed to send the sign-in code', e);
+      console.warn(`Failed to ${signingUp ? 'create the account' : 'sign in'}`, e);
       setError(friendlyError(e));
     } finally {
       setBusy(false);
     }
   };
 
-  const verify = async () => {
-    setBusy(true);
-    setError(null);
-    try {
-      await verifyEmailCode(address, code.trim(), mode);
-      await finish();
-    } catch (e) {
-      console.warn('Failed to verify the sign-in code', e);
-      setError(friendlyError(e));
-      setBusy(false);
-    }
-  };
-
-  if (step === 'code') {
+  // Only reachable if "Confirm email" is turned back on in the dashboard; with
+  // it off, signUp() signs the user straight in and this screen never shows.
+  // See SignUpResult in src/lib/auth.ts.
+  if (checkEmail) {
     return (
-      <>
-        <View style={styles.hero}>
-          <View style={styles.heroIcon}>
-            <Ionicons name="mail-open-outline" size={26} color={T.gold} />
-          </View>
-          <Text style={styles.title}>Check your email</Text>
-          <Text style={styles.body_}>
-            We sent a {CODE_LENGTH}-digit code to <Text style={styles.strong}>{address}</Text>.
-          </Text>
+      <View style={styles.hero}>
+        <View style={styles.heroIcon}>
+          <Ionicons name="mail-open-outline" size={26} color={T.gold} />
         </View>
-
-        {error && <ErrorBanner message={error} />}
-
-        <TextInput
-          style={[styles.input, styles.codeInput]}
-          value={code}
-          onChangeText={(t) => setCode(t.replace(/\D/g, '').slice(0, CODE_LENGTH))}
-          placeholder="000000"
-          placeholderTextColor={T.muted}
-          keyboardType="number-pad"
-          textContentType="oneTimeCode"
-          autoComplete="one-time-code"
-          autoFocus
-          maxLength={CODE_LENGTH}
-          editable={!busy}
-          accessibilityLabel="Verification code"
-        />
-
-        <PrimaryButton
-          label="Verify"
-          onPress={verify}
-          busy={busy}
-          disabled={code.length < CODE_LENGTH}
-        />
-        <View style={styles.linkRow}>
-          <LinkButton label="Use a different email" onPress={() => setStep('email')} disabled={busy} />
-          <LinkButton label="Resend code" onPress={send} disabled={busy} />
-        </View>
-      </>
+        <Text style={styles.title}>Check your email</Text>
+        <Text style={styles.body_}>
+          Confirm <Text style={styles.strong}>{address}</Text> to finish creating your account, then
+          come back and sign in. Your shelves stay safe on this device in the meantime.
+        </Text>
+      </View>
     );
   }
-
-  const existing = intent === 'existing';
 
   return (
     <>
       <View style={styles.hero}>
         <View style={styles.heroIcon}>
-          <Ionicons name={existing ? 'log-in-outline' : 'bookmark-outline'} size={26} color={T.gold} />
+          <Ionicons
+            name={signingUp ? 'bookmark-outline' : 'log-in-outline'}
+            size={26}
+            color={T.gold}
+          />
         </View>
-        <Text style={styles.title}>{existing ? 'Welcome back' : 'Keep your shelves forever'}</Text>
+        <Text style={styles.title}>{signingUp ? 'Keep your shelves forever' : 'Welcome back'}</Text>
         <Text style={styles.body_}>
-          {existing
-            ? 'Sign in and the shelves from your account appear on this device, alongside anything already here.'
-            : "Right now your figures live on this device only. Add an email and they'll survive a reinstall, a new phone, or a cleared browser."}
+          {signingUp
+            ? "Right now your figures live on this device only. Create an account and they'll survive a reinstall, a new phone, or a cleared browser."
+            : 'Sign in and the shelves from your account appear on this device, alongside anything already here.'}
         </Text>
       </View>
 
@@ -289,24 +253,57 @@ function SignIn({ onDone }: { onDone: () => void }) {
         autoCapitalize="none"
         autoCorrect={false}
         editable={!busy}
-        onSubmitEditing={send}
         accessibilityLabel="Email address"
       />
 
+      <View style={styles.passwordRow}>
+        <TextInput
+          style={[styles.input, styles.passwordInput]}
+          value={password}
+          onChangeText={setPassword}
+          placeholder="Password"
+          placeholderTextColor={T.muted}
+          secureTextEntry={!showPassword}
+          // 'newPassword' asks the keychain / password manager to offer a strong
+          // one and save it; 'password' asks it to fill the existing entry.
+          textContentType={signingUp ? 'newPassword' : 'password'}
+          autoComplete={signingUp ? 'new-password' : 'current-password'}
+          autoCapitalize="none"
+          autoCorrect={false}
+          editable={!busy}
+          onSubmitEditing={submit}
+          accessibilityLabel="Password"
+        />
+        <Pressable
+          onPress={() => setShowPassword((v) => !v)}
+          hitSlop={8}
+          style={styles.reveal}
+          accessibilityRole="button"
+          accessibilityLabel={showPassword ? 'Hide password' : 'Show password'}>
+          <Ionicons
+            name={showPassword ? 'eye-off-outline' : 'eye-outline'}
+            size={20}
+            color={T.muted}
+          />
+        </Pressable>
+      </View>
+
       <PrimaryButton
-        label={existing ? 'Sign in' : 'Send code'}
-        onPress={send}
+        label={signingUp ? 'Create account' : 'Sign in'}
+        onPress={submit}
         busy={busy}
-        disabled={!address}
+        disabled={!address || !password}
       />
-      <Text style={styles.fineprint}>
-        No password. We&apos;ll email you a {CODE_LENGTH}-digit code to confirm it&apos;s you.
-      </Text>
+      {signingUp && (
+        <Text style={styles.fineprint}>
+          At least {MIN_PASSWORD_LENGTH} characters. The shelves on this device come with you.
+        </Text>
+      )}
 
       <View style={styles.switchRow}>
         <LinkButton
-          label={existing ? 'Set up a new account instead' : 'I already have an account'}
-          onPress={() => chooseIntent(existing ? 'new' : 'existing')}
+          label={signingUp ? 'I already have an account' : "I don't have an account yet"}
+          onPress={switchMode}
           disabled={busy}
         />
       </View>
@@ -341,11 +338,7 @@ function PrimaryButton({
       disabled={off}
       accessibilityRole="button"
       style={({ pressed }) => [styles.primary, off && styles.disabled, pressed && styles.pressed]}>
-      {busy ? (
-        <ActivityIndicator color={T.bg} />
-      ) : (
-        <Text style={styles.primaryText}>{label}</Text>
-      )}
+      {busy ? <ActivityIndicator color={T.bg} /> : <Text style={styles.primaryText}>{label}</Text>}
     </Pressable>
   );
 }
@@ -426,7 +419,13 @@ const styles = StyleSheet.create({
     backgroundColor: T.chip,
     marginBottom: 4,
   },
-  title: { fontSize: 22, fontWeight: '900', color: T.text, letterSpacing: -0.4, textAlign: 'center' },
+  title: {
+    fontSize: 22,
+    fontWeight: '900',
+    color: T.text,
+    letterSpacing: -0.4,
+    textAlign: 'center',
+  },
   body_: { fontSize: 14, color: T.muted, textAlign: 'center', lineHeight: 20 },
   strong: { color: T.text, fontWeight: '700' },
   emptyText: { fontSize: 14, color: T.muted, textAlign: 'center', lineHeight: 20 },
@@ -441,13 +440,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: T.text,
   },
-  codeInput: {
-    textAlign: 'center',
-    fontSize: 28,
-    fontWeight: '800',
-    letterSpacing: 8,
-    paddingVertical: 14,
-  },
+  passwordRow: { justifyContent: 'center' },
+  // Room for the reveal button, so a long password never runs underneath it.
+  passwordInput: { paddingRight: 48 },
+  reveal: { position: 'absolute', right: 0, paddingHorizontal: 14, paddingVertical: 13 },
 
   primary: {
     backgroundColor: T.text,
@@ -490,7 +486,6 @@ const styles = StyleSheet.create({
   confirmText: { fontSize: 13, color: T.text, lineHeight: 19 },
   confirmRow: { flexDirection: 'row', gap: 10 },
 
-  linkRow: { flexDirection: 'row', justifyContent: 'space-between', paddingTop: 4 },
   switchRow: { alignItems: 'center', paddingTop: 4 },
   link: { fontSize: 13, fontWeight: '700', color: T.muted },
   fineprint: { fontSize: 12, color: T.muted, textAlign: 'center', lineHeight: 17 },

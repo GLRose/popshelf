@@ -1,27 +1,43 @@
-import type { Session } from '@supabase/supabase-js';
-
-import { purgeCollectionAs } from '@/lib/remoteCollection';
-import { ensureAnonSession, supabase } from '@/lib/supabase';
+import { supabase } from '@/lib/supabase';
 
 /**
- * How the email a user typed is being turned into a permanent account.
+ * Email + password, and nothing else. No anonymous sessions, no emailed codes,
+ * no magic links.
  *
- * 'link'   - the address is unclaimed, so it gets attached to the anonymous
- *            user we already are. auth.uid() is preserved, which means every
- *            shelf, favorite, and submitted image row already points at the
- *            right owner and nothing has to be moved.
+ * The app is local-first: a signed-out device keeps its shelves and favorites in
+ * AsyncStorage (src/lib/localCollection.ts) and never talks to auth at all.
+ * Signing in is what gives those rows an owner, after which they sync and follow
+ * the account to any other device. So the only thing this module does is settle
+ * *who* the user is; useCollection is what moves the data.
  *
- * 'signin' - the address already belongs to a permanent user (a second device,
- *            or a reinstall after clearing storage). We cannot link to it, so
- *            we sign in as them and get a *different* auth.uid(). The device's
- *            shelves are merged up into that account afterwards.
+ * Deliberately no OTP flow. The previous one emailed a 6-digit code and had to
+ * guess, from an `email_exists` error, whether to link the address to the
+ * device's anonymous user or sign in as an existing one - two paths with
+ * different auth.uid() outcomes, one of which had to purge and re-upload the
+ * whole collection. It also depended on Supabase's built-in SMTP, which the free
+ * tier rate-limits and only delivers to project team members. Passwords need no
+ * mail server, so nothing here can be throttled or undelivered.
  */
-export type CodeMode = 'link' | 'signin';
 
-export interface CodeRequest {
-  mode: CodeMode;
-  /** True when the project has email confirmations off and 'link' completed outright, so no code is coming. */
-  alreadyLinked: boolean;
+/**
+ * Supabase enforces its own minimum (Authentication > Sign In / Providers), 6
+ * characters by default. This is checked client-side purely so the user hears
+ * about it while typing rather than after a round trip; raising the dashboard
+ * setting to match is what actually enforces it.
+ */
+export const MIN_PASSWORD_LENGTH = 8;
+
+export interface SignUpResult {
+  /**
+   * True when the project requires email confirmation, so signUp() returned no
+   * session and the user is not signed in yet.
+   *
+   * Expected to be false: with "Confirm email" off (see supabase/schema.sql),
+   * signUp() mints a session immediately and account creation is a single step.
+   * Handled anyway so that turning confirmation on - once a real SMTP provider
+   * is configured - is a dashboard change and not a code change.
+   */
+  needsConfirmation: boolean;
 }
 
 function client() {
@@ -30,146 +46,63 @@ function client() {
 }
 
 /**
- * Both flows below mail a 6-digit code, but only if the project's email
- * templates render it. Supabase always mints the token and verifyOtp() always
- * accepts it, yet the stock "Magic Link" and "Change email address" templates
- * interpolate `{{ .ConfirmationURL }}` alone, so the user receives a link and
- * no code. Both templates must include `{{ .Token }}`; neither should keep the
- * URL, since the app sets detectSessionInUrl: false and registers no deep-link
- * handler, making that link a dead end. This is dashboard state, invisible to
- * supabase/schema.sql, and it is not something the client can detect.
+ * Creates an account and, unless the project demands email confirmation, signs
+ * straight into it.
  */
-
-/**
- * Emails a code to an address that is expected to already have an account,
- * skipping the link attempt entirely.
- *
- * This is the "I already have an account" path, and it is what makes a second
- * device work deterministically. sendEmailCode() below can only *infer* the
- * same intent from an `email_exists` error, which assumes updateUser() reports
- * the collision rather than swallowing it for enumeration reasons - a project
- * setting we cannot see from here. When the user tells us outright, believe
- * them instead of probing.
- *
- * Never creates a user: on a typo'd address shouldCreateUser would silently
- * mint an empty account and strand the real one. `user_not_found` surfaces to
- * the user as "no account exists for that email", which is the honest answer
- * once they have claimed one exists.
- */
-export async function sendSignInCode(email: string): Promise<CodeRequest> {
+export async function signUp(email: string, password: string): Promise<SignUpResult> {
   const sb = client();
-  await ensureAnonSession();
-
-  const { error } = await sb.auth.signInWithOtp({
-    email,
-    options: { shouldCreateUser: false },
-  });
+  const { data, error } = await sb.auth.signUp({ email, password });
   if (error) throw error;
 
-  return { mode: 'signin', alreadyLinked: false };
-}
-
-/**
- * Emails a 6-digit code, choosing between linking and signing in based on
- * whether the address is already taken. Deliberately does not tell the caller
- * (or the user) which one happened before the code is verified: "is this email
- * registered?" is not a question an unprompted form should answer.
- *
- * Used when the user has expressed no intent either way. If they have said they
- * already have an account, call sendSignInCode() - it does not have to guess.
- */
-export async function sendEmailCode(email: string): Promise<CodeRequest> {
-  const sb = client();
-  await ensureAnonSession();
-
-  // Try to claim the address for the anonymous user we already are. Supabase
-  // sends a confirmation to the new address containing a 6-digit code; we
-  // verify it below with type 'email_change'.
-  const { data, error } = await sb.auth.updateUser({ email });
-
-  if (!error) {
-    // With "Confirm email change" disabled project-side, updateUser applies
-    // immediately and no code is ever sent. Detect that rather than parking
-    // the user on a code screen forever waiting for mail that isn't coming.
-    const pendingConfirmation = Boolean(data.user?.new_email);
-    return { mode: 'link', alreadyLinked: !pendingConfirmation };
+  // With confirmation ON, Supabase will not admit that an address is taken -
+  // signUp() succeeds with a decoy user carrying no identities rather than
+  // returning `user_already_exists`, so that signup cannot be used to enumerate
+  // accounts. Left unhandled, that decoy reads as a fresh account and parks the
+  // user on "check your email" forever, waiting for mail that only says "someone
+  // tried to sign up as you". With confirmation OFF this cannot happen (the real
+  // error comes back), which is exactly why it is worth handling here: it is the
+  // failure that would appear the day the toggle is flipped.
+  if (data.user && data.user.identities?.length === 0) {
+    throw new Error('An account already exists for that email address. Sign in instead.');
   }
 
-  if (error.code !== 'email_exists') throw error;
-
-  // The address belongs to someone already, so sign in as them instead.
-  return sendSignInCode(email);
+  return { needsConfirmation: !data.session };
 }
 
-export interface VerifyResult {
-  userId: string;
-  /**
-   * The anonymous user we abandoned to sign in as someone else, if any. Its
-   * shelves and favorites have already been deleted by the time this returns;
-   * the device's local copy is what gets merged into the account.
-   */
-  abandonedUserId: string | null;
-}
-
-/**
- * Confirms the 6-digit code. On the 'signin' path this changes auth.uid(), so
- * it also clears the rows the old anonymous user owned - otherwise they would
- * collide, unfixably, with the merge that follows: shelves.id is a global
- * primary key, and RLS's `using (owner_id = auth.uid())` forbids re-owning a
- * row you no longer own, so the upsert would be denied rather than reassigned.
- *
- * The purge runs only after the code is known good, using a detached client
- * still holding the anonymous session. A wrong code must not destroy anything.
- */
-export async function verifyEmailCode(
-  email: string,
-  token: string,
-  mode: CodeMode,
-): Promise<VerifyResult> {
+/** Signs into an existing account. */
+export async function signIn(email: string, password: string): Promise<void> {
   const sb = client();
-
-  if (mode === 'link') {
-    const { data, error } = await sb.auth.verifyOtp({ email, token, type: 'email_change' });
-    if (error) throw error;
-    if (!data.user) throw new Error('Verification returned no user');
-    return { userId: data.user.id, abandonedUserId: null };
-  }
-
-  const { data: before } = await sb.auth.getSession();
-  const anonSession = before.session?.user.is_anonymous ? before.session : null;
-
-  const { data, error } = await sb.auth.verifyOtp({ email, token, type: 'email' });
+  const { error } = await sb.auth.signInWithPassword({ email, password });
   if (error) throw error;
-  if (!data.user) throw new Error('Verification returned no user');
+}
 
-  if (anonSession && anonSession.user.id !== data.user.id) {
-    await purgeAbandonedAnon(anonSession);
-    return { userId: data.user.id, abandonedUserId: anonSession.user.id };
-  }
-  return { userId: data.user.id, abandonedUserId: null };
+/** Ends the session. The device drops back to local-only. */
+export async function signOut(): Promise<void> {
+  const sb = client();
+  const { error } = await sb.auth.signOut();
+  if (error) throw error;
 }
 
 /**
- * Best-effort: the account is already signed into and the device still holds
- * the full collection, so a failed cleanup costs some orphaned rows, not data.
- * Worth a warning, not a thrown error in the user's face.
+ * Discards a leftover anonymous session from the build that had one, so an
+ * upgrading device starts out plainly signed out rather than holding an identity
+ * with no email that it could never sign back into.
  *
- * Note that images this anonymous user submitted stay theirs (figure_images
- * .owner_id), so the signed-in user loses the ability to delete them. That is
- * inherent to joining an account from a device that was never part of it, and
- * it is why the 'link' path above is the one that preserves auth.uid().
+ * Deliberately does NOT touch the local collection, unlike the sign-out above.
+ * The shelves on this device are exactly what the anonymous user owned, they are
+ * the user's real collection, and they stay put in AsyncStorage - the first
+ * sign-up or sign-in folds them into a proper account (see
+ * useCollection.adoptRemoteCollection). Clearing them here would delete the data
+ * this whole change exists to preserve.
+ *
+ * The rows that anonymous user owned in Supabase are now unreachable; see the
+ * cleanup note at the bottom of supabase/schema.sql.
  */
-async function purgeAbandonedAnon(session: Session): Promise<void> {
-  try {
-    await purgeCollectionAs(session);
-  } catch (e) {
-    console.warn('Failed to clean up the abandoned anonymous collection', e);
-  }
-}
+export async function retireAnonymousSession(): Promise<void> {
+  if (!supabase) return;
 
-/** Ends the session and returns to a fresh anonymous identity. */
-export async function signOutToAnon(): Promise<void> {
-  const sb = client();
-  await sb.auth.signOut();
-  await ensureAnonSession();
+  const { data } = await supabase.auth.getSession();
+  if (!data.session?.user.is_anonymous) return;
+
+  await supabase.auth.signOut();
 }

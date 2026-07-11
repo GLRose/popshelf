@@ -1,9 +1,9 @@
 import { Ionicons } from '@expo/vector-icons';
-import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { AccountButton } from '@/components/AccountBar';
 import { Shelf } from '@/components/Shelf';
 import { ShelfBackground } from '@/components/ShelfBackground';
 import { ShelfCustomizer } from '@/components/ShelfCustomizer';
@@ -12,7 +12,6 @@ import { Paginator } from '@/components/Paginator';
 import { Radius, T } from '@/constants/appTheme';
 import { getBackground, getTexture } from '@/constants/palette';
 import { getFigure } from '@/data/figures';
-import { useAuth } from '@/store/useAuth';
 import { useCollection } from '@/store/useCollection';
 
 const H_PADDING = 16;
@@ -39,9 +38,7 @@ function computeRows(areaHeight: number, figureSize: number, editing: boolean, w
 }
 
 export default function ShelfScreen() {
-  const router = useRouter();
   const { width, height } = useWindowDimensions();
-  const authStatus = useAuth((s) => s.status);
   const shelves = useCollection((s) => s.shelves);
   const activeShelfId = useCollection((s) => s.activeShelfId);
   const removeOwned = useCollection((s) => s.removeOwned);
@@ -100,13 +97,7 @@ export default function ShelfScreen() {
             </Text>
           </View>
           <View style={styles.actions}>
-            {authStatus !== 'unconfigured' && (
-              <IconBtn
-                icon={authStatus === 'signedIn' ? 'person-circle' : 'person-circle-outline'}
-                onPress={() => router.push('/account')}
-                label={authStatus === 'signedIn' ? 'Account' : 'Save your shelves'}
-              />
-            )}
+            <AccountButton />
             <IconBtn
               icon="color-palette-outline"
               onPress={() => setCustomizing(true)}

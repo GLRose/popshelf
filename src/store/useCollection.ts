@@ -9,6 +9,7 @@ import {
   clearLocalCollection,
   loadLocalCollection,
   saveLocalCollection,
+  type LocalCollection,
 } from '@/lib/localCollection';
 import { mergeCollections } from '@/lib/mergeCollection';
 import {
@@ -20,14 +21,16 @@ import {
   syncCollectionToRemote,
   upsertShelfRemote,
 } from '@/lib/remoteCollection';
-import { supabase } from '@/lib/supabase';
+import { currentUserId, supabase } from '@/lib/supabase';
 import type { Shelf } from '@/types';
 
 function makeId() {
   return `shelf_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 6)}`;
 }
 
-function defaultShelf(name = 'My Shelf', figureIds: string[] = []): Shelf {
+const DEFAULT_SHELF_NAME = 'My Shelf';
+
+function defaultShelf(name = DEFAULT_SHELF_NAME, figureIds: string[] = []): Shelf {
   return {
     id: makeId(),
     name,
@@ -36,6 +39,30 @@ function defaultShelf(name = 'My Shelf', figureIds: string[] = []): Shelf {
     texture: DEFAULT_TEXTURE_ID,
     figureIds,
   };
+}
+
+/**
+ * True when the collection is still the untouched starter shelf that this store
+ * begins life with - a fresh install, or a device that has just signed out.
+ *
+ * The starter shelf is a placeholder, not a decision the user made, and telling
+ * the two apart matters at sign-in: merging a placeholder into an account leaves
+ * an empty "My Shelf" trailing behind the user's real shelves on every new
+ * device they ever sign in on. Compared by value rather than by tracking whether
+ * anything was stored, because hydrate() persists even an untouched collection -
+ * so "is there a saved collection?" answers yes on a device that has never been
+ * used, while "does it hold anything?" stays honest.
+ */
+function isUntouched({ shelves, favorites }: LocalCollection): boolean {
+  if (favorites.length > 0 || shelves.length !== 1) return false;
+  const [shelf] = shelves;
+  return (
+    shelf.figureIds.length === 0 &&
+    shelf.name === DEFAULT_SHELF_NAME &&
+    shelf.color === SHELF_COLORS[0].value &&
+    shelf.background === DEFAULT_BACKGROUND_ID &&
+    shelf.texture === DEFAULT_TEXTURE_ID
+  );
 }
 
 /** Fire-and-forget push of a shelf's current fields to Supabase. */
@@ -57,7 +84,7 @@ interface CollectionState {
   hydrate: () => Promise<void>;
   /** After a sign-in: union this device's shelves with the account's, then push the result back up */
   adoptRemoteCollection: () => Promise<void>;
-  /** After a sign-out: forget this device's collection and start over as a new anonymous user */
+  /** After a sign-out: forget this device's collection and start over empty, local-only */
   resetToEmpty: () => Promise<void>;
 
   /** The currently active shelf (falls back to the first shelf) */
@@ -111,8 +138,8 @@ export const useCollection = create<CollectionState>()((set, get) => {
     hydrated: false,
 
     hydrate: async () => {
-      // The on-device store is the source of truth: load it first so the
-      // UI never depends on Supabase being reachable or even configured.
+      // The on-device store is the source of truth: load it first so the UI
+      // never depends on Supabase being reachable, configured, or signed into.
       const local = await loadLocalCollection();
       if (local) {
         set({
@@ -125,51 +152,32 @@ export const useCollection = create<CollectionState>()((set, get) => {
         set({ hydrated: true });
       }
 
-      if (!supabase) return;
+      // Signed out is the resting state, not a failure. Without an account there
+      // is no owner for these rows, so what was just loaded is the whole story
+      // and nothing is sent anywhere.
+      if (!supabase || !(await currentUserId())) return;
 
+      // Signed in, so reconcile with the account - the same union that runs at
+      // sign-in. Doing it on every launch is what lets a shelf added on another
+      // device show up here; pushing local up unconditionally would instead
+      // overwrite the account with this device's stale view of it.
       try {
-        if (local) {
-          // Already have a local collection; keep Supabase's mirror of it current.
-          syncCollectionToRemote(local.shelves, local.activeShelfId, local.favorites).catch((e) =>
-            console.warn('Failed to sync local collection to Supabase', e),
-          );
-          return;
-        }
-
-        // First run on this device: adopt a remote collection if one exists
-        // (e.g. a reinstall), and cache it locally from now on.
-        const remote = await fetchCollection();
-        if (remote) {
-          set({
-            shelves: remote.shelves,
-            activeShelfId: remote.activeShelfId,
-            favorites: remote.favorites,
-          });
-          saveLocalCollection(remote).catch((e) =>
-            console.warn('Failed to cache remote collection locally', e),
-          );
-          return;
-        }
-
-        // Brand new install: keep the in-memory default shelf, and create it remotely.
-        const { shelves } = get();
-        upsertShelfRemote(shelves[0], true).catch((e) =>
-          console.warn('Failed to create default shelf remotely', e),
-        );
+        await get().adoptRemoteCollection();
       } catch (e) {
-        console.warn('Failed to reconcile collection with Supabase', e);
+        console.warn('Failed to reconcile the collection with Supabase', e);
       }
     },
 
     /**
-     * Called once a sign-in has settled on a final auth.uid(). Cannot lean on
-     * hydrate()'s "adopt a remote collection" branch: that only runs when the
-     * device has no local collection at all, which stops being true after the
-     * very first launch. So fetch and merge explicitly.
+     * Unions this device's shelves with the account's, in both directions, and
+     * leaves both holding the result. Called on every sign-in and sign-up, and
+     * on launch when already signed in.
      *
-     * The merge is a no-op on the 'link' path (auth.uid() was preserved, so the
-     * account's shelves *are* this device's shelves). It does the real work on
-     * the 'signin' path, where the account was built on some other device.
+     * This is what makes an account worth having, and it is the only path by
+     * which a device's shelves acquire an owner. On sign-up the account is empty
+     * and this is a plain upload of whatever the user built while signed out; on
+     * sign-in from a second device it is a real merge. Nothing is dropped either
+     * way - see src/lib/mergeCollection.ts for how collisions are settled.
      */
     adoptRemoteCollection: async () => {
       if (!supabase) return;
@@ -177,6 +185,20 @@ export const useCollection = create<CollectionState>()((set, get) => {
       const local = { shelves, activeShelfId, favorites };
 
       const remote = await fetchCollection();
+
+      // This device has nothing of its own, so take the account's collection
+      // whole. Merging instead would fold the starter shelf in as if it were
+      // real, and every fresh device would add another empty "My Shelf" to the
+      // account. Nothing is uploaded: what we just read is already up there.
+      if (remote && isUntouched(local)) {
+        set({
+          shelves: remote.shelves,
+          activeShelfId: remote.activeShelfId,
+          favorites: remote.favorites,
+        });
+        return;
+      }
+
       const merged = remote ? mergeCollections(local, remote) : local;
       set({
         shelves: merged.shelves,
@@ -192,17 +214,16 @@ export const useCollection = create<CollectionState>()((set, get) => {
     },
 
     /**
-     * Called after signing out. The shelves being dropped are safe in the
-     * account that was just left, and return on the next sign-in; what is left
-     * behind is an empty starter shelf owned by a brand-new anonymous user.
+     * Called after signing out, which drops this device back to local-only. The
+     * shelves being forgotten are safe in the account that was just left and
+     * come back on the next sign-in; keeping them on the device instead would
+     * mean the next person to sign in here inherits a stranger's collection,
+     * since adoptRemoteCollection() would merge it straight into their account.
      */
     resetToEmpty: async () => {
       await clearLocalCollection();
       const shelf = defaultShelf();
       set({ shelves: [shelf], activeShelfId: shelf.id, favorites: [], hydrated: true });
-      upsertShelfRemote(shelf, true).catch((e) =>
-        console.warn('Failed to create the post-sign-out shelf remotely', e),
-      );
     },
 
     activeShelf: () => {

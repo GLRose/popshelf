@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { FlatList, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { AccountBar } from '@/components/AccountBar';
 import { FigureCard } from '@/components/FigureCard';
 import { T } from '@/constants/appTheme';
 import { getFigure } from '@/data/figures';
@@ -23,6 +24,7 @@ export default function FavoritesScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
+      <AccountBar />
       <FlatList
         style={styles.list}
         contentContainerStyle={styles.content}
