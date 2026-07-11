@@ -2814,5 +2814,405 @@
     "name": "Poppy",
     "rarity": "regular",
     "color": "#6E8F5A"
+  },
+  {
+    "id": "skullpanda-my-little-pony-twilight-sparkle",
+    "series": "skullpanda",
+    "set": "My Little Pony",
+    "name": "Twilight Sparkle",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-my-little-pony-rainbow-dash",
+    "series": "skullpanda",
+    "set": "My Little Pony",
+    "name": "Rainbow Dash",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-my-little-pony-pinkie-pie",
+    "series": "skullpanda",
+    "set": "My Little Pony",
+    "name": "Pinkie Pie",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-my-little-pony-fluttershy",
+    "series": "skullpanda",
+    "set": "My Little Pony",
+    "name": "Fluttershy",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-my-little-pony-rarity",
+    "series": "skullpanda",
+    "set": "My Little Pony",
+    "name": "Rarity",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-my-little-pony-applejack",
+    "series": "skullpanda",
+    "set": "My Little Pony",
+    "name": "Applejack",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-my-little-pony-sunset-shimmer",
+    "series": "skullpanda",
+    "set": "My Little Pony",
+    "name": "Sunset Shimmer",
+    "rarity": "secret",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-my-little-pony-queen-chrysalis",
+    "series": "skullpanda",
+    "set": "My Little Pony",
+    "name": "Queen Chrysalis",
+    "rarity": "secret",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "skullpanda-the-feast-begins-the-dinner-knife",
+    "series": "skullpanda",
+    "set": "The Feast Begins",
+    "name": "The Dinner Knife",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-the-feast-begins-the-silver-fork",
+    "series": "skullpanda",
+    "set": "The Feast Begins",
+    "name": "The Silver Fork",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-the-feast-begins-the-caddy-spoon",
+    "series": "skullpanda",
+    "set": "The Feast Begins",
+    "name": "The Caddy Spoon",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-the-feast-begins-the-spoon-warmer",
+    "series": "skullpanda",
+    "set": "The Feast Begins",
+    "name": "The Spoon Warmer",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-the-feast-begins-the-napkin",
+    "series": "skullpanda",
+    "set": "The Feast Begins",
+    "name": "The Napkin",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-the-feast-begins-the-silver-claret-jug",
+    "series": "skullpanda",
+    "set": "The Feast Begins",
+    "name": "The Silver Claret Jug",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-the-feast-begins-the-sugar-tongs",
+    "series": "skullpanda",
+    "set": "The Feast Begins",
+    "name": "The Sugar Tongs",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-the-feast-begins-the-crumb-scoop",
+    "series": "skullpanda",
+    "set": "The Feast Begins",
+    "name": "The Crumb Scoop",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-the-feast-begins-the-aspic-server",
+    "series": "skullpanda",
+    "set": "The Feast Begins",
+    "name": "The Aspic Server",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-the-feast-begins-the-knife-rest",
+    "series": "skullpanda",
+    "set": "The Feast Begins",
+    "name": "The Knife Rest",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-the-feast-begins-the-egg-cup",
+    "series": "skullpanda",
+    "set": "The Feast Begins",
+    "name": "The Egg Cup",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-the-feast-begins-the-grape-scissors",
+    "series": "skullpanda",
+    "set": "The Feast Begins",
+    "name": "The Grape Scissors",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-the-feast-begins-fine-dining",
+    "series": "skullpanda",
+    "set": "The Feast Begins",
+    "name": "Fine Dining",
+    "rarity": "secret",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "skullpanda-petals-in-four-acts-the-fairy-s-trick",
+    "series": "skullpanda",
+    "set": "Petals in Four Acts",
+    "name": "The Fairy's Trick",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-petals-in-four-acts-the-budding-fable",
+    "series": "skullpanda",
+    "set": "Petals in Four Acts",
+    "name": "The Budding Fable",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-petals-in-four-acts-the-invitation-of-light",
+    "series": "skullpanda",
+    "set": "Petals in Four Acts",
+    "name": "The Invitation of Light",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-petals-in-four-acts-the-fatal-entwining",
+    "series": "skullpanda",
+    "set": "Petals in Four Acts",
+    "name": "The Fatal Entwining",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-petals-in-four-acts-the-vow",
+    "series": "skullpanda",
+    "set": "Petals in Four Acts",
+    "name": "The Vow",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-petals-in-four-acts-the-burning-gloom",
+    "series": "skullpanda",
+    "set": "Petals in Four Acts",
+    "name": "The Burning Gloom",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-petals-in-four-acts-the-withered-innocence",
+    "series": "skullpanda",
+    "set": "Petals in Four Acts",
+    "name": "The Withered Innocence",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-petals-in-four-acts-the-submerged-wreath",
+    "series": "skullpanda",
+    "set": "Petals in Four Acts",
+    "name": "The Submerged Wreath",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-petals-in-four-acts-the-elegiac-witness",
+    "series": "skullpanda",
+    "set": "Petals in Four Acts",
+    "name": "The Elegiac Witness",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-petals-in-four-acts-the-decay-awaited",
+    "series": "skullpanda",
+    "set": "Petals in Four Acts",
+    "name": "The Decay Awaited",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-petals-in-four-acts-the-crown-in-ashes",
+    "series": "skullpanda",
+    "set": "Petals in Four Acts",
+    "name": "The Crown in Ashes",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-petals-in-four-acts-the-threefold-requiem",
+    "series": "skullpanda",
+    "set": "Petals in Four Acts",
+    "name": "The Threefold Requiem",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-petals-in-four-acts-chronos-gardener",
+    "series": "skullpanda",
+    "set": "Petals in Four Acts",
+    "name": "Chronos' Gardener",
+    "rarity": "secret",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "skullpanda-mega-between-light-and-dark",
+    "series": "skullpanda",
+    "set": "MEGA",
+    "name": "Between Light and Dark",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-mega-clot",
+    "series": "skullpanda",
+    "set": "MEGA",
+    "name": "CLOT",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-mega-egon-schiele",
+    "series": "skullpanda",
+    "set": "MEGA",
+    "name": "Egon Schiele",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-mega-entangled",
+    "series": "skullpanda",
+    "set": "MEGA",
+    "name": "Entangled",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-mega-jean-michel-basquiat",
+    "series": "skullpanda",
+    "set": "MEGA",
+    "name": "Jean-Michel Basquiat",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-mega-mika-ninagawa",
+    "series": "skullpanda",
+    "set": "MEGA",
+    "name": "Mika Ninagawa",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-mega-red-crystal",
+    "series": "skullpanda",
+    "set": "MEGA",
+    "name": "Red Crystal",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-mega-thaw",
+    "series": "skullpanda",
+    "set": "MEGA",
+    "name": "Thaw",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-action-figure-hamcus",
+    "series": "skullpanda",
+    "set": "Action Figure",
+    "name": "HAMCUS",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-action-figure-the-unknown",
+    "series": "skullpanda",
+    "set": "Action Figure",
+    "name": "The Unknown",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-action-figure-white-dew",
+    "series": "skullpanda",
+    "set": "Action Figure",
+    "name": "White Dew",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-action-figure-komatsu-nana",
+    "series": "skullpanda",
+    "set": "Action Figure",
+    "name": "Komatsu Nana",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-action-figure-osaki-nana",
+    "series": "skullpanda",
+    "set": "Action Figure",
+    "name": "Osaki Nana",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-special-editions-lazy-panda",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Lazy Panda",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-xg",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "XG",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-punk-panda",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Punk Panda",
+    "rarity": "regular",
+    "color": "#8E9AAE"
   }
 ]
