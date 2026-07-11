@@ -202,6 +202,64 @@ const MANUAL_PEACHRIOT = [
   ]],
 ];
 
+// --- Skullpanda: manual data ----------------------------------------------
+// Series/items skullpandaworld.com does not carry (too new, or never listed
+// under /series/): the app needs the catalog data now, so each figure shows
+// the styled placeholder until a render is dropped into assets/figures/raw/
+// keyed by the figure id and scripts/scrape.mjs -> cutout -> imagemap is
+// re-run. Rosters compiled 2026-07-11 from Pop Mart product listings +
+// collector guides (popmart.com, arttoyfamilia.com, popcollectorworld.com).
+const MANUAL_SKULLPANDA = [
+  ['My Little Pony', [
+    ['Twilight Sparkle', 'regular'], ['Rainbow Dash', 'regular'], ['Pinkie Pie', 'regular'],
+    ['Fluttershy', 'regular'], ['Rarity', 'regular'], ['Applejack', 'regular'],
+    ['Sunset Shimmer', 'secret'], ['Queen Chrysalis', 'secret'],
+  ]],
+  ['The Feast Begins', [
+    ['The Dinner Knife', 'regular'], ['The Silver Fork', 'regular'], ['The Caddy Spoon', 'regular'],
+    ['The Spoon Warmer', 'regular'], ['The Napkin', 'regular'], ['The Silver Claret Jug', 'regular'],
+    ['The Sugar Tongs', 'regular'], ['The Crumb Scoop', 'regular'], ['The Aspic Server', 'regular'],
+    ['The Knife Rest', 'regular'], ['The Egg Cup', 'regular'], ['The Grape Scissors', 'regular'],
+    ['Fine Dining', 'secret'],
+  ]],
+  ['Petals in Four Acts', [
+    ["The Fairy's Trick", 'regular'], ['The Budding Fable', 'regular'], ['The Invitation of Light', 'regular'],
+    ['The Fatal Entwining', 'regular'], ['The Vow', 'regular'], ['The Burning Gloom', 'regular'],
+    ['The Withered Innocence', 'regular'], ['The Submerged Wreath', 'regular'], ['The Elegiac Witness', 'regular'],
+    ['The Decay Awaited', 'regular'], ['The Crown in Ashes', 'regular'], ['The Threefold Requiem', 'regular'],
+    ["Chronos' Gardener", 'secret'],
+  ]],
+];
+
+// --- Skullpanda: special editions ------------------------------------------
+// One-off collectibles, not blind-box sets: each has a single per-product
+// image on skullpandaworld.com (main `wp-post-image`, not a `product-grid-img`
+// grid, so scraped by hand here rather than via scrapeSkullpanda). XG and
+// Punk Panda are Japan/region exclusives skullpandaworld.com never carried;
+// no clean image source found for those two, so they ship data-only.
+const SKULLPANDA_MEGA = [
+  ['Between Light and Dark', 'https://skullpandaworld.com/wp-content/uploads/2025/06/MEGA-Between-Light-and-Dark.jpg'],
+  ['CLOT', 'https://skullpandaworld.com/wp-content/uploads/2025/06/MEGA-CLOT.jpg'],
+  ['Egon Schiele', 'https://skullpandaworld.com/wp-content/uploads/2025/05/MEGA-Egon-Schiele.jpg'],
+  ['Entangled', 'https://skullpandaworld.com/wp-content/uploads/2025/06/MEGA-Entangled.jpg'],
+  ['Jean-Michel Basquiat', 'https://skullpandaworld.com/wp-content/uploads/2025/05/MEGA-JEAN-MICHEL-BASQUIAT.jpg'],
+  ['Mika Ninagawa', 'https://skullpandaworld.com/wp-content/uploads/2025/06/MEGA-MIKA-NINAGAWA.jpg'],
+  ['Red Crystal', 'https://skullpandaworld.com/wp-content/uploads/2025/05/Red-Crystal.jpg'],
+  ['Thaw', 'https://skullpandaworld.com/wp-content/uploads/2025/06/MEGA-Thaw.jpg'],
+];
+const SKULLPANDA_ACTION_FIGURE = [
+  ['HAMCUS', 'https://skullpandaworld.com/wp-content/uploads/2025/05/HAMCUS-16-Action-Figure.jpg'],
+  ['The Unknown', 'https://skullpandaworld.com/wp-content/uploads/2025/06/The-Unknown-16-Action-Figure.jpg'],
+  ['White Dew', 'https://skullpandaworld.com/wp-content/uploads/2025/06/WHITE-DEW-Action-Figure.jpg'],
+  ['Komatsu Nana', 'https://skullpandaworld.com/wp-content/uploads/2025/06/Komatsu-Nana-Action-Figure.jpg'],
+  ['Osaki Nana', 'https://skullpandaworld.com/wp-content/uploads/2025/06/Osaki-Nana-Action-Figure.jpg'],
+];
+const SKULLPANDA_SPECIAL_EDITIONS = [
+  ['Lazy Panda', 'https://skullpandaworld.com/wp-content/uploads/2025/09/Lazy-Panda.jpg'],
+  ['XG', null],
+  ['Punk Panda', null],
+];
+
 // --- Build ----------------------------------------------------------------
 const figures = [];
 const sources = {};
@@ -256,6 +314,35 @@ for (const [label, rows] of MANUAL_PEACHRIOT) {
   const items = rows.map(([name, rarity]) => ({ name, rarity, url: null }));
   await addSeries('peachriot', slug(label), label, items);
 }
+
+// New sets must be appended here, after every existing addSeries() call above,
+// so accentIdx keeps handing out the same colors to the sets already shipped -
+// inserting earlier would reshuffle every figure's accent color on next run.
+console.log('Skullpanda (manual - data only, images pending):');
+for (const [label, rows] of MANUAL_SKULLPANDA) {
+  const items = rows.map(([name, rarity]) => ({ name, rarity, url: null }));
+  await addSeries('skullpanda', slug(label), label, items);
+}
+
+console.log('Skullpanda special editions (manual, single-item releases):');
+await addSeries(
+  'skullpanda',
+  slug('MEGA'),
+  'MEGA',
+  SKULLPANDA_MEGA.map(([name, url]) => ({ name, rarity: 'regular', url })),
+);
+await addSeries(
+  'skullpanda',
+  slug('Action Figure'),
+  'Action Figure',
+  SKULLPANDA_ACTION_FIGURE.map(([name, url]) => ({ name, rarity: 'regular', url })),
+);
+await addSeries(
+  'skullpanda',
+  slug('Special Editions'),
+  'Special Editions',
+  SKULLPANDA_SPECIAL_EDITIONS.map(([name, url]) => ({ name, rarity: 'regular', url })),
+);
 
 if (failures.length) {
   console.error('\nAborting without writing; these sets yielded no figures:');
