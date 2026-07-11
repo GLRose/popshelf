@@ -1,4 +1,4 @@
-import type { LocalCollection } from '@/lib/localCollection';
+import type { SyncCollection } from '@/lib/localCollection';
 
 /**
  * Unions a device's collection with the one already stored under the account
@@ -15,7 +15,7 @@ import type { LocalCollection } from '@/lib/localCollection';
  * sees the shelf they were looking at a moment ago; the account's other shelves
  * follow.
  */
-export function mergeCollections(local: LocalCollection, remote: LocalCollection): LocalCollection {
+export function mergeCollections(local: SyncCollection, remote: SyncCollection): SyncCollection {
   const byId = new Map(local.shelves.map((sh) => [sh.id, sh]));
   for (const shelf of remote.shelves) {
     if (!byId.has(shelf.id)) byId.set(shelf.id, shelf);
