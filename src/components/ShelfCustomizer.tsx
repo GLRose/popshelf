@@ -1,5 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
+import { useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import ColorPicker, { BrightnessSlider, Panel3, PreviewText } from 'reanimated-color-picker';
 
 import { Ledge } from '@/components/Ledge';
 import { ShelfBackground } from '@/components/ShelfBackground';
@@ -9,6 +11,8 @@ import {
   SHELF_SOLIDS,
   SHELF_TEXTURES,
   SHELF_WALLPAPERS,
+  getBackground,
+  isCustomBackground,
   type ShelfBackground as BG,
   type ShelfTexture,
 } from '@/constants/palette';
@@ -27,6 +31,14 @@ export function ShelfCustomizer({ visible, onClose }: Props) {
   const setShelfTexture = useCollection((s) => s.setShelfTexture);
 
   const shelf = shelves.find((s) => s.id === activeShelfId) ?? shelves[0];
+  const resolvedBg = getBackground(shelf.background);
+  const customActive = isCustomBackground(shelf.background);
+
+  const [customOpen, setCustomOpen] = useState(false);
+  // Live picker value while dragging; only committed to the store on "Set background".
+  const [liveColor, setLiveColor] = useState(() =>
+    resolvedBg.kind === 'solid' ? resolvedBg.color : shelf.color,
+  );
 
   return (
     <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
@@ -76,10 +88,44 @@ export function ShelfCustomizer({ visible, onClose }: Props) {
                   key={b.id}
                   background={b}
                   selected={shelf.background === b.id}
-                  onPress={() => setShelfBackground(shelf.id, b.id)}
+                  onPress={() => {
+                    setShelfBackground(shelf.id, b.id);
+                    setCustomOpen(false);
+                  }}
                 />
               ))}
+              <Pressable
+                onPress={() => setCustomOpen((v) => !v)}
+                style={[
+                  styles.swatch,
+                  customActive ? { backgroundColor: liveColor } : styles.customSwatch,
+                  (customActive || customOpen) && styles.swatchSelected,
+                ]}>
+                {customActive ? <Check /> : <Ionicons name="color-palette-outline" size={18} color={T.muted} />}
+              </Pressable>
             </View>
+
+            {customOpen && (
+              <View style={styles.pickerPanel}>
+                <ColorPicker
+                  value={liveColor}
+                  thumbSize={22}
+                  onChangeJS={(c) => setLiveColor(c.hex)}
+                  style={styles.picker}>
+                  <Panel3 style={styles.pickerWheel} renderCenterLine />
+                  <BrightnessSlider style={styles.pickerSlider} />
+                  <PreviewText style={styles.previewText} colorFormat="hex" />
+                </ColorPicker>
+                <Pressable
+                  onPress={() => {
+                    setShelfBackground(shelf.id, liveColor);
+                    setCustomOpen(false);
+                  }}
+                  style={styles.applyBtn}>
+                  <Text style={styles.applyBtnText}>Set background</Text>
+                </Pressable>
+              </View>
+            )}
 
             <Text style={styles.label}>Wallpapers</Text>
             <View style={styles.swatchRow}>
@@ -88,7 +134,10 @@ export function ShelfCustomizer({ visible, onClose }: Props) {
                   key={b.id}
                   background={b}
                   selected={shelf.background === b.id}
-                  onPress={() => setShelfBackground(shelf.id, b.id)}
+                  onPress={() => {
+                    setShelfBackground(shelf.id, b.id);
+                    setCustomOpen(false);
+                  }}
                   showLabel
                 />
               ))}
@@ -250,4 +299,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  customSwatch: {
+    backgroundColor: T.chip,
+    borderStyle: 'dashed',
+  },
+  pickerPanel: {
+    marginTop: 12,
+    padding: 16,
+    borderRadius: Radius.md,
+    backgroundColor: T.chip,
+    alignItems: 'center',
+    gap: 16,
+  },
+  picker: { alignItems: 'center', gap: 14, width: '100%', maxWidth: 240 },
+  pickerWheel: { width: 200, height: 200, borderRadius: 100 },
+  pickerSlider: { width: '100%', borderRadius: 20 },
+  previewText: { fontSize: 13, fontWeight: '700', color: T.text },
+  applyBtn: {
+    backgroundColor: T.text,
+    borderRadius: Radius.md,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+  },
+  applyBtnText: { color: T.card, fontWeight: '700', fontSize: 13 },
 });

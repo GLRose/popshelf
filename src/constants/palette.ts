@@ -1,5 +1,6 @@
 import type { ImageSourcePropType } from 'react-native';
 
+import { readableOn } from '@/lib/color';
 import type { SeriesMeta } from '@/types';
 
 /**
@@ -179,11 +180,31 @@ const LEGACY_HEX_TO_ID: Record<string, string> = {
 
 export const DEFAULT_BACKGROUND_ID = SHELF_BACKGROUNDS[0].id;
 
-/** Resolve a stored background id (or legacy hex) to its descriptor. */
+const HEX_COLOR = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i;
+
+/** Whether a string is a `#rgb` or `#rrggbb` hex color. */
+export function isHexColor(value: string): boolean {
+  return HEX_COLOR.test(value);
+}
+
+/**
+ * Resolve a stored background id to its descriptor. Falls back to a legacy
+ * hex-to-id mapping, then to a synthesized solid background for any other
+ * hex color (the user-picked custom color case), then to the default.
+ */
 export function getBackground(id: string | undefined): ShelfBackground {
   if (id && BACKGROUND_BY_ID[id]) return BACKGROUND_BY_ID[id];
   if (id && LEGACY_HEX_TO_ID[id]) return BACKGROUND_BY_ID[LEGACY_HEX_TO_ID[id]];
+  if (id && isHexColor(id)) {
+    return { id, label: 'Custom', kind: 'solid', color: id, foreground: readableOn(id) };
+  }
   return SHELF_BACKGROUNDS[0];
+}
+
+/** Whether a stored background id is a user-picked custom color, not a preset. */
+export function isCustomBackground(id: string | undefined): boolean {
+  const bg = getBackground(id);
+  return bg.kind === 'solid' && !SHELF_SOLIDS.some((s) => s.id === bg.id);
 }
 
 /** Normalize a stored value (id or legacy hex) to a canonical background id. */
