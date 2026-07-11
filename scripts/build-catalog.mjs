@@ -254,10 +254,27 @@ const SKULLPANDA_ACTION_FIGURE = [
   ['Komatsu Nana', 'https://skullpandaworld.com/wp-content/uploads/2025/06/Komatsu-Nana-Action-Figure.jpg'],
   ['Osaki Nana', 'https://skullpandaworld.com/wp-content/uploads/2025/06/Osaki-Nana-Action-Figure.jpg'],
 ];
+// Plush-pendant release calendar (2024-2026); rest of the line beyond Lazy
+// Panda/XG. No clean per-figure source found on skullpandaworld.com for any
+// of these, so all data-only for now. Roster from the user's own release
+// timeline, 2026-07-11.
 const SKULLPANDA_SPECIAL_EDITIONS = [
   ['Lazy Panda', 'https://skullpandaworld.com/wp-content/uploads/2025/09/Lazy-Panda.jpg'],
   ['XG', null],
   ['Punk Panda', null],
+  ['Gentle Edge', null],
+  ['As You Wish', null],
+  ['6kHz Panda', null],
+  ['Cage Uncage', null],
+  ['Wednesday (Academy)', null],
+  ['15th Anniversary', null],
+  ['Wednesday (Classic)', null],
+  ['Kuromi', null],
+  ['My Melody', null],
+  ['Coffee Factory', null],
+  ['Fluffy and Cozy', null],
+  ['Sharp Wisdom', null],
+  ['Rising Star', null],
 ];
 
 // --- Build ----------------------------------------------------------------

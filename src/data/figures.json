@@ -3214,5 +3214,109 @@
     "name": "Punk Panda",
     "rarity": "regular",
     "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-gentle-edge",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Gentle Edge",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-as-you-wish",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "As You Wish",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-6khz-panda",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "6kHz Panda",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-cage-uncage",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Cage Uncage",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-wednesday-academy",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Wednesday (Academy)",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-15th-anniversary",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "15th Anniversary",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-wednesday-classic",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Wednesday (Classic)",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-kuromi",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Kuromi",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-my-melody",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "My Melody",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-coffee-factory",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Coffee Factory",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-fluffy-and-cozy",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Fluffy and Cozy",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-sharp-wisdom",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Sharp Wisdom",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-rising-star",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Rising Star",
+    "rarity": "regular",
+    "color": "#8E9AAE"
   }
 ]
