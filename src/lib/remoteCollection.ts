@@ -1,7 +1,12 @@
-import type { Session } from '@supabase/supabase-js';
-
-import { createDetachedClient, ensureAnonSession, supabase } from '@/lib/supabase';
+import { currentUserId, supabase } from '@/lib/supabase';
 import type { Shelf } from '@/types';
+
+/**
+ * Every function here is a no-op when signed out: with no auth.uid() there is no
+ * owner to write rows as, and RLS would reject them anyway. That is not an error
+ * condition - a signed-out device is local-only by design, and its collection
+ * lives in src/lib/localCollection.ts until an account claims it.
+ */
 
 interface ShelfRow {
   id: string;
@@ -33,7 +38,7 @@ export interface RemoteCollection {
 /** Loads the signed-in owner's shelves + favorites. Null if unconfigured, no session, or the owner has no shelves yet. */
 export async function fetchCollection(): Promise<RemoteCollection | null> {
   if (!supabase) return null;
-  const ownerId = await ensureAnonSession();
+  const ownerId = await currentUserId();
   if (!ownerId) return null;
 
   const [{ data: shelfRows, error: shelfError }, { data: favRows, error: favError }] =
@@ -59,7 +64,7 @@ export async function fetchCollection(): Promise<RemoteCollection | null> {
 /** Upserts a single shelf's current fields (and active flag, if given). No-op when unconfigured. */
 export async function upsertShelfRemote(shelf: Shelf, isActive?: boolean): Promise<void> {
   if (!supabase) return;
-  const ownerId = await ensureAnonSession();
+  const ownerId = await currentUserId();
   if (!ownerId) return;
 
   await supabase.from('shelves').upsert({
@@ -77,18 +82,23 @@ export async function upsertShelfRemote(shelf: Shelf, isActive?: boolean): Promi
 
 export async function deleteShelfRemote(id: string): Promise<void> {
   if (!supabase) return;
+  if (!(await currentUserId())) return;
+
+  // RLS scopes the delete to the caller's own shelves, so no owner_id filter.
   await supabase.from('shelves').delete().eq('id', id);
 }
 
 /**
  * Clears is_active on every other shelf first, then sets it on the target -
  * the partial unique index (shelves_one_active_per_owner) isn't deferrable,
- * so a shelf must be deactivated before another is activated. Sequential,
- * not atomic; acceptable since collections are single-device today.
+ * so a shelf must be deactivated before another is activated. Sequential
+ * rather than atomic: two devices racing to change the active shelf could
+ * briefly leave none active, which the next fetchCollection() heals by falling
+ * back to the first shelf.
  */
 export async function setActiveShelfRemote(id: string): Promise<void> {
   if (!supabase) return;
-  const ownerId = await ensureAnonSession();
+  const ownerId = await currentUserId();
   if (!ownerId) return;
 
   await supabase.from('shelves').update({ is_active: false }).eq('owner_id', ownerId).neq('id', id);
@@ -97,7 +107,7 @@ export async function setActiveShelfRemote(id: string): Promise<void> {
 
 export async function addFavoriteRemote(figureId: string): Promise<void> {
   if (!supabase) return;
-  const ownerId = await ensureAnonSession();
+  const ownerId = await currentUserId();
   if (!ownerId) return;
 
   await supabase.from('favorites').upsert({ owner_id: ownerId, figure_id: figureId });
@@ -105,7 +115,7 @@ export async function addFavoriteRemote(figureId: string): Promise<void> {
 
 export async function removeFavoriteRemote(figureId: string): Promise<void> {
   if (!supabase) return;
-  const ownerId = await ensureAnonSession();
+  const ownerId = await currentUserId();
   if (!ownerId) return;
 
   await supabase
@@ -133,7 +143,7 @@ export async function syncCollectionToRemote(
   favorites: string[],
 ): Promise<void> {
   if (!supabase) return;
-  const ownerId = await ensureAnonSession();
+  const ownerId = await currentUserId();
   if (!ownerId) return;
 
   await supabase.from('shelves').upsert(
@@ -155,30 +165,4 @@ export async function syncCollectionToRemote(
       .from('favorites')
       .upsert(favorites.map((figureId) => ({ owner_id: ownerId, figure_id: figureId })));
   }
-}
-
-/**
- * Deletes the given session's shelves and favorites, acting as that user on a
- * detached client. Used to clear an anonymous user's rows once we have signed
- * in as somebody else and can no longer act as them (see verifyEmailCode in
- * src/lib/auth.ts). Their local copy has already been captured for the merge.
- *
- * RLS scopes both deletes to the session's own rows; the explicit owner_id
- * filter just makes that visible at the call site.
- */
-export async function purgeCollectionAs(session: Session): Promise<void> {
-  const detached = createDetachedClient();
-  if (!detached) return;
-
-  await detached.auth.setSession({
-    access_token: session.access_token,
-    refresh_token: session.refresh_token,
-  });
-  const ownerId = session.user.id;
-
-  const [{ error: shelfError }, { error: favError }] = await Promise.all([
-    detached.from('shelves').delete().eq('owner_id', ownerId),
-    detached.from('favorites').delete().eq('owner_id', ownerId),
-  ]);
-  if (shelfError || favError) throw shelfError ?? favError;
 }

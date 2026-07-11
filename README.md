@@ -10,6 +10,7 @@ Built with **Expo + Expo Router + React Native Web** so the same codebase runs o
 - **Shelf** - your collected figures sit as cutouts on a paginated shelf. Customize **shelf color** and **background**. Edit mode to remove figures.
 - **Favorites** - favorited figures kept separately, off the shelf. Unfavorite anytime.
 - **Local persistence** - collection, favorites, and shelf settings are saved on-device and restored on return.
+- **Accounts** - sign up with an email and password and your shelves follow you to any device. Optional: the app is fully usable signed out.
 
 ## Run locally
 
@@ -18,6 +19,43 @@ npm install
 npm run web        # http://localhost:8081
 # npm run ios / npm run android for native
 ```
+
+## Accounts
+
+The app is **local-first**. Shelves and favorites live in AsyncStorage and work with no account, no network, and no Supabase project at all.
+Signing in is what gives them an owner, after which they sync and survive a reinstall, a new phone, or a cleared browser.
+
+Signing in **merges** rather than replaces: the shelves on the device are unioned with the ones already in the account, in both directions, and nothing is dropped.
+That is what lets someone collect for a while, then create an account, and keep everything they built.
+Signing out returns the device to local-only and clears its copy - the account keeps it, and the next sign-in brings it back.
+
+Auth is email + password only (`src/lib/auth.ts`). There are no emailed codes, magic links, or anonymous sessions.
+
+### Supabase setup
+
+Copy `.env.example` to `.env` and fill in the URL + anon key, then run `supabase/schema.sql` in the SQL editor.
+
+Four dashboard settings under **Authentication > Sign In / Providers** are not expressible in SQL, and the app assumes them:
+
+| Setting | Value | Why |
+| --- | --- | --- |
+| Email provider | **on** | The only way in. |
+| Allow new users to sign up | **on** | Otherwise `signUp()` fails with `signup_disabled`. |
+| Confirm email | **off** | Sign-up returns a session immediately, so no mail is ever sent. |
+| Anonymous sign-ins | **off** | No longer used. |
+
+**Confirm email must be off.** The free tier's built-in SMTP is rate-limited to a handful of messages an hour and only delivers to project team members, so a confirmation requirement is not something real users can satisfy - signup fails with `over_email_send_rate_limit`.
+Turning it back on needs a custom SMTP provider, and needs no code change: the client already handles the no-session-yet result.
+
+### Testing it locally
+
+```bash
+npm run test:e2e
+```
+
+Builds the real web bundle, points it at a local stand-in for Supabase (`e2e/fake-supabase.mjs`, which enforces owner scoping the way RLS does), and drives it in a headless browser.
+Needs no Supabase project, no network, and no credentials.
+It covers the whole lifecycle - signed-out writes nothing, sign-up adopts the device's shelves, sign-out empties the device but not the account, a second device merges, a reinstall restores - plus the upgrade path for a device still holding an anonymous session from an older build.
 
 ## Deploy to Vercel
 

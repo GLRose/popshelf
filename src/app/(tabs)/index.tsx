@@ -3,6 +3,7 @@ import { useMemo, useRef, useState } from 'react';
 import { SectionList, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { AccountBar } from '@/components/AccountBar';
 import { FigureCard } from '@/components/FigureCard';
 import { SeriesToggle } from '@/components/SeriesToggle';
 import { SetFilter } from '@/components/SetFilter';
@@ -81,6 +82,7 @@ export default function BrowseScreen() {
 
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
+      <AccountBar />
       <SectionList
         style={styles.list}
         contentContainerStyle={styles.content}

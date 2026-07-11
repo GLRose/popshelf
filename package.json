@@ -38,6 +38,7 @@
     "eslint": "^9.0.0",
     "eslint-config-expo": "~57.0.0",
     "jimp": "^1.6.1",
+    "playwright": "^1.61.1",
     "typescript": "~6.0.3"
   },
   "scripts": {
@@ -47,6 +48,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "expo lint",
+    "test:e2e": "node e2e/run.mjs",
     "build:web": "expo export --platform web",
     "catalog": "node scripts/build-catalog.mjs",
     "scrape": "node scripts/scrape.mjs",

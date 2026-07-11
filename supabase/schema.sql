@@ -1,31 +1,63 @@
 -- Run this once in the Supabase SQL editor (Dashboard > SQL Editor > New query)
 -- for your project. It sets up the shared store for user-submitted figure
--- images: a table tracking submissions + their approval status, a private
--- storage bucket for the actual image bytes, and RLS policies.
+-- images (a table tracking submissions + their approval status, a private
+-- storage bucket for the bytes), the shelves/favorites an account owns, and the
+-- RLS policies over both.
 --
--- No auth/permissions yet - this app has no login, and until release the
--- moderation screen is only ever used by Garrett himself. The moderation
--- policies here (read pending/rejected, flip status, DELETE rows and objects)
--- cover both 'anon' and 'authenticated', which means any client can approve or
--- destroy any image.
--- Before release, this needs real access control on the moderation actions.
 --
--- Why both roles, and not just 'anon': a regular user of this app is NOT the
--- 'anon' role. Every install opens a Supabase anonymous session at startup
--- (ensureAnonSession in src/lib/supabase.ts, added for shelves/favorites),
--- and an anonymous session is a real authenticated user - a genuine
--- auth.uid() with the 'authenticated' role, just no email/password. Once that
--- session exists, supabase-js sends its access token in place of the anon key
--- on every rest + storage request (SupabaseClient._getAccessToken returns
--- `session?.access_token ?? supabaseKey`), so policies granted only `to anon`
--- stop matching and reads and moderation all fail. 'anon' is kept alongside
--- 'authenticated' so those still work on installs where anonymous sign-in is
--- disabled or fails and no session is ever created.
+-- DASHBOARD SETTINGS THIS SCHEMA ASSUMES
+-- ======================================
+-- None of these can be set from SQL. Authentication > Sign In / Providers:
 --
--- Submitting is the exception: it is 'authenticated' only. A submission is
--- owned (figure_images.owner_id, and the owner's id in the storage path), and
--- there is no owner without an auth.uid(). So an install with no session can
--- still browse approved images, it just can't contribute one.
+--   Email provider .......... ON   The only way in. Sign-up and sign-in are
+--                                  email + password; see src/lib/auth.ts.
+--   Allow new users to sign up  ON   Otherwise signUp() fails with
+--                                  `signup_disabled` and nobody can register.
+--   Confirm email ........... OFF  signUp() then returns a session immediately
+--                                  and account creation is a single step, with
+--                                  no mail sent at all. This is deliberate: the
+--                                  free tier's built-in SMTP is rate-limited to
+--                                  a handful of messages an hour and only
+--                                  delivers to project team members, so a
+--                                  confirmation requirement is not something
+--                                  real users can actually satisfy. Turning it
+--                                  back on requires a custom SMTP provider, and
+--                                  needs no code change - the client already
+--                                  handles the no-session-yet result (see
+--                                  SignUpResult in src/lib/auth.ts).
+--   Anonymous sign-ins ...... OFF  No longer used. Sessions belong to accounts.
+--
+--
+-- WHO THE POLICIES BELOW ARE TALKING ABOUT
+-- ========================================
+-- Two kinds of user, both first-class:
+--
+--   'anon'          - signed out. Real people, most of the time: the app is
+--                     local-first, and shelves live in AsyncStorage until an
+--                     account claims them (src/lib/localCollection.ts). They
+--                     browse the catalog and see approved images. They own no
+--                     rows, because there is no auth.uid() to own them.
+--   'authenticated' - signed in with email + password. Owns shelves, favorites,
+--                     and image submissions, all keyed by auth.uid().
+--
+-- supabase-js sends the anon key when signed out and the session's access token
+-- when signed in (SupabaseClient._getAccessToken returns
+-- `session?.access_token ?? supabaseKey`), which is what selects between the two
+-- roles. So anything a *browsing* user must be able to read has to name both -
+-- granting only `to authenticated` locks out every signed-out visitor, and
+-- granting only `to anon` locks out every signed-in one.
+--
+-- Submitting an image is 'authenticated' only, on purpose. A submission is owned
+-- (figure_images.owner_id, and the owner's id in the storage path), and there is
+-- no owner without an auth.uid(). A signed-out user can still pick an image and
+-- see it on their own shelf; it just stays on their device instead of reaching
+-- the review queue (see useUserImages.add).
+--
+-- Moderation is still unguarded: the policies here (read pending/rejected, flip
+-- status, DELETE rows and objects) cover both roles, which means any client can
+-- approve or destroy any image. Until release the moderation screen is only ever
+-- used by Garrett. Before release this needs real access control - now that
+-- accounts exist, an `admins` table keyed by auth.uid() is finally possible.
 
 -- 'rejected' is a tombstone, not an archive: it means "this row and its bytes
 -- are pending deletion". Nothing reads rejected rows. The client deletes the
@@ -219,12 +251,16 @@ grant execute on function public.approve_figure_image(uuid) to anon, authenticat
 -- replacement purges the one it displaced too.
 -- See src/app/admin.tsx and src/lib/adminModeration.ts.
 
--- Shelves + favorites: the app's collection data, formerly AsyncStorage-only
--- (key 'popshelf-v1'), now the source of truth here. There's still no login
--- for regular users, so each install signs in via Supabase anonymous auth
--- (a real auth.uid(), just no email/password) and owns its rows under that
--- id. This requires enabling "Anonymous Sign-Ins" in the dashboard under
--- Authentication > Sign In / Providers - it can't be turned on from SQL.
+-- Shelves + favorites: the app's collection data. The on-device copy (the
+-- AsyncStorage key 'popshelf-v1', src/lib/localCollection.ts) stays the source
+-- of truth for the device that made it, so the app works signed out and offline;
+-- these tables are what make a collection outlive the device it was built on.
+--
+-- Rows appear here only once a user signs in. That sign-in unions the device's
+-- shelves with whatever the account already holds, in both directions, and
+-- leaves both sides holding the result - see useCollection.adoptRemoteCollection
+-- and src/lib/mergeCollection.ts. Nothing is dropped in a merge, which is what
+-- lets a user build a collection before ever creating an account and keep it.
 -- See src/store/useCollection.ts and src/lib/remoteCollection.ts.
 
 create table if not exists public.shelves (
@@ -265,9 +301,10 @@ alter table public.favorites enable row level security;
 drop policy if exists "owner can manage own shelves" on public.shelves;
 drop policy if exists "owner can manage own favorites" on public.favorites;
 
--- RLS targets `authenticated`, not `anon`: anonymous Supabase sessions are
--- authenticated users with a real auth.uid(), so this correctly scopes each
--- owner to their own rows only.
+-- 'authenticated' only, and scoped to the caller's own rows. A signed-out user
+-- has no auth.uid() and so cannot own, read, or write a shelf here at all; their
+-- collection lives on their device until they sign in. This is the one place
+-- where NOT naming 'anon' is the whole point.
 create policy "owner can manage own shelves"
   on public.shelves for all
   to authenticated
@@ -279,3 +316,39 @@ create policy "owner can manage own favorites"
   to authenticated
   using (owner_id = auth.uid())
   with check (owner_id = auth.uid());
+
+
+-- CLEANING UP THE ANONYMOUS USERS THIS SCHEMA USED TO CREATE
+-- =========================================================
+-- Earlier builds signed every install in anonymously, so auth.users holds a row
+-- per install, each owning that device's shelves and favorites. Those users are
+-- now unreachable: the app no longer creates them, and it signs out of any it
+-- finds still persisted on a device (retireAnonymousSession in src/lib/auth.ts).
+-- Nobody can ever log back into one, so their shelves are dead rows.
+--
+-- No data is lost by removing them. The shelves they own are a *mirror* of what
+-- is still sitting in AsyncStorage on the device that made them; that device
+-- keeps displaying its collection while signed out, and folds it into a real
+-- account on the first sign-in.
+--
+-- This is left commented out because it is destructive and irreversible, and
+-- because it is only correct once the new build is the one your users are
+-- running. Run it in the SQL editor when you are ready.
+--
+-- The two statements must run in this order. figure_images.owner_id is
+-- `on delete cascade`, so deleting these users would take their *approved*
+-- community images with them - images that belong to everyone now and are
+-- cached on other people's devices. Detaching them first (owner_id = null, the
+-- same state as rows submitted before ownership existed) means the cascade only
+-- reaches the pending submissions of users who can no longer be reviewed anyway.
+--
+--   update public.figure_images
+--     set owner_id = null
+--     where status = 'approved'
+--       and owner_id in (select id from auth.users where is_anonymous);
+--
+--   delete from auth.users where is_anonymous;
+--
+-- Shelves and favorites cascade away with the users. To see what would go first:
+--
+--   select count(*) from auth.users where is_anonymous;

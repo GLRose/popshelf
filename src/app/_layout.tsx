@@ -25,8 +25,9 @@ export default function RootLayout() {
   }, [fontsLoaded, fontError]);
 
   useEffect(() => {
-    // Subscribe before hydrating: useCollection.hydrate() establishes the
-    // anonymous session, and the auth store should see that arrive.
+    // Subscribe before hydrating: useCollection.hydrate() decides whether to
+    // touch Supabase at all based on whether a persisted session restored, and
+    // the auth store should be listening when that lands.
     useAuth.getState().hydrate();
     useUserImages.getState().hydrate();
     useCollection.getState().hydrate();
