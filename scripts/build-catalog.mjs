@@ -234,9 +234,15 @@ const MANUAL_SKULLPANDA = [
 // --- Skullpanda: special editions ------------------------------------------
 // One-off collectibles, not blind-box sets: each has a single per-product
 // image on skullpandaworld.com (main `wp-post-image`, not a `product-grid-img`
-// grid, so scraped by hand here rather than via scrapeSkullpanda). XG and
-// Punk Panda are Japan/region exclusives skullpandaworld.com never carried;
-// no clean image source found for those two, so they ship data-only.
+// grid, so scraped by hand here rather than via scrapeSkullpanda). Entries
+// below with a `null` image are region exclusives, resale-only, or otherwise
+// never carried on skullpandaworld.com; no clean image source found, so they
+// ship data-only until a render is added by hand.
+// Additional rows (Van Gogh Museum Sunflowers/White Moon MEGA; Ducati/Guo Pei
+// action figures; Celestial Horse through Breath of Veil special editions)
+// compiled 2026-07-12 from popmart.com official product pages plus at least
+// one independent secondary source each (arttoyfamilia.com, stockx.com,
+// whoopea.com, ebay.com, or trade press such as licenseglobal.com/siliconera.com).
 const SKULLPANDA_MEGA = [
   ['Between Light and Dark', 'https://skullpandaworld.com/wp-content/uploads/2025/06/MEGA-Between-Light-and-Dark.jpg'],
   ['CLOT', 'https://skullpandaworld.com/wp-content/uploads/2025/06/MEGA-CLOT.jpg'],
@@ -246,6 +252,12 @@ const SKULLPANDA_MEGA = [
   ['Mika Ninagawa', 'https://skullpandaworld.com/wp-content/uploads/2025/06/MEGA-MIKA-NINAGAWA.jpg'],
   ['Red Crystal', 'https://skullpandaworld.com/wp-content/uploads/2025/05/Red-Crystal.jpg'],
   ['Thaw', 'https://skullpandaworld.com/wp-content/uploads/2025/06/MEGA-Thaw.jpg'],
+  // Released Aug 2025 (popmart.com/us/products/3082 + /3542, 400%/1000%); confirmed via
+  // Amazon, Urban Outfitters, and POP MART Global's own announcement post.
+  ['Van Gogh Museum Sunflowers', null],
+  // Released Nov 27 2025 (popmart.com/us/products/4256); confirmed via eBay, StockX,
+  // Urban Outfitters, and Whoopea.
+  ['White Moon', null],
 ];
 const SKULLPANDA_ACTION_FIGURE = [
   ['HAMCUS', 'https://skullpandaworld.com/wp-content/uploads/2025/05/HAMCUS-16-Action-Figure.jpg'],
@@ -253,11 +265,59 @@ const SKULLPANDA_ACTION_FIGURE = [
   ['White Dew', 'https://skullpandaworld.com/wp-content/uploads/2025/06/WHITE-DEW-Action-Figure.jpg'],
   ['Komatsu Nana', 'https://skullpandaworld.com/wp-content/uploads/2025/06/Komatsu-Nana-Action-Figure.jpg'],
   ['Osaki Nana', 'https://skullpandaworld.com/wp-content/uploads/2025/06/Osaki-Nana-Action-Figure.jpg'],
+  // Released Nov 13-14 2025 (popmart.com/us/products/4259); confirmed via POP MART US's
+  // own X/Twitter announcement, StockX, and Art Toy Familia.
+  ['Ducati', null],
+  // Confirmed via popmart.com/us/products/5963 and popmart.com/gb, POP MART US's own
+  // Instagram post, StockX, eBay, and Whoopea.
+  ['Guo Pei', null],
 ];
 const SKULLPANDA_SPECIAL_EDITIONS = [
   ['Lazy Panda', 'https://skullpandaworld.com/wp-content/uploads/2025/09/Lazy-Panda.jpg'],
   ['XG', null],
   ['Punk Panda', null],
+  // Lunar New Year (Year of the Horse) release, Jan 15 2026 (popmart.com/us/products/5665);
+  // confirmed via StockX, Art Toy Familia, and Whoopea.
+  ['Celestial Horse', null],
+  // China-exclusive non-blind-box release, May 16 2024 (missed by the prior compile);
+  // confirmed via StockX, Art Toy Familia, and CBR.com.
+  ['Sailor Moon', null],
+  // Sanrio crossover plush pendants, released Dec 25 2025 (popmart.com/us/products/5214
+  // and /5215, sold separately, not blind-boxed); confirmed via Siliconera and The Pop Insider.
+  ['Kuromi', null],
+  ['My Melody', null],
+  // Released Sept 2025; confirmed via Art Toy Familia, eBay, and Mercari.
+  ['Crocs OOTD', null],
+  // Uniqlo UT collab figurine, launched China Mar 2025 / global Apr 2025; confirmed via
+  // Art Toy Familia, SNKRDUNK, and Uniqlo's own product pages.
+  ['A Tulip Invitation', null],
+  // Limited-run pair released Oct 18 2024 (199pc / 399pc runs); confirmed via
+  // Art Toy Familia, eBay, and Instagram.
+  ['Ripples of Echo', null],
+  ['In Silence', null],
+  // Confirmed via popmart.com/my/products/321 (Club Man), Mindzai and TOYSEZ (Shopaholic,
+  // limited to 200 pcs), and eBay for both.
+  ['Club Man', null],
+  ['Shopaholic', null],
+  // White Maid released Aug 25 2021 (popmart.com/us/products/141); Dark Maid is its
+  // paired overseas-exclusive variant. Confirmed via eBay, ETTV, Trampt, and Extreme Kawaii.
+  ['Dark Maid', null],
+  ['White Maid', null],
+  // Thailand region-exclusive plush, released Dec 5 2024; confirmed via StockX,
+  // Whoopea, and Art Toy Familia.
+  ['As You Wish', null],
+  // Australia region-exclusive, 2025; confirmed via Pushas, Art Toy Familia, and TOYSEZ.
+  ['Breath of Veil', null],
+  // Europe-exclusive plush, released Feb 28 2025 (popmart.com/de/products/1734); confirmed
+  // via POP MART Global's own announcement, StockX, Whoopea, and Pushas.
+  ['6kHz', null],
+  // Standalone ~10cm light-up figure, released Sept 25 2025 (popmart.com/us/products/3793);
+  // distinct from the larger "White Moon" MEGA release above. Confirmed via popmart.com,
+  // eBay, and StockX.
+  ['Covenant of the White Moon', null],
+  // Valentine's Day 2025 limited edition, ~3.94in (popmart.com/us/products/1929); confirmed
+  // via popmart.com, Amazon, and StockX.
+  ['Aisling', null],
 ];
 
 // --- Build ----------------------------------------------------------------

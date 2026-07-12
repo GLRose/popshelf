@@ -3152,6 +3152,22 @@
     "color": "#6FB2A0"
   },
   {
+    "id": "skullpanda-mega-van-gogh-museum-sunflowers",
+    "series": "skullpanda",
+    "set": "MEGA",
+    "name": "Van Gogh Museum Sunflowers",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "skullpanda-mega-white-moon",
+    "series": "skullpanda",
+    "set": "MEGA",
+    "name": "White Moon",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
     "id": "skullpanda-action-figure-hamcus",
     "series": "skullpanda",
     "set": "Action Figure",
@@ -3192,6 +3208,22 @@
     "color": "#556070"
   },
   {
+    "id": "skullpanda-action-figure-ducati",
+    "series": "skullpanda",
+    "set": "Action Figure",
+    "name": "Ducati",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "skullpanda-action-figure-guo-pei",
+    "series": "skullpanda",
+    "set": "Action Figure",
+    "name": "Guo Pei",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
     "id": "skullpanda-special-editions-lazy-panda",
     "series": "skullpanda",
     "set": "Special Editions",
@@ -3212,6 +3244,142 @@
     "series": "skullpanda",
     "set": "Special Editions",
     "name": "Punk Panda",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-celestial-horse",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Celestial Horse",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-sailor-moon",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Sailor Moon",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-kuromi",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Kuromi",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-my-melody",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "My Melody",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-crocs-ootd",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Crocs OOTD",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-a-tulip-invitation",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "A Tulip Invitation",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-ripples-of-echo",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Ripples of Echo",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-in-silence",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "In Silence",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-club-man",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Club Man",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-shopaholic",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Shopaholic",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-dark-maid",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Dark Maid",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-white-maid",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "White Maid",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-as-you-wish",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "As You Wish",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-breath-of-veil",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Breath of Veil",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-6khz",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "6kHz",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-covenant-of-the-white-moon",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Covenant of the White Moon",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "skullpanda-special-editions-aisling",
+    "series": "skullpanda",
+    "set": "Special Editions",
+    "name": "Aisling",
     "rarity": "regular",
     "color": "#8E9AAE"
   }
