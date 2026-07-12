@@ -320,6 +320,124 @@ const SKULLPANDA_SPECIAL_EDITIONS = [
   ['Aisling', null],
 ];
 
+// --- Hirono: manual data ---------------------------------------------------
+// No dedicated collector-database site is scraped for Hirono yet (unlike
+// skullpandaworld.com/thetoypool.com above), so every set ships data-only
+// until a render source is picked and scripts/scrape.mjs grows a Hirono path.
+// Roster compiled 2026-07-12 via the figure-researcher agent, cross-checked
+// against hironoworld.com, arttoyfamilia.com, popmart.com product pages, and
+// resale listings (stockx.com/ebay.com/mercari.com) - at least 2 sources per set.
+const MANUAL_HIRONO = [
+  ['The Other One', [
+    ['Vagrancy', 'regular'], ['Cuckoo', 'regular'], ['The Ghost', 'regular'],
+    ['Nowhere Safe', 'regular'], ['Raving', 'regular'], ['Being Alive', 'regular'],
+    ['The Monster', 'regular'], ['Amnesia', 'regular'], ['The Crow', 'regular'],
+    ['The Fox', 'regular'], ['Staring', 'regular'], ['Marionette', 'regular'],
+    ['Dreaming', 'secret'],
+  ]],
+  ['Little Mischief', [
+    ['Ragpicker', 'regular'], ['Destroyer', 'regular'], ['Robot', 'regular'],
+    ['Boiling Frog', 'regular'], ['Float', 'regular'], ['The Aviator', 'regular'],
+    ['Birdman', 'regular'], ['Loose Fish', 'regular'], ['Pretender', 'regular'],
+    ['Persona', 'regular'], ['Manacle', 'regular'], ['Protector', 'regular'],
+    ['Unknown Journey', 'secret'],
+  ]],
+  ['City of Mercy', [
+    ['Fallen Angel', 'regular'], ['Comfortably Numb', 'regular'], ['Healer', 'regular'],
+    ['Insight', 'regular'], ['The Other', 'regular'], ['Echo', 'regular'],
+    ['Belonging', 'secret'],
+  ]],
+  ['Mime', [
+    ['Guardian', 'regular'], ['Blind', 'regular'], ['Seeker', 'regular'],
+    ['Devilry', 'regular'], ['Drifter', 'regular'], ['Fool', 'regular'],
+    ['Patience', 'regular'], ['Unspoken', 'regular'], ['Prison', 'regular'],
+    ['Destroy', 'regular'], ['Poem', 'regular'], ['Secrecy', 'regular'],
+    ['Silent', 'secret'],
+  ]],
+  ['Reshape', [
+    ['Burst', 'regular'], ['Woodcarving', 'regular'], ['Fading', 'regular'],
+    ['Healing', 'regular'], ['Paradise Lost', 'regular'], ['Drowning', 'regular'],
+    ['Costume', 'regular'], ['Parasite', 'regular'], ['Voyage', 'regular'],
+    ['Puppet', 'secret'],
+  ]],
+  ['Shelter', [
+    ['Candleholder', 'regular'], ['Mantel Clock', 'regular'], ['Poet', 'regular'],
+    ['Traffic Cone', 'regular'], ['Fort', 'regular'], ['Circus', 'regular'],
+    ['Cabin', 'regular'], ['Birdy', 'regular'], ['Alien', 'regular'],
+    ['Warrior', 'regular'], ['Sunny Doll', 'regular'], ['Bird Cage', 'regular'],
+    ['Stuffed Bear', 'secret'],
+  ]],
+  ['Hirono × Le Petit Prince', [
+    ['The King', 'regular'], ['The Conceited Man', 'regular'], ['The Tippler', 'regular'],
+    ['The Businessman', 'regular'], ['The Lamplighter', 'regular'], ['The Geographer', 'regular'],
+    ['The Fox', 'regular'], ['The Rose', 'regular'], ['The Snake', 'regular'],
+    ['The Little Prince', 'regular'], ['The Merchant', 'regular'], ['The Switchman', 'regular'],
+    ['The Pilot', 'secret'], ['The Little Prince (Special Edition)', 'secret'],
+  ]],
+  ['Hirono × CLOT', [
+    ['Yin-Yang', 'regular'], ['Kung Fu', 'regular'], ['Alienegra', 'regular'],
+    ['Chinese', 'regular'], ['Terracotta Army', 'regular'], ['Silk Royale', 'regular'],
+    ['Ning Ning', 'secret'],
+  ]],
+  ['Echo', [
+    ['Get Lucky', 'regular'], ['Journey in the Rain', 'regular'], ['Back Off', 'regular'],
+    ['Hiding Behind You', 'regular'], ['Staying Up', 'regular'], ['Caught You', 'regular'],
+    ['Eaten', 'regular'], ['Knight', 'regular'], ['Soul Connection', 'regular'],
+    ['Pieces of Memory', 'regular'], ['Breakout Plan', 'regular'], ['Daydreaming', 'regular'],
+    ['Never Growing Up', 'secret'],
+  ]],
+  ['Tamed Wildgrass', [
+    ['Sisyphean Work', 'regular'], ['Caged Bird', 'regular'], ['Full-time', 'regular'],
+    ['Camping', 'regular'], ['Self-Anchored', 'regular'], ['Boiling Frog', 'regular'],
+    ['City Escape', 'regular'], ['Fated', 'regular'], ['Digital Bind', 'regular'],
+    ['Live Under Receipts', 'regular'], ['Overload', 'regular'], ['Canned Dreams', 'regular'],
+    ['Boundary', 'secret'],
+  ]],
+  ['Monsters\' Carnival', [
+    ['Grim Reaper', 'regular'], ['Killer Bunny', 'regular'], ['Doctor Beak', 'regular'],
+    ['Vampire', 'regular'], ['Creepy Clown', 'regular'], ['Zombie', 'regular'],
+    ['The Disembodied', 'secret'],
+  ]],
+  ['Mist-Walker', [
+    ['The Soul Corroder', 'regular'], ['The Wingless Follower', 'regular'], ['The Backlit Messenger', 'regular'],
+    ['The Unfallen Wing', 'regular'], ['The Gap-Glimmer Wanderer', 'regular'], ['The Primordial Grace', 'regular'],
+    ['The Tempered Aegis', 'secret'],
+  ]],
+  ['Road Journal', [
+    ['Into Fogwild', 'regular'], ['Lost In The Night', 'regular'], ['Frostfall Hour', 'regular'],
+    ['Woven Woods', 'regular'], ['Grey Gravel', 'regular'], ['City Dust Afloat', 'regular'],
+    ['Highway Imprint', 'secret'],
+  ]],
+  ['Listening; Saying; Seeing', [
+    ['Listening', 'regular'], ['Saying', 'regular'], ['Seeing', 'regular'],
+  ]],
+  ['200%', [
+    ['Little Prank', 'regular'], ['Simper', 'regular'], ['Merry Christmas Mr. Hirono', 'regular'],
+    ['The UFO Chaser', 'regular'], ['Reshape', 'regular'], ['Keith Haring', 'regular'],
+  ]],
+  ['Special Editions', [
+    ['Elephant in the Room', 'regular'], ['Merry Christmas Mr. Hirono', 'regular'], ['Little Prank', 'regular'],
+    ['The Pianist', 'regular'], ['Search for Aliens', 'regular'], ['Orange Soda', 'regular'],
+    ['Doll Panda', 'regular'], ['Coffee', 'regular'], ['Before the Snow Melts', 'regular'],
+    ['Floating Market', 'regular'], ['Summer Time', 'regular'], ['The Fleeting Years', 'regular'],
+  ]],
+  ['Blister Series', [
+    ['Wandering', 'regular'], ['Persona (Lang Solo Exhibition)', 'regular'], ['Elephant in the Room (Thailand Exhibition Limited)', 'regular'],
+    ['Shanghai Monster', 'regular'], ['Halloween Special', 'regular'], ['Halloween Special (China Edition)', 'regular'],
+    ['Banger', 'regular'], ['Stray Panda', 'regular'], ['Simper', 'regular'],
+  ]],
+  ['Plush & Pendants', [
+    ['Hirono Bear', 'regular'], ['Little Hare', 'regular'], ['Living Wild - Fight For Joy', 'regular'],
+    ['Back to Play - Bear', 'regular'], ['Back to Play - Dino', 'regular'],
+  ]],
+  ['Collaborations', [
+    ['Hirono × Snoopy', 'regular'], ['Hirono × Keith Haring', 'regular'], ['Hirono × Vans', 'regular'],
+    ['Hirono × Gary Baseman', 'regular'], ['Hirono × Chucky', 'regular'], ['Hirono × Dead Silence', 'regular'],
+    ['Hirono × Stefanie Sun (Weather With You)', 'regular'], ['Hirono × Stefanie Sun (Aut Nihilo)', 'regular'], ['Hirono × Leah Dou (In the Air)', 'regular'],
+    ['Hirono × Qoo (Blush with Qoo)', 'regular'], ['Hirono × Polar (Symbiosis)', 'regular'], ['Hirono × Kodak (Little Bear)', 'regular'],
+  ]],
+];
+
 // --- Build ----------------------------------------------------------------
 const figures = [];
 const sources = {};
@@ -404,6 +522,12 @@ await addSeries(
   SKULLPANDA_SPECIAL_EDITIONS.map(([name, url]) => ({ name, rarity: 'regular', url })),
 );
 
+console.log('Hirono (manual - data only, images pending):');
+for (const [label, rows] of MANUAL_HIRONO) {
+  const items = rows.map(([name, rarity]) => ({ name, rarity, url: null }));
+  await addSeries('hirono', slug(label), label, items);
+}
+
 if (failures.length) {
   console.error('\nAborting without writing; these sets yielded no figures:');
   for (const f of failures) console.error(`  - ${f}`);
@@ -418,5 +542,6 @@ writeFileSync(
 
 const sk = figures.filter((f) => f.series === 'skullpanda').length;
 const pr = figures.filter((f) => f.series === 'peachriot').length;
-console.log(`\nTotal ${figures.length} figures (skullpanda ${sk}, peachriot ${pr}).`);
+const hi = figures.filter((f) => f.series === 'hirono').length;
+console.log(`\nTotal ${figures.length} figures (skullpanda ${sk}, peachriot ${pr}, hirono ${hi}).`);
 console.log('Next: npm run images  (scrape -> cutout -> imagemap)');
