@@ -42,7 +42,8 @@ export function FigureImage({ figure, size, rounded = true, bare = false }: Prop
   }
 
   // Placeholder
-  const glyph = figure.series === 'skullpanda' ? 'skull' : 'flame';
+  const glyph =
+    figure.series === 'skullpanda' ? 'skull' : figure.series === 'hirono' ? 'paw' : 'flame';
   const fg = readableOn(shade(accent, -0.1));
   const label = initials(figure.set);
 

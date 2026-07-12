@@ -3382,5 +3382,1477 @@
     "name": "Aisling",
     "rarity": "regular",
     "color": "#8E9AAE"
+  },
+  {
+    "id": "hirono-the-other-one-vagrancy",
+    "series": "hirono",
+    "set": "The Other One",
+    "name": "Vagrancy",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "hirono-the-other-one-cuckoo",
+    "series": "hirono",
+    "set": "The Other One",
+    "name": "Cuckoo",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "hirono-the-other-one-the-ghost",
+    "series": "hirono",
+    "set": "The Other One",
+    "name": "The Ghost",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "hirono-the-other-one-nowhere-safe",
+    "series": "hirono",
+    "set": "The Other One",
+    "name": "Nowhere Safe",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "hirono-the-other-one-raving",
+    "series": "hirono",
+    "set": "The Other One",
+    "name": "Raving",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "hirono-the-other-one-being-alive",
+    "series": "hirono",
+    "set": "The Other One",
+    "name": "Being Alive",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "hirono-the-other-one-the-monster",
+    "series": "hirono",
+    "set": "The Other One",
+    "name": "The Monster",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "hirono-the-other-one-amnesia",
+    "series": "hirono",
+    "set": "The Other One",
+    "name": "Amnesia",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "hirono-the-other-one-the-crow",
+    "series": "hirono",
+    "set": "The Other One",
+    "name": "The Crow",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "hirono-the-other-one-the-fox",
+    "series": "hirono",
+    "set": "The Other One",
+    "name": "The Fox",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "hirono-the-other-one-staring",
+    "series": "hirono",
+    "set": "The Other One",
+    "name": "Staring",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "hirono-the-other-one-marionette",
+    "series": "hirono",
+    "set": "The Other One",
+    "name": "Marionette",
+    "rarity": "regular",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "hirono-the-other-one-dreaming",
+    "series": "hirono",
+    "set": "The Other One",
+    "name": "Dreaming",
+    "rarity": "secret",
+    "color": "#5E7CE2"
+  },
+  {
+    "id": "hirono-little-mischief-ragpicker",
+    "series": "hirono",
+    "set": "Little Mischief",
+    "name": "Ragpicker",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "hirono-little-mischief-destroyer",
+    "series": "hirono",
+    "set": "Little Mischief",
+    "name": "Destroyer",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "hirono-little-mischief-robot",
+    "series": "hirono",
+    "set": "Little Mischief",
+    "name": "Robot",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "hirono-little-mischief-boiling-frog",
+    "series": "hirono",
+    "set": "Little Mischief",
+    "name": "Boiling Frog",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "hirono-little-mischief-float",
+    "series": "hirono",
+    "set": "Little Mischief",
+    "name": "Float",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "hirono-little-mischief-the-aviator",
+    "series": "hirono",
+    "set": "Little Mischief",
+    "name": "The Aviator",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "hirono-little-mischief-birdman",
+    "series": "hirono",
+    "set": "Little Mischief",
+    "name": "Birdman",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "hirono-little-mischief-loose-fish",
+    "series": "hirono",
+    "set": "Little Mischief",
+    "name": "Loose Fish",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "hirono-little-mischief-pretender",
+    "series": "hirono",
+    "set": "Little Mischief",
+    "name": "Pretender",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "hirono-little-mischief-persona",
+    "series": "hirono",
+    "set": "Little Mischief",
+    "name": "Persona",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "hirono-little-mischief-manacle",
+    "series": "hirono",
+    "set": "Little Mischief",
+    "name": "Manacle",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "hirono-little-mischief-protector",
+    "series": "hirono",
+    "set": "Little Mischief",
+    "name": "Protector",
+    "rarity": "regular",
+    "color": "#C6415A"
+  },
+  {
+    "id": "hirono-little-mischief-unknown-journey",
+    "series": "hirono",
+    "set": "Little Mischief",
+    "name": "Unknown Journey",
+    "rarity": "secret",
+    "color": "#C6415A"
+  },
+  {
+    "id": "hirono-city-of-mercy-fallen-angel",
+    "series": "hirono",
+    "set": "City of Mercy",
+    "name": "Fallen Angel",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "hirono-city-of-mercy-comfortably-numb",
+    "series": "hirono",
+    "set": "City of Mercy",
+    "name": "Comfortably Numb",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "hirono-city-of-mercy-healer",
+    "series": "hirono",
+    "set": "City of Mercy",
+    "name": "Healer",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "hirono-city-of-mercy-insight",
+    "series": "hirono",
+    "set": "City of Mercy",
+    "name": "Insight",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "hirono-city-of-mercy-the-other",
+    "series": "hirono",
+    "set": "City of Mercy",
+    "name": "The Other",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "hirono-city-of-mercy-echo",
+    "series": "hirono",
+    "set": "City of Mercy",
+    "name": "Echo",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "hirono-city-of-mercy-belonging",
+    "series": "hirono",
+    "set": "City of Mercy",
+    "name": "Belonging",
+    "rarity": "secret",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "hirono-mime-guardian",
+    "series": "hirono",
+    "set": "Mime",
+    "name": "Guardian",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "hirono-mime-blind",
+    "series": "hirono",
+    "set": "Mime",
+    "name": "Blind",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "hirono-mime-seeker",
+    "series": "hirono",
+    "set": "Mime",
+    "name": "Seeker",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "hirono-mime-devilry",
+    "series": "hirono",
+    "set": "Mime",
+    "name": "Devilry",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "hirono-mime-drifter",
+    "series": "hirono",
+    "set": "Mime",
+    "name": "Drifter",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "hirono-mime-fool",
+    "series": "hirono",
+    "set": "Mime",
+    "name": "Fool",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "hirono-mime-patience",
+    "series": "hirono",
+    "set": "Mime",
+    "name": "Patience",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "hirono-mime-unspoken",
+    "series": "hirono",
+    "set": "Mime",
+    "name": "Unspoken",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "hirono-mime-prison",
+    "series": "hirono",
+    "set": "Mime",
+    "name": "Prison",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "hirono-mime-destroy",
+    "series": "hirono",
+    "set": "Mime",
+    "name": "Destroy",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "hirono-mime-poem",
+    "series": "hirono",
+    "set": "Mime",
+    "name": "Poem",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "hirono-mime-secrecy",
+    "series": "hirono",
+    "set": "Mime",
+    "name": "Secrecy",
+    "rarity": "regular",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "hirono-mime-silent",
+    "series": "hirono",
+    "set": "Mime",
+    "name": "Silent",
+    "rarity": "secret",
+    "color": "#7A5C8E"
+  },
+  {
+    "id": "hirono-reshape-burst",
+    "series": "hirono",
+    "set": "Reshape",
+    "name": "Burst",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "hirono-reshape-woodcarving",
+    "series": "hirono",
+    "set": "Reshape",
+    "name": "Woodcarving",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "hirono-reshape-fading",
+    "series": "hirono",
+    "set": "Reshape",
+    "name": "Fading",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "hirono-reshape-healing",
+    "series": "hirono",
+    "set": "Reshape",
+    "name": "Healing",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "hirono-reshape-paradise-lost",
+    "series": "hirono",
+    "set": "Reshape",
+    "name": "Paradise Lost",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "hirono-reshape-drowning",
+    "series": "hirono",
+    "set": "Reshape",
+    "name": "Drowning",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "hirono-reshape-costume",
+    "series": "hirono",
+    "set": "Reshape",
+    "name": "Costume",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "hirono-reshape-parasite",
+    "series": "hirono",
+    "set": "Reshape",
+    "name": "Parasite",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "hirono-reshape-voyage",
+    "series": "hirono",
+    "set": "Reshape",
+    "name": "Voyage",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "hirono-reshape-puppet",
+    "series": "hirono",
+    "set": "Reshape",
+    "name": "Puppet",
+    "rarity": "secret",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "hirono-shelter-candleholder",
+    "series": "hirono",
+    "set": "Shelter",
+    "name": "Candleholder",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "hirono-shelter-mantel-clock",
+    "series": "hirono",
+    "set": "Shelter",
+    "name": "Mantel Clock",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "hirono-shelter-poet",
+    "series": "hirono",
+    "set": "Shelter",
+    "name": "Poet",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "hirono-shelter-traffic-cone",
+    "series": "hirono",
+    "set": "Shelter",
+    "name": "Traffic Cone",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "hirono-shelter-fort",
+    "series": "hirono",
+    "set": "Shelter",
+    "name": "Fort",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "hirono-shelter-circus",
+    "series": "hirono",
+    "set": "Shelter",
+    "name": "Circus",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "hirono-shelter-cabin",
+    "series": "hirono",
+    "set": "Shelter",
+    "name": "Cabin",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "hirono-shelter-birdy",
+    "series": "hirono",
+    "set": "Shelter",
+    "name": "Birdy",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "hirono-shelter-alien",
+    "series": "hirono",
+    "set": "Shelter",
+    "name": "Alien",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "hirono-shelter-warrior",
+    "series": "hirono",
+    "set": "Shelter",
+    "name": "Warrior",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "hirono-shelter-sunny-doll",
+    "series": "hirono",
+    "set": "Shelter",
+    "name": "Sunny Doll",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "hirono-shelter-bird-cage",
+    "series": "hirono",
+    "set": "Shelter",
+    "name": "Bird Cage",
+    "rarity": "regular",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "hirono-shelter-stuffed-bear",
+    "series": "hirono",
+    "set": "Shelter",
+    "name": "Stuffed Bear",
+    "rarity": "secret",
+    "color": "#D98AA6"
+  },
+  {
+    "id": "hirono-hirono-le-petit-prince-the-king",
+    "series": "hirono",
+    "set": "Hirono × Le Petit Prince",
+    "name": "The King",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "hirono-hirono-le-petit-prince-the-conceited-man",
+    "series": "hirono",
+    "set": "Hirono × Le Petit Prince",
+    "name": "The Conceited Man",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "hirono-hirono-le-petit-prince-the-tippler",
+    "series": "hirono",
+    "set": "Hirono × Le Petit Prince",
+    "name": "The Tippler",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "hirono-hirono-le-petit-prince-the-businessman",
+    "series": "hirono",
+    "set": "Hirono × Le Petit Prince",
+    "name": "The Businessman",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "hirono-hirono-le-petit-prince-the-lamplighter",
+    "series": "hirono",
+    "set": "Hirono × Le Petit Prince",
+    "name": "The Lamplighter",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "hirono-hirono-le-petit-prince-the-geographer",
+    "series": "hirono",
+    "set": "Hirono × Le Petit Prince",
+    "name": "The Geographer",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "hirono-hirono-le-petit-prince-the-fox",
+    "series": "hirono",
+    "set": "Hirono × Le Petit Prince",
+    "name": "The Fox",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "hirono-hirono-le-petit-prince-the-rose",
+    "series": "hirono",
+    "set": "Hirono × Le Petit Prince",
+    "name": "The Rose",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "hirono-hirono-le-petit-prince-the-snake",
+    "series": "hirono",
+    "set": "Hirono × Le Petit Prince",
+    "name": "The Snake",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "hirono-hirono-le-petit-prince-the-little-prince",
+    "series": "hirono",
+    "set": "Hirono × Le Petit Prince",
+    "name": "The Little Prince",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "hirono-hirono-le-petit-prince-the-merchant",
+    "series": "hirono",
+    "set": "Hirono × Le Petit Prince",
+    "name": "The Merchant",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "hirono-hirono-le-petit-prince-the-switchman",
+    "series": "hirono",
+    "set": "Hirono × Le Petit Prince",
+    "name": "The Switchman",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "hirono-hirono-le-petit-prince-the-pilot",
+    "series": "hirono",
+    "set": "Hirono × Le Petit Prince",
+    "name": "The Pilot",
+    "rarity": "secret",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "hirono-hirono-le-petit-prince-the-little-prince-special-edition",
+    "series": "hirono",
+    "set": "Hirono × Le Petit Prince",
+    "name": "The Little Prince (Special Edition)",
+    "rarity": "secret",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "hirono-hirono-clot-yin-yang",
+    "series": "hirono",
+    "set": "Hirono × CLOT",
+    "name": "Yin-Yang",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "hirono-hirono-clot-kung-fu",
+    "series": "hirono",
+    "set": "Hirono × CLOT",
+    "name": "Kung Fu",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "hirono-hirono-clot-alienegra",
+    "series": "hirono",
+    "set": "Hirono × CLOT",
+    "name": "Alienegra",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "hirono-hirono-clot-chinese",
+    "series": "hirono",
+    "set": "Hirono × CLOT",
+    "name": "Chinese",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "hirono-hirono-clot-terracotta-army",
+    "series": "hirono",
+    "set": "Hirono × CLOT",
+    "name": "Terracotta Army",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "hirono-hirono-clot-silk-royale",
+    "series": "hirono",
+    "set": "Hirono × CLOT",
+    "name": "Silk Royale",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "hirono-hirono-clot-ning-ning",
+    "series": "hirono",
+    "set": "Hirono × CLOT",
+    "name": "Ning Ning",
+    "rarity": "secret",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "hirono-echo-get-lucky",
+    "series": "hirono",
+    "set": "Echo",
+    "name": "Get Lucky",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "hirono-echo-journey-in-the-rain",
+    "series": "hirono",
+    "set": "Echo",
+    "name": "Journey in the Rain",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "hirono-echo-back-off",
+    "series": "hirono",
+    "set": "Echo",
+    "name": "Back Off",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "hirono-echo-hiding-behind-you",
+    "series": "hirono",
+    "set": "Echo",
+    "name": "Hiding Behind You",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "hirono-echo-staying-up",
+    "series": "hirono",
+    "set": "Echo",
+    "name": "Staying Up",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "hirono-echo-caught-you",
+    "series": "hirono",
+    "set": "Echo",
+    "name": "Caught You",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "hirono-echo-eaten",
+    "series": "hirono",
+    "set": "Echo",
+    "name": "Eaten",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "hirono-echo-knight",
+    "series": "hirono",
+    "set": "Echo",
+    "name": "Knight",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "hirono-echo-soul-connection",
+    "series": "hirono",
+    "set": "Echo",
+    "name": "Soul Connection",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "hirono-echo-pieces-of-memory",
+    "series": "hirono",
+    "set": "Echo",
+    "name": "Pieces of Memory",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "hirono-echo-breakout-plan",
+    "series": "hirono",
+    "set": "Echo",
+    "name": "Breakout Plan",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "hirono-echo-daydreaming",
+    "series": "hirono",
+    "set": "Echo",
+    "name": "Daydreaming",
+    "rarity": "regular",
+    "color": "#B5687F"
+  },
+  {
+    "id": "hirono-echo-never-growing-up",
+    "series": "hirono",
+    "set": "Echo",
+    "name": "Never Growing Up",
+    "rarity": "secret",
+    "color": "#B5687F"
+  },
+  {
+    "id": "hirono-tamed-wildgrass-sisyphean-work",
+    "series": "hirono",
+    "set": "Tamed Wildgrass",
+    "name": "Sisyphean Work",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "hirono-tamed-wildgrass-caged-bird",
+    "series": "hirono",
+    "set": "Tamed Wildgrass",
+    "name": "Caged Bird",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "hirono-tamed-wildgrass-full-time",
+    "series": "hirono",
+    "set": "Tamed Wildgrass",
+    "name": "Full-time",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "hirono-tamed-wildgrass-camping",
+    "series": "hirono",
+    "set": "Tamed Wildgrass",
+    "name": "Camping",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "hirono-tamed-wildgrass-self-anchored",
+    "series": "hirono",
+    "set": "Tamed Wildgrass",
+    "name": "Self-Anchored",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "hirono-tamed-wildgrass-boiling-frog",
+    "series": "hirono",
+    "set": "Tamed Wildgrass",
+    "name": "Boiling Frog",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "hirono-tamed-wildgrass-city-escape",
+    "series": "hirono",
+    "set": "Tamed Wildgrass",
+    "name": "City Escape",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "hirono-tamed-wildgrass-fated",
+    "series": "hirono",
+    "set": "Tamed Wildgrass",
+    "name": "Fated",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "hirono-tamed-wildgrass-digital-bind",
+    "series": "hirono",
+    "set": "Tamed Wildgrass",
+    "name": "Digital Bind",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "hirono-tamed-wildgrass-live-under-receipts",
+    "series": "hirono",
+    "set": "Tamed Wildgrass",
+    "name": "Live Under Receipts",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "hirono-tamed-wildgrass-overload",
+    "series": "hirono",
+    "set": "Tamed Wildgrass",
+    "name": "Overload",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "hirono-tamed-wildgrass-canned-dreams",
+    "series": "hirono",
+    "set": "Tamed Wildgrass",
+    "name": "Canned Dreams",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "hirono-tamed-wildgrass-boundary",
+    "series": "hirono",
+    "set": "Tamed Wildgrass",
+    "name": "Boundary",
+    "rarity": "secret",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "hirono-monsters-carnival-grim-reaper",
+    "series": "hirono",
+    "set": "Monsters' Carnival",
+    "name": "Grim Reaper",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "hirono-monsters-carnival-killer-bunny",
+    "series": "hirono",
+    "set": "Monsters' Carnival",
+    "name": "Killer Bunny",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "hirono-monsters-carnival-doctor-beak",
+    "series": "hirono",
+    "set": "Monsters' Carnival",
+    "name": "Doctor Beak",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "hirono-monsters-carnival-vampire",
+    "series": "hirono",
+    "set": "Monsters' Carnival",
+    "name": "Vampire",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "hirono-monsters-carnival-creepy-clown",
+    "series": "hirono",
+    "set": "Monsters' Carnival",
+    "name": "Creepy Clown",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "hirono-monsters-carnival-zombie",
+    "series": "hirono",
+    "set": "Monsters' Carnival",
+    "name": "Zombie",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "hirono-monsters-carnival-the-disembodied",
+    "series": "hirono",
+    "set": "Monsters' Carnival",
+    "name": "The Disembodied",
+    "rarity": "secret",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "hirono-mist-walker-the-soul-corroder",
+    "series": "hirono",
+    "set": "Mist-Walker",
+    "name": "The Soul Corroder",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "hirono-mist-walker-the-wingless-follower",
+    "series": "hirono",
+    "set": "Mist-Walker",
+    "name": "The Wingless Follower",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "hirono-mist-walker-the-backlit-messenger",
+    "series": "hirono",
+    "set": "Mist-Walker",
+    "name": "The Backlit Messenger",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "hirono-mist-walker-the-unfallen-wing",
+    "series": "hirono",
+    "set": "Mist-Walker",
+    "name": "The Unfallen Wing",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "hirono-mist-walker-the-gap-glimmer-wanderer",
+    "series": "hirono",
+    "set": "Mist-Walker",
+    "name": "The Gap-Glimmer Wanderer",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "hirono-mist-walker-the-primordial-grace",
+    "series": "hirono",
+    "set": "Mist-Walker",
+    "name": "The Primordial Grace",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "hirono-mist-walker-the-tempered-aegis",
+    "series": "hirono",
+    "set": "Mist-Walker",
+    "name": "The Tempered Aegis",
+    "rarity": "secret",
+    "color": "#A8743E"
+  },
+  {
+    "id": "hirono-road-journal-into-fogwild",
+    "series": "hirono",
+    "set": "Road Journal",
+    "name": "Into Fogwild",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "hirono-road-journal-lost-in-the-night",
+    "series": "hirono",
+    "set": "Road Journal",
+    "name": "Lost In The Night",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "hirono-road-journal-frostfall-hour",
+    "series": "hirono",
+    "set": "Road Journal",
+    "name": "Frostfall Hour",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "hirono-road-journal-woven-woods",
+    "series": "hirono",
+    "set": "Road Journal",
+    "name": "Woven Woods",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "hirono-road-journal-grey-gravel",
+    "series": "hirono",
+    "set": "Road Journal",
+    "name": "Grey Gravel",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "hirono-road-journal-city-dust-afloat",
+    "series": "hirono",
+    "set": "Road Journal",
+    "name": "City Dust Afloat",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "hirono-road-journal-highway-imprint",
+    "series": "hirono",
+    "set": "Road Journal",
+    "name": "Highway Imprint",
+    "rarity": "secret",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "hirono-listening-saying-seeing-listening",
+    "series": "hirono",
+    "set": "Listening; Saying; Seeing",
+    "name": "Listening",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "hirono-listening-saying-seeing-saying",
+    "series": "hirono",
+    "set": "Listening; Saying; Seeing",
+    "name": "Saying",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "hirono-listening-saying-seeing-seeing",
+    "series": "hirono",
+    "set": "Listening; Saying; Seeing",
+    "name": "Seeing",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "hirono-200-little-prank",
+    "series": "hirono",
+    "set": "200%",
+    "name": "Little Prank",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "hirono-200-simper",
+    "series": "hirono",
+    "set": "200%",
+    "name": "Simper",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "hirono-200-merry-christmas-mr-hirono",
+    "series": "hirono",
+    "set": "200%",
+    "name": "Merry Christmas Mr. Hirono",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "hirono-200-the-ufo-chaser",
+    "series": "hirono",
+    "set": "200%",
+    "name": "The UFO Chaser",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "hirono-200-reshape",
+    "series": "hirono",
+    "set": "200%",
+    "name": "Reshape",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "hirono-200-keith-haring",
+    "series": "hirono",
+    "set": "200%",
+    "name": "Keith Haring",
+    "rarity": "regular",
+    "color": "#6C7BD1"
+  },
+  {
+    "id": "hirono-special-editions-elephant-in-the-room",
+    "series": "hirono",
+    "set": "Special Editions",
+    "name": "Elephant in the Room",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "hirono-special-editions-merry-christmas-mr-hirono",
+    "series": "hirono",
+    "set": "Special Editions",
+    "name": "Merry Christmas Mr. Hirono",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "hirono-special-editions-little-prank",
+    "series": "hirono",
+    "set": "Special Editions",
+    "name": "Little Prank",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "hirono-special-editions-the-pianist",
+    "series": "hirono",
+    "set": "Special Editions",
+    "name": "The Pianist",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "hirono-special-editions-search-for-aliens",
+    "series": "hirono",
+    "set": "Special Editions",
+    "name": "Search for Aliens",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "hirono-special-editions-orange-soda",
+    "series": "hirono",
+    "set": "Special Editions",
+    "name": "Orange Soda",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "hirono-special-editions-doll-panda",
+    "series": "hirono",
+    "set": "Special Editions",
+    "name": "Doll Panda",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "hirono-special-editions-coffee",
+    "series": "hirono",
+    "set": "Special Editions",
+    "name": "Coffee",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "hirono-special-editions-before-the-snow-melts",
+    "series": "hirono",
+    "set": "Special Editions",
+    "name": "Before the Snow Melts",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "hirono-special-editions-floating-market",
+    "series": "hirono",
+    "set": "Special Editions",
+    "name": "Floating Market",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "hirono-special-editions-summer-time",
+    "series": "hirono",
+    "set": "Special Editions",
+    "name": "Summer Time",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "hirono-special-editions-the-fleeting-years",
+    "series": "hirono",
+    "set": "Special Editions",
+    "name": "The Fleeting Years",
+    "rarity": "regular",
+    "color": "#C77D5A"
+  },
+  {
+    "id": "hirono-blister-series-wandering",
+    "series": "hirono",
+    "set": "Blister Series",
+    "name": "Wandering",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "hirono-blister-series-persona-lang-solo-exhibition",
+    "series": "hirono",
+    "set": "Blister Series",
+    "name": "Persona (Lang Solo Exhibition)",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "hirono-blister-series-elephant-in-the-room-thailand-exhibition-limited",
+    "series": "hirono",
+    "set": "Blister Series",
+    "name": "Elephant in the Room (Thailand Exhibition Limited)",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "hirono-blister-series-shanghai-monster",
+    "series": "hirono",
+    "set": "Blister Series",
+    "name": "Shanghai Monster",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "hirono-blister-series-halloween-special",
+    "series": "hirono",
+    "set": "Blister Series",
+    "name": "Halloween Special",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "hirono-blister-series-halloween-special-china-edition",
+    "series": "hirono",
+    "set": "Blister Series",
+    "name": "Halloween Special (China Edition)",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "hirono-blister-series-banger",
+    "series": "hirono",
+    "set": "Blister Series",
+    "name": "Banger",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "hirono-blister-series-stray-panda",
+    "series": "hirono",
+    "set": "Blister Series",
+    "name": "Stray Panda",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "hirono-blister-series-simper",
+    "series": "hirono",
+    "set": "Blister Series",
+    "name": "Simper",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "hirono-plush-pendants-hirono-bear",
+    "series": "hirono",
+    "set": "Plush & Pendants",
+    "name": "Hirono Bear",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "hirono-plush-pendants-little-hare",
+    "series": "hirono",
+    "set": "Plush & Pendants",
+    "name": "Little Hare",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "hirono-plush-pendants-living-wild-fight-for-joy",
+    "series": "hirono",
+    "set": "Plush & Pendants",
+    "name": "Living Wild - Fight For Joy",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "hirono-plush-pendants-back-to-play-bear",
+    "series": "hirono",
+    "set": "Plush & Pendants",
+    "name": "Back to Play - Bear",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "hirono-plush-pendants-back-to-play-dino",
+    "series": "hirono",
+    "set": "Plush & Pendants",
+    "name": "Back to Play - Dino",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "hirono-collaborations-hirono-snoopy",
+    "series": "hirono",
+    "set": "Collaborations",
+    "name": "Hirono × Snoopy",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "hirono-collaborations-hirono-keith-haring",
+    "series": "hirono",
+    "set": "Collaborations",
+    "name": "Hirono × Keith Haring",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "hirono-collaborations-hirono-vans",
+    "series": "hirono",
+    "set": "Collaborations",
+    "name": "Hirono × Vans",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "hirono-collaborations-hirono-gary-baseman",
+    "series": "hirono",
+    "set": "Collaborations",
+    "name": "Hirono × Gary Baseman",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "hirono-collaborations-hirono-chucky",
+    "series": "hirono",
+    "set": "Collaborations",
+    "name": "Hirono × Chucky",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "hirono-collaborations-hirono-dead-silence",
+    "series": "hirono",
+    "set": "Collaborations",
+    "name": "Hirono × Dead Silence",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "hirono-collaborations-hirono-stefanie-sun-weather-with-you",
+    "series": "hirono",
+    "set": "Collaborations",
+    "name": "Hirono × Stefanie Sun (Weather With You)",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "hirono-collaborations-hirono-stefanie-sun-aut-nihilo",
+    "series": "hirono",
+    "set": "Collaborations",
+    "name": "Hirono × Stefanie Sun (Aut Nihilo)",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "hirono-collaborations-hirono-leah-dou-in-the-air",
+    "series": "hirono",
+    "set": "Collaborations",
+    "name": "Hirono × Leah Dou (In the Air)",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "hirono-collaborations-hirono-qoo-blush-with-qoo",
+    "series": "hirono",
+    "set": "Collaborations",
+    "name": "Hirono × Qoo (Blush with Qoo)",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "hirono-collaborations-hirono-polar-symbiosis",
+    "series": "hirono",
+    "set": "Collaborations",
+    "name": "Hirono × Polar (Symbiosis)",
+    "rarity": "regular",
+    "color": "#8E9AAE"
+  },
+  {
+    "id": "hirono-collaborations-hirono-kodak-little-bear",
+    "series": "hirono",
+    "set": "Collaborations",
+    "name": "Hirono × Kodak (Little Bear)",
+    "rarity": "regular",
+    "color": "#8E9AAE"
   }
 ]

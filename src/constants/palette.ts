@@ -10,6 +10,7 @@ import type { SeriesMeta } from '@/types';
 export const Palette = {
   skullpanda: '#7C6BF2',
   peachriot: '#FF7A9A',
+  hirono: '#5B6B8C',
   gold: '#F4B740',
   ink: '#171423',
 } as const;
@@ -25,9 +26,14 @@ export const SERIES: Record<string, SeriesMeta> = {
     label: 'PEACH RIOT',
     accent: Palette.peachriot,
   },
+  hirono: {
+    id: 'hirono',
+    label: 'HIRONO',
+    accent: Palette.hirono,
+  },
 };
 
-export const SERIES_ORDER = ['skullpanda', 'peachriot'] as const;
+export const SERIES_ORDER = ['skullpanda', 'peachriot', 'hirono'] as const;
 
 /** Preset shelf ledge colors the user can pick from. */
 export const SHELF_COLORS = [
