@@ -3,7 +3,6 @@ import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { figureImage } from '@/data/figures';
 import { readableOn, shade } from '@/lib/color';
 import { useUserImages } from '@/store/useUserImages';
 import type { Figure } from '@/types';
@@ -18,16 +17,23 @@ interface Props {
 }
 
 /**
- * Renders a figure's transparent cutout when available, otherwise a styled
- * gradient placeholder so the app is fully usable before images are scraped.
+ * Renders a figure's transparent cutout when there is one, otherwise a styled
+ * gradient placeholder so the app is fully usable for figures with no art yet.
+ *
+ * Every image comes from Supabase. The app bundles none: cutouts used to be
+ * committed under assets/figures/ and required() straight into the binary,
+ * where they beat everything else and could never be updated without shipping a
+ * new build. They are catalog rows in `figure_images` now, synced down and
+ * cached on disk like any other approved image (see src/store/useUserImages.ts).
  */
 export function FigureImage({ figure, size, rounded = true, bare = false }: Props) {
-  // The user's own pick beats the community's: it's an explicit choice, and
-  // removing it reveals the community image underneath rather than clearing
-  // the figure.
+  // The user's own pick beats what the server serves: it's an explicit choice,
+  // and removing it reveals the server's image underneath - the community's if
+  // one was approved, the catalog artwork if not - rather than clearing the
+  // figure. fetchApprovedImages() already collapsed those two into one.
   const mineUri = useUserImages((s) => s.mine[figure.id]);
   const communityUri = useUserImages((s) => s.community[figure.id]);
-  const src = figureImage(figure.id) ?? mineUri ?? communityUri;
+  const src = mineUri ?? communityUri;
   const accent = figure.color ?? '#8A7BF0';
 
   if (src) {

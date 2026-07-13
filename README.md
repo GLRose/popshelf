@@ -64,28 +64,51 @@ It covers the whole lifecycle - signed-out writes nothing, sign-up adopts the de
 Full refresh:
 
 ```bash
-npm run refresh    # catalog -> scrape -> cutout -> imagemap
+npm run refresh    # catalog -> scrape -> cutout -> upload:catalog
 ```
 
 Or step by step:
 
 1. `npm run catalog` - scrape names + image URLs → `figures.json` + `sources.json`.
-2. `npm run scrape` - download raw images to `assets/figures/raw/` (gitignored).
-3. `npm run cutout` - background-remove to transparent `assets/figures/<id>.png`.
+2. `npm run scrape` - download raw images to `catalog-images/raw/` (gitignored).
+3. `npm run cutout` - background-remove to transparent `catalog-images/cutouts/<id>.png`.
    Uses a pure-JS edge flood-fill (`jimp`) - no native deps or ML model - which
    works because the source renders sit on clean white backgrounds.
-4. `npm run imagemap` - regenerate `src/data/figureImages.ts` (static `require()`
-   map so React Native can bundle the PNGs).
+4. `npm run upload:catalog` - publish the cutouts to Supabase. Needs
+   `SUPABASE_SERVICE_ROLE_KEY` in `.env`; idempotent, so re-running replaces
+   artwork in place.
+
+`npm run missing-images` regenerates `NEEDED-IMAGES.md`, the checklist of figures
+still showing a placeholder. It asks Supabase, since that's where the images are.
+
+### Where the images live
+
+**Supabase, and nowhere else.** The app bundles no figure artwork. Every image -
+the catalog's own art and anything a user submits - is a row in `figure_images`
+plus an object in the private `figure-images` bucket, synced down on launch and
+cached on the device (`src/store/useUserImages.ts`). See `supabase/schema.sql`.
+
+`catalog-images/` is a local working area for the pipeline above, not part of the
+app, and is gitignored. Cutouts used to be committed under `assets/figures/` and
+compiled into the binary as a static `require()` map, which meant 25MB of PNGs in
+every build and no way to fix a bad image without shipping a new one.
+
+The two kinds of image differ only in who may destroy them. Catalog art
+(`source = 'catalog'`) is written solely by the service role key and is out of
+reach of every client, moderator included; community submissions
+(`source = 'community'`) go through the review queue and can be revoked. A figure
+can hold one of each - the community's wins, and revoking it falls back to the
+catalog art rather than a placeholder.
 
 **Coverage / known gaps:** all 17 documented Skullpanda blind-box series are
 included. Peach Riot is limited to the two series with a clean image source
 (Rise Up, Punk Fairy) - other Peach Riot sets need an image source before they
-can be added. Any figure without a cutout falls back to a styled placeholder
+can be added. Any figure with no image falls back to a styled placeholder
 automatically. Images are Pop Mart's copyright - intended for personal use.
 
 ## Going mobile later
 
-The UI is 100% React Native primitives + Expo modules, so `eas build -p ios` / `-p android` produces native apps from this same repo. State/persistence (`@react-native-async-storage/async-storage`) and images (static `require` map) already work on native.
+The UI is 100% React Native primitives + Expo modules, so `eas build -p ios` / `-p android` produces native apps from this same repo. State/persistence (`@react-native-async-storage/async-storage`) and images (downloaded from Supabase into the app's documents dir, `src/lib/userImageStore.ts`) already work on native.
 
 ## Structure
 
@@ -93,8 +116,9 @@ The UI is 100% React Native primitives + Expo modules, so `eas build -p ios` / `
 src/
   app/(tabs)/    index (Browse), shelf, favorites + _layout (tabs)
   components/    FigureCard, FigureImage, SeriesToggle, Shelf, ShelfItem, Paginator, ShelfCustomizer
-  store/         useCollection (zustand + persist)
-  data/          figures.json, figures.ts, figureImages.ts
+  store/         useCollection (zustand + persist), useUserImages (Supabase image sync + cache)
+  data/          figures.json, figures.ts
+  lib/           supabase, auth, remoteFigureImages, userImageStore
   constants/     palette, appTheme
-scripts/         gen-catalog, scrape, remove-bg, gen-image-map
+scripts/         gen-catalog, scrape, remove-bg, upload-catalog-images, missing-images
 ```

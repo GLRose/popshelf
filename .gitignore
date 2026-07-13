@@ -43,5 +43,9 @@ example
 /ios
 /android
 
-# intermediate scrape output (raw images before background removal)
-assets/figures/raw/
+# Figure artwork. A local working area for the image pipeline (scrape -> cutout
+# -> upload:catalog), not part of the app: the app reads figure images only from
+# Supabase, and ships none of its own. Deliberately not committed - Supabase is
+# the source of truth for this art, and 25MB of PNGs in the bundle is what this
+# replaced. See scripts/upload-catalog-images.mjs.
+catalog-images/

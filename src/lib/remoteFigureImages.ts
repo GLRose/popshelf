@@ -51,32 +51,47 @@ export async function submitForReview(figureId: string, uri: string): Promise<vo
 }
 
 /**
- * Every figureId -> the approved image for it. Throws when the query fails: an
- * RLS denial here reads as an empty result set rather than an error, so
- * swallowing genuine errors on top of that would leave no way at all to tell
- * "nothing approved yet" from "we can't see the table".
+ * Every figureId -> the one image the app should show for it.
+ *
+ * A figure can have two approved rows at once: its catalog art (the artwork the
+ * app used to bundle) and an approved community submission. The community one
+ * wins - someone looked at the catalog image, decided a user's was better, and
+ * approved it - and the catalog one is the floor underneath: revoking the
+ * community image reveals the original art on the next sync rather than a
+ * placeholder. Collapsing that choice here is what lets the local cache stay a
+ * single `community` slot instead of two.
+ *
+ * Throws when the query fails: an RLS denial here reads as an empty result set
+ * rather than an error, so swallowing genuine errors on top of that would leave
+ * no way at all to tell "nothing approved yet" from "we can't see the table".
  */
 export async function fetchApprovedImages(): Promise<Record<string, ApprovedImage>> {
   if (!supabase) return {};
 
   const { data, error } = await supabase
     .from('figure_images')
-    .select('id, figure_id, storage_path')
+    .select('id, figure_id, storage_path, source')
     .eq('status', 'approved');
   if (error) throw error;
   if (!data) return {};
 
+  const best = new Map<string, { id: string; storage_path: string }>();
+  for (const row of data) {
+    const incumbent = best.get(row.figure_id);
+    if (!incumbent || row.source === 'community') best.set(row.figure_id, row);
+  }
+
   const approved: Record<string, ApprovedImage> = {};
   await Promise.all(
-    data.map(async ({ id, figure_id, storage_path }) => {
+    [...best].map(async ([figureId, { id, storage_path }]) => {
       const { data: signed, error: signError } = await supabase!.storage
         .from(BUCKET)
         .createSignedUrl(storage_path, SIGNED_URL_TTL_SECONDS);
       if (signError || !signed) {
-        console.warn(`Failed to sign approved image for ${figure_id}`, signError);
+        console.warn(`Failed to sign approved image for ${figureId}`, signError);
         return;
       }
-      approved[figure_id] = { id, signedUrl: signed.signedUrl };
+      approved[figureId] = { id, signedUrl: signed.signedUrl };
     }),
   );
   return approved;

@@ -55,9 +55,17 @@
 --
 -- Moderation is still unguarded: the policies here (read pending/rejected, flip
 -- status, DELETE rows and objects) cover both roles, which means any client can
--- approve or destroy any image. Until release the moderation screen is only ever
--- used by Garrett. Before release this needs real access control - now that
--- accounts exist, an `admins` table keyed by auth.uid() is finally possible.
+-- approve or destroy any *community* image. Until release the moderation screen
+-- is only ever used by Garrett. Before release this needs real access control -
+-- now that accounts exist, an `admins` table keyed by auth.uid() is finally
+-- possible.
+--
+-- The app's own catalog artwork is deliberately not exposed to that hole. It is
+-- a third thing, neither anon nor authenticated: rows and objects written by the
+-- service role key, which bypasses RLS entirely and lives only in .env on
+-- Garrett's machine (never in the app bundle - see
+-- scripts/upload-catalog-images.mjs). No client can create, alter, or delete it.
+-- See the `source` column below.
 
 -- 'rejected' is a tombstone, not an archive: it means "this row and its bytes
 -- are pending deletion". Nothing reads rejected rows. The client deletes the
@@ -82,10 +90,36 @@ alter table public.figure_images
 
 create index if not exists figure_images_owner_id_idx on public.figure_images (owner_id);
 
--- Only one approved image per figure at a time. When approving a replacement
--- for a figure that already has one, set the old row to 'rejected' first.
-create unique index if not exists figure_images_one_approved_per_figure
-  on public.figure_images (figure_id)
+-- Where an image came from. Two kinds, and the difference is who can destroy it:
+--
+--   'community' - a user submitted it and a moderator approved it. Replaceable
+--                 and revocable; rejecting one deletes its bytes for good.
+--   'catalog'   - the app's own artwork, seeded by scripts/upload-catalog-images.mjs
+--                 under the `catalog/` storage prefix, owner-less, born approved.
+--
+-- Catalog images used to ship inside the app bundle as static require()s
+-- (src/data/figureImages.ts, since deleted), which is exactly why they were
+-- safe: nothing in the app could delete them. Moving them to Supabase puts them
+-- one mis-tap in the moderation screen away from being purged, so the policies
+-- below deliberately put them out of the client's reach - no client, moderator
+-- or not, can update or delete a catalog row or its bytes. They are changed
+-- only by re-running the upload script with the service role key.
+--
+-- Default 'community' so every pre-existing row (all of which were submissions)
+-- is classified correctly without a backfill.
+alter table public.figure_images
+  add column if not exists source text not null default 'community'
+    check (source in ('catalog', 'community'));
+
+-- One approved image per figure *per source*, rather than one per figure. A
+-- figure can hold both its catalog art and an approved community image at the
+-- same time; the client prefers the community one and falls back to the catalog
+-- one (see fetchApprovedImages in src/lib/remoteFigureImages.ts). That fallback
+-- is the point: revoking a bad community image reveals the original art
+-- underneath instead of a placeholder.
+drop index if exists public.figure_images_one_approved_per_figure;
+create unique index if not exists figure_images_one_approved_per_figure_source
+  on public.figure_images (figure_id, source)
   where status = 'approved';
 
 alter table public.figure_images enable row level security;
@@ -106,24 +140,33 @@ drop policy if exists "anyone can read all figure_images" on public.figure_image
 drop policy if exists "anyone can update figure_images" on public.figure_images;
 drop policy if exists "owners can submit pending images" on public.figure_images;
 drop policy if exists "anyone can delete figure_images" on public.figure_images;
+drop policy if exists "anyone can update community figure_images" on public.figure_images;
+drop policy if exists "anyone can delete community figure_images" on public.figure_images;
 
 -- 'authenticated' only, and the row must be owned by the caller: you cannot
 -- submit an image you don't own. See the note on submitting at the top.
+--
+-- `source = 'community'` is what stops a client from minting a catalog row for
+-- itself and thereby writing something the other two policies won't let it take
+-- back. Catalog rows come from the service role key, which bypasses RLS.
 create policy "owners can submit pending images"
   on public.figure_images for insert
   to authenticated
-  with check (status = 'pending' and owner_id = auth.uid());
+  with check (status = 'pending' and owner_id = auth.uid() and source = 'community');
 
 create policy "anyone can read all figure_images"
   on public.figure_images for select
   to anon, authenticated
   using (true);
 
-create policy "anyone can update figure_images"
+-- Community rows only. Catalog art is not moderated - there is no pending
+-- catalog row to approve and no reason to revoke one - so the moderation screen
+-- has no business updating it, and a bug or a mis-tap there cannot tombstone it.
+create policy "anyone can update community figure_images"
   on public.figure_images for update
   to anon, authenticated
-  using (true)
-  with check (true);
+  using (source = 'community')
+  with check (source = 'community');
 
 -- Deleting is how a bad approval is actually revoked, and how a submitter
 -- withdraws their own still-pending image (withdrawPendingSubmissions in
@@ -132,10 +175,14 @@ create policy "anyone can update figure_images"
 -- update policy above doesn't: there is no moderator identity yet. It grants
 -- no more than the update policy already does - a client that can flip any row
 -- to 'approved' is not meaningfully held back from deleting it.
-create policy "anyone can delete figure_images"
+--
+-- Community rows only, again. Combined with the update policy, a catalog row
+-- cannot be tombstoned and cannot be deleted, so purgeRejected() can never
+-- reach one no matter what it selects.
+create policy "anyone can delete community figure_images"
   on public.figure_images for delete
   to anon, authenticated
-  using (true);
+  using (source = 'community');
 
 -- Leftover from an earlier iteration that added admin auth; never released,
 -- so safe to drop unconditionally if it was ever applied.
@@ -157,8 +204,16 @@ drop policy if exists "anyone can upload pending figure images" on storage.objec
 drop policy if exists "anyone can read all figure images" on storage.objects;
 drop policy if exists "owners can upload figure images" on storage.objects;
 drop policy if exists "anyone can delete figure images" on storage.objects;
+drop policy if exists "anyone can delete submitted figure images" on storage.objects;
 
--- Objects live at `submissions/<owner_id>/<figure_id>/<timestamp>.png`.
+-- Catalog art lives at `catalog/<figure_id>.png`, written only by the service
+-- role key (scripts/upload-catalog-images.mjs), which bypasses these policies.
+-- No client-facing insert policy names that prefix, so no client can write
+-- there; the delete policy below explicitly excludes it, so no client can
+-- remove what's there. The bucket-wide select policy still covers it, which is
+-- what lets every client sign a URL for it and display it.
+--
+-- Submissions live at `submissions/<owner_id>/<figure_id>/<timestamp>.png`.
 --
 -- The old layout was `pending/<figure_id>/<timestamp>.png`, which became a lie
 -- the moment an image was approved: approving flips a row, it never relocates
@@ -186,21 +241,35 @@ create policy "anyone can read all figure images"
   to anon, authenticated
   using (bucket_id = 'figure-images');
 
--- Bucket-wide rather than owner-scoped, because revoking a bad approval means
--- deleting someone else's bytes, and moderators have no identity yet. Same
--- caveat as "anyone can delete figure_images" above.
-create policy "anyone can delete figure images"
+-- Not owner-scoped, because revoking a bad approval means deleting someone
+-- else's bytes, and moderators have no identity yet. Same caveat as "anyone can
+-- update community figure_images" above.
+--
+-- Everything except the catalog, though. This is the storage-layer half of the
+-- protection the figure_images policies give the rows: without it, a client that
+-- knows a catalog path could delete the bytes out from under a row it isn't
+-- allowed to touch, leaving an approved row pointing at nothing.
+create policy "anyone can delete submitted figure images"
   on storage.objects for delete
   to anon, authenticated
-  using (bucket_id = 'figure-images');
+  using (
+    bucket_id = 'figure-images'
+    and (storage.foldername(name))[1] <> 'catalog'
+  );
 
--- Atomically re-point the "one approved image per figure" slot: demote the
--- currently-approved row (if any) to 'rejected' FIRST so the partial unique
--- index (figure_images_one_approved_per_figure) has zero 'approved' rows for
--- this figure_id before the new row is promoted - each UPDATE's constraint
--- check runs after that statement completes, so ordering avoids ever
--- violating the index, without needing deferrable constraints (which partial
--- unique indexes can't be anyway).
+-- Atomically re-point the "one approved image per figure per source" slot:
+-- demote the currently-approved row (if any) to 'rejected' FIRST so the partial
+-- unique index (figure_images_one_approved_per_figure_source) has zero
+-- 'approved' rows for this (figure_id, source) before the new row is promoted -
+-- each UPDATE's constraint check runs after that statement completes, so
+-- ordering avoids ever violating the index, without needing deferrable
+-- constraints (which partial unique indexes can't be anyway).
+--
+-- Scoped to the target's own source, which in practice always means: approving
+-- a community image displaces the community image it replaces, and leaves the
+-- figure's catalog art alone. Without the source filter this would try to
+-- tombstone the catalog row too - and, because the update policy above refuses
+-- it, would silently demote nothing while the client believed it had.
 create or replace function public.approve_figure_image(image_id uuid)
 returns public.figure_images
 language plpgsql
@@ -222,6 +291,7 @@ begin
   update public.figure_images
     set status = 'rejected'
     where figure_id = target.figure_id
+      and source = target.source
       and status = 'approved'
       and id <> target.id;
 
