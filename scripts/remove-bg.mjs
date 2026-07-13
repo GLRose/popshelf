@@ -1,7 +1,8 @@
 // Turns raw product renders (clean/white background) into transparent cutouts.
 // Uses a pure-JS edge flood-fill (jimp) - no native deps, no ML model download,
-// which is robust and reproducible. Reads assets/figures/raw/*, writes
-// transparent PNGs to assets/figures/<id>.png.
+// which is robust and reproducible. Reads catalog-images/raw/*, writes
+// transparent PNGs to catalog-images/cutouts/<id>.png, which is what
+// `npm run upload:catalog` then publishes to Supabase.
 //   npm run cutout   (or: node scripts/remove-bg.mjs)
 import { readdirSync, mkdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -9,8 +10,8 @@ import { dirname, resolve } from 'node:path';
 import { Jimp } from 'jimp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const RAW_DIR = resolve(__dirname, '../assets/figures/raw');
-const OUT_DIR = resolve(__dirname, '../assets/figures');
+const RAW_DIR = resolve(__dirname, '../catalog-images/raw');
+const OUT_DIR = resolve(__dirname, '../catalog-images/cutouts');
 
 const NEAR_WHITE = 236; // min channel value to be treated as background
 const NEUTRAL = 18; // max channel spread (so we only remove neutral, not colored)
@@ -74,4 +75,4 @@ for (const file of files) {
   }
 }
 console.log(`Cut out ${ok}/${files.length} figures (${weak} had non-white backgrounds).`);
-console.log('Next: npm run imagemap');
+console.log('Next: npm run upload:catalog');

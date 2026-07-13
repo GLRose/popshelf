@@ -123,8 +123,8 @@ async function scrapePeachRiot(setSlug, label, tail) {
 // Series that no clean image source exposes for automated scraping (Pop Mart's
 // own API requires signed requests; retail/fan sites have no per-figure renders).
 // We record the catalog data now so the app is complete; each figure shows the
-// styled placeholder until an official render is dropped into assets/figures/raw/
-// keyed by the figure id and scripts/scrape.mjs -> cutout -> imagemap is re-run.
+// styled placeholder until an official render is dropped into catalog-images/raw/
+// keyed by the figure id and scripts/scrape.mjs -> cutout -> upload:catalog is re-run.
 // Rosters compiled 2026-07-06 from Pop Mart product listings + collector guides.
 const MANUAL_PEACHRIOT = [
   ['Rush Hour', [
@@ -205,8 +205,8 @@ const MANUAL_PEACHRIOT = [
 // --- Skullpanda: manual data ----------------------------------------------
 // Series/items skullpandaworld.com does not carry (too new, or never listed
 // under /series/): the app needs the catalog data now, so each figure shows
-// the styled placeholder until a render is dropped into assets/figures/raw/
-// keyed by the figure id and scripts/scrape.mjs -> cutout -> imagemap is
+// the styled placeholder until a render is dropped into catalog-images/raw/
+// keyed by the figure id and scripts/scrape.mjs -> cutout -> upload:catalog is
 // re-run. Rosters compiled 2026-07-11 from Pop Mart product listings +
 // collector guides (popmart.com, arttoyfamilia.com, popcollectorworld.com).
 const MANUAL_SKULLPANDA = [
@@ -544,4 +544,4 @@ const sk = figures.filter((f) => f.series === 'skullpanda').length;
 const pr = figures.filter((f) => f.series === 'peachriot').length;
 const hi = figures.filter((f) => f.series === 'hirono').length;
 console.log(`\nTotal ${figures.length} figures (skullpanda ${sk}, peachriot ${pr}, hirono ${hi}).`);
-console.log('Next: npm run images  (scrape -> cutout -> imagemap)');
+console.log('Next: npm run images  (scrape -> cutout -> upload:catalog)');

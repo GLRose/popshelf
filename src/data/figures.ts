@@ -1,6 +1,5 @@
 import type { Figure, Series } from '@/types';
 import raw from './figures.json';
-import { figureImages } from './figureImages';
 
 export const FIGURES: Figure[] = raw as Figure[];
 
@@ -10,10 +9,6 @@ export const FIGURES_BY_ID: Record<string, Figure> = Object.fromEntries(
 
 export function getFigure(id: string): Figure | undefined {
   return FIGURES_BY_ID[id];
-}
-
-export function figureImage(id: string) {
-  return figureImages[id];
 }
 
 export function figuresBySeries(series: Series): Figure[] {

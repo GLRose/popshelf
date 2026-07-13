@@ -5,7 +5,6 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { AddImageModal } from '@/components/AddImageModal';
 import { FigureImage } from '@/components/FigureImage';
 import { Radius, T } from '@/constants/appTheme';
-import { figureImage } from '@/data/figures';
 import { useCollection } from '@/store/useCollection';
 import { useUserImages } from '@/store/useUserImages';
 import type { Figure } from '@/types';
@@ -27,10 +26,12 @@ export const FigureCard = memo(function FigureCard({ figure, width }: Props) {
   const onActiveShelf = location?.id === activeShelfId;
   const onOtherShelf = !!location && !onActiveShelf;
 
-  // Figures without a bundled cutout can be given a user image. Either the
-  // user's own or the community's counts - the modal opens on whichever shows.
+  // Every figure takes a user image now. It used to be only the ones with no
+  // bundled cutout, because a bundled image won unconditionally and there was
+  // no way for a user's pick to show. Nothing is bundled any more - catalog art
+  // is just another image from the server - so a user can replace any of it, and
+  // removing theirs falls back to whatever the server serves.
   const hasUserImage = useUserImages((s) => !!(s.mine[figure.id] ?? s.community[figure.id]));
-  const editableImage = !figureImage(figure.id);
   const [imageModalOpen, setImageModalOpen] = useState(false);
 
   const imgSize = width - 20; // padding 10 each side
@@ -59,17 +60,15 @@ export const FigureCard = memo(function FigureCard({ figure, width }: Props) {
           />
         </Pressable>
 
-        {editableImage && (
-          <Pressable
-            onPress={() => setImageModalOpen(true)}
-            hitSlop={8}
-            style={({ pressed }) => [styles.camera, pressed && styles.pressed]}
-            accessibilityLabel={
-              hasUserImage ? `Edit image for ${figure.name}` : `Add image for ${figure.name}`
-            }>
-            <Ionicons name={hasUserImage ? 'camera' : 'camera-outline'} size={17} color={T.muted} />
-          </Pressable>
-        )}
+        <Pressable
+          onPress={() => setImageModalOpen(true)}
+          hitSlop={8}
+          style={({ pressed }) => [styles.camera, pressed && styles.pressed]}
+          accessibilityLabel={
+            hasUserImage ? `Edit image for ${figure.name}` : `Add image for ${figure.name}`
+          }>
+          <Ionicons name={hasUserImage ? 'camera' : 'camera-outline'} size={17} color={T.muted} />
+        </Pressable>
       </View>
 
       {imageModalOpen && (

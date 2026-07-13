@@ -1,12 +1,13 @@
-// Downloads figure images listed in scripts/sources.json into assets/figures/raw/.
-// Keyed by figure id so mapping to the catalog is explicit and correct.
+// Downloads figure images listed in scripts/sources.json into
+// catalog-images/raw/. Keyed by figure id so mapping to the catalog is explicit
+// and correct. First stage of: scrape -> cutout -> upload:catalog.
 //   node scripts/scrape.mjs
 import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const RAW_DIR = resolve(__dirname, '../assets/figures/raw');
+const RAW_DIR = resolve(__dirname, '../catalog-images/raw');
 const SOURCES = resolve(__dirname, 'sources.json');
 
 mkdirSync(RAW_DIR, { recursive: true });
@@ -35,4 +36,4 @@ for (const [id, url] of entries) {
   }
 }
 console.log(`\nDownloaded ${ok}/${entries.length} images to ${RAW_DIR}`);
-console.log('Next: node scripts/remove-bg.mjs  (then node scripts/gen-image-map.mjs)');
+console.log('Next: npm run cutout  (then npm run upload:catalog)');

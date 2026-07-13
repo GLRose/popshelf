@@ -54,8 +54,9 @@
     "catalog": "node scripts/build-catalog.mjs",
     "scrape": "node scripts/scrape.mjs",
     "cutout": "node scripts/remove-bg.mjs",
-    "imagemap": "node scripts/gen-image-map.mjs",
-    "images": "npm run scrape && npm run cutout && npm run imagemap",
+    "upload:catalog": "node scripts/upload-catalog-images.mjs",
+    "missing-images": "node scripts/missing-images.mjs",
+    "images": "npm run scrape && npm run cutout && npm run upload:catalog",
     "refresh": "npm run catalog && npm run images"
   },
   "private": true
