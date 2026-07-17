@@ -37,6 +37,10 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
+# scraper: git-ignored raw-response cache. Provenance/crawl state under
+# scraper/state/ IS committed (auditable).
+scraper/.cache/
+
 example
 
 # generated native folders

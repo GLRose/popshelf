@@ -35,12 +35,15 @@
     "zustand": "^5.0.14"
   },
   "devDependencies": {
+    "@types/node": "^26.1.1",
     "@types/react": "~19.2.2",
     "eslint": "^9.0.0",
     "eslint-config-expo": "~57.0.0",
     "jimp": "^1.6.1",
     "playwright": "^1.61.1",
-    "typescript": "~6.0.3"
+    "tsx": "^4.23.1",
+    "typescript": "~6.0.3",
+    "zod": "^4.4.3"
   },
   "scripts": {
     "start": "expo start",
@@ -51,12 +54,14 @@
     "lint": "expo lint",
     "test:e2e": "node e2e/run.mjs",
     "build:web": "expo export --platform web",
+    "scrape": "tsx scraper/cli.ts",
+    "scrape:test": "tsx --test scraper/**/*.test.ts",
     "catalog": "node scripts/build-catalog.mjs",
-    "scrape": "node scripts/scrape.mjs",
+    "scrape:download": "node scripts/scrape.mjs",
     "cutout": "node scripts/remove-bg.mjs",
     "upload:catalog": "node scripts/upload-catalog-images.mjs",
     "missing-images": "node scripts/missing-images.mjs",
-    "images": "npm run scrape && npm run cutout && npm run upload:catalog",
+    "images": "npm run scrape:download && npm run cutout && npm run upload:catalog",
     "refresh": "npm run catalog && npm run images"
   },
   "private": true

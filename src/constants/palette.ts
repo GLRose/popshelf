@@ -11,6 +11,7 @@ export const Palette = {
   skullpanda: '#7C6BF2',
   peachriot: '#FF7A9A',
   hirono: '#5B6B8C',
+  dimoo: '#4A9DD9',
   gold: '#F4B740',
   ink: '#171423',
 } as const;
@@ -31,9 +32,14 @@ export const SERIES: Record<string, SeriesMeta> = {
     label: 'HIRONO',
     accent: Palette.hirono,
   },
+  dimoo: {
+    id: 'dimoo',
+    label: 'DIMOO',
+    accent: Palette.dimoo,
+  },
 };
 
-export const SERIES_ORDER = ['skullpanda', 'peachriot', 'hirono'] as const;
+export const SERIES_ORDER = ['skullpanda', 'peachriot', 'hirono', 'dimoo'] as const;
 
 /** Preset shelf ledge colors the user can pick from. */
 export const SHELF_COLORS = [

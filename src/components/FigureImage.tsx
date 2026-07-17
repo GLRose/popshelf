@@ -1,11 +1,19 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
+import type { ComponentProps } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { readableOn, shade } from '@/lib/color';
 import { useUserImages } from '@/store/useUserImages';
-import type { Figure } from '@/types';
+import type { Figure, Series } from '@/types';
+
+const SERIES_GLYPH: Record<Series, ComponentProps<typeof Ionicons>['name']> = {
+  skullpanda: 'skull',
+  hirono: 'paw',
+  peachriot: 'flame',
+  dimoo: 'cloud',
+};
 
 interface Props {
   figure: Figure;
@@ -48,8 +56,7 @@ export function FigureImage({ figure, size, rounded = true, bare = false }: Prop
   }
 
   // Placeholder
-  const glyph =
-    figure.series === 'skullpanda' ? 'skull' : figure.series === 'hirono' ? 'paw' : 'flame';
+  const glyph = SERIES_GLYPH[figure.series];
   const fg = readableOn(shade(accent, -0.1));
   const label = initials(figure.set);
 
