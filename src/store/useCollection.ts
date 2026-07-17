@@ -10,8 +10,8 @@ import {
   loadLocalCollection,
   saveLocalCollection,
   type SyncCollection,
-} from '@/lib/localCollection';
-import { mergeCollections } from '@/lib/mergeCollection';
+} from '@/lib/collection/localCollection';
+import { mergeCollections } from '@/lib/collection/mergeCollection';
 import {
   addFavoriteRemote,
   deleteShelfRemote,
@@ -20,7 +20,7 @@ import {
   setActiveShelfRemote,
   syncCollectionToRemote,
   upsertShelfRemote,
-} from '@/lib/remoteCollection';
+} from '@/lib/collection/remoteCollection';
 import { currentUserId, supabase } from '@/lib/supabase';
 import type { Shelf } from '@/types';
 

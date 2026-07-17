@@ -1,4 +1,4 @@
-import { deleteImages } from '@/lib/remoteFigureImages';
+import { deleteImages } from '@/lib/images/remoteFigureImages';
 import { supabase } from '@/lib/supabase';
 
 const BUCKET = 'figure-images';

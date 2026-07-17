@@ -1,4 +1,4 @@
-import type { SyncCollection } from '@/lib/localCollection';
+import type { SyncCollection } from '@/lib/collection/localCollection';
 
 /**
  * Unions a device's collection with the one already stored under the account

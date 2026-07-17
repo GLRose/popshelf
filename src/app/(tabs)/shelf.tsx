@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { AccountButton } from '@/components/AccountBar';
-import { Shelf } from '@/components/Shelf';
-import { ShelfBackground } from '@/components/ShelfBackground';
-import { ShelfCustomizer } from '@/components/ShelfCustomizer';
-import { ShelfSelector } from '@/components/ShelfSelector';
-import { Paginator } from '@/components/Paginator';
+import { AccountButton } from '@/components/common/AccountBar';
+import { Shelf } from '@/components/shelf/Shelf';
+import { ShelfBackground } from '@/components/shelf/ShelfBackground';
+import { ShelfCustomizer } from '@/components/shelf/ShelfCustomizer';
+import { ShelfSelector } from '@/components/shelf/ShelfSelector';
+import { Paginator } from '@/components/common/Paginator';
 import { Radius, T } from '@/constants/appTheme';
 import { getBackground, getTexture } from '@/constants/palette';
 import { getFigure } from '@/data/figures';

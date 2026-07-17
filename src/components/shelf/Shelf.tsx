@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 
-import { Ledge } from '@/components/Ledge';
-import { ShelfItem } from '@/components/ShelfItem';
+import { Ledge } from '@/components/shelf/Ledge';
+import { ShelfItem } from '@/components/shelf/ShelfItem';
 import type { TextureKind } from '@/constants/palette';
 import type { Figure } from '@/types';
 

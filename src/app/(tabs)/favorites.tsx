@@ -2,8 +2,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { FlatList, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { AccountBar } from '@/components/AccountBar';
-import { FigureCard } from '@/components/FigureCard';
+import { AccountBar } from '@/components/common/AccountBar';
+import { FigureCard } from '@/components/figures/FigureCard';
 import { T } from '@/constants/appTheme';
 import { getFigure } from '@/data/figures';
 import { useCollection } from '@/store/useCollection';

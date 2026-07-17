@@ -2,7 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View, type ViewStyle } from 'react-native';
 
-import { ShelfPicker } from '@/components/ShelfPicker';
+import { ShelfPicker } from '@/components/shelf/ShelfPicker';
 import { Radius, T } from '@/constants/appTheme';
 import { useCollection } from '@/store/useCollection';
 

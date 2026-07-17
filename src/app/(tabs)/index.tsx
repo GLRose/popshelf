@@ -3,11 +3,11 @@ import { useMemo, useRef, useState } from 'react';
 import { SectionList, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { AccountBar } from '@/components/AccountBar';
-import { FigureCard } from '@/components/FigureCard';
-import { SeriesToggle } from '@/components/SeriesToggle';
-import { SetFilter } from '@/components/SetFilter';
-import { ShelfSelector } from '@/components/ShelfSelector';
+import { AccountBar } from '@/components/common/AccountBar';
+import { FigureCard } from '@/components/figures/FigureCard';
+import { SeriesToggle } from '@/components/figures/SeriesToggle';
+import { SetFilter } from '@/components/figures/SetFilter';
+import { ShelfSelector } from '@/components/shelf/ShelfSelector';
 import { Radius, T } from '@/constants/appTheme';
 import { SERIES } from '@/constants/palette';
 import { setsForSeries } from '@/data/figures';
