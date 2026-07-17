@@ -32,6 +32,12 @@ export const IP_CONFIGS: readonly IpConfig[] = [
     accent: '#4A9DD9',
     sources: [{ source: 'popmart', options: { brandLabel: 'DIMOO' } }],
   },
+  {
+    ip: 'hirono',
+    label: 'HIRONO',
+    accent: '#5B6B8C',
+    sources: [{ source: 'popmart', options: { brandLabel: 'HIRONO' } }],
+  },
 ];
 
 export function getIpConfig(ip: string): IpConfig {
