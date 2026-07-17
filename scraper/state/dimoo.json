@@ -1,0 +1,1225 @@
+{
+  "ip": "dimoo",
+  "sources": {
+    "popmart": {
+      "lastRunAt": "2026-07-17T07:41:57.384Z",
+      "items": {
+        "8137:dimoo-as-woody": {
+          "figureId": "dimoo-world-pixar-dimoo-as-woody",
+          "sourceUrl": "https://www.popmart.com/us/products/8137",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × PIXAR\",\"DIMOO as Woody\",\"regular\",2026,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783678288055_aa7e43fb14cd4c126fb1e8d545e5233a.jpg"
+        },
+        "8137:dimoo-as-buzz-lightyear": {
+          "figureId": "dimoo-world-pixar-dimoo-as-buzz-lightyear",
+          "sourceUrl": "https://www.popmart.com/us/products/8137",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × PIXAR\",\"DIMOO as Buzz Lightyear\",\"regular\",2026,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783678311489_db634185975e8a9442b3b817ed70deba.jpg"
+        },
+        "8137:dimoo-as-alien": {
+          "figureId": "dimoo-world-pixar-dimoo-as-alien",
+          "sourceUrl": "https://www.popmart.com/us/products/8137",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × PIXAR\",\"DIMOO as Alien\",\"regular\",2026,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783678333012_ee7d47502c357a7307a25e7a9917655c.jpg"
+        },
+        "8137:dimoo-as-remy": {
+          "figureId": "dimoo-world-pixar-dimoo-as-remy",
+          "sourceUrl": "https://www.popmart.com/us/products/8137",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × PIXAR\",\"DIMOO as Remy\",\"regular\",2026,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783678369451_5beca54087d9599ef808baca4e0eff6f.jpg"
+        },
+        "8137:dimoo-as-red-panda-mei": {
+          "figureId": "dimoo-world-pixar-dimoo-as-red-panda-mei",
+          "sourceUrl": "https://www.popmart.com/us/products/8137",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × PIXAR\",\"DIMOO as Red Panda Mei\",\"regular\",2026,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783678384749_0eeac690ed8a8096cb541a687ece2adb.jpg"
+        },
+        "8137:dimoo-as-miguel-rivera": {
+          "figureId": "dimoo-world-pixar-dimoo-as-miguel-rivera",
+          "sourceUrl": "https://www.popmart.com/us/products/8137",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × PIXAR\",\"DIMOO as Miguel Rivera\",\"regular\",2026,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783678394232_b1332e287937f2273050c4cc5476ca5b.jpg"
+        },
+        "8137:dimoo-as-dash-parr": {
+          "figureId": "dimoo-world-pixar-dimoo-as-dash-parr",
+          "sourceUrl": "https://www.popmart.com/us/products/8137",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × PIXAR\",\"DIMOO as Dash Parr\",\"regular\",2026,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783678399033_ed2cb6962d44935a2049773f228a7db9.jpg"
+        },
+        "8137:dimoo-as-wall-e": {
+          "figureId": "dimoo-world-pixar-dimoo-as-wall-e",
+          "sourceUrl": "https://www.popmart.com/us/products/8137",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × PIXAR\",\"DIMOO as WALL · E\",\"regular\",2026,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783678416290_a2d8cc024098a4bd5e1b38bd1b47096b.jpg"
+        },
+        "8137:dimoo-as-sulley": {
+          "figureId": "dimoo-world-pixar-dimoo-as-sulley",
+          "sourceUrl": "https://www.popmart.com/us/products/8137",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × PIXAR\",\"DIMOO as Sulley\",\"regular\",2026,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783678472369_43c46f89ea3ac35a03fa20106a6e42ab.jpg"
+        },
+        "8137:dimoo-as-russell": {
+          "figureId": "dimoo-world-pixar-dimoo-as-russell",
+          "sourceUrl": "https://www.popmart.com/us/products/8137",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × PIXAR\",\"DIMOO as Russell\",\"regular\",2026,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783678491407_bf8ead73c30a4894830db99fb7ce7af3.jpg",
+          "imageHash": "c4a15aca2c8307070e88f8f23131528779211efbbd5bb455f2a84bf24de92815"
+        },
+        "8137:dimoo-as-lotso": {
+          "figureId": "dimoo-world-pixar-dimoo-as-lotso",
+          "sourceUrl": "https://www.popmart.com/us/products/8137",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × PIXAR\",\"DIMOO as Lotso\",\"regular\",2026,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783678508425_2b143ea15854fd7d01e47808489d12e4.jpg"
+        },
+        "8137:dimoo-as-hamm": {
+          "figureId": "dimoo-world-pixar-dimoo-as-hamm",
+          "sourceUrl": "https://www.popmart.com/us/products/8137",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × PIXAR\",\"DIMOO as Hamm\",\"regular\",2026,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783678515853_143df12e6a8a92340a3993d09220aced.jpg"
+        },
+        "8137:dimoo-in-space-crane": {
+          "figureId": "dimoo-world-pixar-dimoo-in-space-crane",
+          "sourceUrl": "https://www.popmart.com/us/products/8137",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × PIXAR\",\"DIMOO in Space Crane\",\"secret\",2026,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783678524970_c1bed62a3e893bd6475beee7adcde877.jpg"
+        },
+        "5582:kiteland": {
+          "figureId": "dimoo-memories-we-hold-kiteland",
+          "sourceUrl": "https://www.popmart.com/us/products/5582",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Memories We Hold\",\"Kiteland\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1766133402617____kiteland____.png",
+          "imageHash": "ff411992165f255901da6dea77d3676a0d42bb3635e518b5070af50f9a1ba712"
+        },
+        "5582:summer-on-the-grass": {
+          "figureId": "dimoo-memories-we-hold-summer-on-the-grass",
+          "sourceUrl": "https://www.popmart.com/us/products/5582",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Memories We Hold\",\"Summer on the Grass\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1766133579360____summer-on-the-grass____.png",
+          "imageHash": "b8f30d4f3fed6bae594aca2f7aabbc0c51dc0639e14cdbd429c3aa5a2d08cdb3"
+        },
+        "5582:bad-morning": {
+          "figureId": "dimoo-memories-we-hold-bad-morning",
+          "sourceUrl": "https://www.popmart.com/us/products/5582",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Memories We Hold\",\"Bad Morning\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1766133602603____bad-morning____.png",
+          "imageHash": "f21eee0fab8eb695a059b40cf0e97c282fb755de698e67ae71dec0ebcb019ad8"
+        },
+        "5582:path-of-whispering-lilies": {
+          "figureId": "dimoo-memories-we-hold-path-of-whispering-lilies",
+          "sourceUrl": "https://www.popmart.com/us/products/5582",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Memories We Hold\",\"Path of Whispering Lilies\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1766133334590____path-of-whispering-lilies____.png",
+          "imageHash": "3dfa9e7b3683af3fe036ff6632f27c507bd96cacf2e35d40d8b9c46ab5a9781c"
+        },
+        "5582:blooms-from-the-mud": {
+          "figureId": "dimoo-memories-we-hold-blooms-from-the-mud",
+          "sourceUrl": "https://www.popmart.com/us/products/5582",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Memories We Hold\",\"Blooms from the Mud\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1766133634376____blooms-from-the-mud____.png",
+          "imageHash": "07de33e8aee8d776410745b8bc200909c2fc0b4e20c011d9a3ec841c1c263eb0"
+        },
+        "5582:in-your-arms": {
+          "figureId": "dimoo-memories-we-hold-in-your-arms",
+          "sourceUrl": "https://www.popmart.com/us/products/5582",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Memories We Hold\",\"In Your Arms\",\"secret\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1766133648829____secret_in-your-arms____.png",
+          "imageHash": "e43488f327e8387cfeed397c3e00b8be9540d6f8ebe1f8f299f464a06772a897"
+        },
+        "5582:the-goodbye-l-cannot-say": {
+          "figureId": "dimoo-memories-we-hold-the-goodbye-l-cannot-say",
+          "sourceUrl": "https://www.popmart.com/us/products/5582",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Memories We Hold\",\"The Goodbye l Cannot Say\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1766133520684____the-goodbye-l-cannot-say____.png",
+          "imageHash": "9102178561a9ccf26f79b10448f5889a4f18a3f0d44677017f4abe8fde19fff7"
+        },
+        "5582:snowfield-swing": {
+          "figureId": "dimoo-memories-we-hold-snowfield-swing",
+          "sourceUrl": "https://www.popmart.com/us/products/5582",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Memories We Hold\",\"Snowfield Swing\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1766133445214____snowfield-swing____.png",
+          "imageHash": "38af32dda5f3ebcf51f31b73d0824e8916d90b42f5168ee41298ce63bcb48a07"
+        },
+        "5582:purring-thread": {
+          "figureId": "dimoo-memories-we-hold-purring-thread",
+          "sourceUrl": "https://www.popmart.com/us/products/5582",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Memories We Hold\",\"Purring Thread\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1766133342782____purring-thread____.png",
+          "imageHash": "a14884312080a8288c9183302b0a153be585c369ac7bb38d9bdf96bee89b9275"
+        },
+        "5582:first-swim": {
+          "figureId": "dimoo-memories-we-hold-first-swim",
+          "sourceUrl": "https://www.popmart.com/us/products/5582",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Memories We Hold\",\"First Swim\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1766133642793____first-swim____.png",
+          "imageHash": "c789134fe9aa1200c25f29d5a26d1a03c1fd3970654ade139a7fce12b850194d"
+        },
+        "5582:cosmic-dream": {
+          "figureId": "dimoo-memories-we-hold-cosmic-dream",
+          "sourceUrl": "https://www.popmart.com/us/products/5582",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Memories We Hold\",\"Cosmic Dream\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1766133673939____cosmic-dream____.png",
+          "imageHash": "5cd967092086e323afb93e169201fd2bdcb02b01bb137f57f6777464aa42d172"
+        },
+        "5582:rainbow-after-storm": {
+          "figureId": "dimoo-memories-we-hold-rainbow-after-storm",
+          "sourceUrl": "https://www.popmart.com/us/products/5582",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Memories We Hold\",\"Rainbow After Storm\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1766133613396____rainbow-after-storm____.png",
+          "imageHash": "29cd873f389c6895bcf1c481e9a151da213f108b096357d17c89d32e76a81937"
+        },
+        "5582:the-hourglass": {
+          "figureId": "dimoo-memories-we-hold-the-hourglass",
+          "sourceUrl": "https://www.popmart.com/us/products/5582",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Memories We Hold\",\"The Hourglass\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1766133421408____the-hourglass____.png",
+          "imageHash": "4d21d27a3d331f32321111412c25bb688943cbc85263f4f55d5a5cf43eb78218"
+        },
+        "3678:blooming-button": {
+          "figureId": "dimoo-the-missing-day-blooming-button",
+          "sourceUrl": "https://www.popmart.com/us/products/3678",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"The Missing Day\",\"Blooming Button\",\"regular\",2025,\"#6E8F5A\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1757671319010____blooming-button____.png",
+          "imageHash": "2ca6d18c650eada4a246b484af61076d7ac0d7006ddbc610c89f42aba9d64f21"
+        },
+        "3678:air-my-soul-in-the-sun": {
+          "figureId": "dimoo-the-missing-day-air-my-soul-in-the-sun",
+          "sourceUrl": "https://www.popmart.com/us/products/3678",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"The Missing Day\",\"Air My Soul in the Sun\",\"regular\",2025,\"#6E8F5A\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1757671312118____air-my-soul-in-the-sun____.png",
+          "imageHash": "31c9e962b2676a07869c774b5e655651f2cd3c702b14a66a3d0e19633810d4ee"
+        },
+        "3678:melt-into-me": {
+          "figureId": "dimoo-the-missing-day-melt-into-me",
+          "sourceUrl": "https://www.popmart.com/us/products/3678",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"The Missing Day\",\"Melt Into Me\",\"regular\",2025,\"#6E8F5A\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1757671385220____melt-into-me____.png"
+        },
+        "3678:puppy-sock": {
+          "figureId": "dimoo-the-missing-day-puppy-sock",
+          "sourceUrl": "https://www.popmart.com/us/products/3678",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"The Missing Day\",\"Puppy Sock\",\"regular\",2025,\"#6E8F5A\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1757671327361____puppy-sock____.png",
+          "imageHash": "de9856462864d3c89f7670b61d563358907ef49a4bfba36c1e20e0bab6210ab4"
+        },
+        "3678:a-call-between-worlds": {
+          "figureId": "dimoo-the-missing-day-a-call-between-worlds",
+          "sourceUrl": "https://www.popmart.com/us/products/3678",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"The Missing Day\",\"A Call Between Worlds\",\"regular\",2025,\"#6E8F5A\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1757671374522____a-call-between-worlds____.png",
+          "imageHash": "2bafe37592fe0e4c049fccb8510555fa941f4d94c853840fcb212be3747803e3"
+        },
+        "3678:a-story-only-i-can-tell": {
+          "figureId": "dimoo-the-missing-day-a-story-only-i-can-tell",
+          "sourceUrl": "https://www.popmart.com/us/products/3678",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"The Missing Day\",\"A Story Only I Can Tell\",\"regular\",2025,\"#6E8F5A\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1757671390545____a-story-only-i-can-tell____.png",
+          "imageHash": "2b7a60c0e5781dfddd25810ff8f5031df27c931948363abd168a5dd48896637e"
+        },
+        "3678:soaking-in-a-dream": {
+          "figureId": "dimoo-the-missing-day-soaking-in-a-dream",
+          "sourceUrl": "https://www.popmart.com/us/products/3678",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"The Missing Day\",\"Soaking in a Dream\",\"regular\",2025,\"#6E8F5A\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1757671273438____soaking-in-a-dream____.png"
+        },
+        "3678:quacky-stroll": {
+          "figureId": "dimoo-the-missing-day-quacky-stroll",
+          "sourceUrl": "https://www.popmart.com/us/products/3678",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"The Missing Day\",\"Quacky Stroll\",\"regular\",2025,\"#6E8F5A\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1757671290164____quacky-stroll____.png",
+          "imageHash": "822d5129b190c34d53ce6067a1ed7237a28acd7abf70ec34d2c1db3dea1272e0"
+        },
+        "3678:my-pillow-beats": {
+          "figureId": "dimoo-the-missing-day-my-pillow-beats",
+          "sourceUrl": "https://www.popmart.com/us/products/3678",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"The Missing Day\",\"My Pillow Beats\",\"regular\",2025,\"#6E8F5A\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1757671364610____my-pillow-beats____.png"
+        },
+        "3678:soul-trails": {
+          "figureId": "dimoo-the-missing-day-soul-trails",
+          "sourceUrl": "https://www.popmart.com/us/products/3678",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"The Missing Day\",\"Soul Trails\",\"regular\",2025,\"#6E8F5A\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1757671281622____soul-trails____.png",
+          "imageHash": "ff605b979c31387e261153c302a440a3746c319f5e2798fa6c5ae615b2dc95fb"
+        },
+        "3678:dancing-on-clouds": {
+          "figureId": "dimoo-the-missing-day-dancing-on-clouds",
+          "sourceUrl": "https://www.popmart.com/us/products/3678",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"The Missing Day\",\"Dancing on Clouds\",\"regular\",2025,\"#6E8F5A\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1757671380152____dancing-on-clouds____.png"
+        },
+        "3678:unlocking-time": {
+          "figureId": "dimoo-the-missing-day-unlocking-time",
+          "sourceUrl": "https://www.popmart.com/us/products/3678",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"The Missing Day\",\"Unlocking Time\",\"regular\",2025,\"#6E8F5A\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1757671346641____unlocking-time____.png"
+        },
+        "3678:where-days-don-t-count": {
+          "figureId": "dimoo-the-missing-day-where-days-don-t-count",
+          "sourceUrl": "https://www.popmart.com/us/products/3678",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"The Missing Day\",\"Where Days Don't Count\",\"secret\",2025,\"#6E8F5A\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1757671395505____secret_where-days-don-t-count____.png",
+          "imageHash": "fec387b4be9e19194731ca59269dac3ea0b0bac6fc5463fac35dba0724d2119d"
+        },
+        "5995:hugging-spring": {
+          "figureId": "dimoo-moments-in-bloom-hugging-spring",
+          "sourceUrl": "https://www.popmart.com/us/products/5995",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Moments in Bloom\",\"Hugging Spring\",\"regular\",2026,\"#B5687F\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1773396635376____hugging-spring____.png",
+          "imageHash": "d88778b04313de225cd7bb8c602095c97c13deaf6f378f9e77594ab8b9b6da9e"
+        },
+        "5995:packed-with-spring": {
+          "figureId": "dimoo-moments-in-bloom-packed-with-spring",
+          "sourceUrl": "https://www.popmart.com/us/products/5995",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Moments in Bloom\",\"Packed with Spring\",\"regular\",2026,\"#B5687F\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1773396624757____packed-with-spring____.png",
+          "imageHash": "07def65c9e30142d1482b003bb40ad21992048e7cd678a4d0a5799d72d9f8052"
+        },
+        "5995:spring-recoil": {
+          "figureId": "dimoo-moments-in-bloom-spring-recoil",
+          "sourceUrl": "https://www.popmart.com/us/products/5995",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Moments in Bloom\",\"Spring Recoil\",\"regular\",2026,\"#B5687F\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1773396615958____spring-recoil____.png",
+          "imageHash": "5f2d2315c662aa081104e03dd97569db6aafdaf01560c4149bc8d05eb4db94bc"
+        },
+        "5995:a-breath-of-blossoms": {
+          "figureId": "dimoo-moments-in-bloom-a-breath-of-blossoms",
+          "sourceUrl": "https://www.popmart.com/us/products/5995",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Moments in Bloom\",\"A Breath of Blossoms\",\"regular\",2026,\"#B5687F\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1773396607164____a-breath-of-blossoms____.png",
+          "imageHash": "4d0d5b629fb9608a9316ad1aa764f176602bcef227316a7c195bc37377e3d7a7"
+        },
+        "5995:caught-by-spring": {
+          "figureId": "dimoo-moments-in-bloom-caught-by-spring",
+          "sourceUrl": "https://www.popmart.com/us/products/5995",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Moments in Bloom\",\"Caught by Spring\",\"regular\",2026,\"#B5687F\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1773396596767____caught-by-spring____.png",
+          "imageHash": "557fd9826077ed44d7f541c650b26f835d863c048482c5f9080f2e0e3ca60026"
+        },
+        "5995:it-lives-in-my-boot": {
+          "figureId": "dimoo-moments-in-bloom-it-lives-in-my-boot",
+          "sourceUrl": "https://www.popmart.com/us/products/5995",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Moments in Bloom\",\"It Lives in My Boot!\",\"regular\",2026,\"#B5687F\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1773396587566____it-lives-in-my-boot____.png",
+          "imageHash": "e1de32eba5e953ce0b31e06a5180570d0b1b6390ee2da7e59118e7c0dce62ef1"
+        },
+        "5995:catching-spring": {
+          "figureId": "dimoo-moments-in-bloom-catching-spring",
+          "sourceUrl": "https://www.popmart.com/us/products/5995",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Moments in Bloom\",\"Catching Spring\",\"regular\",2026,\"#B5687F\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1773396575179____catching-spring____.png",
+          "imageHash": "8b7666e94d450f9a129652997977453f3f089e2e8b318e536bf6f3eeca4436ce"
+        },
+        "5995:flying-through-spring": {
+          "figureId": "dimoo-moments-in-bloom-flying-through-spring",
+          "sourceUrl": "https://www.popmart.com/us/products/5995",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Moments in Bloom\",\"Flying Through Spring\",\"regular\",2026,\"#B5687F\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1773396565073____flying-through-spring____.png",
+          "imageHash": "d0064c4465470f3680c501c0a7148394fe0171e9b4b237aeea6227933516d355"
+        },
+        "5995:take-me-to-spring": {
+          "figureId": "dimoo-moments-in-bloom-take-me-to-spring",
+          "sourceUrl": "https://www.popmart.com/us/products/5995",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Moments in Bloom\",\"Take Me to Spring\",\"regular\",2026,\"#B5687F\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1773396555905____take-me-to-spring____.png",
+          "imageHash": "259845cd517cfa0d580541fe90a4f308e993f1dc509298e64374a0bf3e34bdfb"
+        },
+        "5995:spring-s-trumpet": {
+          "figureId": "dimoo-moments-in-bloom-spring-s-trumpet",
+          "sourceUrl": "https://www.popmart.com/us/products/5995",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Moments in Bloom\",\"Spring's Trumpet\",\"regular\",2026,\"#B5687F\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1773396545829____spring-s-trumpet____.png",
+          "imageHash": "8109d54c5a868c1def679620d05263eab9403abda885ac60ee0954112cebb126"
+        },
+        "5995:light-up-spring": {
+          "figureId": "dimoo-moments-in-bloom-light-up-spring",
+          "sourceUrl": "https://www.popmart.com/us/products/5995",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Moments in Bloom\",\"Light Up Spring\",\"secret\",2026,\"#B5687F\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1773396533657____secret_light-up-spring____.png",
+          "imageHash": "4d48e2e1d04b24ee25b3b043596a5ce27511d020fcc4ee9517612aff26dd6d24"
+        },
+        "5995:falling-into-flowers": {
+          "figureId": "dimoo-moments-in-bloom-falling-into-flowers",
+          "sourceUrl": "https://www.popmart.com/us/products/5995",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Moments in Bloom\",\"Falling into Flowers\",\"regular\",2026,\"#B5687F\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1773396522946____falling-into-flowers____.png",
+          "imageHash": "2d9165d95e757ddb16e253ece0af4d3e01d23200ad01afd6d8afd5e2c42d3955"
+        },
+        "5995:spring-overhead": {
+          "figureId": "dimoo-moments-in-bloom-spring-overhead",
+          "sourceUrl": "https://www.popmart.com/us/products/5995",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Moments in Bloom\",\"Spring Overhead\",\"regular\",2026,\"#B5687F\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1773396513189____spring-overhead____.png",
+          "imageHash": "c032a281bd7a2be8e065e2e47f2cc166da66b0f1d82cb75b8e88455c89ba2fac"
+        },
+        "1765:spring-brings-springtime": {
+          "figureId": "dimoo-stories-in-the-cup-spring-brings-springtime",
+          "sourceUrl": "https://www.popmart.com/us/products/1765",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Stories in the Cup\",\"Spring Brings Springtime\",\"regular\",2024,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1734322748717____spring-brings-springtime____.png",
+          "imageHash": "2bbdc6a541b50550c98ecd3b49676b554a342dc41f799000ddbab9e9b7cc3f39"
+        },
+        "1765:sachet-lotus": {
+          "figureId": "dimoo-stories-in-the-cup-sachet-lotus",
+          "sourceUrl": "https://www.popmart.com/us/products/1765",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Stories in the Cup\",\"Sachet Lotus\",\"regular\",2024,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1734322756564____sachet-lotus____.png",
+          "imageHash": "35b818b74ac173c75dce416abe12461f6391d1ed7f52f536cd6b8f6241a3fd4e"
+        },
+        "1765:rooftop-guardian-creatures": {
+          "figureId": "dimoo-stories-in-the-cup-rooftop-guardian-creatures",
+          "sourceUrl": "https://www.popmart.com/us/products/1765",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Stories in the Cup\",\"Rooftop Guardian Creatures\",\"regular\",2024,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1734322763682____rooftop-guardian-creatures____.png",
+          "imageHash": "b1957cb3adea7282e50cff5167df5fbf1db464abe9ba3d97285c1c9c6f29a6ec"
+        },
+        "1765:snow-and-wintersweet": {
+          "figureId": "dimoo-stories-in-the-cup-snow-and-wintersweet",
+          "sourceUrl": "https://www.popmart.com/us/products/1765",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Stories in the Cup\",\"Snow and Wintersweet\",\"regular\",2024,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1734322770048____snow-and-wintersweet____.png",
+          "imageHash": "7d05d68e4face9d027e002dcef9903410b903fa6e5d267d9ed76c43da407d639"
+        },
+        "1765:propitious-jades": {
+          "figureId": "dimoo-stories-in-the-cup-propitious-jades",
+          "sourceUrl": "https://www.popmart.com/us/products/1765",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Stories in the Cup\",\"Propitious Jades\",\"regular\",2024,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1734322778037____propitious-jades____.png",
+          "imageHash": "90de881294e4cb1faed25ebd820551a544b75f97e206dfc6afd8062b7e08e414"
+        },
+        "1765:black-and-white-game": {
+          "figureId": "dimoo-stories-in-the-cup-black-and-white-game",
+          "sourceUrl": "https://www.popmart.com/us/products/1765",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Stories in the Cup\",\"Black and White Game\",\"regular\",2024,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1734322802542____black-and-white-game____.png",
+          "imageHash": "2a75fb6bd15da904ed7a878d1565a23ae64e07a2fb13de826e1acfe9b7a339b2"
+        },
+        "1765:auspicious-animal-seal": {
+          "figureId": "dimoo-stories-in-the-cup-auspicious-animal-seal",
+          "sourceUrl": "https://www.popmart.com/us/products/1765",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Stories in the Cup\",\"Auspicious Animal Seal\",\"regular\",2024,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1734322809294____auspicious-animal-seal____.png",
+          "imageHash": "ff35d3ebfcb108f23100e7f26b1b5d4aa965b0fae37588e029cfbed8c9bb924a"
+        },
+        "1765:river-scroll": {
+          "figureId": "dimoo-stories-in-the-cup-river-scroll",
+          "sourceUrl": "https://www.popmart.com/us/products/1765",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Stories in the Cup\",\"River Scroll\",\"regular\",2024,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1734322817656____river-scroll____.png",
+          "imageHash": "6476316606f195bef08a9c622633c234c563a260ad2f9892d10ef15ce243c13f"
+        },
+        "1765:sandalwood-incense-burner": {
+          "figureId": "dimoo-stories-in-the-cup-sandalwood-incense-burner",
+          "sourceUrl": "https://www.popmart.com/us/products/1765",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Stories in the Cup\",\"Sandalwood Incense Burner\",\"regular\",2024,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1734322825716____sandalwood-incense-burner____.png",
+          "imageHash": "52a5db011aac7729abacea5bff8564b7734ad82a2f0ed1398347f7ff4f5fcba9"
+        },
+        "1765:exhale-like-an-orchid": {
+          "figureId": "dimoo-stories-in-the-cup-exhale-like-an-orchid",
+          "sourceUrl": "https://www.popmart.com/us/products/1765",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Stories in the Cup\",\"Exhale Like an Orchid\",\"regular\",2024,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1734322832807____exhale-like-an-orchid____.png",
+          "imageHash": "6efc1acb23964b72902382149e3f951fc6be6520255fa6405ff1c20bb933a146"
+        },
+        "1765:ink-bamboo-painting": {
+          "figureId": "dimoo-stories-in-the-cup-ink-bamboo-painting",
+          "sourceUrl": "https://www.popmart.com/us/products/1765",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Stories in the Cup\",\"Ink Bamboo Painting\",\"regular\",2024,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1734322840475____ink-bamboo-painting____.png",
+          "imageHash": "1d5cd4d8d091133f718b2ef948b71de45a82cb852cd295d9d45e902aaccf0e56"
+        },
+        "1765:porcelain-blossoms": {
+          "figureId": "dimoo-stories-in-the-cup-porcelain-blossoms",
+          "sourceUrl": "https://www.popmart.com/us/products/1765",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Stories in the Cup\",\"Porcelain Blossoms\",\"regular\",2024,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1734322847877____porcelain-blossoms____.png",
+          "imageHash": "4bd288bfd9bf506300f82946782e9d8cc83718a1ed35e4266e3a09d0525173d3"
+        },
+        "1765:drunkenness": {
+          "figureId": "dimoo-stories-in-the-cup-drunkenness",
+          "sourceUrl": "https://www.popmart.com/us/products/1765",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Stories in the Cup\",\"Drunkenness\",\"secret\",2024,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1734322854578____secret____.png"
+        },
+        "3017:touching": {
+          "figureId": "dimoo-shapes-in-nature-touching",
+          "sourceUrl": "https://www.popmart.com/us/products/3017",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Shapes in Nature\",\"Touching\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1751884693706____touching____.png"
+        },
+        "3017:hearing": {
+          "figureId": "dimoo-shapes-in-nature-hearing",
+          "sourceUrl": "https://www.popmart.com/us/products/3017",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Shapes in Nature\",\"Hearing\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1751884686112____hearing____.png"
+        },
+        "3017:seeing": {
+          "figureId": "dimoo-shapes-in-nature-seeing",
+          "sourceUrl": "https://www.popmart.com/us/products/3017",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Shapes in Nature\",\"Seeing\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1751884678665____seeing____.png"
+        },
+        "3017:weathered-rock": {
+          "figureId": "dimoo-shapes-in-nature-weathered-rock",
+          "sourceUrl": "https://www.popmart.com/us/products/3017",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Shapes in Nature\",\"Weathered Rock\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1751884671506____weathered-rock____.png"
+        },
+        "3017:the-raindrop": {
+          "figureId": "dimoo-shapes-in-nature-the-raindrop",
+          "sourceUrl": "https://www.popmart.com/us/products/3017",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Shapes in Nature\",\"The Raindrop\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1751884654383____the-raindrop____.png"
+        },
+        "3017:melting-ice": {
+          "figureId": "dimoo-shapes-in-nature-melting-ice",
+          "sourceUrl": "https://www.popmart.com/us/products/3017",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Shapes in Nature\",\"Melting Ice\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1751884644075____melting-lce____.png"
+        },
+        "3017:parting-clouds": {
+          "figureId": "dimoo-shapes-in-nature-parting-clouds",
+          "sourceUrl": "https://www.popmart.com/us/products/3017",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Shapes in Nature\",\"Parting Clouds\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1751884634896____parting-clouds____.png"
+        },
+        "3017:withering-flowers": {
+          "figureId": "dimoo-shapes-in-nature-withering-flowers",
+          "sourceUrl": "https://www.popmart.com/us/products/3017",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Shapes in Nature\",\"Withering Flowers\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1751884622136____withering-flowers____.png"
+        },
+        "3017:upward-growth": {
+          "figureId": "dimoo-shapes-in-nature-upward-growth",
+          "sourceUrl": "https://www.popmart.com/us/products/3017",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Shapes in Nature\",\"Upward Growth\",\"secret\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1751884612767____secret_upward-growth____.png"
+        },
+        "3017:cloud-whisper": {
+          "figureId": "dimoo-shapes-in-nature-cloud-whisper",
+          "sourceUrl": "https://www.popmart.com/us/products/3017",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Shapes in Nature\",\"Cloud Whisper\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1751884600931____cloud-whisper____.png"
+        },
+        "3017:fallen-leaves": {
+          "figureId": "dimoo-shapes-in-nature-fallen-leaves",
+          "sourceUrl": "https://www.popmart.com/us/products/3017",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Shapes in Nature\",\"Fallen Leaves\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1751884590979____fallen-leaves____.png"
+        },
+        "3017:rising-wind": {
+          "figureId": "dimoo-shapes-in-nature-rising-wind",
+          "sourceUrl": "https://www.popmart.com/us/products/3017",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Shapes in Nature\",\"Rising Wind\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1751884582720____rising-wind____.png"
+        },
+        "3017:newborn-soul": {
+          "figureId": "dimoo-shapes-in-nature-newborn-soul",
+          "sourceUrl": "https://www.popmart.com/us/products/3017",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Shapes in Nature\",\"Newborn Soul\",\"regular\",2025,\"#D98AA6\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1751884574020____newborn-soul____.png"
+        },
+        "2067:minnie-s-balloon": {
+          "figureId": "dimoo-world-disney-minnie-s-balloon",
+          "sourceUrl": "https://www.popmart.com/us/products/2067",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × DISNEY\",\"Minnie's Balloon\",\"regular\",2025,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1742200729674____minnie-s-balloon____.png",
+          "imageHash": "423987966fdce64289936bcd2f4c9068b3a4e919446b2597c9dd932449f83a01"
+        },
+        "2067:mickey-tv-show": {
+          "figureId": "dimoo-world-disney-mickey-tv-show",
+          "sourceUrl": "https://www.popmart.com/us/products/2067",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × DISNEY\",\"Mickey TV Show\",\"regular\",2025,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1742200719704____mickey-tv-show____.png",
+          "imageHash": "6f443afb6aaa7aedf411e74516da8289c72a7d00c9f445bbaf52ee3c00a9b1cf"
+        },
+        "2067:three-nephews": {
+          "figureId": "dimoo-world-disney-three-nephews",
+          "sourceUrl": "https://www.popmart.com/us/products/2067",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × DISNEY\",\"Three Nephews\",\"regular\",2025,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1742200711438____three-nephews____.png",
+          "imageHash": "69b0be42e81843f980b2a4f995237c2da1f9bf2fbe21e06340feeeaec6cf1bc2"
+        },
+        "2067:daisy-s-gift": {
+          "figureId": "dimoo-world-disney-daisy-s-gift",
+          "sourceUrl": "https://www.popmart.com/us/products/2067",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × DISNEY\",\"Daisy's Gift\",\"regular\",2025,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1742200695220____daisy-s-gift____.png",
+          "imageHash": "106380be055ec20a632adb207eede13037cd4f9c911863155512abb486f3cdb6"
+        },
+        "2067:donald-duck-s-singing": {
+          "figureId": "dimoo-world-disney-donald-duck-s-singing",
+          "sourceUrl": "https://www.popmart.com/us/products/2067",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × DISNEY\",\"Donald Duck's Singing\",\"regular\",2025,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1742200702437____donald-duck-s-singing____.png",
+          "imageHash": "350d37cbf1e6af460d4b4b5fe1d74f1d229856385f13c5c08a38c3a8d64c57ea"
+        },
+        "2067:donald-duck-popcorn": {
+          "figureId": "dimoo-world-disney-donald-duck-popcorn",
+          "sourceUrl": "https://www.popmart.com/us/products/2067",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × DISNEY\",\"Donald Duck Popcorn\",\"regular\",2025,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1742200687374____donald-duck-popcorn____.png",
+          "imageHash": "be1e070a0cf0c60f48b6b22785d59cb14fe321cfaebff3c3ca178cc883f47db6"
+        },
+        "2067:scrooge-s-bathtub": {
+          "figureId": "dimoo-world-disney-scrooge-s-bathtub",
+          "sourceUrl": "https://www.popmart.com/us/products/2067",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × DISNEY\",\"Scrooge's Bathtub\",\"regular\",2025,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1742200675568____scrooge-s-bathtub____.png",
+          "imageHash": "a9443144d6dfdaaae1eef30b6236a44820d4d9322c5aa60d44689883f751d0dc"
+        },
+        "2067:chip-and-dale": {
+          "figureId": "dimoo-world-disney-chip-and-dale",
+          "sourceUrl": "https://www.popmart.com/us/products/2067",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × DISNEY\",\"Chip and Dale\",\"regular\",2025,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1742200666791____chip-and-dale____.png",
+          "imageHash": "b66ffeddc4a291447dd10a098ab86a61b271fc399791e18fdf6a59e10d8d75fe"
+        },
+        "2067:goofy-s-prank": {
+          "figureId": "dimoo-world-disney-goofy-s-prank",
+          "sourceUrl": "https://www.popmart.com/us/products/2067",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × DISNEY\",\"Goofy's Prank\",\"regular\",2025,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1742200658949____goofy-s-prank____.png",
+          "imageHash": "b2cc66a56b4c5c48b795c191b60d36a6e674145acc4b2879bdeec51eb3e9a9af"
+        },
+        "2067:chip-and-dale-s-dream": {
+          "figureId": "dimoo-world-disney-chip-and-dale-s-dream",
+          "sourceUrl": "https://www.popmart.com/us/products/2067",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × DISNEY\",\"Chip and Dale's Dream\",\"regular\",2025,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1742200646354____chip-and-dale-s-dream____.png",
+          "imageHash": "20264e48e72f303069c7734e515178966b179a514a6e8c528d62f72c3287c57a"
+        },
+        "2067:classic-mickey": {
+          "figureId": "dimoo-world-disney-classic-mickey",
+          "sourceUrl": "https://www.popmart.com/us/products/2067",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × DISNEY\",\"Classic Mickey\",\"regular\",2025,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1742200634625____classic-mickey____.png",
+          "imageHash": "3733488aa77575ba5c3007b47f444dedb6bb7735399fcf1004b963cf1f2b4aa1"
+        },
+        "2067:pluto-s-house": {
+          "figureId": "dimoo-world-disney-pluto-s-house",
+          "sourceUrl": "https://www.popmart.com/us/products/2067",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × DISNEY\",\"Pluto's House\",\"regular\",2025,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1742200626407____pluto-s-house____.png",
+          "imageHash": "d322bc72a68232b841c2c63e4a7e75422848e75fcd284454ba301b078cb57554"
+        },
+        "2067:the-captain-of-steamboat-willie": {
+          "figureId": "dimoo-world-disney-the-captain-of-steamboat-willie",
+          "sourceUrl": "https://www.popmart.com/us/products/2067",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"WORLD × DISNEY\",\"The Captain of Steamboat Willie\",\"secret\",2025,\"#5B8D88\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1742200615961____secret_the-captain-of-steamboat-willie____.png"
+        },
+        "1019:duckling-leader": {
+          "figureId": "dimoo-animal-kingdom-duckling-leader",
+          "sourceUrl": "https://www.popmart.com/us/products/1019",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Animal Kingdom\",\"Duckling Leader\",\"regular\",2024,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1719387621590____duckling-leader____.png"
+        },
+        "1019:sleeping-bunny": {
+          "figureId": "dimoo-animal-kingdom-sleeping-bunny",
+          "sourceUrl": "https://www.popmart.com/us/products/1019",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Animal Kingdom\",\"Sleeping Bunny\",\"regular\",2024,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1719387640835____sleeping-bunny____.png"
+        },
+        "1019:warm-polar-bear": {
+          "figureId": "dimoo-animal-kingdom-warm-polar-bear",
+          "sourceUrl": "https://www.popmart.com/us/products/1019",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Animal Kingdom\",\"Warm Polar Bear\",\"regular\",2024,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1719387666392____warm-polar-bear____.png"
+        },
+        "1019:taichi-panda": {
+          "figureId": "dimoo-animal-kingdom-taichi-panda",
+          "sourceUrl": "https://www.popmart.com/us/products/1019",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Animal Kingdom\",\"Taichi Panda\",\"regular\",2024,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1719387684086____taichi-panda____.png"
+        },
+        "1019:bear-dad": {
+          "figureId": "dimoo-animal-kingdom-bear-dad",
+          "sourceUrl": "https://www.popmart.com/us/products/1019",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Animal Kingdom\",\"Bear Dad\",\"regular\",2024,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1719387704098____bear-dad____.png"
+        },
+        "1019:baby-elephant-bubble": {
+          "figureId": "dimoo-animal-kingdom-baby-elephant-bubble",
+          "sourceUrl": "https://www.popmart.com/us/products/1019",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Animal Kingdom\",\"Baby Elephant Bubble\",\"regular\",2024,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1719387722587____baby-elephant-bubble____.png"
+        },
+        "1019:foodie-giraffe": {
+          "figureId": "dimoo-animal-kingdom-foodie-giraffe",
+          "sourceUrl": "https://www.popmart.com/us/products/1019",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Animal Kingdom\",\"Foodie Giraffe\",\"regular\",2024,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1719387743464____foodie-giraffe____.png"
+        },
+        "1019:penguin-tango": {
+          "figureId": "dimoo-animal-kingdom-penguin-tango",
+          "sourceUrl": "https://www.popmart.com/us/products/1019",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Animal Kingdom\",\"Penguin Tango\",\"regular\",2024,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1719387767279____penguin-tango____.png"
+        },
+        "1019:crocodile-cleaner": {
+          "figureId": "dimoo-animal-kingdom-crocodile-cleaner",
+          "sourceUrl": "https://www.popmart.com/us/products/1019",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Animal Kingdom\",\"Crocodile Cleaner\",\"regular\",2024,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1719387782505____crocodile-cleaner____.png"
+        },
+        "1019:red-panda-with-apple": {
+          "figureId": "dimoo-animal-kingdom-red-panda-with-apple",
+          "sourceUrl": "https://www.popmart.com/us/products/1019",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Animal Kingdom\",\"Red Panda With Apple\",\"regular\",2024,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1719387799047____red-panda-with-apple____.png"
+        },
+        "1019:tigers-learn-to-walk": {
+          "figureId": "dimoo-animal-kingdom-tigers-learn-to-walk",
+          "sourceUrl": "https://www.popmart.com/us/products/1019",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Animal Kingdom\",\"Tigers Learn to Walk\",\"regular\",2024,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1719387817744____tigers-learn-to-walk____.png"
+        },
+        "1019:sleepy-koala": {
+          "figureId": "dimoo-animal-kingdom-sleepy-koala",
+          "sourceUrl": "https://www.popmart.com/us/products/1019",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Animal Kingdom\",\"Sleepy Koala\",\"regular\",2024,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1719387834172____sleepy-koala____.png"
+        },
+        "1019:monkey-catches-the-moon": {
+          "figureId": "dimoo-animal-kingdom-monkey-catches-the-moon",
+          "sourceUrl": "https://www.popmart.com/us/products/1019",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Animal Kingdom\",\"Monkey Catches the Moon\",\"secret\",2024,\"#6C7BD1\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1719387860059____secret____.png"
+        },
+        "1583:dreams-of-courage": {
+          "figureId": "dimoo-weaving-wonders-dreams-of-courage",
+          "sourceUrl": "https://www.popmart.com/us/products/1583",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Weaving Wonders\",\"Dreams of Courage\",\"regular\",2024,\"#9B6AB0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1727580297158____dreams-of-courage____.png",
+          "imageHash": "3e37797d9a5a63d0671159af292f050f3a39ba1642abb08a812497b1eaee8f8d"
+        },
+        "1583:bear-guardian": {
+          "figureId": "dimoo-weaving-wonders-bear-guardian",
+          "sourceUrl": "https://www.popmart.com/us/products/1583",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Weaving Wonders\",\"Bear Guardian\",\"regular\",2024,\"#9B6AB0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1727580329124____bear-guardian____.png",
+          "imageHash": "05883e93a3bd8c9feee8709e8a42734a05303a2a8c2e87b34e93129cfd7a8925"
+        },
+        "1583:dreams-of-sailing": {
+          "figureId": "dimoo-weaving-wonders-dreams-of-sailing",
+          "sourceUrl": "https://www.popmart.com/us/products/1583",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Weaving Wonders\",\"Dreams of Sailing\",\"regular\",2024,\"#9B6AB0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1727580349953____dreams-of-sailing____.png",
+          "imageHash": "ef3882c509215e95d31252d2ff85413df1a7d3397e37211f159bc36ec4cb1796"
+        },
+        "1583:moonlight-explorer": {
+          "figureId": "dimoo-weaving-wonders-moonlight-explorer",
+          "sourceUrl": "https://www.popmart.com/us/products/1583",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Weaving Wonders\",\"Moonlight Explorer\",\"regular\",2024,\"#9B6AB0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1727580366652____moonlight-explorer____.png",
+          "imageHash": "bd3995c26b734fca8d53f6b54a347a4498739f827b640245b35dbd509ac2f600"
+        },
+        "1583:wishful-dreaming": {
+          "figureId": "dimoo-weaving-wonders-wishful-dreaming",
+          "sourceUrl": "https://www.popmart.com/us/products/1583",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Weaving Wonders\",\"Wishful Dreaming\",\"regular\",2024,\"#9B6AB0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1727580383071____wishful-dreaming____.png",
+          "imageHash": "28f9fdfd2fe976981a419c79179f61e682673f0a9fe3ccecdb9439d24f64a086"
+        },
+        "1583:dreams-of-painting": {
+          "figureId": "dimoo-weaving-wonders-dreams-of-painting",
+          "sourceUrl": "https://www.popmart.com/us/products/1583",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Weaving Wonders\",\"Dreams of Painting\",\"regular\",2024,\"#9B6AB0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1727580393828____dreams-of-painting____.png",
+          "imageHash": "40fbf439e2143a358ba7b5dc17fae6535a7a2850a61e7caab546c4c9c2ef6f86"
+        },
+        "1583:drawing-spring": {
+          "figureId": "dimoo-weaving-wonders-drawing-spring",
+          "sourceUrl": "https://www.popmart.com/us/products/1583",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Weaving Wonders\",\"Drawing Spring\",\"regular\",2024,\"#9B6AB0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1727580407939____drawing-spring____.png",
+          "imageHash": "0e36b1aa74d4eb8d5ab32e49a1737d6c01494bee2638d07a01cf6e55859d8f57"
+        },
+        "1583:dreams-of-a-garden": {
+          "figureId": "dimoo-weaving-wonders-dreams-of-a-garden",
+          "sourceUrl": "https://www.popmart.com/us/products/1583",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Weaving Wonders\",\"Dreams of a Garden\",\"regular\",2024,\"#9B6AB0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1727580421897____dreams-of-a-garden____.png",
+          "imageHash": "ae7790538d0df7aeb1cb34d0ad3c03e897828af4dc5ac2202979863176f8897b"
+        },
+        "1583:floating-gardener": {
+          "figureId": "dimoo-weaving-wonders-floating-gardener",
+          "sourceUrl": "https://www.popmart.com/us/products/1583",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Weaving Wonders\",\"Floating Gardener\",\"regular\",2024,\"#9B6AB0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1727580435573____floating-gardener____.png",
+          "imageHash": "54a1672ca11392f7d85d130515cab35f138d67038c4b07d048b4436fc5ee5522"
+        },
+        "1583:star-catcher": {
+          "figureId": "dimoo-weaving-wonders-star-catcher",
+          "sourceUrl": "https://www.popmart.com/us/products/1583",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Weaving Wonders\",\"Star Catcher\",\"regular\",2024,\"#9B6AB0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1727580449618____star-catcher____.png",
+          "imageHash": "93159c90c3eb1b6d5a97da44b5d89cec05eed721892f888d30d81b1bac4d1e98"
+        },
+        "1583:dream-with-a-butterfly": {
+          "figureId": "dimoo-weaving-wonders-dream-with-a-butterfly",
+          "sourceUrl": "https://www.popmart.com/us/products/1583",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Weaving Wonders\",\"Dream with a Butterfly\",\"regular\",2024,\"#9B6AB0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1727580466021____dream-with-a-butterfly____.png",
+          "imageHash": "12031a02074086f4ad64cc5604c9f8147d7f0387269e1cbc7b93abc606ce00fb"
+        },
+        "1583:butterfly-wizard": {
+          "figureId": "dimoo-weaving-wonders-butterfly-wizard",
+          "sourceUrl": "https://www.popmart.com/us/products/1583",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Weaving Wonders\",\"Butterfly Wizard\",\"regular\",2024,\"#9B6AB0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1727580481265____butterfly-wizard____.png",
+          "imageHash": "33d78a8a1704cc4a9043d0acdc0002ecc883ffb1d6aa004d72422a4f6bddf0bf"
+        },
+        "1583:dreams-of-good-fortune": {
+          "figureId": "dimoo-weaving-wonders-dreams-of-good-fortune",
+          "sourceUrl": "https://www.popmart.com/us/products/1583",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Weaving Wonders\",\"Dreams of Good Fortune\",\"secret\",2024,\"#9B6AB0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1727580510848____secret____.png"
+        },
+        "1583:fortune-cat": {
+          "figureId": "dimoo-weaving-wonders-fortune-cat",
+          "sourceUrl": "https://www.popmart.com/us/products/1583",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Weaving Wonders\",\"Fortune Cat\",\"secret\",2024,\"#9B6AB0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1727580527122____super-secret____.png"
+        },
+        "1296:calm-down": {
+          "figureId": "dimoo-by-your-side-calm-down",
+          "sourceUrl": "https://www.popmart.com/us/products/1296",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"By Your Side\",\"Calm Down\",\"regular\",2024,\"#5E7CE2\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1718187639382____calm-down____.png"
+        },
+        "1296:don-t-overthink": {
+          "figureId": "dimoo-by-your-side-don-t-overthink",
+          "sourceUrl": "https://www.popmart.com/us/products/1296",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"By Your Side\",\"Don’t Overthink\",\"regular\",2024,\"#5E7CE2\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1718187663057____don-t-overthink____.png"
+        },
+        "1296:cheer-up": {
+          "figureId": "dimoo-by-your-side-cheer-up",
+          "sourceUrl": "https://www.popmart.com/us/products/1296",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"By Your Side\",\"Cheer Up\",\"regular\",2024,\"#5E7CE2\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1718187687407____cheer-up____.png"
+        },
+        "1296:candy-for-you": {
+          "figureId": "dimoo-by-your-side-candy-for-you",
+          "sourceUrl": "https://www.popmart.com/us/products/1296",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"By Your Side\",\"Candy for You\",\"regular\",2024,\"#5E7CE2\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1718187707063____candy-for-you____.png"
+        },
+        "1296:light-up": {
+          "figureId": "dimoo-by-your-side-light-up",
+          "sourceUrl": "https://www.popmart.com/us/products/1296",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"By Your Side\",\"Light Up\",\"regular\",2024,\"#5E7CE2\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1718187726490____light-up____.png"
+        },
+        "1296:embrace-emotions": {
+          "figureId": "dimoo-by-your-side-embrace-emotions",
+          "sourceUrl": "https://www.popmart.com/us/products/1296",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"By Your Side\",\"Embrace Emotions\",\"regular\",2024,\"#5E7CE2\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1718187751709____embrace-emotions____.png"
+        },
+        "1296:peace-of-mind": {
+          "figureId": "dimoo-by-your-side-peace-of-mind",
+          "sourceUrl": "https://www.popmart.com/us/products/1296",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"By Your Side\",\"Peace of Mind\",\"regular\",2024,\"#5E7CE2\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1718187776584____peace-of-mind____.png"
+        },
+        "1296:meditation": {
+          "figureId": "dimoo-by-your-side-meditation",
+          "sourceUrl": "https://www.popmart.com/us/products/1296",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"By Your Side\",\"Meditation\",\"regular\",2024,\"#5E7CE2\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1718187794124____meditation____.png"
+        },
+        "1296:pleasure": {
+          "figureId": "dimoo-by-your-side-pleasure",
+          "sourceUrl": "https://www.popmart.com/us/products/1296",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"By Your Side\",\"Pleasure\",\"regular\",2024,\"#5E7CE2\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1718187817466____pleasure____.png"
+        },
+        "1296:startled": {
+          "figureId": "dimoo-by-your-side-startled",
+          "sourceUrl": "https://www.popmart.com/us/products/1296",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"By Your Side\",\"Startled\",\"regular\",2024,\"#5E7CE2\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1718187836337____startled____.png"
+        },
+        "1296:shielded": {
+          "figureId": "dimoo-by-your-side-shielded",
+          "sourceUrl": "https://www.popmart.com/us/products/1296",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"By Your Side\",\"Shielded\",\"regular\",2024,\"#5E7CE2\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1718187857114____shielded____.png"
+        },
+        "1296:don-t-be-afraid": {
+          "figureId": "dimoo-by-your-side-don-t-be-afraid",
+          "sourceUrl": "https://www.popmart.com/us/products/1296",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"By Your Side\",\"Don’t Be Afraid\",\"regular\",2024,\"#5E7CE2\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1718187888820____don-t-be-afraid____.png"
+        },
+        "1296:imaginary-encounter": {
+          "figureId": "dimoo-by-your-side-imaginary-encounter",
+          "sourceUrl": "https://www.popmart.com/us/products/1296",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"By Your Side\",\"Imaginary Encounter\",\"secret\",2024,\"#5E7CE2\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1718187940705____secret____.png"
+        },
+        "1296:imaginary-adventure": {
+          "figureId": "dimoo-by-your-side-imaginary-adventure",
+          "sourceUrl": "https://www.popmart.com/us/products/1296",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"By Your Side\",\"Imaginary Adventure\",\"secret\",2024,\"#5E7CE2\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1718187999120____super-secret____.png"
+        },
+        "475:yeti": {
+          "figureId": "dimoo-no-one-s-gonna-sleep-tonight-yeti",
+          "sourceUrl": "https://www.popmart.com/us/products/475",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"No One's Gonna Sleep Tonight\",\"Yeti\",\"regular\",2023,\"#7A5C8E\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716519145803____yeti____.png",
+          "imageHash": "32f050aaa17f8c68f6ae1b2a636e979ab947df618c9aa76c134233cdd96f4a94"
+        },
+        "475:cerberus": {
+          "figureId": "dimoo-no-one-s-gonna-sleep-tonight-cerberus",
+          "sourceUrl": "https://www.popmart.com/us/products/475",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"No One's Gonna Sleep Tonight\",\"Cerberus\",\"regular\",2023,\"#7A5C8E\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716519184267____cerberus____.png",
+          "imageHash": "d2ea78302f3c0dbb2f3ac1f41c012150407b44ed8ef37366705c7a7c37611e7c"
+        },
+        "475:maneater-flower-on-a-statue": {
+          "figureId": "dimoo-no-one-s-gonna-sleep-tonight-maneater-flower-on-a-statue",
+          "sourceUrl": "https://www.popmart.com/us/products/475",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"No One's Gonna Sleep Tonight\",\"Maneater Flower on a Statue\",\"secret\",2023,\"#7A5C8E\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716519211265____secret____.png"
+        },
+        "475:fox-spirit": {
+          "figureId": "dimoo-no-one-s-gonna-sleep-tonight-fox-spirit",
+          "sourceUrl": "https://www.popmart.com/us/products/475",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"No One's Gonna Sleep Tonight\",\"Fox Spirit\",\"regular\",2023,\"#7A5C8E\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716519232629____fox-spirit____.png",
+          "imageHash": "5efe27dc6495d09b91f207eeca076dc5cd1481c08f6480532ed074146b95223d"
+        },
+        "475:scare-box": {
+          "figureId": "dimoo-no-one-s-gonna-sleep-tonight-scare-box",
+          "sourceUrl": "https://www.popmart.com/us/products/475",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"No One's Gonna Sleep Tonight\",\"Scare Box\",\"regular\",2023,\"#7A5C8E\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716519252627____scare-box____.png",
+          "imageHash": "3c958d0d2a521a965c75632c5cce6de3650f67693ac6a2ea554c21c673b891c5"
+        },
+        "475:deer-monster": {
+          "figureId": "dimoo-no-one-s-gonna-sleep-tonight-deer-monster",
+          "sourceUrl": "https://www.popmart.com/us/products/475",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"No One's Gonna Sleep Tonight\",\"Deer Monster\",\"regular\",2023,\"#7A5C8E\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716519277084____deer-monster____.png",
+          "imageHash": "16f6cd26715dc7642bd683495133b8f3d5adb16bf9a567ca158604550bd129e1"
+        },
+        "475:ghost": {
+          "figureId": "dimoo-no-one-s-gonna-sleep-tonight-ghost",
+          "sourceUrl": "https://www.popmart.com/us/products/475",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"No One's Gonna Sleep Tonight\",\"Ghost\",\"regular\",2023,\"#7A5C8E\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716519295705____ghost____.png",
+          "imageHash": "2f4111016347d9c6b358c237457fb6eb5b977c43a32dd8aaccb10454bb5b3ea0"
+        },
+        "475:little-devil": {
+          "figureId": "dimoo-no-one-s-gonna-sleep-tonight-little-devil",
+          "sourceUrl": "https://www.popmart.com/us/products/475",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"No One's Gonna Sleep Tonight\",\"Little Devil\",\"regular\",2023,\"#7A5C8E\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716519312493____little-devil____.png",
+          "imageHash": "906db7c66bcf13a8128dda2817b623900bc4d044d6e48b302cd6bafda74fd654"
+        },
+        "475:mummy": {
+          "figureId": "dimoo-no-one-s-gonna-sleep-tonight-mummy",
+          "sourceUrl": "https://www.popmart.com/us/products/475",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"No One's Gonna Sleep Tonight\",\"Mummy\",\"regular\",2023,\"#7A5C8E\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716519335533____mummy____.png",
+          "imageHash": "a72a028a0b99fd114738cbdea8cdd943cebb7ae478bf93b068b735cf9f108241"
+        },
+        "475:shadow-sailor": {
+          "figureId": "dimoo-no-one-s-gonna-sleep-tonight-shadow-sailor",
+          "sourceUrl": "https://www.popmart.com/us/products/475",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"No One's Gonna Sleep Tonight\",\"Shadow Sailor\",\"regular\",2023,\"#7A5C8E\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716519773626____shadow-sailor____.png",
+          "imageHash": "9ea03cc79ad6df8f9e239d9fb77afa96966bb5476e9df5d90dbaf9c200151a13"
+        },
+        "475:scarecrow": {
+          "figureId": "dimoo-no-one-s-gonna-sleep-tonight-scarecrow",
+          "sourceUrl": "https://www.popmart.com/us/products/475",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"No One's Gonna Sleep Tonight\",\"Scarecrow\",\"regular\",2023,\"#7A5C8E\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716519365277____scarecrow____.png",
+          "imageHash": "b0c435c5c0b77c77b0516a108091ec8d63feb1d1bc588e90f52f2b1262c16021"
+        },
+        "475:unicorn": {
+          "figureId": "dimoo-no-one-s-gonna-sleep-tonight-unicorn",
+          "sourceUrl": "https://www.popmart.com/us/products/475",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"No One's Gonna Sleep Tonight\",\"Unicorn\",\"regular\",2023,\"#7A5C8E\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716519388028____unicorn____.png",
+          "imageHash": "22c21a300a3ff46066766f8dc64b1983f121f442266b7e06df20b299ca04729c"
+        },
+        "475:ghost-catcher": {
+          "figureId": "dimoo-no-one-s-gonna-sleep-tonight-ghost-catcher",
+          "sourceUrl": "https://www.popmart.com/us/products/475",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"No One's Gonna Sleep Tonight\",\"Ghost Catcher\",\"regular\",2023,\"#7A5C8E\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716519622061____ghost-catcher____.png",
+          "imageHash": "f45d593be133014614062529eaed8d8ca22350ed965230d85dbc243097e4abf6"
+        },
+        "231:snowy-owl": {
+          "figureId": "dimoo-retro-snowy-owl",
+          "sourceUrl": "https://www.popmart.com/us/products/231",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Retro\",\"Snowy Owl\",\"regular\",2023,\"#9B6AB0\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716520766430____snowy-owl____.png",
+          "imageHash": "1be6804c541f14fb2101041044f2663513a497a418430f86aa0f7f234c5ee410"
+        },
+        "231:rocky-king": {
+          "figureId": "dimoo-retro-rocky-king",
+          "sourceUrl": "https://www.popmart.com/us/products/231",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Retro\",\"Rocky King\",\"regular\",2023,\"#9B6AB0\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716520791685____rocky-king____.png",
+          "imageHash": "286bbc3ef062618ef570155beb1ad186d6abd68902ae32a263b69b1b1885cd76"
+        },
+        "231:angel": {
+          "figureId": "dimoo-retro-angel",
+          "sourceUrl": "https://www.popmart.com/us/products/231",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Retro\",\"Angel\",\"regular\",2023,\"#9B6AB0\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716520810862____angel____.png",
+          "imageHash": "36ab93a1b3d449a82a2006b9971f90fc5d19a25ab403916fde18fb059b0d8390"
+        },
+        "231:devil": {
+          "figureId": "dimoo-retro-devil",
+          "sourceUrl": "https://www.popmart.com/us/products/231",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Retro\",\"Devil\",\"regular\",2023,\"#9B6AB0\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716520832702____devil____.png",
+          "imageHash": "d27615ee54f28bb616395b2283729c9ebc2e24e0a49f4fb9fc556557b4dbbf8b"
+        },
+        "231:joker": {
+          "figureId": "dimoo-retro-joker",
+          "sourceUrl": "https://www.popmart.com/us/products/231",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Retro\",\"Joker\",\"regular\",2023,\"#9B6AB0\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716520850718____joker____.png",
+          "imageHash": "3a4672e48e7b972ecb91dc1a5a5ac7d7188aa7ef26c0479621b612bf4dbddd64"
+        },
+        "231:flamingo": {
+          "figureId": "dimoo-retro-flamingo",
+          "sourceUrl": "https://www.popmart.com/us/products/231",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Retro\",\"Flamingo\",\"regular\",2023,\"#9B6AB0\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716520867784____flamingo____.png",
+          "imageHash": "ff3dd9aceba5f8a6a5699e268216068e3d893c653bb85e2556c815cb55b6a6e0"
+        },
+        "231:snowball": {
+          "figureId": "dimoo-retro-snowball",
+          "sourceUrl": "https://www.popmart.com/us/products/231",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Retro\",\"Snowball\",\"regular\",2023,\"#9B6AB0\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716520886981____snowball____.png",
+          "imageHash": "0ba06c58837887792d891c28b844392adaf16d018cb12c205587b166ac54a57e"
+        },
+        "231:magician": {
+          "figureId": "dimoo-retro-magician",
+          "sourceUrl": "https://www.popmart.com/us/products/231",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Retro\",\"Magician\",\"regular\",2023,\"#9B6AB0\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716520913186____magician____.png",
+          "imageHash": "dab95bb7cf5941bcb05a710898ed894cc702f2659cdc0826161776e821ed40c4"
+        },
+        "231:elk": {
+          "figureId": "dimoo-retro-elk",
+          "sourceUrl": "https://www.popmart.com/us/products/231",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Retro\",\"Elk\",\"regular\",2023,\"#9B6AB0\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716520935499____elk____.png",
+          "imageHash": "45271f3f969825c5b523c6aaeedb911788cff0d4cb8358a28525dd581b433dc6"
+        },
+        "231:little-green-dragon": {
+          "figureId": "dimoo-retro-little-green-dragon",
+          "sourceUrl": "https://www.popmart.com/us/products/231",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Retro\",\"Little Green Dragon\",\"regular\",2023,\"#9B6AB0\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716520960487____little-green-dragon____.png",
+          "imageHash": "41cc2b7091c1535aa09fa669346a7388daab2f086211404118656753e08f768d"
+        },
+        "231:rocky-overlord": {
+          "figureId": "dimoo-retro-rocky-overlord",
+          "sourceUrl": "https://www.popmart.com/us/products/231",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Retro\",\"Rocky Overlord\",\"regular\",2023,\"#9B6AB0\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716520984105____rocky-overlord____.png",
+          "imageHash": "f27e9f866df6465017366598ec885d819b0135852e0fbf60f890baa1f2dc44c5"
+        },
+        "231:pajamas-rabbit": {
+          "figureId": "dimoo-retro-pajamas-rabbit",
+          "sourceUrl": "https://www.popmart.com/us/products/231",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Retro\",\"Pajamas Rabbit\",\"regular\",2023,\"#9B6AB0\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716521003416____pajamas-rabbit____.png",
+          "imageHash": "43e0d8077655b53a7c57255cf12d07579606639c0f299ce2bba5139874efec6f"
+        },
+        "231:dreamworld": {
+          "figureId": "dimoo-retro-dreamworld",
+          "sourceUrl": "https://www.popmart.com/us/products/231",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Retro\",\"Dreamworld\",\"secret\",2023,\"#9B6AB0\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716521195714____super-secret____.png"
+        },
+        "231:daytime": {
+          "figureId": "dimoo-retro-daytime",
+          "sourceUrl": "https://www.popmart.com/us/products/231",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Retro\",\"Daytime\",\"secret\",2023,\"#9B6AB0\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716521178730____secret____.png"
+        },
+        "231:dark-night": {
+          "figureId": "dimoo-retro-dark-night",
+          "sourceUrl": "https://www.popmart.com/us/products/231",
+          "scrapedAt": "2026-07-17T07:38:48.640Z",
+          "contentHash": "[\"Retro\",\"Dark Night\",\"secret\",2023,\"#9B6AB0\"]",
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1716522413955____img_v3_02b6_72d5a6f7-6186-4b8e-a6c1-016d47114b0g____.png"
+        }
+      }
+    }
+  }
+}

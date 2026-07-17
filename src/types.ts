@@ -1,4 +1,4 @@
-export type Series = 'skullpanda' | 'peachriot' | 'hirono';
+export type Series = 'skullpanda' | 'peachriot' | 'hirono' | 'dimoo';
 
 export interface Figure {
   /** Stable unique id, e.g. "skullpanda-the-warmth-01" */
