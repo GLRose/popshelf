@@ -1,5 +1,5 @@
-import { opaqueBounds, removeBackground } from '@/lib/removeBackground';
-import type { ProcessedImage, ProcessOptions } from '@/lib/processFigureImage.types';
+import { opaqueBounds, removeBackground } from '@/lib/images/removeBackground';
+import type { ProcessedImage, ProcessOptions } from '@/lib/images/processFigureImage.types';
 
 const MAX = 500; // display is ~150px @2x; keep stored images lean (matches remove-bg.mjs)
 

@@ -1,4 +1,4 @@
-import type { ProcessedImage, ProcessOptions } from '@/lib/processFigureImage.types';
+import type { ProcessedImage, ProcessOptions } from '@/lib/images/processFigureImage.types';
 
 /**
  * Native implementation: there is no canvas for pixel access, so the picked

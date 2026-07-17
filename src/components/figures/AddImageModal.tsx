@@ -5,8 +5,8 @@ import { useState } from 'react';
 import { ActivityIndicator, Modal, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { Radius, T } from '@/constants/appTheme';
-import { processFigureImage } from '@/lib/processFigureImage';
-import type { ProcessedImage } from '@/lib/processFigureImage.types';
+import { processFigureImage } from '@/lib/images/processFigureImage';
+import type { ProcessedImage } from '@/lib/images/processFigureImage.types';
 import { useUserImages } from '@/store/useUserImages';
 import type { Figure } from '@/types';
 

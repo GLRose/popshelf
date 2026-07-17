@@ -6,7 +6,7 @@ import {
   submitForReview,
   withdrawPendingSubmissions,
   type ApprovedImage,
-} from '@/lib/remoteFigureImages';
+} from '@/lib/images/remoteFigureImages';
 import { supabase } from '@/lib/supabase';
 import {
   deleteUserImage,
@@ -15,7 +15,7 @@ import {
   loadUserImages,
   promoteLegacyImage,
   saveUserImage,
-} from '@/lib/userImageStore';
+} from '@/lib/images/userImageStore';
 
 /**
  * figureId -> the `figure_images` row id whose bytes are cached in the

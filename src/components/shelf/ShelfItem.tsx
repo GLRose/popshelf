@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Pressable, StyleSheet, View } from 'react-native';
 
-import { FigureImage } from '@/components/FigureImage';
+import { FigureImage } from '@/components/figures/FigureImage';
 import { T } from '@/constants/appTheme';
 import type { Figure } from '@/types';
 

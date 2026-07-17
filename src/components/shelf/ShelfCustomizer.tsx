@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import ColorPicker, { BrightnessSlider, Panel3, PreviewText } from 'reanimated-color-picker';
 
-import { Ledge } from '@/components/Ledge';
-import { ShelfBackground } from '@/components/ShelfBackground';
+import { Ledge } from '@/components/shelf/Ledge';
+import { ShelfBackground } from '@/components/shelf/ShelfBackground';
 import { Radius, T } from '@/constants/appTheme';
 import {
   SHELF_COLORS,

@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { ScreenHeader } from '@/components/ScreenHeader';
+import { ScreenHeader } from '@/components/common/ScreenHeader';
 import { ApprovedImageCard } from '@/components/admin/ApprovedImageCard';
 import { PendingImageCard } from '@/components/admin/PendingImageCard';
 import { T } from '@/constants/appTheme';

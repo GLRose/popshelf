@@ -2,8 +2,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { memo, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { AddImageModal } from '@/components/AddImageModal';
-import { FigureImage } from '@/components/FigureImage';
+import { AddImageModal } from '@/components/figures/AddImageModal';
+import { FigureImage } from '@/components/figures/FigureImage';
 import { Radius, T } from '@/constants/appTheme';
 import { useCollection } from '@/store/useCollection';
 import { useUserImages } from '@/store/useUserImages';
