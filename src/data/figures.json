@@ -3653,7 +3653,8 @@
     "set": "Mime",
     "name": "Guardian",
     "rarity": "regular",
-    "color": "#7A5C8E"
+    "color": "#D98AA6",
+    "year": 2023
   },
   {
     "id": "hirono-mime-blind",
@@ -3661,7 +3662,8 @@
     "set": "Mime",
     "name": "Blind",
     "rarity": "regular",
-    "color": "#7A5C8E"
+    "color": "#D98AA6",
+    "year": 2023
   },
   {
     "id": "hirono-mime-seeker",
@@ -3669,7 +3671,8 @@
     "set": "Mime",
     "name": "Seeker",
     "rarity": "regular",
-    "color": "#7A5C8E"
+    "color": "#D98AA6",
+    "year": 2023
   },
   {
     "id": "hirono-mime-devilry",
@@ -3677,7 +3680,8 @@
     "set": "Mime",
     "name": "Devilry",
     "rarity": "regular",
-    "color": "#7A5C8E"
+    "color": "#D98AA6",
+    "year": 2023
   },
   {
     "id": "hirono-mime-drifter",
@@ -3685,7 +3689,8 @@
     "set": "Mime",
     "name": "Drifter",
     "rarity": "regular",
-    "color": "#7A5C8E"
+    "color": "#D98AA6",
+    "year": 2023
   },
   {
     "id": "hirono-mime-fool",
@@ -3693,7 +3698,8 @@
     "set": "Mime",
     "name": "Fool",
     "rarity": "regular",
-    "color": "#7A5C8E"
+    "color": "#D98AA6",
+    "year": 2023
   },
   {
     "id": "hirono-mime-patience",
@@ -3701,7 +3707,8 @@
     "set": "Mime",
     "name": "Patience",
     "rarity": "regular",
-    "color": "#7A5C8E"
+    "color": "#D98AA6",
+    "year": 2023
   },
   {
     "id": "hirono-mime-unspoken",
@@ -3709,7 +3716,8 @@
     "set": "Mime",
     "name": "Unspoken",
     "rarity": "regular",
-    "color": "#7A5C8E"
+    "color": "#D98AA6",
+    "year": 2023
   },
   {
     "id": "hirono-mime-prison",
@@ -3717,7 +3725,8 @@
     "set": "Mime",
     "name": "Prison",
     "rarity": "regular",
-    "color": "#7A5C8E"
+    "color": "#D98AA6",
+    "year": 2023
   },
   {
     "id": "hirono-mime-destroy",
@@ -3725,7 +3734,8 @@
     "set": "Mime",
     "name": "Destroy",
     "rarity": "regular",
-    "color": "#7A5C8E"
+    "color": "#D98AA6",
+    "year": 2023
   },
   {
     "id": "hirono-mime-poem",
@@ -3733,7 +3743,8 @@
     "set": "Mime",
     "name": "Poem",
     "rarity": "regular",
-    "color": "#7A5C8E"
+    "color": "#D98AA6",
+    "year": 2023
   },
   {
     "id": "hirono-mime-secrecy",
@@ -3741,7 +3752,8 @@
     "set": "Mime",
     "name": "Secrecy",
     "rarity": "regular",
-    "color": "#7A5C8E"
+    "color": "#D98AA6",
+    "year": 2023
   },
   {
     "id": "hirono-mime-silent",
@@ -3749,7 +3761,8 @@
     "set": "Mime",
     "name": "Silent",
     "rarity": "secret",
-    "color": "#7A5C8E"
+    "color": "#D98AA6",
+    "year": 2023
   },
   {
     "id": "hirono-reshape-burst",
@@ -3757,7 +3770,8 @@
     "set": "Reshape",
     "name": "Burst",
     "rarity": "regular",
-    "color": "#7F9B6E"
+    "color": "#8A7BF0",
+    "year": 2023
   },
   {
     "id": "hirono-reshape-woodcarving",
@@ -3765,7 +3779,8 @@
     "set": "Reshape",
     "name": "Woodcarving",
     "rarity": "regular",
-    "color": "#7F9B6E"
+    "color": "#8A7BF0",
+    "year": 2023
   },
   {
     "id": "hirono-reshape-fading",
@@ -3773,7 +3788,8 @@
     "set": "Reshape",
     "name": "Fading",
     "rarity": "regular",
-    "color": "#7F9B6E"
+    "color": "#8A7BF0",
+    "year": 2023
   },
   {
     "id": "hirono-reshape-healing",
@@ -3781,7 +3797,8 @@
     "set": "Reshape",
     "name": "Healing",
     "rarity": "regular",
-    "color": "#7F9B6E"
+    "color": "#8A7BF0",
+    "year": 2023
   },
   {
     "id": "hirono-reshape-paradise-lost",
@@ -3789,7 +3806,8 @@
     "set": "Reshape",
     "name": "Paradise Lost",
     "rarity": "regular",
-    "color": "#7F9B6E"
+    "color": "#8A7BF0",
+    "year": 2023
   },
   {
     "id": "hirono-reshape-drowning",
@@ -3797,7 +3815,8 @@
     "set": "Reshape",
     "name": "Drowning",
     "rarity": "regular",
-    "color": "#7F9B6E"
+    "color": "#8A7BF0",
+    "year": 2023
   },
   {
     "id": "hirono-reshape-costume",
@@ -3805,7 +3824,8 @@
     "set": "Reshape",
     "name": "Costume",
     "rarity": "regular",
-    "color": "#7F9B6E"
+    "color": "#8A7BF0",
+    "year": 2023
   },
   {
     "id": "hirono-reshape-parasite",
@@ -3813,7 +3833,8 @@
     "set": "Reshape",
     "name": "Parasite",
     "rarity": "regular",
-    "color": "#7F9B6E"
+    "color": "#8A7BF0",
+    "year": 2023
   },
   {
     "id": "hirono-reshape-voyage",
@@ -3821,7 +3842,8 @@
     "set": "Reshape",
     "name": "Voyage",
     "rarity": "regular",
-    "color": "#7F9B6E"
+    "color": "#8A7BF0",
+    "year": 2023
   },
   {
     "id": "hirono-reshape-puppet",
@@ -3829,7 +3851,8 @@
     "set": "Reshape",
     "name": "Puppet",
     "rarity": "secret",
-    "color": "#7F9B6E"
+    "color": "#8A7BF0",
+    "year": 2023
   },
   {
     "id": "hirono-shelter-candleholder",
@@ -3837,7 +3860,8 @@
     "set": "Shelter",
     "name": "Candleholder",
     "rarity": "regular",
-    "color": "#D98AA6"
+    "color": "#C77D5A",
+    "year": 2024
   },
   {
     "id": "hirono-shelter-mantel-clock",
@@ -3845,7 +3869,8 @@
     "set": "Shelter",
     "name": "Mantel Clock",
     "rarity": "regular",
-    "color": "#D98AA6"
+    "color": "#C77D5A",
+    "year": 2024
   },
   {
     "id": "hirono-shelter-poet",
@@ -3853,7 +3878,8 @@
     "set": "Shelter",
     "name": "Poet",
     "rarity": "regular",
-    "color": "#D98AA6"
+    "color": "#C77D5A",
+    "year": 2024
   },
   {
     "id": "hirono-shelter-traffic-cone",
@@ -3861,7 +3887,8 @@
     "set": "Shelter",
     "name": "Traffic Cone",
     "rarity": "regular",
-    "color": "#D98AA6"
+    "color": "#C77D5A",
+    "year": 2024
   },
   {
     "id": "hirono-shelter-fort",
@@ -3869,7 +3896,8 @@
     "set": "Shelter",
     "name": "Fort",
     "rarity": "regular",
-    "color": "#D98AA6"
+    "color": "#C77D5A",
+    "year": 2024
   },
   {
     "id": "hirono-shelter-circus",
@@ -3877,7 +3905,8 @@
     "set": "Shelter",
     "name": "Circus",
     "rarity": "regular",
-    "color": "#D98AA6"
+    "color": "#C77D5A",
+    "year": 2024
   },
   {
     "id": "hirono-shelter-cabin",
@@ -3885,7 +3914,8 @@
     "set": "Shelter",
     "name": "Cabin",
     "rarity": "regular",
-    "color": "#D98AA6"
+    "color": "#C77D5A",
+    "year": 2024
   },
   {
     "id": "hirono-shelter-birdy",
@@ -3893,7 +3923,8 @@
     "set": "Shelter",
     "name": "Birdy",
     "rarity": "regular",
-    "color": "#D98AA6"
+    "color": "#C77D5A",
+    "year": 2024
   },
   {
     "id": "hirono-shelter-alien",
@@ -3901,7 +3932,8 @@
     "set": "Shelter",
     "name": "Alien",
     "rarity": "regular",
-    "color": "#D98AA6"
+    "color": "#C77D5A",
+    "year": 2024
   },
   {
     "id": "hirono-shelter-warrior",
@@ -3909,7 +3941,8 @@
     "set": "Shelter",
     "name": "Warrior",
     "rarity": "regular",
-    "color": "#D98AA6"
+    "color": "#C77D5A",
+    "year": 2024
   },
   {
     "id": "hirono-shelter-sunny-doll",
@@ -3917,7 +3950,8 @@
     "set": "Shelter",
     "name": "Sunny Doll",
     "rarity": "regular",
-    "color": "#D98AA6"
+    "color": "#C77D5A",
+    "year": 2024
   },
   {
     "id": "hirono-shelter-bird-cage",
@@ -3933,7 +3967,8 @@
     "set": "Shelter",
     "name": "Stuffed Bear",
     "rarity": "secret",
-    "color": "#D98AA6"
+    "color": "#C77D5A",
+    "year": 2024
   },
   {
     "id": "hirono-hirono-le-petit-prince-the-king",
@@ -4109,7 +4144,8 @@
     "set": "Echo",
     "name": "Get Lucky",
     "rarity": "regular",
-    "color": "#B5687F"
+    "color": "#B5687F",
+    "year": 2025
   },
   {
     "id": "hirono-echo-journey-in-the-rain",
@@ -4117,7 +4153,8 @@
     "set": "Echo",
     "name": "Journey in the Rain",
     "rarity": "regular",
-    "color": "#B5687F"
+    "color": "#B5687F",
+    "year": 2025
   },
   {
     "id": "hirono-echo-back-off",
@@ -4125,7 +4162,8 @@
     "set": "Echo",
     "name": "Back Off",
     "rarity": "regular",
-    "color": "#B5687F"
+    "color": "#B5687F",
+    "year": 2025
   },
   {
     "id": "hirono-echo-hiding-behind-you",
@@ -4133,7 +4171,8 @@
     "set": "Echo",
     "name": "Hiding Behind You",
     "rarity": "regular",
-    "color": "#B5687F"
+    "color": "#B5687F",
+    "year": 2025
   },
   {
     "id": "hirono-echo-staying-up",
@@ -4141,7 +4180,8 @@
     "set": "Echo",
     "name": "Staying Up",
     "rarity": "regular",
-    "color": "#B5687F"
+    "color": "#B5687F",
+    "year": 2025
   },
   {
     "id": "hirono-echo-caught-you",
@@ -4149,7 +4189,8 @@
     "set": "Echo",
     "name": "Caught You",
     "rarity": "regular",
-    "color": "#B5687F"
+    "color": "#B5687F",
+    "year": 2025
   },
   {
     "id": "hirono-echo-eaten",
@@ -4157,7 +4198,8 @@
     "set": "Echo",
     "name": "Eaten",
     "rarity": "regular",
-    "color": "#B5687F"
+    "color": "#B5687F",
+    "year": 2025
   },
   {
     "id": "hirono-echo-knight",
@@ -4165,7 +4207,8 @@
     "set": "Echo",
     "name": "Knight",
     "rarity": "regular",
-    "color": "#B5687F"
+    "color": "#B5687F",
+    "year": 2025
   },
   {
     "id": "hirono-echo-soul-connection",
@@ -4173,7 +4216,8 @@
     "set": "Echo",
     "name": "Soul Connection",
     "rarity": "regular",
-    "color": "#B5687F"
+    "color": "#B5687F",
+    "year": 2025
   },
   {
     "id": "hirono-echo-pieces-of-memory",
@@ -4181,7 +4225,8 @@
     "set": "Echo",
     "name": "Pieces of Memory",
     "rarity": "regular",
-    "color": "#B5687F"
+    "color": "#B5687F",
+    "year": 2025
   },
   {
     "id": "hirono-echo-breakout-plan",
@@ -4189,7 +4234,8 @@
     "set": "Echo",
     "name": "Breakout Plan",
     "rarity": "regular",
-    "color": "#B5687F"
+    "color": "#B5687F",
+    "year": 2025
   },
   {
     "id": "hirono-echo-daydreaming",
@@ -4197,7 +4243,8 @@
     "set": "Echo",
     "name": "Daydreaming",
     "rarity": "regular",
-    "color": "#B5687F"
+    "color": "#B5687F",
+    "year": 2025
   },
   {
     "id": "hirono-echo-never-growing-up",
@@ -4205,7 +4252,8 @@
     "set": "Echo",
     "name": "Never Growing Up",
     "rarity": "secret",
-    "color": "#B5687F"
+    "color": "#B5687F",
+    "year": 2025
   },
   {
     "id": "hirono-tamed-wildgrass-sisyphean-work",
@@ -4213,7 +4261,8 @@
     "set": "Tamed Wildgrass",
     "name": "Sisyphean Work",
     "rarity": "regular",
-    "color": "#4E7A9B"
+    "color": "#5E7CE2",
+    "year": 2026
   },
   {
     "id": "hirono-tamed-wildgrass-caged-bird",
@@ -4221,7 +4270,8 @@
     "set": "Tamed Wildgrass",
     "name": "Caged Bird",
     "rarity": "regular",
-    "color": "#4E7A9B"
+    "color": "#5E7CE2",
+    "year": 2026
   },
   {
     "id": "hirono-tamed-wildgrass-full-time",
@@ -4229,7 +4279,8 @@
     "set": "Tamed Wildgrass",
     "name": "Full-time",
     "rarity": "regular",
-    "color": "#4E7A9B"
+    "color": "#5E7CE2",
+    "year": 2026
   },
   {
     "id": "hirono-tamed-wildgrass-camping",
@@ -4237,7 +4288,8 @@
     "set": "Tamed Wildgrass",
     "name": "Camping",
     "rarity": "regular",
-    "color": "#4E7A9B"
+    "color": "#5E7CE2",
+    "year": 2026
   },
   {
     "id": "hirono-tamed-wildgrass-self-anchored",
@@ -4245,7 +4297,8 @@
     "set": "Tamed Wildgrass",
     "name": "Self-Anchored",
     "rarity": "regular",
-    "color": "#4E7A9B"
+    "color": "#5E7CE2",
+    "year": 2026
   },
   {
     "id": "hirono-tamed-wildgrass-boiling-frog",
@@ -4253,7 +4306,8 @@
     "set": "Tamed Wildgrass",
     "name": "Boiling Frog",
     "rarity": "regular",
-    "color": "#4E7A9B"
+    "color": "#5E7CE2",
+    "year": 2026
   },
   {
     "id": "hirono-tamed-wildgrass-city-escape",
@@ -4261,7 +4315,8 @@
     "set": "Tamed Wildgrass",
     "name": "City Escape",
     "rarity": "regular",
-    "color": "#4E7A9B"
+    "color": "#5E7CE2",
+    "year": 2026
   },
   {
     "id": "hirono-tamed-wildgrass-fated",
@@ -4269,7 +4324,8 @@
     "set": "Tamed Wildgrass",
     "name": "Fated",
     "rarity": "regular",
-    "color": "#4E7A9B"
+    "color": "#5E7CE2",
+    "year": 2026
   },
   {
     "id": "hirono-tamed-wildgrass-digital-bind",
@@ -4277,7 +4333,8 @@
     "set": "Tamed Wildgrass",
     "name": "Digital Bind",
     "rarity": "regular",
-    "color": "#4E7A9B"
+    "color": "#5E7CE2",
+    "year": 2026
   },
   {
     "id": "hirono-tamed-wildgrass-live-under-receipts",
@@ -4285,7 +4342,8 @@
     "set": "Tamed Wildgrass",
     "name": "Live Under Receipts",
     "rarity": "regular",
-    "color": "#4E7A9B"
+    "color": "#5E7CE2",
+    "year": 2026
   },
   {
     "id": "hirono-tamed-wildgrass-overload",
@@ -4293,7 +4351,8 @@
     "set": "Tamed Wildgrass",
     "name": "Overload",
     "rarity": "regular",
-    "color": "#4E7A9B"
+    "color": "#5E7CE2",
+    "year": 2026
   },
   {
     "id": "hirono-tamed-wildgrass-canned-dreams",
@@ -4301,7 +4360,8 @@
     "set": "Tamed Wildgrass",
     "name": "Canned Dreams",
     "rarity": "regular",
-    "color": "#4E7A9B"
+    "color": "#5E7CE2",
+    "year": 2026
   },
   {
     "id": "hirono-tamed-wildgrass-boundary",
@@ -4309,7 +4369,8 @@
     "set": "Tamed Wildgrass",
     "name": "Boundary",
     "rarity": "secret",
-    "color": "#4E7A9B"
+    "color": "#5E7CE2",
+    "year": 2026
   },
   {
     "id": "hirono-monsters-carnival-grim-reaper",
@@ -4317,7 +4378,8 @@
     "set": "Monsters' Carnival",
     "name": "Grim Reaper",
     "rarity": "regular",
-    "color": "#9B6AB0"
+    "color": "#C6415A",
+    "year": 2025
   },
   {
     "id": "hirono-monsters-carnival-killer-bunny",
@@ -4325,7 +4387,8 @@
     "set": "Monsters' Carnival",
     "name": "Killer Bunny",
     "rarity": "regular",
-    "color": "#9B6AB0"
+    "color": "#C6415A",
+    "year": 2025
   },
   {
     "id": "hirono-monsters-carnival-doctor-beak",
@@ -4333,7 +4396,8 @@
     "set": "Monsters' Carnival",
     "name": "Doctor Beak",
     "rarity": "regular",
-    "color": "#9B6AB0"
+    "color": "#C6415A",
+    "year": 2025
   },
   {
     "id": "hirono-monsters-carnival-vampire",
@@ -4341,7 +4405,8 @@
     "set": "Monsters' Carnival",
     "name": "Vampire",
     "rarity": "regular",
-    "color": "#9B6AB0"
+    "color": "#C6415A",
+    "year": 2025
   },
   {
     "id": "hirono-monsters-carnival-creepy-clown",
@@ -4349,7 +4414,8 @@
     "set": "Monsters' Carnival",
     "name": "Creepy Clown",
     "rarity": "regular",
-    "color": "#9B6AB0"
+    "color": "#C6415A",
+    "year": 2025
   },
   {
     "id": "hirono-monsters-carnival-zombie",
@@ -4357,7 +4423,8 @@
     "set": "Monsters' Carnival",
     "name": "Zombie",
     "rarity": "regular",
-    "color": "#9B6AB0"
+    "color": "#C6415A",
+    "year": 2025
   },
   {
     "id": "hirono-monsters-carnival-the-disembodied",
@@ -4365,7 +4432,8 @@
     "set": "Monsters' Carnival",
     "name": "The Disembodied",
     "rarity": "secret",
-    "color": "#9B6AB0"
+    "color": "#C6415A",
+    "year": 2025
   },
   {
     "id": "hirono-mist-walker-the-soul-corroder",
@@ -6296,123 +6364,6 @@
     "year": 2023
   },
   {
-    "id": "hirono-tamed-wildgrass-camping-2",
-    "series": "hirono",
-    "set": "Tamed Wildgrass",
-    "name": "Camping",
-    "rarity": "regular",
-    "color": "#5E7CE2",
-    "year": 2026
-  },
-  {
-    "id": "hirono-tamed-wildgrass-canned-dreams-2",
-    "series": "hirono",
-    "set": "Tamed Wildgrass",
-    "name": "Canned Dreams",
-    "rarity": "regular",
-    "color": "#5E7CE2",
-    "year": 2026
-  },
-  {
-    "id": "hirono-tamed-wildgrass-sisyphean-work-2",
-    "series": "hirono",
-    "set": "Tamed Wildgrass",
-    "name": "Sisyphean Work",
-    "rarity": "regular",
-    "color": "#5E7CE2",
-    "year": 2026
-  },
-  {
-    "id": "hirono-tamed-wildgrass-live-under-receipts-2",
-    "series": "hirono",
-    "set": "Tamed Wildgrass",
-    "name": "Live Under Receipts",
-    "rarity": "regular",
-    "color": "#5E7CE2",
-    "year": 2026
-  },
-  {
-    "id": "hirono-tamed-wildgrass-boiling-frog-2",
-    "series": "hirono",
-    "set": "Tamed Wildgrass",
-    "name": "Boiling Frog",
-    "rarity": "regular",
-    "color": "#5E7CE2",
-    "year": 2026
-  },
-  {
-    "id": "hirono-tamed-wildgrass-boundary-2",
-    "series": "hirono",
-    "set": "Tamed Wildgrass",
-    "name": "Boundary",
-    "rarity": "secret",
-    "color": "#5E7CE2",
-    "year": 2026
-  },
-  {
-    "id": "hirono-tamed-wildgrass-full-time-2",
-    "series": "hirono",
-    "set": "Tamed Wildgrass",
-    "name": "Full-time",
-    "rarity": "regular",
-    "color": "#5E7CE2",
-    "year": 2026
-  },
-  {
-    "id": "hirono-tamed-wildgrass-caged-bird-2",
-    "series": "hirono",
-    "set": "Tamed Wildgrass",
-    "name": "Caged Bird",
-    "rarity": "regular",
-    "color": "#5E7CE2",
-    "year": 2026
-  },
-  {
-    "id": "hirono-tamed-wildgrass-digital-bind-2",
-    "series": "hirono",
-    "set": "Tamed Wildgrass",
-    "name": "Digital Bind",
-    "rarity": "regular",
-    "color": "#5E7CE2",
-    "year": 2026
-  },
-  {
-    "id": "hirono-tamed-wildgrass-self-anchored-2",
-    "series": "hirono",
-    "set": "Tamed Wildgrass",
-    "name": "Self-Anchored",
-    "rarity": "regular",
-    "color": "#5E7CE2",
-    "year": 2026
-  },
-  {
-    "id": "hirono-tamed-wildgrass-fated-2",
-    "series": "hirono",
-    "set": "Tamed Wildgrass",
-    "name": "Fated",
-    "rarity": "regular",
-    "color": "#5E7CE2",
-    "year": 2026
-  },
-  {
-    "id": "hirono-tamed-wildgrass-city-escape-2",
-    "series": "hirono",
-    "set": "Tamed Wildgrass",
-    "name": "City Escape",
-    "rarity": "regular",
-    "color": "#5E7CE2",
-    "year": 2026
-  },
-  {
-    "id": "hirono-tamed-wildgrass-overload-2",
-    "series": "hirono",
-    "set": "Tamed Wildgrass",
-    "name": "Overload",
-    "rarity": "regular",
-    "color": "#5E7CE2",
-    "year": 2026
-  },
-  {
     "id": "hirono-le-petit-prince-the-king",
     "series": "hirono",
     "set": "× Le Petit Prince",
@@ -6539,168 +6490,6 @@
     "year": 2024
   },
   {
-    "id": "hirono-monsters-carnival-killer-bunny-2",
-    "series": "hirono",
-    "set": "Monsters' Carnival",
-    "name": "Killer Bunny",
-    "rarity": "regular",
-    "color": "#C6415A",
-    "year": 2025
-  },
-  {
-    "id": "hirono-monsters-carnival-zombie-2",
-    "series": "hirono",
-    "set": "Monsters' Carnival",
-    "name": "Zombie",
-    "rarity": "regular",
-    "color": "#C6415A",
-    "year": 2025
-  },
-  {
-    "id": "hirono-monsters-carnival-the-disembodied-2",
-    "series": "hirono",
-    "set": "Monsters' Carnival",
-    "name": "The Disembodied",
-    "rarity": "secret",
-    "color": "#C6415A",
-    "year": 2025
-  },
-  {
-    "id": "hirono-monsters-carnival-creepy-clown-2",
-    "series": "hirono",
-    "set": "Monsters' Carnival",
-    "name": "Creepy Clown",
-    "rarity": "regular",
-    "color": "#C6415A",
-    "year": 2025
-  },
-  {
-    "id": "hirono-monsters-carnival-vampire-2",
-    "series": "hirono",
-    "set": "Monsters' Carnival",
-    "name": "Vampire",
-    "rarity": "regular",
-    "color": "#C6415A",
-    "year": 2025
-  },
-  {
-    "id": "hirono-monsters-carnival-grim-reaper-2",
-    "series": "hirono",
-    "set": "Monsters' Carnival",
-    "name": "Grim Reaper",
-    "rarity": "regular",
-    "color": "#C6415A",
-    "year": 2025
-  },
-  {
-    "id": "hirono-monsters-carnival-doctor-beak-2",
-    "series": "hirono",
-    "set": "Monsters' Carnival",
-    "name": "Doctor Beak",
-    "rarity": "regular",
-    "color": "#C6415A",
-    "year": 2025
-  },
-  {
-    "id": "hirono-shelter-candleholder-2",
-    "series": "hirono",
-    "set": "Shelter",
-    "name": "Candleholder",
-    "rarity": "regular",
-    "color": "#C77D5A",
-    "year": 2024
-  },
-  {
-    "id": "hirono-shelter-mantel-clock-2",
-    "series": "hirono",
-    "set": "Shelter",
-    "name": "Mantel Clock",
-    "rarity": "regular",
-    "color": "#C77D5A",
-    "year": 2024
-  },
-  {
-    "id": "hirono-shelter-poet-2",
-    "series": "hirono",
-    "set": "Shelter",
-    "name": "Poet",
-    "rarity": "regular",
-    "color": "#C77D5A",
-    "year": 2024
-  },
-  {
-    "id": "hirono-shelter-traffic-cone-2",
-    "series": "hirono",
-    "set": "Shelter",
-    "name": "Traffic Cone",
-    "rarity": "regular",
-    "color": "#C77D5A",
-    "year": 2024
-  },
-  {
-    "id": "hirono-shelter-fort-2",
-    "series": "hirono",
-    "set": "Shelter",
-    "name": "Fort",
-    "rarity": "regular",
-    "color": "#C77D5A",
-    "year": 2024
-  },
-  {
-    "id": "hirono-shelter-circus-2",
-    "series": "hirono",
-    "set": "Shelter",
-    "name": "Circus",
-    "rarity": "regular",
-    "color": "#C77D5A",
-    "year": 2024
-  },
-  {
-    "id": "hirono-shelter-cabin-2",
-    "series": "hirono",
-    "set": "Shelter",
-    "name": "Cabin",
-    "rarity": "regular",
-    "color": "#C77D5A",
-    "year": 2024
-  },
-  {
-    "id": "hirono-shelter-birdy-2",
-    "series": "hirono",
-    "set": "Shelter",
-    "name": "Birdy",
-    "rarity": "regular",
-    "color": "#C77D5A",
-    "year": 2024
-  },
-  {
-    "id": "hirono-shelter-alien-2",
-    "series": "hirono",
-    "set": "Shelter",
-    "name": "Alien",
-    "rarity": "regular",
-    "color": "#C77D5A",
-    "year": 2024
-  },
-  {
-    "id": "hirono-shelter-warrior-2",
-    "series": "hirono",
-    "set": "Shelter",
-    "name": "Warrior",
-    "rarity": "regular",
-    "color": "#C77D5A",
-    "year": 2024
-  },
-  {
-    "id": "hirono-shelter-sunny-doll-2",
-    "series": "hirono",
-    "set": "Shelter",
-    "name": "Sunny Doll",
-    "rarity": "regular",
-    "color": "#C77D5A",
-    "year": 2024
-  },
-  {
     "id": "hirono-shelter-birdcage",
     "series": "hirono",
     "set": "Shelter",
@@ -6708,338 +6497,5 @@
     "rarity": "regular",
     "color": "#C77D5A",
     "year": 2024
-  },
-  {
-    "id": "hirono-shelter-stuffed-bear-2",
-    "series": "hirono",
-    "set": "Shelter",
-    "name": "Stuffed Bear",
-    "rarity": "secret",
-    "color": "#C77D5A",
-    "year": 2024
-  },
-  {
-    "id": "hirono-mime-prison-2",
-    "series": "hirono",
-    "set": "Mime",
-    "name": "Prison",
-    "rarity": "regular",
-    "color": "#D98AA6",
-    "year": 2023
-  },
-  {
-    "id": "hirono-mime-unspoken-2",
-    "series": "hirono",
-    "set": "Mime",
-    "name": "Unspoken",
-    "rarity": "regular",
-    "color": "#D98AA6",
-    "year": 2023
-  },
-  {
-    "id": "hirono-mime-guardian-2",
-    "series": "hirono",
-    "set": "Mime",
-    "name": "Guardian",
-    "rarity": "regular",
-    "color": "#D98AA6",
-    "year": 2023
-  },
-  {
-    "id": "hirono-mime-fool-2",
-    "series": "hirono",
-    "set": "Mime",
-    "name": "Fool",
-    "rarity": "regular",
-    "color": "#D98AA6",
-    "year": 2023
-  },
-  {
-    "id": "hirono-mime-patience-2",
-    "series": "hirono",
-    "set": "Mime",
-    "name": "Patience",
-    "rarity": "regular",
-    "color": "#D98AA6",
-    "year": 2023
-  },
-  {
-    "id": "hirono-mime-blind-2",
-    "series": "hirono",
-    "set": "Mime",
-    "name": "Blind",
-    "rarity": "regular",
-    "color": "#D98AA6",
-    "year": 2023
-  },
-  {
-    "id": "hirono-mime-drifter-2",
-    "series": "hirono",
-    "set": "Mime",
-    "name": "Drifter",
-    "rarity": "regular",
-    "color": "#D98AA6",
-    "year": 2023
-  },
-  {
-    "id": "hirono-mime-devilry-2",
-    "series": "hirono",
-    "set": "Mime",
-    "name": "Devilry",
-    "rarity": "regular",
-    "color": "#D98AA6",
-    "year": 2023
-  },
-  {
-    "id": "hirono-mime-secrecy-2",
-    "series": "hirono",
-    "set": "Mime",
-    "name": "Secrecy",
-    "rarity": "regular",
-    "color": "#D98AA6",
-    "year": 2023
-  },
-  {
-    "id": "hirono-mime-seeker-2",
-    "series": "hirono",
-    "set": "Mime",
-    "name": "Seeker",
-    "rarity": "regular",
-    "color": "#D98AA6",
-    "year": 2023
-  },
-  {
-    "id": "hirono-mime-destroy-2",
-    "series": "hirono",
-    "set": "Mime",
-    "name": "Destroy",
-    "rarity": "regular",
-    "color": "#D98AA6",
-    "year": 2023
-  },
-  {
-    "id": "hirono-mime-poem-2",
-    "series": "hirono",
-    "set": "Mime",
-    "name": "Poem",
-    "rarity": "regular",
-    "color": "#D98AA6",
-    "year": 2023
-  },
-  {
-    "id": "hirono-mime-silent-2",
-    "series": "hirono",
-    "set": "Mime",
-    "name": "Silent",
-    "rarity": "secret",
-    "color": "#D98AA6",
-    "year": 2023
-  },
-  {
-    "id": "hirono-reshape-woodcarving-2",
-    "series": "hirono",
-    "set": "Reshape",
-    "name": "Woodcarving",
-    "rarity": "regular",
-    "color": "#8A7BF0",
-    "year": 2023
-  },
-  {
-    "id": "hirono-reshape-voyage-2",
-    "series": "hirono",
-    "set": "Reshape",
-    "name": "Voyage",
-    "rarity": "regular",
-    "color": "#8A7BF0",
-    "year": 2023
-  },
-  {
-    "id": "hirono-reshape-costume-2",
-    "series": "hirono",
-    "set": "Reshape",
-    "name": "Costume",
-    "rarity": "regular",
-    "color": "#8A7BF0",
-    "year": 2023
-  },
-  {
-    "id": "hirono-reshape-drowning-2",
-    "series": "hirono",
-    "set": "Reshape",
-    "name": "Drowning",
-    "rarity": "regular",
-    "color": "#8A7BF0",
-    "year": 2023
-  },
-  {
-    "id": "hirono-reshape-fading-2",
-    "series": "hirono",
-    "set": "Reshape",
-    "name": "Fading",
-    "rarity": "regular",
-    "color": "#8A7BF0",
-    "year": 2023
-  },
-  {
-    "id": "hirono-reshape-burst-2",
-    "series": "hirono",
-    "set": "Reshape",
-    "name": "Burst",
-    "rarity": "regular",
-    "color": "#8A7BF0",
-    "year": 2023
-  },
-  {
-    "id": "hirono-reshape-parasite-2",
-    "series": "hirono",
-    "set": "Reshape",
-    "name": "Parasite",
-    "rarity": "regular",
-    "color": "#8A7BF0",
-    "year": 2023
-  },
-  {
-    "id": "hirono-reshape-healing-2",
-    "series": "hirono",
-    "set": "Reshape",
-    "name": "Healing",
-    "rarity": "regular",
-    "color": "#8A7BF0",
-    "year": 2023
-  },
-  {
-    "id": "hirono-reshape-paradise-lost-2",
-    "series": "hirono",
-    "set": "Reshape",
-    "name": "Paradise Lost",
-    "rarity": "regular",
-    "color": "#8A7BF0",
-    "year": 2023
-  },
-  {
-    "id": "hirono-reshape-puppet-2",
-    "series": "hirono",
-    "set": "Reshape",
-    "name": "Puppet",
-    "rarity": "secret",
-    "color": "#8A7BF0",
-    "year": 2023
-  },
-  {
-    "id": "hirono-echo-never-growing-up-2",
-    "series": "hirono",
-    "set": "Echo",
-    "name": "Never Growing Up",
-    "rarity": "secret",
-    "color": "#B5687F",
-    "year": 2025
-  },
-  {
-    "id": "hirono-echo-hiding-behind-you-2",
-    "series": "hirono",
-    "set": "Echo",
-    "name": "Hiding Behind You",
-    "rarity": "regular",
-    "color": "#B5687F",
-    "year": 2025
-  },
-  {
-    "id": "hirono-echo-journey-in-the-rain-2",
-    "series": "hirono",
-    "set": "Echo",
-    "name": "Journey in the Rain",
-    "rarity": "regular",
-    "color": "#B5687F",
-    "year": 2025
-  },
-  {
-    "id": "hirono-echo-back-off-2",
-    "series": "hirono",
-    "set": "Echo",
-    "name": "Back Off",
-    "rarity": "regular",
-    "color": "#B5687F",
-    "year": 2025
-  },
-  {
-    "id": "hirono-echo-pieces-of-memory-2",
-    "series": "hirono",
-    "set": "Echo",
-    "name": "Pieces of Memory",
-    "rarity": "regular",
-    "color": "#B5687F",
-    "year": 2025
-  },
-  {
-    "id": "hirono-echo-staying-up-2",
-    "series": "hirono",
-    "set": "Echo",
-    "name": "Staying Up",
-    "rarity": "regular",
-    "color": "#B5687F",
-    "year": 2025
-  },
-  {
-    "id": "hirono-echo-daydreaming-2",
-    "series": "hirono",
-    "set": "Echo",
-    "name": "Daydreaming",
-    "rarity": "regular",
-    "color": "#B5687F",
-    "year": 2025
-  },
-  {
-    "id": "hirono-echo-get-lucky-2",
-    "series": "hirono",
-    "set": "Echo",
-    "name": "Get Lucky",
-    "rarity": "regular",
-    "color": "#B5687F",
-    "year": 2025
-  },
-  {
-    "id": "hirono-echo-breakout-plan-2",
-    "series": "hirono",
-    "set": "Echo",
-    "name": "Breakout Plan",
-    "rarity": "regular",
-    "color": "#B5687F",
-    "year": 2025
-  },
-  {
-    "id": "hirono-echo-soul-connection-2",
-    "series": "hirono",
-    "set": "Echo",
-    "name": "Soul Connection",
-    "rarity": "regular",
-    "color": "#B5687F",
-    "year": 2025
-  },
-  {
-    "id": "hirono-echo-knight-2",
-    "series": "hirono",
-    "set": "Echo",
-    "name": "Knight",
-    "rarity": "regular",
-    "color": "#B5687F",
-    "year": 2025
-  },
-  {
-    "id": "hirono-echo-caught-you-2",
-    "series": "hirono",
-    "set": "Echo",
-    "name": "Caught You",
-    "rarity": "regular",
-    "color": "#B5687F",
-    "year": 2025
-  },
-  {
-    "id": "hirono-echo-eaten-2",
-    "series": "hirono",
-    "set": "Echo",
-    "name": "Eaten",
-    "rarity": "regular",
-    "color": "#B5687F",
-    "year": 2025
   }
 ]
