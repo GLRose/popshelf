@@ -4,6 +4,7 @@ import { SectionList, StyleSheet, Text, useWindowDimensions, View } from 'react-
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AccountBar } from '@/components/common/AccountBar';
+import { ScrollToTopButton, useScrollToTop } from '@/components/common/ScrollToTopButton';
 import { FigureCard } from '@/components/figures/FigureCard';
 import { SeriesToggle } from '@/components/figures/SeriesToggle';
 import { SetFilter } from '@/components/figures/SetFilter';
@@ -80,10 +81,18 @@ export default function BrowseScreen() {
   );
   const ownedShown = shownFigures.filter((f) => ownedIds.has(f.id)).length;
 
+  const listRef = useRef<SectionList<Figure[]>>(null);
+  const scrollTop = useScrollToTop();
+  const scrollToTop = () =>
+    listRef.current?.getScrollResponder()?.scrollTo({ y: 0, animated: true });
+
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
       <AccountBar />
       <SectionList
+        ref={listRef}
+        onScroll={scrollTop.onScroll}
+        scrollEventThrottle={scrollTop.scrollEventThrottle}
         style={styles.list}
         contentContainerStyle={styles.content}
         sections={sections}
@@ -127,6 +136,11 @@ export default function BrowseScreen() {
             ))}
           </View>
         )}
+      />
+      <ScrollToTopButton
+        visible={scrollTop.visible}
+        onPress={scrollToTop}
+        accent={meta.accent}
       />
     </SafeAreaView>
   );
