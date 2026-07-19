@@ -6,6 +6,7 @@
 // Upsert identity is (source, sourceProductId): the same source product always
 // maps back to the same catalog id, so re-runs never duplicate a row.
 import { contentHashOf } from '../normalize/normalize';
+import { slug } from '../core/text';
 import type { KnownItem, NormalizedFigure } from '../core/types';
 import {
   loadCatalog,
@@ -30,6 +31,41 @@ function toStored(f: NormalizedFigure): StoredFigure {
   };
   if (f.year !== undefined) stored.year = f.year;
   return stored;
+}
+
+/** The natural identity of a catalog row: exactly what normalize.ts computes as
+ * its baseId. Two rows that agree on this are the same physical figure, however
+ * they got into the catalog. */
+function identityOf(f: StoredFigure): string {
+  return `${f.series}-${slug(f.set)}-${slug(f.name)}`;
+}
+
+/** Every way `rows` violates catalog uniqueness, described for a human. Empty
+ * means the catalog is sound. Shared by the pre-write guard in `commit()` and
+ * by the integrity test over the committed figures.json, so there is exactly
+ * one definition of what "duplicate" means. */
+export function findCatalogDuplicates(rows: readonly StoredFigure[]): string[] {
+  const seenIds = new Map<string, StoredFigure>();
+  const seenIdentities = new Map<string, StoredFigure>();
+  const problems: string[] = [];
+
+  for (const f of rows) {
+    const clash = seenIds.get(f.id);
+    if (clash) {
+      problems.push(`duplicate id "${f.id}": ${clash.set}/${clash.name} and ${f.set}/${f.name}`);
+    } else {
+      seenIds.set(f.id, f);
+    }
+
+    const identity = identityOf(f);
+    const twin = seenIdentities.get(identity);
+    if (twin) {
+      problems.push(`duplicate figure "${identity}" held by ids "${twin.id}" and "${f.id}"`);
+    } else {
+      seenIdentities.set(identity, f);
+    }
+  }
+  return problems;
 }
 
 function sameStored(a: StoredFigure, b: StoredFigure): boolean {
@@ -89,6 +125,17 @@ export class CatalogWriter {
     const prior = this.sourceState(source).items[sourceProductId];
     if (prior) return prior.figureId; // same product ⇒ same id, always.
 
+    // First run against a catalog that was already seeded by hand: the row
+    // sitting on baseId is this same figure, so take it over rather than fork a
+    // twin beside it. Without this every pre-existing row becomes a duplicate
+    // the moment its IP is scraped, which is exactly what happened to hirono.
+    // Only a squatter whose own identity differs is a genuine collision.
+    const squatter = this.byId.get(baseId);
+    if (squatter && identityOf(squatter) === baseId && !this.reserved.has(baseId)) {
+      this.reserved.add(baseId);
+      return baseId;
+    }
+
     let id = baseId;
     let n = 1;
     while (this.byId.has(id) || this.reserved.has(id)) id = `${baseId}-${++n}`;
@@ -144,6 +191,15 @@ export class CatalogWriter {
   }
 
   async commit(): Promise<void> {
+    // Duplicate rows are a corruption of the catalog, not a warning: the app
+    // builds FIGURES_BY_ID with last-write-wins and users shelve figures by id,
+    // so a twin is invisible in code and very visible in the UI. Refuse to
+    // write rather than persist one. Nothing is saved on throw, so the run is
+    // safe to re-run once the cause is fixed.
+    const problems = findCatalogDuplicates(this.catalog);
+    if (problems.length > 0) {
+      throw new Error(`refusing to write a catalog with duplicates:\n  ${problems.join('\n  ')}`);
+    }
     await saveCatalog(this.catalog);
     await saveState(this.state);
   }

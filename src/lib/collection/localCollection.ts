@@ -8,8 +8,10 @@ import {
 } from '@/constants/palette';
 import type { Shelf } from '@/types';
 
+import { remapFigureIds } from './figureIdAliases';
+
 const STORAGE_KEY = 'popshelf-v1';
-const CURRENT_VERSION = 3;
+const CURRENT_VERSION = 4;
 
 function makeId() {
   return `shelf_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 6)}`;
@@ -60,6 +62,21 @@ function migrate(persisted: PersistedCollection, version: number): PersistedColl
       ...sh,
       texture: sh.texture ?? DEFAULT_TEXTURE_ID,
     }));
+  }
+  // v3 -> v4: the hirono catalog carried 68 duplicated figures, and the
+  // scraper-created twins were merged back into the hand-curated ids. Repoint
+  // anything shelved or favourited under a retired id; left alone it would
+  // vanish from the shelf at render and still report as owned in Browse.
+  if (version < 4) {
+    if (Array.isArray(persisted.shelves)) {
+      persisted.shelves = persisted.shelves.map((sh) => ({
+        ...sh,
+        figureIds: remapFigureIds(sh.figureIds ?? []),
+      }));
+    }
+    if (Array.isArray(persisted.favorites)) {
+      persisted.favorites = remapFigureIds(persisted.favorites);
+    }
   }
   return persisted;
 }

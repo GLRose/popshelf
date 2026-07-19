@@ -1,6 +1,6 @@
 # Images still needed
 
-161 of 607 figures have no image yet and render the placeholder.
+137 of 782 figures have no image yet and render the placeholder.
 
 Figure images live in Supabase, not in this repo - see `supabase/schema.sql`.
 
@@ -10,95 +10,9 @@ Figure images live in Supabase, not in this repo - see `supabase/schema.sql`.
 npm run cutout && npm run upload:catalog
 ```
 
-## skullpanda - Special Editions (1)
+## hirono - Shelter (1)
 
-- [ ] `skullpanda-special-editions-kuromi.png` - Kuromi
-
-## hirono - The Other One (12)
-
-- [ ] `hirono-the-other-one-cuckoo.png` - Cuckoo
-- [ ] `hirono-the-other-one-the-ghost.png` - The Ghost
-- [ ] `hirono-the-other-one-nowhere-safe.png` - Nowhere Safe
-- [ ] `hirono-the-other-one-raving.png` - Raving
-- [ ] `hirono-the-other-one-being-alive.png` - Being Alive
-- [ ] `hirono-the-other-one-the-monster.png` - The Monster
-- [ ] `hirono-the-other-one-amnesia.png` - Amnesia
-- [ ] `hirono-the-other-one-the-crow.png` - The Crow
-- [ ] `hirono-the-other-one-the-fox.png` - The Fox
-- [ ] `hirono-the-other-one-staring.png` - Staring
-- [ ] `hirono-the-other-one-marionette.png` - Marionette
-- [ ] `hirono-the-other-one-dreaming.png` - Dreaming _(secret)_
-
-## hirono - Little Mischief (13)
-
-- [ ] `hirono-little-mischief-ragpicker.png` - Ragpicker
-- [ ] `hirono-little-mischief-destroyer.png` - Destroyer
-- [ ] `hirono-little-mischief-robot.png` - Robot
-- [ ] `hirono-little-mischief-boiling-frog.png` - Boiling Frog
-- [ ] `hirono-little-mischief-float.png` - Float
-- [ ] `hirono-little-mischief-the-aviator.png` - The Aviator
-- [ ] `hirono-little-mischief-birdman.png` - Birdman
-- [ ] `hirono-little-mischief-loose-fish.png` - Loose Fish
-- [ ] `hirono-little-mischief-pretender.png` - Pretender
-- [ ] `hirono-little-mischief-persona.png` - Persona
-- [ ] `hirono-little-mischief-manacle.png` - Manacle
-- [ ] `hirono-little-mischief-protector.png` - Protector
-- [ ] `hirono-little-mischief-unknown-journey.png` - Unknown Journey _(secret)_
-
-## hirono - City of Mercy (7)
-
-- [ ] `hirono-city-of-mercy-fallen-angel.png` - Fallen Angel
-- [ ] `hirono-city-of-mercy-comfortably-numb.png` - Comfortably Numb
-- [ ] `hirono-city-of-mercy-healer.png` - Healer
-- [ ] `hirono-city-of-mercy-insight.png` - Insight
-- [ ] `hirono-city-of-mercy-the-other.png` - The Other
-- [ ] `hirono-city-of-mercy-echo.png` - Echo
-- [ ] `hirono-city-of-mercy-belonging.png` - Belonging _(secret)_
-
-## hirono - Mime (13)
-
-- [ ] `hirono-mime-guardian.png` - Guardian
-- [ ] `hirono-mime-blind.png` - Blind
-- [ ] `hirono-mime-seeker.png` - Seeker
-- [ ] `hirono-mime-devilry.png` - Devilry
-- [ ] `hirono-mime-drifter.png` - Drifter
-- [ ] `hirono-mime-fool.png` - Fool
-- [ ] `hirono-mime-patience.png` - Patience
-- [ ] `hirono-mime-unspoken.png` - Unspoken
-- [ ] `hirono-mime-prison.png` - Prison
-- [ ] `hirono-mime-destroy.png` - Destroy
-- [ ] `hirono-mime-poem.png` - Poem
-- [ ] `hirono-mime-secrecy.png` - Secrecy
-- [ ] `hirono-mime-silent.png` - Silent _(secret)_
-
-## hirono - Reshape (10)
-
-- [ ] `hirono-reshape-burst.png` - Burst
-- [ ] `hirono-reshape-woodcarving.png` - Woodcarving
-- [ ] `hirono-reshape-fading.png` - Fading
-- [ ] `hirono-reshape-healing.png` - Healing
-- [ ] `hirono-reshape-paradise-lost.png` - Paradise Lost
-- [ ] `hirono-reshape-drowning.png` - Drowning
-- [ ] `hirono-reshape-costume.png` - Costume
-- [ ] `hirono-reshape-parasite.png` - Parasite
-- [ ] `hirono-reshape-voyage.png` - Voyage
-- [ ] `hirono-reshape-puppet.png` - Puppet _(secret)_
-
-## hirono - Shelter (13)
-
-- [ ] `hirono-shelter-candleholder.png` - Candleholder
-- [ ] `hirono-shelter-mantel-clock.png` - Mantel Clock
-- [ ] `hirono-shelter-poet.png` - Poet
-- [ ] `hirono-shelter-traffic-cone.png` - Traffic Cone
-- [ ] `hirono-shelter-fort.png` - Fort
-- [ ] `hirono-shelter-circus.png` - Circus
-- [ ] `hirono-shelter-cabin.png` - Cabin
-- [ ] `hirono-shelter-birdy.png` - Birdy
-- [ ] `hirono-shelter-alien.png` - Alien
-- [ ] `hirono-shelter-warrior.png` - Warrior
-- [ ] `hirono-shelter-sunny-doll.png` - Sunny Doll
 - [ ] `hirono-shelter-bird-cage.png` - Bird Cage
-- [ ] `hirono-shelter-stuffed-bear.png` - Stuffed Bear _(secret)_
 
 ## hirono - Hirono × Le Petit Prince (14)
 
@@ -116,36 +30,6 @@ npm run cutout && npm run upload:catalog
 - [ ] `hirono-hirono-le-petit-prince-the-switchman.png` - The Switchman
 - [ ] `hirono-hirono-le-petit-prince-the-pilot.png` - The Pilot _(secret)_
 - [ ] `hirono-hirono-le-petit-prince-the-little-prince-special-edition.png` - The Little Prince (Special Edition) _(secret)_
-
-## hirono - Echo (1)
-
-- [ ] `hirono-echo-caught-you.png` - Caught You
-
-## hirono - Tamed Wildgrass (13)
-
-- [ ] `hirono-tamed-wildgrass-sisyphean-work.png` - Sisyphean Work
-- [ ] `hirono-tamed-wildgrass-caged-bird.png` - Caged Bird
-- [ ] `hirono-tamed-wildgrass-full-time.png` - Full-time
-- [ ] `hirono-tamed-wildgrass-camping.png` - Camping
-- [ ] `hirono-tamed-wildgrass-self-anchored.png` - Self-Anchored
-- [ ] `hirono-tamed-wildgrass-boiling-frog.png` - Boiling Frog
-- [ ] `hirono-tamed-wildgrass-city-escape.png` - City Escape
-- [ ] `hirono-tamed-wildgrass-fated.png` - Fated
-- [ ] `hirono-tamed-wildgrass-digital-bind.png` - Digital Bind
-- [ ] `hirono-tamed-wildgrass-live-under-receipts.png` - Live Under Receipts
-- [ ] `hirono-tamed-wildgrass-overload.png` - Overload
-- [ ] `hirono-tamed-wildgrass-canned-dreams.png` - Canned Dreams
-- [ ] `hirono-tamed-wildgrass-boundary.png` - Boundary _(secret)_
-
-## hirono - Monsters' Carnival (7)
-
-- [ ] `hirono-monsters-carnival-grim-reaper.png` - Grim Reaper
-- [ ] `hirono-monsters-carnival-killer-bunny.png` - Killer Bunny
-- [ ] `hirono-monsters-carnival-doctor-beak.png` - Doctor Beak
-- [ ] `hirono-monsters-carnival-vampire.png` - Vampire
-- [ ] `hirono-monsters-carnival-creepy-clown.png` - Creepy Clown
-- [ ] `hirono-monsters-carnival-zombie.png` - Zombie
-- [ ] `hirono-monsters-carnival-the-disembodied.png` - The Disembodied _(secret)_
 
 ## hirono - Mist-Walker (7)
 
@@ -227,4 +111,99 @@ npm run cutout && npm run upload:catalog
 - [ ] `hirono-collaborations-hirono-stefanie-sun-weather-with-you.png` - Hirono × Stefanie Sun (Weather With You)
 - [ ] `hirono-collaborations-hirono-stefanie-sun-aut-nihilo.png` - Hirono × Stefanie Sun (Aut Nihilo)
 - [ ] `hirono-collaborations-hirono-polar-symbiosis.png` - Hirono × Polar (Symbiosis)
+
+## dimoo - WORLD × PIXAR (12)
+
+- [ ] `dimoo-world-pixar-dimoo-as-woody.png` - DIMOO as Woody
+- [ ] `dimoo-world-pixar-dimoo-as-buzz-lightyear.png` - DIMOO as Buzz Lightyear
+- [ ] `dimoo-world-pixar-dimoo-as-alien.png` - DIMOO as Alien
+- [ ] `dimoo-world-pixar-dimoo-as-remy.png` - DIMOO as Remy
+- [ ] `dimoo-world-pixar-dimoo-as-red-panda-mei.png` - DIMOO as Red Panda Mei
+- [ ] `dimoo-world-pixar-dimoo-as-miguel-rivera.png` - DIMOO as Miguel Rivera
+- [ ] `dimoo-world-pixar-dimoo-as-dash-parr.png` - DIMOO as Dash Parr
+- [ ] `dimoo-world-pixar-dimoo-as-wall-e.png` - DIMOO as WALL · E
+- [ ] `dimoo-world-pixar-dimoo-as-sulley.png` - DIMOO as Sulley
+- [ ] `dimoo-world-pixar-dimoo-as-lotso.png` - DIMOO as Lotso
+- [ ] `dimoo-world-pixar-dimoo-as-hamm.png` - DIMOO as Hamm
+- [ ] `dimoo-world-pixar-dimoo-in-space-crane.png` - DIMOO in Space Crane _(secret)_
+
+## dimoo - The Missing Day (5)
+
+- [ ] `dimoo-the-missing-day-melt-into-me.png` - Melt Into Me
+- [ ] `dimoo-the-missing-day-soaking-in-a-dream.png` - Soaking in a Dream
+- [ ] `dimoo-the-missing-day-my-pillow-beats.png` - My Pillow Beats
+- [ ] `dimoo-the-missing-day-dancing-on-clouds.png` - Dancing on Clouds
+- [ ] `dimoo-the-missing-day-unlocking-time.png` - Unlocking Time
+
+## dimoo - Stories in the Cup (1)
+
+- [ ] `dimoo-stories-in-the-cup-drunkenness.png` - Drunkenness _(secret)_
+
+## dimoo - Shapes in Nature (13)
+
+- [ ] `dimoo-shapes-in-nature-touching.png` - Touching
+- [ ] `dimoo-shapes-in-nature-hearing.png` - Hearing
+- [ ] `dimoo-shapes-in-nature-seeing.png` - Seeing
+- [ ] `dimoo-shapes-in-nature-weathered-rock.png` - Weathered Rock
+- [ ] `dimoo-shapes-in-nature-the-raindrop.png` - The Raindrop
+- [ ] `dimoo-shapes-in-nature-melting-ice.png` - Melting Ice
+- [ ] `dimoo-shapes-in-nature-parting-clouds.png` - Parting Clouds
+- [ ] `dimoo-shapes-in-nature-withering-flowers.png` - Withering Flowers
+- [ ] `dimoo-shapes-in-nature-upward-growth.png` - Upward Growth _(secret)_
+- [ ] `dimoo-shapes-in-nature-cloud-whisper.png` - Cloud Whisper
+- [ ] `dimoo-shapes-in-nature-fallen-leaves.png` - Fallen Leaves
+- [ ] `dimoo-shapes-in-nature-rising-wind.png` - Rising Wind
+- [ ] `dimoo-shapes-in-nature-newborn-soul.png` - Newborn Soul
+
+## dimoo - WORLD × DISNEY (1)
+
+- [ ] `dimoo-world-disney-the-captain-of-steamboat-willie.png` - The Captain of Steamboat Willie _(secret)_
+
+## dimoo - Animal Kingdom (13)
+
+- [ ] `dimoo-animal-kingdom-duckling-leader.png` - Duckling Leader
+- [ ] `dimoo-animal-kingdom-sleeping-bunny.png` - Sleeping Bunny
+- [ ] `dimoo-animal-kingdom-warm-polar-bear.png` - Warm Polar Bear
+- [ ] `dimoo-animal-kingdom-taichi-panda.png` - Taichi Panda
+- [ ] `dimoo-animal-kingdom-bear-dad.png` - Bear Dad
+- [ ] `dimoo-animal-kingdom-baby-elephant-bubble.png` - Baby Elephant Bubble
+- [ ] `dimoo-animal-kingdom-foodie-giraffe.png` - Foodie Giraffe
+- [ ] `dimoo-animal-kingdom-penguin-tango.png` - Penguin Tango
+- [ ] `dimoo-animal-kingdom-crocodile-cleaner.png` - Crocodile Cleaner
+- [ ] `dimoo-animal-kingdom-red-panda-with-apple.png` - Red Panda With Apple
+- [ ] `dimoo-animal-kingdom-tigers-learn-to-walk.png` - Tigers Learn to Walk
+- [ ] `dimoo-animal-kingdom-sleepy-koala.png` - Sleepy Koala
+- [ ] `dimoo-animal-kingdom-monkey-catches-the-moon.png` - Monkey Catches the Moon _(secret)_
+
+## dimoo - Weaving Wonders (2)
+
+- [ ] `dimoo-weaving-wonders-dreams-of-good-fortune.png` - Dreams of Good Fortune _(secret)_
+- [ ] `dimoo-weaving-wonders-fortune-cat.png` - Fortune Cat _(secret)_
+
+## dimoo - By Your Side (14)
+
+- [ ] `dimoo-by-your-side-calm-down.png` - Calm Down
+- [ ] `dimoo-by-your-side-don-t-overthink.png` - Don’t Overthink
+- [ ] `dimoo-by-your-side-cheer-up.png` - Cheer Up
+- [ ] `dimoo-by-your-side-candy-for-you.png` - Candy for You
+- [ ] `dimoo-by-your-side-light-up.png` - Light Up
+- [ ] `dimoo-by-your-side-embrace-emotions.png` - Embrace Emotions
+- [ ] `dimoo-by-your-side-peace-of-mind.png` - Peace of Mind
+- [ ] `dimoo-by-your-side-meditation.png` - Meditation
+- [ ] `dimoo-by-your-side-pleasure.png` - Pleasure
+- [ ] `dimoo-by-your-side-startled.png` - Startled
+- [ ] `dimoo-by-your-side-shielded.png` - Shielded
+- [ ] `dimoo-by-your-side-don-t-be-afraid.png` - Don’t Be Afraid
+- [ ] `dimoo-by-your-side-imaginary-encounter.png` - Imaginary Encounter _(secret)_
+- [ ] `dimoo-by-your-side-imaginary-adventure.png` - Imaginary Adventure _(secret)_
+
+## dimoo - No One's Gonna Sleep Tonight (1)
+
+- [ ] `dimoo-no-one-s-gonna-sleep-tonight-maneater-flower-on-a-statue.png` - Maneater Flower on a Statue _(secret)_
+
+## dimoo - Retro (3)
+
+- [ ] `dimoo-retro-dreamworld.png` - Dreamworld _(secret)_
+- [ ] `dimoo-retro-daytime.png` - Daytime _(secret)_
+- [ ] `dimoo-retro-dark-night.png` - Dark Night _(secret)_
 

@@ -422,3 +422,64 @@ create policy "owner can manage own favorites"
 -- Shelves and favorites cascade away with the users. To see what would go first:
 --
 --   select count(*) from auth.users where is_anonymous;
+
+
+-- REPOINTING THE 68 RETIRED HIRONO FIGURE IDS
+-- ===========================================
+-- The hirono catalog carried 68 duplicated figures. The scraper's first run
+-- over an IP that had already been curated by hand could not tell that the row
+-- sitting on its computed id WAS the figure it was about to write, so it forked
+-- a '-2' twin beside each one. The twins have been merged back into the
+-- hand-curated ids and deleted from src/data/figures.json.
+--
+-- Nothing here has referential integrity: shelves.figure_ids and
+-- favorites.figure_id are bare text with no foreign key, and the app silently
+-- drops an id it cannot resolve (shelf.tsx / favorites.tsx both filter on
+-- getFigure). So a figure saved under a retired id does not error, it just
+-- quietly disappears from the shelf while isOwned() still reports it as owned.
+--
+-- Unlike the anonymous-user cleanup above, this one SHOULD be run: paste it
+-- into the SQL editor once the build carrying the v3 -> v4 local migration
+-- (src/lib/collection/figureIdAliases.ts) is deployed. It is idempotent - no
+-- id matching the pattern survives it - so re-running is a no-op, and it is
+-- left commented out only to match this file's "nothing here executes" rule.
+--
+-- The pattern is exact rather than a 68-row VALUES list: every retired id was
+-- '<surviving id>-2', and no hirono id ending in -2 exists in the catalog any
+-- more, so anything still matching it in user data is by definition retired.
+--
+-- Shelves. Dedupe via group by, because a user who saved both twins would
+-- otherwise end up holding the same figure twice on one shelf; min(ord) keeps
+-- each survivor at the position of its first occurrence, so shelf order holds.
+--
+--   update public.shelves s
+--     set figure_ids = array(
+--       select fid from (
+--         select regexp_replace(f, '^(hirono-.*)-2$', '\1') as fid, min(ord) as ord
+--         from unnest(s.figure_ids) with ordinality as t(f, ord)
+--         group by 1
+--       ) x order by x.ord
+--     )
+--     where exists (select 1 from unnest(s.figure_ids) f where f ~ '^hirono-.*-2$');
+--
+-- Favorites, in this order. The primary key is (owner_id, figure_id), so a
+-- plain update collides for anyone who favourited both twins; drop the retired
+-- row where the survivor is already present, then rename what is left.
+--
+--   delete from public.favorites f
+--     where f.figure_id ~ '^hirono-.*-2$'
+--       and exists (
+--         select 1 from public.favorites g
+--         where g.owner_id = f.owner_id
+--           and g.figure_id = regexp_replace(f.figure_id, '^(hirono-.*)-2$', '\1')
+--       );
+--
+--   update public.favorites
+--     set figure_id = regexp_replace(figure_id, '^(hirono-.*)-2$', '\1')
+--     where figure_id ~ '^hirono-.*-2$';
+--
+-- To see what is affected first:
+--
+--   select count(*) from public.favorites where figure_id ~ '^hirono-.*-2$';
+--   select count(*) from public.shelves s
+--     where exists (select 1 from unnest(s.figure_ids) f where f ~ '^hirono-.*-2$');
