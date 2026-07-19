@@ -2,103 +2,116 @@
   "ip": "hirono",
   "sources": {
     "popmart": {
-      "lastRunAt": "2026-07-19T10:37:32.922Z",
+      "lastRunAt": "2026-07-19T10:54:18.989Z",
       "items": {
         "6071:camping": {
           "figureId": "hirono-tamed-wildgrass-camping",
           "sourceUrl": "https://www.popmart.com/us/products/6071",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Tamed Wildgrass\",\"Camping\",\"regular\",2026,\"#5E7CE2\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601484881____camping____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601484881____camping____.png",
+          "imageHash": "3ad832faea3148ef2997bfea9af7c7899623453fa8fa871ed914633521156f96"
         },
         "6071:canned-dreams": {
           "figureId": "hirono-tamed-wildgrass-canned-dreams",
           "sourceUrl": "https://www.popmart.com/us/products/6071",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Tamed Wildgrass\",\"Canned Dreams\",\"regular\",2026,\"#5E7CE2\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601475301____canned-dreams____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601475301____canned-dreams____.png",
+          "imageHash": "e1c53e7377d87349182128393843fed0c4d30d45f7dcc3d241017889aae59126"
         },
         "6071:sisyphean-work": {
           "figureId": "hirono-tamed-wildgrass-sisyphean-work",
           "sourceUrl": "https://www.popmart.com/us/products/6071",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Tamed Wildgrass\",\"Sisyphean Work\",\"regular\",2026,\"#5E7CE2\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601912524____sisyphean-work____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601912524____sisyphean-work____.png",
+          "imageHash": "c6c3fccc0cc0e159fda37636cd08205e83705c53351f78da58c52d4a22819190"
         },
         "6071:live-under-receipts": {
           "figureId": "hirono-tamed-wildgrass-live-under-receipts",
           "sourceUrl": "https://www.popmart.com/us/products/6071",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Tamed Wildgrass\",\"Live Under Receipts\",\"regular\",2026,\"#5E7CE2\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601451638____live-under-receipts____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601451638____live-under-receipts____.png",
+          "imageHash": "cf9f6b14265b47916beb4f5ae2273b1f7fb3565dfaeee17a2e25662322ae23fe"
         },
         "6071:boiling-frog": {
           "figureId": "hirono-tamed-wildgrass-boiling-frog",
           "sourceUrl": "https://www.popmart.com/us/products/6071",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Tamed Wildgrass\",\"Boiling Frog\",\"regular\",2026,\"#5E7CE2\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601440500____boiling-frog____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601440500____boiling-frog____.png",
+          "imageHash": "14223b6a69d517164136dc45b1d0d8d632895b9ef0dbab53d30d52e990f6eb00"
         },
         "6071:boundary": {
           "figureId": "hirono-tamed-wildgrass-boundary",
           "sourceUrl": "https://www.popmart.com/us/products/6071",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Tamed Wildgrass\",\"Boundary\",\"secret\",2026,\"#5E7CE2\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601431692____secret_boundary____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601431692____secret_boundary____.png",
+          "imageHash": "f8c18afaac4322c51a94d9076cba676cb33e1718b207ce4421e5ca520708a510"
         },
         "6071:full-time": {
           "figureId": "hirono-tamed-wildgrass-full-time",
           "sourceUrl": "https://www.popmart.com/us/products/6071",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Tamed Wildgrass\",\"Full-time\",\"regular\",2026,\"#5E7CE2\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601419385____full-time____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601419385____full-time____.png",
+          "imageHash": "14e6551c170203d2d31d10869e5da72587e18e0a87e4aa0e14ed205a954c4f9c"
         },
         "6071:caged-bird": {
           "figureId": "hirono-tamed-wildgrass-caged-bird",
           "sourceUrl": "https://www.popmart.com/us/products/6071",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Tamed Wildgrass\",\"Caged Bird\",\"regular\",2026,\"#5E7CE2\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601408669____caged-bird____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601408669____caged-bird____.png",
+          "imageHash": "7aa89903e3733bab724c95bf3cea2a97f7b264b37c9d995fbfefd917010b19d9"
         },
         "6071:digital-bind": {
           "figureId": "hirono-tamed-wildgrass-digital-bind",
           "sourceUrl": "https://www.popmart.com/us/products/6071",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Tamed Wildgrass\",\"Digital Bind\",\"regular\",2026,\"#5E7CE2\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601399931____digital-bind____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601399931____digital-bind____.png",
+          "imageHash": "bb0d237d7ac2d54786f2af557dcc8779ba4a103153c36f8c41f4e3c7c49103dd"
         },
         "6071:self-anchored": {
           "figureId": "hirono-tamed-wildgrass-self-anchored",
           "sourceUrl": "https://www.popmart.com/us/products/6071",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Tamed Wildgrass\",\"Self-Anchored\",\"regular\",2026,\"#5E7CE2\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601391633____self-anchored____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601391633____self-anchored____.png",
+          "imageHash": "417d16c63adb5f1e6c9e2cbb08eab81cf40e998638a6774170f32986cfc807e5"
         },
         "6071:fated": {
           "figureId": "hirono-tamed-wildgrass-fated",
           "sourceUrl": "https://www.popmart.com/us/products/6071",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Tamed Wildgrass\",\"Fated\",\"regular\",2026,\"#5E7CE2\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601382852____fated____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601382852____fated____.png",
+          "imageHash": "8ff2ed6742c3f8c13afd3e4ca6022198db5924225524b13b6769ea7daa7035b5"
         },
         "6071:city-escape": {
           "figureId": "hirono-tamed-wildgrass-city-escape",
           "sourceUrl": "https://www.popmart.com/us/products/6071",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Tamed Wildgrass\",\"City Escape\",\"regular\",2026,\"#5E7CE2\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601374215____city-escape____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601374215____city-escape____.png",
+          "imageHash": "5d1bfdc8fcf84f43ef439961e89ef0c54dfebaefc637703d00195012ec05427f"
         },
         "6071:overload": {
           "figureId": "hirono-tamed-wildgrass-overload",
           "sourceUrl": "https://www.popmart.com/us/products/6071",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Tamed Wildgrass\",\"Overload\",\"regular\",2026,\"#5E7CE2\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601365271____overload____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1774601365271____overload____.png",
+          "imageHash": "84c0594c31b4ee090cccd51a6d337e9308cbffa20c0c0b1f035b160df09fc55c"
         },
         "1604:the-king": {
           "figureId": "hirono-le-petit-prince-the-king",
           "sourceUrl": "https://www.popmart.com/us/products/1604",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"× Le Petit Prince\",\"The King\",\"regular\",2024,\"#A8743E\"]",
           "imageUrl": "https://global-static.popmart.com/globalAdmin/1729474064212____the-king____.png",
           "imageHash": "b626beb9026043f6754cea3840abe366dd82e0981207a0ed5245227cfa658965"
@@ -106,7 +119,7 @@
         "1604:the-conceited-man": {
           "figureId": "hirono-le-petit-prince-the-conceited-man",
           "sourceUrl": "https://www.popmart.com/us/products/1604",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"× Le Petit Prince\",\"The Conceited Man\",\"regular\",2024,\"#A8743E\"]",
           "imageUrl": "https://global-static.popmart.com/globalAdmin/1729474080023____the-conceited-man____.png",
           "imageHash": "fdee5c2279ea7cc5c88de955a9d05b4112d86be745ce92b0513e2fa213dc8484"
@@ -114,7 +127,7 @@
         "1604:the-tippler": {
           "figureId": "hirono-le-petit-prince-the-tippler",
           "sourceUrl": "https://www.popmart.com/us/products/1604",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"× Le Petit Prince\",\"The Tippler\",\"regular\",2024,\"#A8743E\"]",
           "imageUrl": "https://global-static.popmart.com/globalAdmin/1729474110699____the-tippler____.png",
           "imageHash": "12b66acbebd301f1a9485b18835ee5b84f0b08563ad8cbb8ba8b83452eaaafd8"
@@ -122,7 +135,7 @@
         "1604:the-businessman": {
           "figureId": "hirono-le-petit-prince-the-businessman",
           "sourceUrl": "https://www.popmart.com/us/products/1604",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"× Le Petit Prince\",\"The Businessman\",\"regular\",2024,\"#A8743E\"]",
           "imageUrl": "https://global-static.popmart.com/globalAdmin/1729474126689____the-businessman____.png",
           "imageHash": "957fbfab8da438d47d5babbb0ea817c0d9349bcb0c5027afc8b55a9f76d2bd14"
@@ -130,7 +143,7 @@
         "1604:the-lamplighter": {
           "figureId": "hirono-le-petit-prince-the-lamplighter",
           "sourceUrl": "https://www.popmart.com/us/products/1604",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"× Le Petit Prince\",\"The Lamplighter\",\"regular\",2024,\"#A8743E\"]",
           "imageUrl": "https://global-static.popmart.com/globalAdmin/1729474175841____the-lamplighter____.png",
           "imageHash": "59a645beb769f14102d16fb00033c0d96a9b29f018bde2b89cf7bd41c4171a42"
@@ -138,7 +151,7 @@
         "1604:the-geographer": {
           "figureId": "hirono-le-petit-prince-the-geographer",
           "sourceUrl": "https://www.popmart.com/us/products/1604",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"× Le Petit Prince\",\"The Geographer\",\"regular\",2024,\"#A8743E\"]",
           "imageUrl": "https://global-static.popmart.com/globalAdmin/1729474188946____the-geographer____.png",
           "imageHash": "fc3d56a3da010281e72359affd0c177f9e6eb2617f252991fedd7d0145af87fd"
@@ -146,7 +159,7 @@
         "1604:the-little-prince": {
           "figureId": "hirono-le-petit-prince-the-little-prince",
           "sourceUrl": "https://www.popmart.com/us/products/1604",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"× Le Petit Prince\",\"The Little Prince\",\"regular\",2024,\"#A8743E\"]",
           "imageUrl": "https://global-static.popmart.com/globalAdmin/1729474205444____the-little-prince____.png",
           "imageHash": "c92e23002e4db6f78ecf029b92e6e4503cefedbfb7ea4755cdce853388c65b1a"
@@ -154,7 +167,7 @@
         "1604:the-rose": {
           "figureId": "hirono-le-petit-prince-the-rose",
           "sourceUrl": "https://www.popmart.com/us/products/1604",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"× Le Petit Prince\",\"The Rose\",\"regular\",2024,\"#A8743E\"]",
           "imageUrl": "https://global-static.popmart.com/globalAdmin/1729474216402____the-rose____.png",
           "imageHash": "b8e4bb2f89d642951dc56f092dda9a3af554789e971acaec0cef5d31e112726c"
@@ -162,7 +175,7 @@
         "1604:the-snake": {
           "figureId": "hirono-le-petit-prince-the-snake",
           "sourceUrl": "https://www.popmart.com/us/products/1604",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"× Le Petit Prince\",\"The Snake\",\"regular\",2024,\"#A8743E\"]",
           "imageUrl": "https://global-static.popmart.com/globalAdmin/1729474247912____the-snake____.png",
           "imageHash": "d8d3973aa0ad68dda731d9c3f37dc7ad5caa754ea5419aecf7da8056ef86a9e3"
@@ -170,7 +183,7 @@
         "1604:the-fox": {
           "figureId": "hirono-le-petit-prince-the-fox",
           "sourceUrl": "https://www.popmart.com/us/products/1604",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"× Le Petit Prince\",\"The Fox\",\"regular\",2024,\"#A8743E\"]",
           "imageUrl": "https://global-static.popmart.com/globalAdmin/1729474259163____the-fox____.png",
           "imageHash": "97f320999d75c5d945b5c1d1e193fd5779296dcf1173313d10d3c96e5a197620"
@@ -178,7 +191,7 @@
         "1604:the-switchman": {
           "figureId": "hirono-le-petit-prince-the-switchman",
           "sourceUrl": "https://www.popmart.com/us/products/1604",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"× Le Petit Prince\",\"The Switchman\",\"regular\",2024,\"#A8743E\"]",
           "imageUrl": "https://global-static.popmart.com/globalAdmin/1729474269260____the-switchman____.png",
           "imageHash": "7ee5c904c1423645d681a8255975298f757fb0415af4e9e4cbdb2944fd9710b7"
@@ -186,7 +199,7 @@
         "1604:the-merchant": {
           "figureId": "hirono-le-petit-prince-the-merchant",
           "sourceUrl": "https://www.popmart.com/us/products/1604",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"× Le Petit Prince\",\"The Merchant\",\"regular\",2024,\"#A8743E\"]",
           "imageUrl": "https://global-static.popmart.com/globalAdmin/1729474281535____the-merchant____.png",
           "imageHash": "3e6d23be91c603fd15c39f4e523e6048f0e4a40f49d1d227c424b4376dffb01b"
@@ -194,7 +207,7 @@
         "1604:the-little-prince-special-edition-super-secret": {
           "figureId": "hirono-le-petit-prince-the-little-prince-special-edition-super-secret",
           "sourceUrl": "https://www.popmart.com/us/products/1604",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"× Le Petit Prince\",\"The Little Prince-Special Edition (Super Secret)\",\"secret\",2024,\"#A8743E\"]",
           "imageUrl": "https://global-static.popmart.com/globalAdmin/1729474368353____super-secret____.png",
           "imageHash": "6e7766f54cfc831fe089105e2582d88718fa57aeaaf0f228468528df0edb519d"
@@ -202,7 +215,7 @@
         "1604:the-pilot": {
           "figureId": "hirono-le-petit-prince-the-pilot",
           "sourceUrl": "https://www.popmart.com/us/products/1604",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"× Le Petit Prince\",\"The Pilot\",\"secret\",2024,\"#A8743E\"]",
           "imageUrl": "https://global-static.popmart.com/globalAdmin/1729474397572____secret____.png",
           "imageHash": "d74a86b105cb8e088b88f9b474927688fe3918ab56cc5fcfd60026849a166496"
@@ -210,133 +223,151 @@
         "3944:killer-bunny": {
           "figureId": "hirono-monsters-carnival-killer-bunny",
           "sourceUrl": "https://www.popmart.com/us/products/3944",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Monsters' Carnival\",\"Killer Bunny\",\"regular\",2025,\"#C6415A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1760067912198____killer-bunny____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1760067912198____killer-bunny____.png",
+          "imageHash": "b65092f42d1625009f1ac7c26f4a074b53e8b0218ae15318120b91a15b177184"
         },
         "3944:zombie": {
           "figureId": "hirono-monsters-carnival-zombie",
           "sourceUrl": "https://www.popmart.com/us/products/3944",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Monsters' Carnival\",\"Zombie\",\"regular\",2025,\"#C6415A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1760067956097____zombie____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1760067956097____zombie____.png",
+          "imageHash": "a942dc50ea12bdc0bedb7b7bff166a9485ae8787721a1c1b8cc42a993c69ee87"
         },
         "3944:the-disembodied": {
           "figureId": "hirono-monsters-carnival-the-disembodied",
           "sourceUrl": "https://www.popmart.com/us/products/3944",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Monsters' Carnival\",\"The Disembodied\",\"secret\",2025,\"#C6415A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1760067967818____secret_the-disembodied____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1760067967818____secret_the-disembodied____.png",
+          "imageHash": "d6ef0f290193b26bb3919eac20454803c5aee2877422ea1406df53e0ee4df8b8"
         },
         "3944:creepy-clown": {
           "figureId": "hirono-monsters-carnival-creepy-clown",
           "sourceUrl": "https://www.popmart.com/us/products/3944",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Monsters' Carnival\",\"Creepy Clown\",\"regular\",2025,\"#C6415A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1760067928724____creepy-clown____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1760067928724____creepy-clown____.png",
+          "imageHash": "92532f2aebf41ad9efbd1ae45e5c1b2e895b0b9596a436b43d9d22a852e057c7"
         },
         "3944:vampire": {
           "figureId": "hirono-monsters-carnival-vampire",
           "sourceUrl": "https://www.popmart.com/us/products/3944",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Monsters' Carnival\",\"Vampire\",\"regular\",2025,\"#C6415A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1760067922341____vampire____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1760067922341____vampire____.png",
+          "imageHash": "69cf9b20e29274cc5aaae435e74b850a5d00ea94d15665c0a692418e63d5e2b0"
         },
         "3944:grim-reaper": {
           "figureId": "hirono-monsters-carnival-grim-reaper",
           "sourceUrl": "https://www.popmart.com/us/products/3944",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Monsters' Carnival\",\"Grim Reaper\",\"regular\",2025,\"#C6415A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1760067961879____grim-reaper____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1760067961879____grim-reaper____.png",
+          "imageHash": "98647f481f8e469bc22ee8c126ad80d8f884410ac3c37e496bdb4aab7aeb119e"
         },
         "3944:doctor-beak": {
           "figureId": "hirono-monsters-carnival-doctor-beak",
           "sourceUrl": "https://www.popmart.com/us/products/3944",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Monsters' Carnival\",\"Doctor Beak\",\"regular\",2025,\"#C6415A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1760067935211____doctor-beak____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1760067935211____doctor-beak____.png",
+          "imageHash": "217154068d31314bfdfe766714ca8ba964b00b0eaae4e95d09ff73c8ea7013da"
         },
         "1385:candleholder": {
           "figureId": "hirono-shelter-candleholder",
           "sourceUrl": "https://www.popmart.com/us/products/1385",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Shelter\",\"Candleholder\",\"regular\",2024,\"#C77D5A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118713711____candleholder____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118713711____candleholder____.png",
+          "imageHash": "c3fe9ff4f1dbef80f1338a5ea4f48e526e3c3858c49de83544df47b3960023a6"
         },
         "1385:mantel-clock": {
           "figureId": "hirono-shelter-mantel-clock",
           "sourceUrl": "https://www.popmart.com/us/products/1385",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Shelter\",\"Mantel Clock\",\"regular\",2024,\"#C77D5A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118731725____mantel-clock____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118731725____mantel-clock____.png",
+          "imageHash": "ca46ef9c465a9936059e60c45c97bde51a479989b6f62b054fd433b07c074af1"
         },
         "1385:poet": {
           "figureId": "hirono-shelter-poet",
           "sourceUrl": "https://www.popmart.com/us/products/1385",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Shelter\",\"Poet\",\"regular\",2024,\"#C77D5A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118749334____poet____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118749334____poet____.png",
+          "imageHash": "e8dd4097c58bedc9826b52713a0e10d292e32585f7796da1d298efffca4e718a"
         },
         "1385:traffic-cone": {
           "figureId": "hirono-shelter-traffic-cone",
           "sourceUrl": "https://www.popmart.com/us/products/1385",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Shelter\",\"Traffic Cone\",\"regular\",2024,\"#C77D5A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118766980____traffic-cone____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118766980____traffic-cone____.png",
+          "imageHash": "ca3f1ca006ad9a366c27a8fe61eced289037fb90f1b0db35a86c8be350cb0542"
         },
         "1385:fort": {
           "figureId": "hirono-shelter-fort",
           "sourceUrl": "https://www.popmart.com/us/products/1385",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Shelter\",\"Fort\",\"regular\",2024,\"#C77D5A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118784841____fort____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118784841____fort____.png",
+          "imageHash": "fd5991799b18af4e410ec89bf39319c486ab0fbbaf6b46bf23fcf9fe17a49a3a"
         },
         "1385:circus": {
           "figureId": "hirono-shelter-circus",
           "sourceUrl": "https://www.popmart.com/us/products/1385",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Shelter\",\"Circus\",\"regular\",2024,\"#C77D5A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118811332____circus____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118811332____circus____.png",
+          "imageHash": "5639a7a112f6dc684c2b93cbabaeb657594d1e57e00e8ab28defe38639678b8c"
         },
         "1385:cabin": {
           "figureId": "hirono-shelter-cabin",
           "sourceUrl": "https://www.popmart.com/us/products/1385",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Shelter\",\"Cabin\",\"regular\",2024,\"#C77D5A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118829814____cabin____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118829814____cabin____.png",
+          "imageHash": "164612dc896f17871326c0e0acfe24d3927612913168452fb424d86d979fc5a6"
         },
         "1385:birdy": {
           "figureId": "hirono-shelter-birdy",
           "sourceUrl": "https://www.popmart.com/us/products/1385",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Shelter\",\"Birdy\",\"regular\",2024,\"#C77D5A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118847860____birdy____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118847860____birdy____.png",
+          "imageHash": "2b5e4c20566ab5962d52863fb668fd56d3f47df2d197af123e6eab89581c2b68"
         },
         "1385:alien": {
           "figureId": "hirono-shelter-alien",
           "sourceUrl": "https://www.popmart.com/us/products/1385",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Shelter\",\"Alien\",\"regular\",2024,\"#C77D5A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118864571____alien____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118864571____alien____.png",
+          "imageHash": "f9cc4ecf0037c3d5c81eee30b3a10e775fa8a89188e85ff9adc156d224e16b2f"
         },
         "1385:warrior": {
           "figureId": "hirono-shelter-warrior",
           "sourceUrl": "https://www.popmart.com/us/products/1385",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Shelter\",\"Warrior\",\"regular\",2024,\"#C77D5A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118886910____warrior____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118886910____warrior____.png",
+          "imageHash": "1006d9849e10ccbf80906807de42dd3d2fb76f6bfc8d13a0becbf8bff1068992"
         },
         "1385:sunny-doll": {
           "figureId": "hirono-shelter-sunny-doll",
           "sourceUrl": "https://www.popmart.com/us/products/1385",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Shelter\",\"Sunny Doll\",\"regular\",2024,\"#C77D5A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118905986____sunny-doll____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118905986____sunny-doll____.png",
+          "imageHash": "c4581811577e0ac221feac19410a6649dac85b39bbfdbbb6d8d8a47a08ec2e8c"
         },
         "1385:birdcage": {
           "figureId": "hirono-shelter-birdcage",
           "sourceUrl": "https://www.popmart.com/us/products/1385",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Shelter\",\"Birdcage\",\"regular\",2024,\"#C77D5A\"]",
           "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118924293____birdcage____.png",
           "imageHash": "3b4ce7c7937f67383b22184b61faf7a7dcec5b919798a4f43264e22106868ee2"
@@ -344,261 +375,298 @@
         "1385:stuffed-bear": {
           "figureId": "hirono-shelter-stuffed-bear",
           "sourceUrl": "https://www.popmart.com/us/products/1385",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Shelter\",\"Stuffed Bear\",\"secret\",2024,\"#C77D5A\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118951491____secret____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1721118951491____secret____.png",
+          "imageHash": "13009f5632691080631897a8b8fa72bfef55771dcfb46508c0d5ead89bcd4cf9"
         },
         "365:prison": {
           "figureId": "hirono-mime-prison",
           "sourceUrl": "https://www.popmart.com/us/products/365",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Mime\",\"Prison\",\"regular\",2023,\"#D98AA6\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396246597____prison____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396246597____prison____.png",
+          "imageHash": "056535ae98132712c75406274c1f57060314ab73ba8b3bb517ea359018c1c922"
         },
         "365:unspoken": {
           "figureId": "hirono-mime-unspoken",
           "sourceUrl": "https://www.popmart.com/us/products/365",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Mime\",\"Unspoken\",\"regular\",2023,\"#D98AA6\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396187287____unspoken____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396187287____unspoken____.png",
+          "imageHash": "302e8adc3d38109c6a9dbfc72e1e7297ff8ee2f88b8652fc530bab2c66d6f619"
         },
         "365:guardian": {
           "figureId": "hirono-mime-guardian",
           "sourceUrl": "https://www.popmart.com/us/products/365",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Mime\",\"Guardian\",\"regular\",2023,\"#D98AA6\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714395555750____guardian____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714395555750____guardian____.png",
+          "imageHash": "44cffb06219ef7ebfa42b19a6ed2dc64007e0ec6be9406dbbecc11a523c0a106"
         },
         "365:fool": {
           "figureId": "hirono-mime-fool",
           "sourceUrl": "https://www.popmart.com/us/products/365",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Mime\",\"Fool\",\"regular\",2023,\"#D98AA6\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396149318____fool____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396149318____fool____.png",
+          "imageHash": "00aa9213f219afc8f14f5b655a14a0fa7eaba662c91d0201120f1817391f9056"
         },
         "365:patience": {
           "figureId": "hirono-mime-patience",
           "sourceUrl": "https://www.popmart.com/us/products/365",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Mime\",\"Patience\",\"regular\",2023,\"#D98AA6\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396221981____patience____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396221981____patience____.png",
+          "imageHash": "b8eb82c5144194ca9a3eb50488698d15700b7275190a203610079fc31087b641"
         },
         "365:blind": {
           "figureId": "hirono-mime-blind",
           "sourceUrl": "https://www.popmart.com/us/products/365",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Mime\",\"Blind\",\"regular\",2023,\"#D98AA6\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714395749944____blind____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714395749944____blind____.png",
+          "imageHash": "ba2ecb8768de017c53860da7c4488146fea45579c0a027028beb16dc97b9b86b"
         },
         "365:drifter": {
           "figureId": "hirono-mime-drifter",
           "sourceUrl": "https://www.popmart.com/us/products/365",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Mime\",\"Drifter\",\"regular\",2023,\"#D98AA6\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396116169____drifter____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396116169____drifter____.png",
+          "imageHash": "5dd42cb0e2bf8786622f3831786ef3e4fc28a528822b7a860b4d00a9fa44700b"
         },
         "365:devilry": {
           "figureId": "hirono-mime-devilry",
           "sourceUrl": "https://www.popmart.com/us/products/365",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Mime\",\"Devilry\",\"regular\",2023,\"#D98AA6\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396038871____devilry____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396038871____devilry____.png",
+          "imageHash": "1c18e58e1052b903deef34565ebdfe657e21959af63fe549727897a3ed124740"
         },
         "365:secrecy": {
           "figureId": "hirono-mime-secrecy",
           "sourceUrl": "https://www.popmart.com/us/products/365",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Mime\",\"Secrecy\",\"regular\",2023,\"#D98AA6\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396337830____secrecy____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396337830____secrecy____.png",
+          "imageHash": "ee008887f0983d6980a38f6975ed5cd6bd05b3897bb790623a58151fa81e248f"
         },
         "365:seeker": {
           "figureId": "hirono-mime-seeker",
           "sourceUrl": "https://www.popmart.com/us/products/365",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Mime\",\"Seeker\",\"regular\",2023,\"#D98AA6\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714395912611____seeker____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714395912611____seeker____.png",
+          "imageHash": "3c47a5a4d809e0be725be784f9f20b198cfb0993d02dde3b967ed2dbc15370aa"
         },
         "365:destroy": {
           "figureId": "hirono-mime-destroy",
           "sourceUrl": "https://www.popmart.com/us/products/365",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Mime\",\"Destroy\",\"regular\",2023,\"#D98AA6\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396281799____destroy____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396281799____destroy____.png",
+          "imageHash": "09bee609235ad6446a7ab8650f9f958b33e939c1f7a261e437b009dacce66e81"
         },
         "365:poem": {
           "figureId": "hirono-mime-poem",
           "sourceUrl": "https://www.popmart.com/us/products/365",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Mime\",\"Poem\",\"regular\",2023,\"#D98AA6\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396309830____poem____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396309830____poem____.png",
+          "imageHash": "92395c3d7817f4be8799d66a69505a3638c807675f933432159ce23ba8d79418"
         },
         "365:silent": {
           "figureId": "hirono-mime-silent",
           "sourceUrl": "https://www.popmart.com/us/products/365",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Mime\",\"Silent\",\"secret\",2023,\"#D98AA6\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396366089____secret-silent____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396366089____secret-silent____.png",
+          "imageHash": "d3e2bbcdbce16f9454e06c1018c2fb477cb549c0e6f6093208efa0b44c8f5ee4"
         },
         "867:woodcarving": {
           "figureId": "hirono-reshape-woodcarving",
           "sourceUrl": "https://www.popmart.com/us/products/867",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Reshape\",\"Woodcarving\",\"regular\",2023,\"#8A7BF0\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397268822____炸弹____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397268822____炸弹____.png",
+          "imageHash": "b677780c27654cdd8197b3af1683f26fe1f1b7009664cc679dd493aea9168453"
         },
         "867:voyage": {
           "figureId": "hirono-reshape-voyage",
           "sourceUrl": "https://www.popmart.com/us/products/867",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Reshape\",\"Voyage\",\"regular\",2023,\"#8A7BF0\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397140852____火箭____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397140852____火箭____.png",
+          "imageHash": "84f8b56c42ecfe3be1e8bb4ac2a088a3c1559a6d192385f7e1c40451a2b9d068"
         },
         "867:costume": {
           "figureId": "hirono-reshape-costume",
           "sourceUrl": "https://www.popmart.com/us/products/867",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Reshape\",\"Costume\",\"regular\",2023,\"#8A7BF0\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397111379____皮衣____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397111379____皮衣____.png",
+          "imageHash": "53c3176df24033fe501210c79a55b72558bc3de6c54c3c8b1294f0cd487b3339"
         },
         "867:drowning": {
           "figureId": "hirono-reshape-drowning",
           "sourceUrl": "https://www.popmart.com/us/products/867",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Reshape\",\"Drowning\",\"regular\",2023,\"#8A7BF0\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396954380____油漆桶____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714396954380____油漆桶____.png",
+          "imageHash": "49bded57181a7d4835f34af3e8c84177b5a41b44e2e8e527cd811cf6056d9ee2"
         },
         "867:fading": {
           "figureId": "hirono-reshape-fading",
           "sourceUrl": "https://www.popmart.com/us/products/867",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Reshape\",\"Fading\",\"regular\",2023,\"#8A7BF0\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397083153____水晶____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397083153____水晶____.png",
+          "imageHash": "96e6efbc0f20425c258b4949ec47d3955381762703b8905ee9061330bd84abb1"
         },
         "867:burst": {
           "figureId": "hirono-reshape-burst",
           "sourceUrl": "https://www.popmart.com/us/products/867",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Reshape\",\"Burst\",\"regular\",2023,\"#8A7BF0\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397170506____气球____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397170506____气球____.png",
+          "imageHash": "d5576e773c0f5e65b476c29b161662ed3f273831027103fc38234bd09ded2ac8"
         },
         "867:parasite": {
           "figureId": "hirono-reshape-parasite",
           "sourceUrl": "https://www.popmart.com/us/products/867",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Reshape\",\"Parasite\",\"regular\",2023,\"#8A7BF0\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397221177____炸弹____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397221177____炸弹____.png",
+          "imageHash": "f8b76055c4461924674e3d70935183fda1f49d05dc3e17deb6eae126b39c574d"
         },
         "867:healing": {
           "figureId": "hirono-reshape-healing",
           "sourceUrl": "https://www.popmart.com/us/products/867",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Reshape\",\"Healing\",\"regular\",2023,\"#8A7BF0\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397243957____炸弹____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397243957____炸弹____.png",
+          "imageHash": "aa968e0080a4d2b5e67ff3e03f12f73ea9780c4620d5af728d60869f2852878e"
         },
         "867:paradise-lost": {
           "figureId": "hirono-reshape-paradise-lost",
           "sourceUrl": "https://www.popmart.com/us/products/867",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Reshape\",\"Paradise Lost\",\"regular\",2023,\"#8A7BF0\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397195684____石头____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397195684____石头____.png",
+          "imageHash": "48cb61918a5ef97544396161c2a94345cdff098386550eb6973718c191498b2b"
         },
         "867:puppet": {
           "figureId": "hirono-reshape-puppet",
           "sourceUrl": "https://www.popmart.com/us/products/867",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Reshape\",\"Puppet\",\"secret\",2023,\"#8A7BF0\"]",
-          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397315406____secret____.png"
+          "imageUrl": "https://prod-global-static.oss-us-east-1.aliyuncs.com/globalAdmin/1714397315406____secret____.png",
+          "imageHash": "362500c2ed9a780a93a2b8502ac261f3b94b3ec9844361645276e5f1b9e4c633"
         },
         "2165:never-growing-up": {
           "figureId": "hirono-echo-never-growing-up",
           "sourceUrl": "https://www.popmart.com/us/products/2165",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Echo\",\"Never Growing Up\",\"secret\",2025,\"#B5687F\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669268416____secret_never-growing-up____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669268416____secret_never-growing-up____.png",
+          "imageHash": "11ed6715f8f5889dc7b9ad35ffd51dbccfdc1901fe718e9680b710e5b0afc351"
         },
         "2165:hiding-behind-you": {
           "figureId": "hirono-echo-hiding-behind-you",
           "sourceUrl": "https://www.popmart.com/us/products/2165",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Echo\",\"Hiding Behind You\",\"regular\",2025,\"#B5687F\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669276478____hiding-behind-you____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669276478____hiding-behind-you____.png",
+          "imageHash": "10c70fd3da0ee75892691e7d83df8d5719d7d7fbc7432cfc975fbd69aee50c04"
         },
         "2165:journey-in-the-rain": {
           "figureId": "hirono-echo-journey-in-the-rain",
           "sourceUrl": "https://www.popmart.com/us/products/2165",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Echo\",\"Journey in the Rain\",\"regular\",2025,\"#B5687F\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669286717____journey-in-the-rain____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669286717____journey-in-the-rain____.png",
+          "imageHash": "73ab8a4632a8f3d869cac716fc8d176ac0e2e6700743f10438b466727b9ae26e"
         },
         "2165:back-off": {
           "figureId": "hirono-echo-back-off",
           "sourceUrl": "https://www.popmart.com/us/products/2165",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Echo\",\"Back Off\",\"regular\",2025,\"#B5687F\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669305212____back-off____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669305212____back-off____.png",
+          "imageHash": "3474913a5e2901a718970a7e5e25653af738cd57ab8bcc8df1b2145f387e5a4d"
         },
         "2165:pieces-of-memory": {
           "figureId": "hirono-echo-pieces-of-memory",
           "sourceUrl": "https://www.popmart.com/us/products/2165",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Echo\",\"Pieces of Memory\",\"regular\",2025,\"#B5687F\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669316998____pieces-of-memory____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669316998____pieces-of-memory____.png",
+          "imageHash": "b607035e49080988cbe31a996d0ea4e720f9210c2d3b07526accc2677588813c"
         },
         "2165:staying-up": {
           "figureId": "hirono-echo-staying-up",
           "sourceUrl": "https://www.popmart.com/us/products/2165",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Echo\",\"Staying Up\",\"regular\",2025,\"#B5687F\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669327227____staying-up____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669327227____staying-up____.png",
+          "imageHash": "67b0fb479b2867ef663062ef51960baa0f789f2de12b20f1fe14cdefd89a4477"
         },
         "2165:daydreaming": {
           "figureId": "hirono-echo-daydreaming",
           "sourceUrl": "https://www.popmart.com/us/products/2165",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Echo\",\"Daydreaming\",\"regular\",2025,\"#B5687F\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669334277____daydreaming____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669334277____daydreaming____.png",
+          "imageHash": "ca5ebd2fe87a92668ae7ad8f670f4bd755177052f4dac252dbf5844f77af68b6"
         },
         "2165:get-lucky": {
           "figureId": "hirono-echo-get-lucky",
           "sourceUrl": "https://www.popmart.com/us/products/2165",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Echo\",\"Get Lucky\",\"regular\",2025,\"#B5687F\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669346774____get-lucky____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669346774____get-lucky____.png",
+          "imageHash": "7122899733b067b1a853fa7a7817da8b2bd4cb98c2fcdacd6c94918261c2a0fa"
         },
         "2165:breakout-plan": {
           "figureId": "hirono-echo-breakout-plan",
           "sourceUrl": "https://www.popmart.com/us/products/2165",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Echo\",\"Breakout Plan\",\"regular\",2025,\"#B5687F\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669352787____breakout-plan____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669352787____breakout-plan____.png",
+          "imageHash": "c24ac7aeb4ba4f4b0b7b6fcc66bd882c6a3ec61f4e8cd34d610cd7e504e8b790"
         },
         "2165:soul-connection": {
           "figureId": "hirono-echo-soul-connection",
           "sourceUrl": "https://www.popmart.com/us/products/2165",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Echo\",\"Soul Connection\",\"regular\",2025,\"#B5687F\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669367298____soul-connection____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669367298____soul-connection____.png",
+          "imageHash": "e7c3c20dbc44450c7005882782c589e1ff93d36a6d83ff5f2c8d36c93f48edcc"
         },
         "2165:knight": {
           "figureId": "hirono-echo-knight",
           "sourceUrl": "https://www.popmart.com/us/products/2165",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Echo\",\"Knight\",\"regular\",2025,\"#B5687F\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669376395____knight____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669376395____knight____.png",
+          "imageHash": "1af6c055b8a47870e7547fa0dc625e81b3daecba26242fa530381bc2153688df"
         },
         "2165:caught-you": {
           "figureId": "hirono-echo-caught-you",
           "sourceUrl": "https://www.popmart.com/us/products/2165",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Echo\",\"Caught You\",\"regular\",2025,\"#B5687F\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669382200____caught-you____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669382200____caught-you____.png",
+          "imageHash": "7a662ebb3398bce7b35614fe02cca152f60540c6bb3af9f66c82aced1ad31b28"
         },
         "2165:eaten": {
           "figureId": "hirono-echo-eaten",
           "sourceUrl": "https://www.popmart.com/us/products/2165",
-          "scrapedAt": "2026-07-19T10:36:27.161Z",
+          "scrapedAt": "2026-07-19T10:49:21.903Z",
           "contentHash": "[\"Echo\",\"Eaten\",\"regular\",2025,\"#B5687F\"]",
-          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669391767____eaten____.png"
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1743669391767____eaten____.png",
+          "imageHash": "7f73d7b2e57284027ea4279295b8b5c00e0959912883173cd6094c20cb7f9151"
         }
       }
     }
