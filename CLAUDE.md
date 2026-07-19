@@ -18,7 +18,7 @@ Catalog ingestion:
 
 ```bash
 npm run scrape -- --ip <slug>              # the pipeline; --dry-run, --limit <n>, --force, --full
-npm run scrape:test                        # tsx --test over scraper/**/*.test.ts
+npm run scrape:test                        # tsx --test over scraper/**/*.test.ts; also the only check on figures.json integrity
 npx tsc -p scraper/tsconfig.json           # typecheck the scraper (see two-tsconfigs below)
 ```
 
@@ -128,6 +128,17 @@ Object-then-row ordering is deliberate, since the reverse strands bytes with not
 
 `scraper/` is config-driven ingestion, run via `tsx`.
 Upsert identity is `(source, sourceProductId)`.
+That is recorded in the sidecar, so it only makes runs *after the first* idempotent.
+On the first run over an IP the sidecar is empty, and if that IP was already curated by hand the scraper meets its own ids sitting in the catalog already.
+It used to assume a coincidental slug collision and fork a `-2` twin beside every row, which is how hirono ended up with 68 duplicated figures.
+`resolveId` now adopts an existing row whose `series`/`set`/`name` slug back to the id it wants, and only suffixes a genuinely different figure.
+`commit()` refuses to write a catalog containing two rows with the same id or the same identity, so this class of bug cannot reach `figures.json` again.
+`scraper/db/catalog.test.ts` re-checks the committed file, via the same `findCatalogDuplicates` the guard uses.
+
+Deleting a row from `figures.json` is never enough on its own.
+`resolveId` short-circuits on the sidecar, so the next run re-inserts anything you removed unless `scraper/state/<ip>.json` is rewritten to match.
+Clearing an item's `imageHash` there is what forces its artwork to republish under a new id; leaving it makes `ingestImages` skip the figure as unchanged.
+Catalog `figure_images` rows left behind are unreachable and undeletable by any client, so `scripts/prune-orphan-catalog-images.mjs` (service role, `--apply` to act) is the only way to clean them up.
 `SourceAdapter.discover()` yields `RawItem`, normalize validates it with zod at the boundary so an invalid item becomes a reported skip and never a bad row, and nothing outside `adapters/` may hold selectors or source URLs.
 
 - `src/data/figures.json` stays the catalog of record and is upserted in place.
