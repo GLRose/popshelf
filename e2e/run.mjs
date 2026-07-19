@@ -76,6 +76,7 @@ async function main() {
 
     await exited(run('node', ['e2e/auth.spec.mjs']));
     await exited(run('node', ['e2e/upgrade.spec.mjs']));
+    await exited(run('node', ['e2e/images.spec.mjs']));
 
     console.log('\ne2e: all specs passed.');
   } finally {

@@ -1,25 +1,30 @@
 /**
- * Web implementation: user-added figure images live as PNG Blobs in IndexedDB
- * (localStorage's ~5 MB quota is too small for dozens of cutouts) and are
- * handed to the UI as object URLs.
+ * Web implementation: the images this device's owner picked live as PNG Blobs
+ * in IndexedDB (localStorage's ~5 MB quota is too small for dozens of cutouts)
+ * and are handed to the UI as object URLs.
  *
- * Two slots, keyed `mine:<figureId>` and `community:<figureId>`, because an
- * image the user picked and an image the community approved are different
- * things that happen to be about the same figure. Keys rather than a second
- * object store, so the database version doesn't have to change. Keys with no
- * prefix are legacy, from before slots existed, and are migrated on first
- * launch - see hydrate() in src/store/useUserImages.ts.
+ * Only the user's own pick is stored. Shared artwork - catalog and approved
+ * community images - is not cached here at all: it comes from a public bucket
+ * over ordinary https, so the browser's HTTP cache and expo-image's own disk
+ * cache already handle it, and doing it again here meant downloading every
+ * image in the catalog before the first one could be shown. See hydrate() in
+ * src/store/useUserImages.ts.
+ *
+ * Keys are `mine:<figureId>`. Keys with no prefix are legacy, from before slots
+ * existed, and are migrated on first launch. Keys under the retired `community:`
+ * prefix are deleted on sight by loadUserImages().
  *
  * This is a local cache, not the source of truth - see
- * src/lib/remoteFigureImages.ts for the shared, moderated Supabase store.
+ * src/lib/images/remoteFigureImages.ts for the shared, moderated Supabase store.
  */
 
 const DB_NAME = 'popshelf-user-images';
 const STORE = 'images';
 
-export type ImageSlot = 'mine' | 'community';
+/** The retired shared-artwork slot. Only referenced to clean it up. */
+const COMMUNITY_PREFIX = 'community:';
 
-const keyFor = (figureId: string, slot: ImageSlot) => `${slot}:${figureId}`;
+const keyFor = (figureId: string) => `mine:${figureId}`;
 
 function openDb(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
@@ -45,50 +50,76 @@ function request<T>(req: IDBRequest<T>): Promise<T> {
   });
 }
 
-/** Persists an image (data uri or remote url) into a slot and returns a displayable uri. */
-export async function saveUserImage(figureId: string, uri: string, slot: ImageSlot): Promise<string> {
+/** Persists an image (data uri or remote url) and returns a displayable uri. */
+export async function saveUserImage(figureId: string, uri: string): Promise<string> {
   const blob = await (await fetch(uri)).blob();
   const db = await openDb();
   const tx = db.transaction(STORE, 'readwrite');
-  tx.objectStore(STORE).put(blob, keyFor(figureId, slot));
+  tx.objectStore(STORE).put(blob, keyFor(figureId));
   await done(tx);
   db.close();
   return URL.createObjectURL(blob);
 }
 
-export async function deleteUserImage(figureId: string, slot: ImageSlot): Promise<void> {
+export async function deleteUserImage(figureId: string): Promise<void> {
   const db = await openDb();
   const tx = db.transaction(STORE, 'readwrite');
-  tx.objectStore(STORE).delete(keyFor(figureId, slot));
+  tx.objectStore(STORE).delete(keyFor(figureId));
   await done(tx);
   db.close();
 }
 
 /**
- * Every stored image as figureId -> object URL, per slot, for app startup.
- * Un-migrated legacy images surface under `mine` so they still display on a
- * launch where the migration can't run (no network to classify them against
- * the approved set).
+ * Every image the user picked, as figureId -> object URL, for app startup.
+ *
+ * Un-migrated legacy images surface here too, so they still display on a launch
+ * where the migration can't run (no network to classify them against the
+ * approved set).
+ *
+ * Also reclaims the retired `community:` cache. Previous builds mirrored the
+ * entire catalog into this database - hundreds of PNGs - and nothing else will
+ * ever read those keys again, so leaving them would strand tens of megabytes of
+ * a user's disk quota indefinitely. Failure to prune is not worth failing
+ * startup over: the images still load either way.
  */
-export async function loadUserImages(): Promise<Record<ImageSlot, Record<string, string>>> {
+export async function loadUserImages(): Promise<Record<string, string>> {
   const entries = await readAll();
-  const slots: Record<ImageSlot, Record<string, string>> = { mine: {}, community: {} };
+  const mine: Record<string, string> = {};
+  const stale: string[] = [];
 
   for (const [key, blob] of entries) {
-    const [slot, figureId] = splitKey(key);
-    if (slot === null) {
-      slots.mine[figureId] ??= URL.createObjectURL(blob);
-    } else {
-      slots[slot][figureId] = URL.createObjectURL(blob);
+    if (key.startsWith(COMMUNITY_PREFIX)) {
+      stale.push(key);
+      continue;
+    }
+    const [prefixed, figureId] = splitKey(key);
+    // A legacy (unprefixed) image must not displace a real `mine:` entry.
+    if (prefixed) mine[figureId] = URL.createObjectURL(blob);
+    else mine[figureId] ??= URL.createObjectURL(blob);
+  }
+
+  if (stale.length > 0) {
+    try {
+      const db = await openDb();
+      const tx = db.transaction(STORE, 'readwrite');
+      for (const key of stale) tx.objectStore(STORE).delete(key);
+      await done(tx);
+      db.close();
+    } catch (e) {
+      console.warn('Failed to reclaim the retired community image cache', e);
     }
   }
-  return slots;
+
+  return mine;
 }
 
 /** Figure ids still cached under the pre-slot unprefixed keys. Empty once migration has run. */
 export async function listLegacyImages(): Promise<string[]> {
   const entries = await readAll();
-  return entries.map(([key]) => splitKey(key)).filter(([slot]) => slot === null).map(([, id]) => id);
+  return entries
+    .map(([key]) => splitKey(key))
+    .filter(([prefixed]) => !prefixed)
+    .map(([, id]) => id);
 }
 
 /**
@@ -110,14 +141,14 @@ export async function promoteLegacyImage(figureId: string): Promise<string> {
   }
 
   const tx = db.transaction(STORE, 'readwrite');
-  tx.objectStore(STORE).put(blob, keyFor(figureId, 'mine'));
+  tx.objectStore(STORE).put(blob, keyFor(figureId));
   tx.objectStore(STORE).delete(figureId);
   await done(tx);
   db.close();
   return URL.createObjectURL(blob);
 }
 
-/** Drops a legacy image the server can hand back. Cheaper than moving it, since it's about to be re-downloaded into `community`. */
+/** Drops a legacy image the server can hand back, since it is served from the bucket now. */
 export async function discardLegacyImage(figureId: string): Promise<void> {
   const db = await openDb();
   const tx = db.transaction(STORE, 'readwrite');
@@ -126,11 +157,11 @@ export async function discardLegacyImage(figureId: string): Promise<void> {
   db.close();
 }
 
-/** `null` slot means an unprefixed legacy key. Figure ids never contain a colon. */
-function splitKey(key: string): [ImageSlot | null, string] {
+/** `prefixed` is false for an unprefixed legacy key. Figure ids never contain a colon. */
+function splitKey(key: string): [boolean, string] {
   const sep = key.indexOf(':');
-  if (sep === -1) return [null, key];
-  return [key.slice(0, sep) as ImageSlot, key.slice(sep + 1)];
+  if (sep === -1) return [false, key];
+  return [true, key.slice(sep + 1)];
 }
 
 async function readAll(): Promise<[string, Blob][]> {

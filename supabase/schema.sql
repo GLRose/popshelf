@@ -1,6 +1,6 @@
 -- Run this once in the Supabase SQL editor (Dashboard > SQL Editor > New query)
 -- for your project. It sets up the shared store for user-submitted figure
--- images (a table tracking submissions + their approval status, a private
+-- images (a table tracking submissions + their approval status, a public
 -- storage bucket for the bytes), the shelves/favorites an account owns, and the
 -- RLS policies over both.
 --
@@ -26,6 +26,15 @@
 --                                  handles the no-session-yet result (see
 --                                  SignUpResult in src/lib/auth.ts).
 --   Anonymous sign-ins ...... OFF  No longer used. Sessions belong to accounts.
+--
+-- Storage > Buckets > figure-images:
+--
+--   Public bucket ........... ON   Re-running this file does NOT flip it: the
+--                                  insert below is `on conflict do nothing`, so
+--                                  an existing bucket keeps whatever it has.
+--                                  Toggle it in the dashboard, or run the
+--                                  `update storage.buckets` alongside it. See
+--                                  the bucket section for why it is public.
 --
 --
 -- WHO THE POLICIES BELOW ARE TALKING ABOUT
@@ -189,12 +198,32 @@ create policy "anyone can delete community figure_images"
 drop function if exists public.is_admin();
 drop table if exists public.admins;
 
--- Private bucket: `public = false` means reads go through the RLS policy
--- below (via signed URLs), not a bare public URL, so pending submissions
--- aren't fetchable just by knowing/guessing their path.
+-- Public bucket: reads are a plain GET of a stable, CDN-cacheable URL.
+--
+-- It used to be private, on the theory that signed URLs kept pending
+-- submissions from being fetched by anyone who guessed their path. That theory
+-- never held: the select policy below is bucket-wide and granted to `anon`, so
+-- any client could already sign a URL for any object in it, submissions
+-- included. Privacy was costing a round trip per object and buying nothing.
+--
+-- What it cost was the whole first-paint experience. The app bundles no
+-- artwork, so every figure is a placeholder until its bytes arrive, and a
+-- private bucket meant the client had to POST for a signed URL per figure -
+-- hundreds of them - before it could request a single image. Public URLs are
+-- derived from the path with no round trip at all, they survive in the browser
+-- and CDN cache across visits, and they can carry Supabase's image transforms.
+--
+-- What actually protects submissions is the path: an unguessable
+-- `submissions/<owner_id>/<figure_id>/<timestamp>.png`. If that is ever not
+-- enough, the fix is a second private bucket for submissions, not re-privatising
+-- the catalog art that every visitor must download to use the app.
 insert into storage.buckets (id, name, public)
-values ('figure-images', 'figure-images', false)
+values ('figure-images', 'figure-images', true)
 on conflict (id) do nothing;
+
+-- The insert above no-ops on an existing bucket, so state the flip separately:
+-- this is what makes re-running the file fix a bucket created as private.
+update storage.buckets set public = true where id = 'figure-images';
 
 drop policy if exists "anon can upload pending figure images" on storage.objects;
 drop policy if exists "anon can read approved figure images" on storage.objects;
@@ -233,9 +262,9 @@ create policy "owners can upload figure images"
     and (storage.foldername(name))[2] = auth.uid()::text
   );
 
--- Also covers createSignedUrl(): signing a path requires select on the object,
--- so without this the review queue and the approved-image sync both come back
--- empty rather than erroring.
+-- Redundant with the bucket being public, and kept anyway: it is what a public
+-- bucket grants, said out loud, so flipping the bucket back to private degrades
+-- reads to signed URLs instead of breaking them outright.
 create policy "anyone can read all figure images"
   on storage.objects for select
   to anon, authenticated

@@ -1,4 +1,3 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
 
 import {
@@ -18,34 +17,39 @@ import {
 } from '@/lib/images/userImageStore';
 
 /**
- * figureId -> the `figure_images` row id whose bytes are cached in the
- * `community` slot. Lets hydrate() tell "already have this one" from "the
- * approved image for this figure was replaced", so it only downloads what
- * actually changed instead of re-fetching every approved image every launch.
- */
-const MANIFEST_KEY = 'popshelf-community-images-v1';
-type Manifest = Record<string, string>;
-
-/**
- * User-added images for figures that ship without a bundled cutout.
+ * Images for figures that ship without a bundled cutout.
  *
  * Two slots, kept apart on purpose. `mine` is what this device's owner picked;
- * `community` is what moderation approved for everyone. They used to share one
- * slot, which meant an approved image silently overwrote the user's own, and a
- * revoked image lived on forever because nothing ever removed it locally.
+ * `community` is what the server serves everyone. They used to share one slot,
+ * which meant an approved image silently overwrote the user's own.
  *
- * The platform image store (IndexedDB on web, documents dir on native) is a
- * local cache; the Supabase `figure_images` table + storage bucket is the
- * shared source of truth once an image is approved (see supabase/schema.sql).
+ * The two are stored very differently, and that asymmetry is the point:
+ *
+ *   `mine`      - a local file (IndexedDB on web, documents dir on native).
+ *                 There is nowhere else to get it: an image the user picked but
+ *                 never submitted, or submitted and nobody approved, exists only
+ *                 on this device.
+ *   `community` - just a URL. The bucket is public, so the bytes are an ordinary
+ *                 cacheable https GET that the browser and expo-image already
+ *                 cache far better than this store ever did. Nothing is
+ *                 downloaded until something on screen asks for it.
+ *
+ * The app used to mirror every approved image into local storage at startup,
+ * which meant a new user watched placeholders while the whole catalog
+ * downloaded. Deleting that mirror is what makes first paint fast, and it also
+ * deleted the bookkeeping it needed: a manifest to spot replaced images, and a
+ * reconcile pass to prune revoked ones. `community` is rebuilt from the server
+ * on every launch now, so a replaced image is simply a different URL and a
+ * revoked one is simply absent.
  */
 interface UserImagesState {
-  /** Images this device's owner chose. Wins over `community` when displayed. */
+  /** Local uris for images this device's owner chose. Win over `community` when displayed. */
   mine: Record<string, string>;
-  /** Images approved for everyone, mirrored down from Supabase. */
+  /** Public bucket urls for the art the server serves everyone. Not downloaded until displayed. */
   community: Record<string, string>;
   hydrated: boolean;
 
-  /** Load stored images into memory and reconcile the community slot against the server; called once at app start */
+  /** Load local images and learn what art the server has; called once at app start. */
   hydrate: () => Promise<void>;
   /**
    * Cache a processed image for a figure, start displaying it, and queue it for
@@ -74,36 +78,37 @@ export const useUserImages = create<UserImagesState>()((set, get) => ({
 
   hydrate: async () => {
     try {
-      const { mine, community } = await loadUserImages();
-      set({ mine, community, hydrated: true });
+      const mine = await loadUserImages();
+      set({ mine, hydrated: true });
     } catch (e) {
       console.warn('Failed to load user images', e);
       set({ hydrated: true });
     }
 
-    // No backend means no authority to reconcile against: fetchApprovedImages()
-    // answers {} on an unconfigured build, which is indistinguishable from
-    // "everything was revoked" and would wipe the community cache.
+    // No backend, no shared artwork. Everything the user picked still displays.
     if (!supabase) return;
 
     try {
       const approved = await fetchApprovedImages();
-      // Reconcile first. Migration wants to throw away legacy bytes the server
-      // can hand back, and it can only safely do that once the replacement has
-      // actually landed in the `community` slot.
-      await reconcileCommunityImages(approved, set, get);
-      await migrateLegacyImages(approved, set, get);
+      // One assignment for the whole catalog. The previous per-image set() ran
+      // hundreds of store commits, each re-rendering every mounted FigureImage.
+      set({
+        community: Object.fromEntries(
+          Object.entries(approved).map(([figureId, { url }]) => [figureId, url]),
+        ),
+      });
+      await migrateLegacyImages(approved, set);
     } catch (e) {
-      // Offline, or the table is unreadable. The local cache still displays,
-      // the legacy migration stays pending, and the next launch retries.
-      // Notably we do NOT prune here - a failed fetch says nothing about what
-      // is still approved.
+      // Offline, or the table is unreadable. Deliberately leaves `community`
+      // alone rather than emptying it: a failed fetch says nothing about what
+      // is still approved, and the legacy migration stays pending for the next
+      // launch to retry.
       console.warn('Failed to sync community images', e);
     }
   },
 
   add: async (figureId, uri) => {
-    const stored = await saveUserImage(figureId, uri, 'mine');
+    const stored = await saveUserImage(figureId, uri);
     set((s) => ({ mine: { ...s.mine, [figureId]: stored } }));
 
     // The local cache is authoritative for display, so a failed upload must not
@@ -118,7 +123,7 @@ export const useUserImages = create<UserImagesState>()((set, get) => ({
   },
 
   remove: async (figureId) => {
-    await deleteUserImage(figureId, 'mine');
+    await deleteUserImage(figureId);
     set((s) => {
       const { [figureId]: _, ...mine } = s.mine;
       return { mine };
@@ -137,28 +142,25 @@ export const useUserImages = create<UserImagesState>()((set, get) => ({
 type SetState = (partial: (s: UserImagesState) => Partial<UserImagesState>) => void;
 
 /**
- * Sorts pre-slot cached images into `mine` or `community`. Runs after
- * reconciliation, so the `community` slot already holds whatever the server
- * handed back on this launch.
+ * Resolves images cached at the pre-slot flat path, which both slots once wrote
+ * to, so a file there is ambiguous on its face.
  *
- * The old flat path was written by both slots, so a file there is ambiguous on
- * its face. The approved set disambiguates it: if the figure has no approved
- * image today, the file can only have come from a local add, so it's `mine`. If
- * it does, that download is what last wrote the file and the bytes are
- * recoverable - but only discard them once the replacement is confirmed on
- * disk, otherwise a failed download leaves the user staring at a placeholder
- * where their image used to be. A figure whose download failed keeps its legacy
- * file and is retried next launch.
+ * The approved set disambiguates it. If the figure has no approved image today,
+ * the file can only have come from a local add, so it is `mine` and the bytes
+ * are kept. If it does, that file is a stale copy of a download the server will
+ * happily serve again, so it is discarded and the figure falls through to the
+ * `community` url that hydrate() just set.
+ *
+ * That discard used to wait until a fresh copy was confirmed on disk. There is
+ * no copy to confirm any more - `community` is a url, not a file - and nothing
+ * is lost either way: the worst case is an offline user seeing a placeholder
+ * for a figure whose real art is one connection away.
  *
  * Self-terminating: once no legacy files remain this does nothing. It only runs
  * when the approved set was fetched successfully, so an offline launch leaves
  * the files where they are rather than guessing.
  */
-async function migrateLegacyImages(
-  approved: Record<string, ApprovedImage>,
-  set: SetState,
-  get: () => UserImagesState,
-) {
+async function migrateLegacyImages(approved: Record<string, ApprovedImage>, set: SetState) {
   for (const figureId of await listLegacyImages()) {
     try {
       if (!approved[figureId]) {
@@ -166,7 +168,6 @@ async function migrateLegacyImages(
         if (uri) set((s) => ({ mine: { ...s.mine, [figureId]: uri } }));
         continue;
       }
-      if (!get().community[figureId]) continue;
 
       await discardLegacyImage(figureId);
       set((s) => {
@@ -176,71 +177,5 @@ async function migrateLegacyImages(
     } catch (e) {
       console.warn(`Failed to migrate legacy image for ${figureId}`, e);
     }
-  }
-}
-
-/**
- * Makes the `community` slot match the server's approved set exactly.
- *
- * Pruning is the whole point: an image that was approved, cached here, and then
- * revoked has to disappear from this device. Nothing else ever removes it.
- */
-async function reconcileCommunityImages(
-  approved: Record<string, ApprovedImage>,
-  set: SetState,
-  get: () => UserImagesState,
-) {
-  const manifest = await readManifest();
-
-  for (const figureId of Object.keys(get().community)) {
-    if (approved[figureId]) continue;
-    try {
-      await deleteUserImage(figureId, 'community');
-      set((s) => {
-        const { [figureId]: _, ...community } = s.community;
-        return { community };
-      });
-    } catch (e) {
-      console.warn(`Failed to prune revoked community image for ${figureId}`, e);
-    }
-  }
-
-  const next: Manifest = {};
-  await Promise.all(
-    Object.entries(approved).map(async ([figureId, { id, signedUrl }]) => {
-      if (manifest[figureId] === id && get().community[figureId]) {
-        next[figureId] = id;
-        return;
-      }
-      try {
-        const stored = await saveUserImage(figureId, signedUrl, 'community');
-        set((s) => ({ community: { ...s.community, [figureId]: stored } }));
-        next[figureId] = id;
-      } catch (e) {
-        // Leave it out of the manifest so the next launch tries again.
-        console.warn(`Failed to download approved image for ${figureId}`, e);
-      }
-    }),
-  );
-
-  await writeManifest(next);
-}
-
-async function readManifest(): Promise<Manifest> {
-  try {
-    const raw = await AsyncStorage.getItem(MANIFEST_KEY);
-    return raw ? (JSON.parse(raw) as Manifest) : {};
-  } catch (e) {
-    console.warn('Failed to read the community image manifest; treating it as empty', e);
-    return {};
-  }
-}
-
-async function writeManifest(manifest: Manifest): Promise<void> {
-  try {
-    await AsyncStorage.setItem(MANIFEST_KEY, JSON.stringify(manifest));
-  } catch (e) {
-    // Only costs a redundant re-download next launch.
-    console.warn('Failed to write the community image manifest', e);
   }
 }

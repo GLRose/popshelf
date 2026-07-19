@@ -101,7 +101,7 @@ Read the ordering note there before running it: `figure_images.owner_id` cascade
 
 The app bundles no images at all.
 Cutouts used to be committed under `assets/figures/` and `require()`d into the binary, where they beat everything else and could not be updated without shipping a new build.
-Everything is a `figure_images` row now, synced down and cached on disk.
+Everything is a `figure_images` row now, served straight from a public storage bucket.
 
 The `source` column splits those rows in two, and the difference is who can destroy them:
 
@@ -115,10 +115,23 @@ By the time it reaches the store there is a single `community` slot.
 
 `src/components/figures/FigureImage.tsx` therefore resolves just `mine ?? community`, then falls back to a gradient placeholder.
 `src/store/useUserImages.ts` keeps `mine` and `community` as separate slots deliberately.
-They shared one slot originally, which let an approved image overwrite the user's pick and left revoked images cached forever.
-The community slot is reconciled against the server every launch, pruning revoked images, and reconciliation is skipped entirely when Supabase is unconfigured or the fetch fails, because an empty result is indistinguishable from "everything was revoked" and would wipe the cache.
+They shared one slot originally, which let an approved image overwrite the user's pick.
 
-On web the local cache is IndexedDB `popshelf-user-images` / store `images`, keyed `mine:<figureId>` and `community:<figureId>`, with the sync manifest in `localStorage['popshelf-community-images-v1']`.
+**The two slots are stored differently, and that asymmetry is the whole performance story.**
+`mine` is a local file, because an image the user picked but never got approved exists nowhere else.
+`community` is only a URL, resolved once per launch from one query and never downloaded until something on screen asks for it.
+
+The app used to mirror every approved image into local storage at startup.
+That is what made new users stare at placeholders: the bucket was private, so listing the catalog cost a `createSignedUrl` round trip *per figure* - measured at 412 of them - and no image could start downloading until all of them finished.
+First artwork landed ~10s after the app shell on a throttled connection; it is now ~170ms, and only the dozen images actually on screen are fetched.
+`e2e/images.spec.mjs` guards the shape of that waterfall: one query, zero signing calls, no `blob:` URLs.
+
+Deleting that mirror also deleted the bookkeeping it needed - the sync manifest and the reconcile-and-prune pass.
+`community` is rebuilt from the server every launch, so a replaced image is just a different URL and a revoked one is just absent.
+A failed fetch still leaves the slot alone rather than emptying it, since an empty result is indistinguishable from "everything was revoked".
+
+On web the local cache is IndexedDB `popshelf-user-images` / store `images`, keyed `mine:<figureId>` only.
+`loadUserImages()` deletes any `community:` keys it finds, reclaiming the old catalog mirror; the native store deletes `user-figures/community/` the same way.
 
 Moderation is reached by tapping the Browse title five times.
 Reject and revoke are the same operation: tombstone the row to `rejected`, delete the storage object, then delete the row.

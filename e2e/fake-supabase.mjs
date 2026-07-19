@@ -19,7 +19,27 @@ const users = new Map(); // email -> { id, email, password }
 const sessions = new Map(); // access_token -> user id
 let shelves = []; // { id, owner_id, name, color, background, texture, figure_ids, is_active, created_at }
 let favorites = []; // { owner_id, figure_id }
+let figureImages = []; // { id, figure_id, storage_path, source, status, owner_id }
 const calls = [];
+
+/**
+ * A 1x1 transparent PNG. Standing in for a cutout: the test cares about which
+ * URL the app asks for and how many requests it takes to get there, not about
+ * the pixels.
+ */
+const PNG = Buffer.from(
+  'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==',
+  'base64',
+);
+
+const sendPng = (res) => {
+  res.writeHead(200, {
+    'content-type': 'image/png',
+    'cache-control': 'public, max-age=3600',
+    'access-control-allow-origin': '*',
+  });
+  res.end(PNG);
+};
 
 const b64 = (o) => Buffer.from(JSON.stringify(o)).toString('base64url');
 
@@ -114,8 +134,25 @@ createServer(async (req, res) => {
       users: [...users.values()].map((u) => ({ id: u.id, email: u.email })),
       shelves,
       favorites,
+      figureImages,
       calls,
     });
+  }
+
+  // Publishes catalog artwork for the given figure ids, as
+  // scripts/upload-catalog-images.mjs does with the service role key: owner-less
+  // and born approved.
+  if (path === '/__seed-images') {
+    const ids = url.searchParams.get('figures')?.split(',').filter(Boolean) ?? [];
+    figureImages = ids.map((figureId) => ({
+      id: randomUUID(),
+      figure_id: figureId,
+      storage_path: `catalog/${figureId}.png`,
+      source: 'catalog',
+      status: 'approved',
+      owner_id: null,
+    }));
+    return send(res, 200, { seeded: figureImages.length });
   }
   // Mints an anonymous session like the previous build's signInAnonymously()
   // did, so the upgrade path can be tested: a device that still has one.
@@ -152,6 +189,7 @@ createServer(async (req, res) => {
   if (path === '/__reset') {
     shelves = [];
     favorites = [];
+    figureImages = [];
     users.clear();
     sessions.clear();
     calls.length = 0;
@@ -195,10 +233,39 @@ createServer(async (req, res) => {
     return send(res, 200, publicUser(user));
   }
 
+  // --- Storage ---
+  //
+  // The bucket is public, so reads are a plain GET of a stable path with no
+  // token and no round trip to obtain one. The signing endpoint below is kept
+  // deliberately: it is what the old client used, and the spec asserts nobody
+  // calls it any more.
+  if (path.startsWith('/storage/v1/object/public/figure-images/')) {
+    return sendPng(res);
+  }
+
+  // POST /storage/v1/object/sign/<bucket>/<path> -> a URL good for one object.
+  // One of these per figure was the cold-start bottleneck this suite guards.
+  if (req.method === 'POST' && path.startsWith('/storage/v1/object/sign/figure-images/')) {
+    const objectPath = path.slice('/storage/v1/object/sign/figure-images/'.length);
+    return send(res, 200, {
+      signedURL: `/object/sign/figure-images/${objectPath}?token=stub-token`,
+    });
+  }
+
+  if (path.startsWith('/storage/v1/object/sign/figure-images/')) {
+    return sendPng(res);
+  }
+
   // --- PostgREST ---
   const table = path.startsWith('/rest/v1/') ? path.slice('/rest/v1/'.length) : null;
 
-  if (table === 'figure_images') return send(res, 200, []); // no community images in this test
+  // Catalog and approved community art is world-readable: schema.sql grants
+  // select to anon and authenticated alike, so this is deliberately not
+  // owner-scoped the way shelves are.
+  if (table === 'figure_images') {
+    if (req.method === 'GET') return send(res, 200, figureImages.filter(filterFrom(url)));
+    return send(res, 200, []); // submissions and moderation are out of scope here
+  }
 
   if (table === 'shelves' || table === 'favorites') {
     const owner = uid(req);

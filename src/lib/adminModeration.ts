@@ -2,7 +2,6 @@ import { deleteImages } from '@/lib/images/remoteFigureImages';
 import { supabase } from '@/lib/supabase';
 
 const BUCKET = 'figure-images';
-const REVIEW_SIGNED_URL_TTL_SECONDS = 60 * 10; // short-lived; re-signed on every queue fetch
 
 export type ModerationStatus = 'pending' | 'approved' | 'rejected';
 
@@ -11,7 +10,8 @@ export interface ReviewImage {
   figureId: string;
   storagePath: string;
   createdAt: string;
-  signedUrl: string | null;
+  /** Public bucket URL. Never null: deriving it from the path cannot fail. */
+  url: string;
 }
 
 /**
@@ -29,20 +29,13 @@ async function fetchByStatus(status: ModerationStatus, oldestFirst: boolean): Pr
   if (error) throw error;
   if (!data) return [];
 
-  return Promise.all(
-    data.map(async ({ id, figure_id, storage_path, created_at }) => {
-      const { data: signed } = await supabase!.storage
-        .from(BUCKET)
-        .createSignedUrl(storage_path, REVIEW_SIGNED_URL_TTL_SECONDS);
-      return {
-        id,
-        figureId: figure_id,
-        storagePath: storage_path,
-        createdAt: created_at,
-        signedUrl: signed?.signedUrl ?? null,
-      };
-    }),
-  );
+  return data.map(({ id, figure_id, storage_path, created_at }) => ({
+    id,
+    figureId: figure_id,
+    storagePath: storage_path,
+    createdAt: created_at,
+    url: supabase!.storage.from(BUCKET).getPublicUrl(storage_path).data.publicUrl,
+  }));
 }
 
 /** Oldest-first queue of everything still awaiting a decision. */
