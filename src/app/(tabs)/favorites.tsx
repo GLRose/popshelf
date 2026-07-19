@@ -1,8 +1,10 @@
 import { Ionicons } from '@expo/vector-icons';
+import { useRef } from 'react';
 import { FlatList, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AccountBar } from '@/components/common/AccountBar';
+import { ScrollToTopButton, useScrollToTop } from '@/components/common/ScrollToTopButton';
 import { FigureCard } from '@/components/figures/FigureCard';
 import { T } from '@/constants/appTheme';
 import { getFigure } from '@/data/figures';
@@ -22,10 +24,16 @@ export default function FavoritesScreen() {
 
   const figures = favorites.map(getFigure).filter((f): f is NonNullable<typeof f> => !!f);
 
+  const listRef = useRef<FlatList<(typeof figures)[number]>>(null);
+  const scrollTop = useScrollToTop();
+
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
       <AccountBar />
       <FlatList
+        ref={listRef}
+        onScroll={scrollTop.onScroll}
+        scrollEventThrottle={scrollTop.scrollEventThrottle}
         style={styles.list}
         contentContainerStyle={styles.content}
         data={figures}
@@ -50,6 +58,10 @@ export default function FavoritesScreen() {
             <Text style={styles.emptyText}>Tap the ♥ on any figure in Browse to save it here.</Text>
           </View>
         }
+      />
+      <ScrollToTopButton
+        visible={scrollTop.visible}
+        onPress={() => listRef.current?.scrollToOffset({ offset: 0, animated: true })}
       />
     </SafeAreaView>
   );
