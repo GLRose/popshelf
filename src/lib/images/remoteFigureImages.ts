@@ -3,13 +3,21 @@ import { Platform } from 'react-native';
 import { currentUserId, supabase } from '@/lib/supabase';
 
 const BUCKET = 'figure-images';
-const SIGNED_URL_TTL_SECONDS = 60 * 60 * 24 * 7; // re-signed on every app launch anyway
 
 /** An image the community has approved, as it exists on the server right now. */
 export interface ApprovedImage {
-  /** The `figure_images` row id. Changes when a figure's image is replaced, which is how the local cache knows to re-download. */
+  /** The `figure_images` row id. Changes when a figure's image is replaced. */
   id: string;
-  signedUrl: string;
+  /**
+   * A public bucket URL, derived from the storage path with no round trip.
+   *
+   * Deliberately carries no Supabase image transform. Transforms are a paid
+   * add-on, and these are transparent cutouts, so a format the transformer
+   * picks for us is a real risk to the alpha channel. Resizing is worth
+   * revisiting if bandwidth becomes the complaint - the win here was removing a
+   * per-figure round trip, not shrinking the bytes.
+   */
+  url: string;
 }
 
 /** Enough to delete an image: the bytes to remove, and the row to remove after. */
@@ -58,8 +66,14 @@ export async function submitForReview(figureId: string, uri: string): Promise<vo
  * wins - someone looked at the catalog image, decided a user's was better, and
  * approved it - and the catalog one is the floor underneath: revoking the
  * community image reveals the original art on the next sync rather than a
- * placeholder. Collapsing that choice here is what lets the local cache stay a
- * single `community` slot instead of two.
+ * placeholder. Collapsing that choice here is what lets the store keep a single
+ * `community` slot instead of two.
+ *
+ * One query, and then pure string building: the bucket is public, so a URL is
+ * derived from a storage path rather than requested. This used to sign each
+ * path individually, which put a request per figure - hundreds of them -
+ * between app start and the first image even beginning to download. See the
+ * bucket section of supabase/schema.sql.
  *
  * Throws when the query fails: an RLS denial here reads as an empty result set
  * rather than an error, so swallowing genuine errors on top of that would leave
@@ -82,18 +96,10 @@ export async function fetchApprovedImages(): Promise<Record<string, ApprovedImag
   }
 
   const approved: Record<string, ApprovedImage> = {};
-  await Promise.all(
-    [...best].map(async ([figureId, { id, storage_path }]) => {
-      const { data: signed, error: signError } = await supabase!.storage
-        .from(BUCKET)
-        .createSignedUrl(storage_path, SIGNED_URL_TTL_SECONDS);
-      if (signError || !signed) {
-        console.warn(`Failed to sign approved image for ${figureId}`, signError);
-        return;
-      }
-      approved[figureId] = { id, signedUrl: signed.signedUrl };
-    }),
-  );
+  for (const [figureId, { id, storage_path }] of best) {
+    const { data } = supabase.storage.from(BUCKET).getPublicUrl(storage_path);
+    approved[figureId] = { id, url: data.publicUrl };
+  }
   return approved;
 }
 

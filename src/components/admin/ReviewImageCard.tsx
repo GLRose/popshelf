@@ -21,11 +21,7 @@ export function ReviewImageCard({ item, children }: Props) {
   return (
     <View style={styles.card}>
       <View style={styles.thumb}>
-        {item.signedUrl ? (
-          <Image source={item.signedUrl} style={styles.thumbImage} contentFit="contain" />
-        ) : (
-          <Ionicons name="image-outline" size={32} color={T.muted} />
-        )}
+        <Image source={item.url} style={styles.thumbImage} contentFit="contain" />
       </View>
 
       <View style={styles.info}>

@@ -31,8 +31,9 @@ interface Props {
  * Every image comes from Supabase. The app bundles none: cutouts used to be
  * committed under assets/figures/ and required() straight into the binary,
  * where they beat everything else and could never be updated without shipping a
- * new build. They are catalog rows in `figure_images` now, synced down and
- * cached on disk like any other approved image (see src/store/useUserImages.ts).
+ * new build. They are `figure_images` rows now, served straight from a public
+ * bucket and loaded only when a card is actually on screen (see
+ * src/store/useUserImages.ts).
  */
 export function FigureImage({ figure, size, rounded = true, bare = false }: Props) {
   // The user's own pick beats what the server serves: it's an explicit choice,
@@ -51,6 +52,14 @@ export function FigureImage({ figure, size, rounded = true, bare = false }: Prop
         style={{ width: size, height: size }}
         contentFit="contain"
         transition={150}
+        // Community art is a public bucket url fetched on demand rather than a
+        // file this app already mirrored to disk, so expo-image's cache is now
+        // what makes scrolling back up - and the next visit - instant.
+        cachePolicy="memory-disk"
+        // The grid is virtualized, so these views are recycled. Without this a
+        // recycled card shows the previous figure's art until the new one
+        // decodes, which reads as the wrong image rather than as loading.
+        recyclingKey={figure.id}
       />
     );
   }
