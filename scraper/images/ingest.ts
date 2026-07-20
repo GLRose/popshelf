@@ -1,6 +1,6 @@
 // Phase 4: download each figure's source image, cut its background to
-// transparent via an ML segmentation model (@imgly/background-removal-node -
-// ONNX model bundled in the package, runs fully offline, no API key/cost),
+// transparent (edge-seeded flood fill, same approach as the retired
+// scripts/remove-bg.mjs),
 // and publish it to Supabase Storage's `figure-images` bucket - the app's only
 // source of figure artwork (see scripts/upload-catalog-images.mjs, which this
 // supersedes for scraped IPs; see also src/components/FigureImage.tsx).
@@ -12,7 +12,6 @@
 import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { removeBackground } from '@imgly/background-removal-node';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import { Jimp } from 'jimp';
 import { REPO_ROOT } from '../core/paths';
@@ -41,13 +40,16 @@ export interface ImageResult {
 
 const BUCKET = 'figure-images';
 const MAX_DIMENSION = 500; // display is ~150px @2x; keep assets lean
-// Guards against a degenerate segmentation (blank/corrupt source image
-// leaving the model with nothing to isolate) rather than a source-image-shape
-// assumption - the ML model itself handles both clean-render-on-white and
-// staged lifestyle photos, unlike the flood-fill approach this replaced.
-// Nothing here reviews a cutout before it's published, so a figure with no
-// usable result keeps the placeholder gradient instead of shipping a blank.
-const MIN_FOREGROUND_FRACTION = 0.02;
+const NEAR_WHITE = 236; // min channel value to be treated as background
+const NEUTRAL = 18; // max channel spread (so only neutral bg is removed, not colored art)
+// Pop Mart's per-figure "style" images are inconsistent: most sets give a
+// clean isolated render on white, but some give a full staged lifestyle photo
+// instead, with no flat background to remove at all. Nothing here reviews a
+// cutout before it's published, so an image that clearly wasn't isolated art
+// is rejected outright rather than uploaded as-is - the figure keeps the
+// placeholder gradient until a better source shows up instead of shipping a
+// room photo.
+const MIN_BACKGROUND_FRACTION = 0.05;
 
 function contentHash(bytes: Buffer): string {
   return createHash('sha256').update(bytes).digest('hex');
@@ -81,21 +83,63 @@ function supabase(): SupabaseClient {
   return cachedClient;
 }
 
-/** Runs the source image through the ML segmentation model to drop the
- * background to transparent, then autocrops and caps the longest side at
- * MAX_DIMENSION. */
+/** Flood-fills in from the edges, dropping alpha on connected near-white/
+ * neutral pixels - identical to the retired scripts/remove-bg.mjs. Then
+ * autocrops and caps the longest side at MAX_DIMENSION.
+ *
+ * This was briefly replaced by ML segmentation
+ * (@imgly/background-removal-node) to salvage the staged lifestyle photos
+ * this rejects. Reverted: that model is a saliency segmenter, so it ate white
+ * *inside* the figure (white hoodies, white bodies read as background) and
+ * emitted soft alpha that left every edge feathered. Both failures are
+ * structural to that approach, not tunable.
+ *
+ * The two properties that make this correct are worth stating, because they
+ * are exactly what the model lacked. It is connectivity-based, so it only
+ * removes background reachable from the frame edge and interior white is
+ * untouchable by construction. And it is binary - a pixel is kept or dropped,
+ * never partially - so edges stay crisp at any display size.
+ *
+ * Rejecting a lifestyle photo is the intended outcome, not a shortfall. A
+ * placeholder gradient is a better result than a confidently mangled cutout
+ * nobody reviewed. */
 async function cutout(bytes: Buffer): Promise<Buffer> {
-  // removeBackground needs a MIME type to pick a decode path (a bare
-  // ArrayBuffer/Uint8Array becomes a type-less Blob internally and fails with
-  // "Unsupported format:") - Pop Mart's per-figure images are always PNG.
-  const blob = await removeBackground(new Blob([bytes], { type: 'image/png' }));
-  const img = await Jimp.fromBuffer(Buffer.from(await blob.arrayBuffer()));
+  const img = await Jimp.fromBuffer(bytes);
+  const w = img.bitmap.width;
+  const h = img.bitmap.height;
+  const data = img.bitmap.data;
+  const idx = (x: number, y: number) => (y * w + x) * 4;
+  const isBg = (x: number, y: number) => {
+    const i = idx(x, y);
+    const r = data[i]!;
+    const g = data[i + 1]!;
+    const b = data[i + 2]!;
+    const min = Math.min(r, g, b);
+    const max = Math.max(r, g, b);
+    return min >= NEAR_WHITE && max - min <= NEUTRAL;
+  };
 
-  const { width: w, height: h, data } = img.bitmap;
-  let opaque = 0;
-  for (let i = 3; i < data.length; i += 4) if (data[i]! > 0) opaque++;
-  if (opaque / (w * h) < MIN_FOREGROUND_FRACTION) {
-    throw new Error('background removal kept almost nothing - likely a blank or corrupt source image');
+  const visited = new Uint8Array(w * h);
+  const stack: number[] = [];
+  for (let x = 0; x < w; x++) stack.push(x, 0, x, h - 1);
+  for (let y = 0; y < h; y++) stack.push(0, y, w - 1, y);
+
+  let removed = 0;
+  while (stack.length) {
+    const y = stack.pop()!;
+    const x = stack.pop()!;
+    if (x < 0 || y < 0 || x >= w || y >= h) continue;
+    const p = y * w + x;
+    if (visited[p]) continue;
+    visited[p] = 1;
+    if (!isBg(x, y)) continue;
+    data[idx(x, y) + 3] = 0;
+    removed++;
+    stack.push(x + 1, y, x - 1, y, x, y + 1, x, y - 1);
+  }
+
+  if (removed / (w * h) < MIN_BACKGROUND_FRACTION) {
+    throw new Error('no clean background to remove - looks like a lifestyle photo, not isolated art');
   }
 
   img.autocrop({ cropOnlyFrames: false });
