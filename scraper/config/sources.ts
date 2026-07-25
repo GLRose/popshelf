@@ -38,6 +38,25 @@ export const IP_CONFIGS: readonly IpConfig[] = [
     accent: '#5B6B8C',
     sources: [{ source: 'popmart', options: { brandLabel: 'HIRONO' } }],
   },
+  // Both of these were curated by hand long before the pipeline existed, so
+  // their rows carry no Pop Mart provenance and there is no state sidecar for
+  // them. They are registered here for audit-rarity.ts, which reads the
+  // authoritative secret flag off popmart.com without writing a catalog. A
+  // full `npm run scrape --ip skullpanda` would work, but it would also
+  // re-id, rename and republish artwork for ~400 hand-curated rows, so it is
+  // not what these entries are here for.
+  {
+    ip: 'skullpanda',
+    label: 'SKULLPANDA',
+    accent: '#7C6BF2',
+    sources: [{ source: 'popmart', options: { brandLabel: 'SKULLPANDA' } }],
+  },
+  {
+    ip: 'peachriot',
+    label: 'PEACH RIOT',
+    accent: '#FF7A9A',
+    sources: [{ source: 'popmart', options: { brandLabel: 'PEACH RIOT' } }],
+  },
 ];
 
 export function getIpConfig(ip: string): IpConfig {

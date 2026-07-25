@@ -100,7 +100,7 @@
     "series": "skullpanda",
     "set": "The Warmth",
     "name": "The Warmth",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#8A7BF0"
   },
   {
@@ -204,7 +204,7 @@
     "series": "skullpanda",
     "set": "Everyday Wonderland",
     "name": "Thing in Itself",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#6C7BD1"
   },
   {
@@ -308,7 +308,7 @@
     "series": "skullpanda",
     "set": "The Ink Plum Blossom",
     "name": "The Plum Blossom",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#C77D5A"
   },
   {
@@ -412,7 +412,7 @@
     "series": "skullpanda",
     "set": "Image of Reality",
     "name": "The Onlooker",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#6FB2A0"
   },
   {
@@ -516,7 +516,7 @@
     "series": "skullpanda",
     "set": "The Sound",
     "name": "The Equilibrium",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#556070"
   },
   {
@@ -596,7 +596,7 @@
     "series": "skullpanda",
     "set": "Tell Me What You Want",
     "name": "Jingle All the Way (Red)",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#8E9AAE"
   },
   {
@@ -604,7 +604,7 @@
     "series": "skullpanda",
     "set": "Tell Me What You Want",
     "name": "As I Wish",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#8E9AAE"
   },
   {
@@ -708,7 +708,7 @@
     "series": "skullpanda",
     "set": "City of Night",
     "name": "Guardian of Night",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#5E7CE2"
   },
   {
@@ -812,7 +812,7 @@
     "series": "skullpanda",
     "set": "Ancient Castle",
     "name": "Bloody Knight",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#C6415A"
   },
   {
@@ -916,7 +916,7 @@
     "series": "skullpanda",
     "set": "The Mare of Animals",
     "name": "The Dream Eater",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#3D4C7A"
   },
   {
@@ -1020,7 +1020,7 @@
     "series": "skullpanda",
     "set": "The Paradox",
     "name": "The Key",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#7A5C8E"
   },
   {
@@ -1100,7 +1100,7 @@
     "series": "skullpanda",
     "set": "The Mirage",
     "name": "The Butterfly Dream",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#7F9B6E"
   },
   {
@@ -1180,7 +1180,7 @@
     "series": "skullpanda",
     "set": "L'Impressionnisme",
     "name": "In the Garden",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#D98AA6"
   },
   {
@@ -1236,7 +1236,7 @@
     "series": "skullpanda",
     "set": "Winter Symphony",
     "name": "Symphony of Wishes",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#C98A3E"
   },
   {
@@ -1316,7 +1316,7 @@
     "series": "skullpanda",
     "set": "Laid Back Tomorrow",
     "name": "Coffee Express",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#5B8D88"
   },
   {
@@ -1420,7 +1420,7 @@
     "series": "skullpanda",
     "set": "The Addams Family",
     "name": "Deadpan Wednesday",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#B5687F"
   },
   {
@@ -1524,7 +1524,7 @@
     "series": "skullpanda",
     "set": "Candy Monster Town",
     "name": "Adorkable Magician",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#4E7A9B"
   },
   {
@@ -1628,7 +1628,7 @@
     "series": "skullpanda",
     "set": "Action Cut",
     "name": "Cool Director",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#9B6AB0"
   },
   {
@@ -1732,7 +1732,7 @@
     "series": "skullpanda",
     "set": "HYPEPANDA",
     "name": "Stylist",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#A8743E"
   },
   {
@@ -1812,7 +1812,7 @@
     "series": "skullpanda",
     "set": "You Found Me",
     "name": "Buddy Doggie",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#6E8F5A"
   },
   {
@@ -1859,7 +1859,7 @@
     "id": "peachriot-rise-up-gigi-lil-27-lead",
     "series": "peachriot",
     "set": "Rise Up",
-    "name": "Gigi Lil%27 Lead",
+    "name": "Gigi Lil' Lead",
     "rarity": "regular",
     "color": "#8A7BF0"
   },
@@ -1916,7 +1916,7 @@
     "series": "peachriot",
     "set": "Rise Up",
     "name": "Gigi The Gleeman",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#8A7BF0"
   },
   {
@@ -2020,7 +2020,7 @@
     "series": "peachriot",
     "set": "Punk Fairy",
     "name": "Poppy Strawberry",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#6C7BD1"
   },
   {
@@ -2124,7 +2124,7 @@
     "series": "peachriot",
     "set": "Lil Peach Riot Loading",
     "name": "Gigi Stylist",
-    "rarity": "regular",
+    "rarity": "secret",
     "color": "#C77D5A"
   },
   {
@@ -3962,7 +3962,7 @@
     "color": "#C77D5A",
     "year": 2024
   },
-    {
+  {
     "id": "hirono-hirono-clot-yin-yang",
     "series": "hirono",
     "set": "Hirono × CLOT",

@@ -21,11 +21,15 @@
 // signature, just letting the site sign its own request the way a real
 // visitor's browser would.
 import { chromium, type Browser, type Page } from 'playwright';
-import type { DiscoverContext, RawItem, SourceAdapter } from '../core/types';
-import { slug } from '../core/text';
+import type { DiscoverContext, Logger, Rarity, RawItem, SourceAdapter } from '../core/types';
+import { cleanText, slug } from '../core/text';
 
 const SITE_HOST = 'https://www.popmart.com';
 const COUNTRY = 'us';
+// Pop Mart's own storefront sends this; headless Chromium's default UA gets a
+// visibly different (and more broken) render of their app.
+const BROWSER_UA =
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36';
 
 // Only the classic multi-design blind-box figure series match this - it
 // excludes plush pendants, keychains, fridge magnets, single MEGA/action
@@ -230,8 +234,13 @@ function deriveSetName(title: string, brandLabel: string): string {
     .trim();
 }
 
+// Pop Mart marks the special designs in the name as well as in `toy.type`, and
+// a set can hold more than one tier of them ("As I Wish (Super Secret)" sits
+// beside a plain secret in Tell Me What You Want). The catalog has one
+// `secret` rarity, so every tier collapses into it and the suffix comes off
+// the display name.
 function cleanFigureName(name: string): string {
-  return name.replace(/\s*[(（]\s*secret\s*[)）]\s*$/i, '').trim();
+  return name.replace(/\s*[(（]\s*(?:super\s+)?secret\s*[)）]\s*$/i, '').trim();
 }
 
 const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
@@ -240,8 +249,12 @@ const jitter = (ms: number) => ms * (0.75 + Math.random() * 0.5);
 // a little breathing room between them.
 const BETWEEN_SETS_DELAY_MS = 1200;
 
-async function fetchToys(browser: Browser, spuId: string): Promise<Toy[]> {
-  const page = await browser.newPage();
+/** Where a product page gets opened. `discover()` uses the browser's default
+ * context; `discoverRosters()` uses one carrying a real browser UA. */
+type PageFactory = () => Promise<Page>;
+
+async function fetchToys(newPage: PageFactory, spuId: string): Promise<Toy[]> {
+  const page = await newPage();
   try {
     const responsePromise = page.waitForResponse(
       (res) => res.url().includes('/productDetail/groupSpu') && res.ok(),
@@ -304,7 +317,7 @@ export const popmartAdapter: SourceAdapter = {
 
         let toys: Toy[];
         try {
-          toys = await fetchToys(browser, product.id);
+          toys = await fetchToys(() => browser.newPage(), product.id);
         } catch (e) {
           ctx.log.warn(`popmart product ${product.id} (${product.title}): ${(e as Error).message}`);
           continue;
@@ -335,3 +348,159 @@ export const popmartAdapter: SourceAdapter = {
     }
   },
 };
+
+// --- Roster lookup, for auditing an already-curated catalog ----------------
+//
+// `discover()` above finds an IP's sets by driving the collection page's own
+// pager. That is the right shape for ingestion (it is where `upTime`, and so a
+// figure's year, comes from) but it is useless for auditing skullpanda and
+// peachriot: their rows were curated by hand, so there is no crawl state, and
+// the pager only reaches products the storefront still lists.
+//
+// This path starts from Pop Mart's product sitemap instead - plain XML, no
+// signature, no browser, every product they publish for a country in one file.
+// It gives up `upTime`, which is exactly the field an audit does not need, and
+// in exchange it needs one page load per set rather than one per pager click.
+
+const SITEMAP_URL = `${SITE_HOST}/${COUNTRY}/sitemap-products.xml`;
+// Product titles for the classic blind-box figure sets end in "Series",
+// "Series Figures", or just "Figures" ("Peach Riot À La Mode Figures"). Merch
+// carrying the same set name does not ("... Series-Fridge Magnet Blind Box",
+// "... Series Phone Chain"), which is what keeps it out.
+const FIGURE_TITLE_PATTERN = /\b(?:Series|Figures)\s*$/i;
+
+/** One set as Pop Mart's own product page reports it. */
+export interface SetRoster {
+  /** Pop Mart's numeric product (SPU) id. */
+  readonly productId: string;
+  /** Product title, verbatim. */
+  readonly title: string;
+  /** Set name with the IP prefix and "Series Figures" suffix removed. */
+  readonly set: string;
+  readonly sourceUrl: string;
+  readonly figures: readonly { readonly name: string; readonly rarity: Rarity }[];
+}
+
+interface SitemapProduct {
+  readonly productId: string;
+  readonly title: string;
+}
+
+/** Every product Pop Mart lists for this country, as (id, title). The path
+ * segment after the id is the product title, URL-encoded. */
+export function parseProductSitemap(xml: string): SitemapProduct[] {
+  const products: SitemapProduct[] = [];
+  for (const match of xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)) {
+    const url = match[1];
+    const parts = url.match(/\/products\/(\d+)\/(.+)$/);
+    if (!parts) continue;
+    products.push({ productId: parts[1], title: cleanText(decodeURIComponent(parts[2])) });
+  }
+  return products;
+}
+
+/** Blind-box figure products for one IP, newest id first, deduped to one
+ * candidate list per set. Pop Mart carries several SPUs for the same set (a
+ * re-release, a regional listing), and any of them answers with the same
+ * roster, so the extras are only fallbacks for when one of them does not. */
+export function figureProductsBySet(
+  products: readonly SitemapProduct[],
+  brandLabel: string,
+): Map<string, { set: string; candidates: SitemapProduct[] }> {
+  const prefix = new RegExp(`^${brandLabel}[\\s：:]+`, 'i');
+  const bySet = new Map<string, { set: string; candidates: SitemapProduct[] }>();
+  for (const product of products) {
+    if (!prefix.test(product.title)) continue;
+    if (!FIGURE_TITLE_PATTERN.test(product.title)) continue;
+    // deriveSetName strips "Series Figures" and "Figures"; sitemap titles also
+    // come in the older "SKULLPANDA The Warmth Series" shape.
+    const set = deriveSetName(product.title, brandLabel)
+      .replace(/\s*Figures\s*$/i, '')
+      .replace(/\s*Series\s*$/i, '')
+      .trim();
+    if (!set) continue;
+    const key = slug(set);
+    const entry = bySet.get(key);
+    if (entry) {
+      entry.candidates.push(product);
+      continue;
+    }
+    bySet.set(key, { set, candidates: [product] });
+  }
+  for (const entry of bySet.values()) {
+    entry.candidates.sort((a, b) => Number(b.productId) - Number(a.productId));
+  }
+  return bySet;
+}
+
+export interface RosterOptions {
+  /** IP label exactly as Pop Mart prints it at the front of a product title. */
+  readonly brandLabel: string;
+  readonly log: Logger;
+  /** Only visit sets whose slug this accepts. Used to skip sets the caller
+   * has no rows for, so no page is loaded for nothing. */
+  readonly wanted?: (setSlug: string) => boolean;
+}
+
+/** Every blind-box set Pop Mart currently publishes for `brandLabel`, with the
+ * per-design secret flag their product pages carry. */
+export async function* discoverRosters(opts: RosterOptions): AsyncIterable<SetRoster> {
+  const response = await fetch(SITEMAP_URL, { headers: { 'user-agent': BROWSER_UA } });
+  if (!response.ok) {
+    throw new Error(`popmart sitemap ${SITEMAP_URL}: HTTP ${response.status}`);
+  }
+  const bySet = figureProductsBySet(parseProductSitemap(await response.text()), opts.brandLabel);
+  opts.log.info(`  ${bySet.size} figure sets listed for ${opts.brandLabel}`);
+
+  const browser = await chromium.launch();
+  try {
+    const context = await browser.newContext({ userAgent: BROWSER_UA, viewport: { width: 1440, height: 900 } });
+    for (const [setSlug, entry] of bySet) {
+      if (opts.wanted && !opts.wanted(setSlug)) {
+        opts.log.debug(`skip set not in catalog: ${entry.set}`);
+        continue;
+      }
+
+      let roster: SetRoster | undefined;
+      for (const candidate of entry.candidates) {
+        let toys: Toy[];
+        try {
+          toys = await fetchToys(() => context.newPage(), candidate.productId);
+        } catch (e) {
+          opts.log.warn(`popmart product ${candidate.productId} (${candidate.title}): ${(e as Error).message}`);
+          continue;
+        } finally {
+          await sleep(jitter(BETWEEN_SETS_DELAY_MS));
+        }
+        if (toys.length === 0) {
+          opts.log.warn(`popmart product ${candidate.productId} (${candidate.title}): no figure roster found`);
+          continue;
+        }
+        const figures: { name: string; rarity: Rarity }[] = [];
+        for (const toy of toys) {
+          const name = cleanFigureName(toy.name);
+          if (!name) continue;
+          let rarity: Rarity = 'regular';
+          if (toy.type === 2) {
+            rarity = 'secret';
+          }
+          figures.push({ name, rarity });
+        }
+        roster = {
+          productId: candidate.productId,
+          title: candidate.title,
+          set: entry.set,
+          sourceUrl: `${SITE_HOST}/${COUNTRY}/products/${candidate.productId}`,
+          figures,
+        };
+        break;
+      }
+
+      if (roster) {
+        yield roster;
+      }
+    }
+  } finally {
+    await browser.close();
+  }
+}

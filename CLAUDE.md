@@ -18,6 +18,7 @@ Catalog ingestion:
 
 ```bash
 npm run scrape -- --ip <slug>              # the pipeline; --dry-run, --limit <n>, --force, --full
+npm run audit:rarity -- --ip <slug>        # check secret labels against popmart.com; --apply to write them
 npm run scrape:test                        # tsx --test over scraper/**/*.test.ts; also the only check on figures.json integrity
 npx tsc -p scraper/tsconfig.json           # typecheck the scraper (see two-tsconfigs below)
 ```
@@ -169,6 +170,25 @@ The collection listing's public CDN JSON only covers the first few pages, and pe
 `scraper/adapters/popmart.ts` handles both by loading real pages in headless Chromium and reading the JSON the page's own code produces via `page.waitForResponse`, never by replicating the signature.
 This is why `playwright` is a runtime dependency of the scrape script and not just a test dependency.
 `options.collectionId` is optional: the adapter resolves it from popmart.com's own `CHARACTERS` nav by `brandLabel`.
+
+**The collection pager is broken on Pop Mart's side as of 2026-07-25, so `npm run scrape` cannot run.**
+Their `common/v1/common/get_location_by_ip` answers 500 and the storefront's own JS then dies with an uncaught `TypeError` before it ever requests the product list, in headless and headed Chromium alike, on every country path.
+Nothing in this repo causes it and nothing here can work around it: the pager is the only route to the pages past the CDN snapshot's first three.
+
+### Auditing secret labels
+
+`scraper/audit-rarity.ts` (`npm run audit:rarity -- --ip <slug>`) exists because `rarity` was only ever right for the IPs the pipeline ingested.
+dimoo and hirono came in through `discover()`, which reads Pop Mart's per-design `toy.type === 2`; skullpanda and peachriot were curated by hand years earlier and had their secret sitting in the catalog labeled `regular` in all but three sets.
+The audit re-asks popmart.com and writes back **only** `rarity`, never an id, name, row or sidecar, so correcting a label costs nothing like a re-ingest.
+It matches on `slug(set)/slug(name)` and reports anything it cannot match one-to-one rather than guessing, which is how `Gigi Lil%27 Lead` (a URL-encoded apostrophe reaching the UI) surfaced.
+
+It reaches sets through `discoverRosters()`, a second, sitemap-driven entry point in the popmart adapter, not through `discover()`.
+That is what makes it usable while the pager is down: `sitemap-products.xml` is plain unsigned XML listing every product Pop Mart publishes, and a product page still answers with its roster.
+The trade is `upTime`, and so a figure's `year`, which only the collection listing carries - a field an audit does not need and an ingest does.
+
+Pop Mart only publishes what it still sells.
+Twelve delisted sets (skullpanda City of Night, Ancient Castle, The Mare of Animals, L'Impressionnisme, Winter Symphony, Laid Back Tomorrow, The Addams Family, Candy Monster Town, Action Cut, HYPEPANDA, You Found Me, and peachriot Lil Peach Riot Loading) have no roster on any Pop Mart surface in any country, so their secrets came from collector sources instead and are the only labels in the catalog that popmart.com has not confirmed.
+`scraper/db/rarity.test.ts` holds the line from here: one secret per set, with an explicit list of the non-blind-box sets that have none and the handful that ship two or three.
 
 ### Two gotchas that will bite
 
