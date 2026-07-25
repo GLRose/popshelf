@@ -37,12 +37,12 @@ export const FigureCard = memo(function FigureCard({ figure, width }: Props) {
   const imgSize = width - 20; // padding 10 each side
 
   return (
-    <View style={[styles.card, { width }]}>
+    <View testID="figure-card" style={[styles.card, { width }]}>
       <View style={styles.imageWrap}>
         <FigureImage figure={figure} size={imgSize} />
 
         {figure.rarity === 'secret' && (
-          <View style={styles.secretBadge}>
+          <View testID="secret-badge" style={styles.secretBadge}>
             <Ionicons name="sparkles" size={11} color={T.ink} />
             <Text style={styles.secretText}>SECRET</Text>
           </View>

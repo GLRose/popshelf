@@ -71,6 +71,24 @@ The client already handles the no-session-yet result, so turning it on later is 
 Expo Router file-based routing under `src/app/`: three tabs (Browse / Shelf / Favorites) plus `admin` and `account` modals.
 `src/app/_layout.tsx` hydrates the three zustand stores at startup.
 
+### Finding a figure in Browse
+
+Two things sit above the grid, and neither touches the network.
+
+`src/lib/search.ts` searches the **whole catalog**, deliberately ignoring the series toggle and the set filter, because not knowing which IP a figure belongs to is a common reason to reach for search.
+A query is split into tokens, each token is scored against the figure's name, its set, and its IP (label *and* slug, so "peach riot" and "peachriot" both work), and a figure only survives if **every** token landed somewhere.
+That is what makes adding a word narrow the results instead of widening them.
+
+Results are grouped into sets, and the group score carries a coverage bonus: matching *all* of a set outranks matching one stray figure in a dozen sets.
+Without it "po" put The Polar Bear above Power Chords, which is the opposite of what was typed.
+The bonus is halved unless every token hit the set name at a word boundary, because a mid-word substring sweeps a whole set in too ("po" is inside "Sleepover") and that is not the same as naming it.
+The index is built once at module load, not per keystroke, and `useDeferredValue` keeps the typing ahead of the re-render.
+
+The **Secrets** chip in `SetFilter` collapses an IP's secrets into one section.
+A secret is the one figure per set a collector chases, and it was otherwise a badged card at the end of each of twenty sets.
+The chip is gold rather than the IP accent so it reads as the same promise the SECRET badge on the card makes.
+`e2e/search.spec.mjs` guards both, including that the secrets view contains nothing but secrets.
+
 ### Local-first collection
 
 `src/store/useCollection.ts` is the center of gravity.
