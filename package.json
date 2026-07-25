@@ -56,6 +56,7 @@
     "build:web": "expo export --platform web",
     "scrape": "tsx scraper/cli.ts",
     "scrape:test": "tsx --test scraper/**/*.test.ts",
+    "audit:rarity": "tsx scraper/audit-rarity.ts",
     "catalog": "node scripts/build-catalog.mjs",
     "scrape:download": "node scripts/scrape.mjs",
     "cutout": "node scripts/remove-bg.mjs",
