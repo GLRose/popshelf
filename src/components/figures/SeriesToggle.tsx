@@ -103,6 +103,8 @@ export function SeriesToggle({ value, onChange }: Props) {
               key={id}
               onLayout={onSegmentLayout(id)}
               onPress={() => onChange(id)}
+              accessibilityRole="button"
+              accessibilityState={{ selected: active }}
               style={segmentStyle(active, meta.accent)}>
               <Text numberOfLines={1} style={labelStyle(active)}>
                 {meta.label}
