@@ -22,7 +22,7 @@
 // visitor's browser would.
 import { chromium, type Browser, type Page } from 'playwright';
 import type { DiscoverContext, Logger, Rarity, RawItem, SourceAdapter } from '../core/types';
-import { cleanText, slug } from '../core/text';
+import { cleanText, slug, titleCaseIfShouting } from '../core/text';
 
 const SITE_HOST = 'https://www.popmart.com';
 const COUNTRY = 'us';
@@ -223,15 +223,24 @@ async function fetchCollectionProducts(
   }
 }
 
+/** Matches the IP label where it sits at the front of a product title.
+ *
+ * Pop Mart's own title punctuation is inconsistent between plain ASCII and
+ * full-width CJK forms ("DIMOO Foo" vs "DIMOO：Foo"), and TinyTiny hyphenates
+ * ("TINYTINY-PROLOGUE SERIES FIGURES"), so all three separators are accepted. */
+function brandPrefix(brandLabel: string): RegExp {
+  return new RegExp(`^${brandLabel}[\\s：:-]+`, 'i');
+}
+
 function deriveSetName(title: string, brandLabel: string): string {
-  // Pop Mart's own title punctuation is inconsistent between plain ASCII and
-  // full-width CJK forms ("DIMOO Foo" vs "DIMOO：Foo"), so both are accepted.
-  return title
-    .trim()
-    .replace(new RegExp(`^${brandLabel}[\\s：:]+`, 'i'), '')
-    .replace(/\s*Series Figures\s*$/i, '')
-    .replace(/\s*Figures\s*$/i, '')
-    .trim();
+  return titleCaseIfShouting(
+    title
+      .trim()
+      .replace(brandPrefix(brandLabel), '')
+      .replace(/\s*Series Figures\s*$/i, '')
+      .replace(/\s*Figures?\s*$/i, '')
+      .trim(),
+  );
 }
 
 // Pop Mart marks the special designs in the name as well as in `toy.type`, and
@@ -253,7 +262,16 @@ const BETWEEN_SETS_DELAY_MS = 1200;
  * context; `discoverRosters()` uses one carrying a real browser UA. */
 type PageFactory = () => Promise<Page>;
 
-async function fetchToys(newPage: PageFactory, spuId: string): Promise<Toy[]> {
+/** A product page's own view of itself. `toys` is the per-design roster and is
+ * empty for anything that is not a multi-design blind box; `banners` is the
+ * gallery, whose first entry is the product shot - the only image a
+ * single-figure product has (see `singleFigureRoster`). */
+interface ProductDetail {
+  readonly toys: Toy[];
+  readonly banners: { readonly type?: string; readonly url?: string }[];
+}
+
+async function fetchProductDetail(newPage: PageFactory, spuId: string): Promise<ProductDetail> {
   const page = await newPage();
   try {
     const responsePromise = page.waitForResponse(
@@ -266,12 +284,17 @@ async function fetchToys(newPage: PageFactory, spuId: string): Promise<Toy[]> {
     });
     const response = await responsePromise;
     const body = (await response.json()) as {
-      data?: { commonInfo?: { toys?: Toy[] } };
+      data?: { commonInfo?: { toys?: Toy[]; banners?: ProductDetail['banners'] } };
     };
-    return body.data?.commonInfo?.toys ?? [];
+    const commonInfo = body.data?.commonInfo;
+    return { toys: commonInfo?.toys ?? [], banners: commonInfo?.banners ?? [] };
   } finally {
     await page.close();
   }
+}
+
+async function fetchToys(newPage: PageFactory, spuId: string): Promise<Toy[]> {
+  return (await fetchProductDetail(newPage, spuId)).toys;
 }
 
 /** spuId -> already have at least one figure from it in prior state, so a
@@ -367,7 +390,11 @@ const SITEMAP_URL = `${SITE_HOST}/${COUNTRY}/sitemap-products.xml`;
 // "Series Figures", or just "Figures" ("Peach Riot À La Mode Figures"). Merch
 // carrying the same set name does not ("... Series-Fridge Magnet Blind Box",
 // "... Series Phone Chain"), which is what keeps it out.
-const FIGURE_TITLE_PATTERN = /\b(?:Series|Figures)\s*$/i;
+//
+// The singular "Figure" is here for the standalone, non-blind-box releases
+// ("TINYTINY LULLABY FIGURE"). Those carry no roster at all, so they only
+// become figures under `allowSingles` - see `singleFigureRoster`.
+const FIGURE_TITLE_PATTERN = /\b(?:Series|Figures?)\s*$/i;
 
 /** One set as Pop Mart's own product page reports it. */
 export interface SetRoster {
@@ -378,7 +405,12 @@ export interface SetRoster {
   /** Set name with the IP prefix and "Series Figures" suffix removed. */
   readonly set: string;
   readonly sourceUrl: string;
-  readonly figures: readonly { readonly name: string; readonly rarity: Rarity }[];
+  readonly figures: readonly {
+    readonly name: string;
+    readonly rarity: Rarity;
+    /** Pop Mart's own render of this design. Already background-free. */
+    readonly imageUrl?: string;
+  }[];
 }
 
 interface SitemapProduct {
@@ -407,17 +439,22 @@ export function figureProductsBySet(
   products: readonly SitemapProduct[],
   brandLabel: string,
 ): Map<string, { set: string; candidates: SitemapProduct[] }> {
-  const prefix = new RegExp(`^${brandLabel}[\\s：:]+`, 'i');
+  const prefix = brandPrefix(brandLabel);
   const bySet = new Map<string, { set: string; candidates: SitemapProduct[] }>();
   for (const product of products) {
     if (!prefix.test(product.title)) continue;
     if (!FIGURE_TITLE_PATTERN.test(product.title)) continue;
     // deriveSetName strips "Series Figures" and "Figures"; sitemap titles also
-    // come in the older "SKULLPANDA The Warmth Series" shape.
-    const set = deriveSetName(product.title, brandLabel)
-      .replace(/\s*Figures\s*$/i, '')
-      .replace(/\s*Series\s*$/i, '')
-      .trim();
+    // come in the older "SKULLPANDA The Warmth Series" shape. Re-cased after
+    // that trailing "Series" comes off, not before: "DIMOO WORLD × PIXAR
+    // Series" still carries the lowercase of "Series" while it is attached, so
+    // deriveSetName's own pass reads it as already-cased and leaves it be.
+    const set = titleCaseIfShouting(
+      deriveSetName(product.title, brandLabel)
+        .replace(/\s*Figures?\s*$/i, '')
+        .replace(/\s*Series\s*$/i, '')
+        .trim(),
+    );
     if (!set) continue;
     const key = slug(set);
     const entry = bySet.get(key);
@@ -440,6 +477,45 @@ export interface RosterOptions {
   /** Only visit sets whose slug this accepts. Used to skip sets the caller
    * has no rows for, so no page is loaded for nothing. */
   readonly wanted?: (setSlug: string) => boolean;
+  /** Treat a rosterless product as a set of one named after itself.
+   *
+   * Off by default, and deliberately so: the rarity audit reads this to check
+   * labels on sets it already has rows for, and a standalone release is not
+   * one of those. Ingestion turns it on, because "TINYTINY LULLABY FIGURE" is
+   * a figure a collector owns and wants on a shelf whether or not Pop Mart
+   * ever put it in a blind box. */
+  readonly allowSingles?: boolean;
+}
+
+// A standalone release names itself in the singular ("TINYTINY LULLABY FIGURE",
+// "Sweet Bean Easter Bunny Figure"). A multi-design set does not, even when its
+// roster fails to load ("Sweet Bean Afternoon Tea Series Figures").
+//
+// That distinction is the whole safety of `allowSingles`. Without it, a real
+// twelve-design series whose roster happened to come back empty would be
+// flattened into one figure named after the set - which is worse than missing,
+// because it looks complete.
+const SINGLE_FIGURE_TITLE_PATTERN = /\b(?:Figure|Figurine)\s*$/i;
+
+/** A rosterless product as a one-figure set. Pop Mart gives these no `toys`
+ * at all - there are no designs to enumerate - so the set and the figure are
+ * both the product, and the artwork is the first gallery banner. */
+function singleFigureRoster(
+  candidate: SitemapProduct,
+  set: string,
+  detail: ProductDetail,
+): SetRoster | undefined {
+  if (!SINGLE_FIGURE_TITLE_PATTERN.test(candidate.title)) return undefined;
+  const name = cleanFigureName(set);
+  if (!name) return undefined;
+  const banner = detail.banners.find((b) => b.url && b.type !== 'video');
+  return {
+    productId: candidate.productId,
+    title: candidate.title,
+    set,
+    sourceUrl: `${SITE_HOST}/${COUNTRY}/products/${candidate.productId}`,
+    figures: [{ name, rarity: 'regular', imageUrl: banner?.url }],
+  };
 }
 
 /** Every blind-box set Pop Mart currently publishes for `brandLabel`, with the
@@ -453,6 +529,13 @@ export async function* discoverRosters(opts: RosterOptions): AsyncIterable<SetRo
   opts.log.info(`  ${bySet.size} figure sets listed for ${opts.brandLabel}`);
 
   const browser = await chromium.launch();
+  // Standalone one-offs are held back and yielded last. Browse lists sets in
+  // catalog order, which is ingestion order, and the sitemap is ordered by
+  // product id - so without this an IP opens on a column of lonely one-card
+  // sets (Sweet Bean's Grow up Quickly, Hot Spring Travel, ...) before any of
+  // its real blind-box waves. The one-offs are the appendix to a line, not the
+  // headline.
+  const singles: SetRoster[] = [];
   try {
     const context = await browser.newContext({ userAgent: BROWSER_UA, viewport: { width: 1440, height: 900 } });
     for (const [setSlug, entry] of bySet) {
@@ -462,29 +545,36 @@ export async function* discoverRosters(opts: RosterOptions): AsyncIterable<SetRo
       }
 
       let roster: SetRoster | undefined;
+      // Only used if no candidate yields a real roster, so a genuine blind-box
+      // set whose newest SPU happens to answer empty still prefers an older
+      // SPU's real roster over being flattened into a set of one.
+      let single: SetRoster | undefined;
       for (const candidate of entry.candidates) {
-        let toys: Toy[];
+        let detail: ProductDetail;
         try {
-          toys = await fetchToys(() => context.newPage(), candidate.productId);
+          detail = await fetchProductDetail(() => context.newPage(), candidate.productId);
         } catch (e) {
           opts.log.warn(`popmart product ${candidate.productId} (${candidate.title}): ${(e as Error).message}`);
           continue;
         } finally {
           await sleep(jitter(BETWEEN_SETS_DELAY_MS));
         }
-        if (toys.length === 0) {
+        if (detail.toys.length === 0) {
+          if (opts.allowSingles && !single) {
+            single = singleFigureRoster(candidate, entry.set, detail);
+          }
           opts.log.warn(`popmart product ${candidate.productId} (${candidate.title}): no figure roster found`);
           continue;
         }
-        const figures: { name: string; rarity: Rarity }[] = [];
-        for (const toy of toys) {
+        const figures: { name: string; rarity: Rarity; imageUrl?: string }[] = [];
+        for (const toy of detail.toys) {
           const name = cleanFigureName(toy.name);
           if (!name) continue;
           let rarity: Rarity = 'regular';
           if (toy.type === 2) {
             rarity = 'secret';
           }
-          figures.push({ name, rarity });
+          figures.push({ name, rarity, imageUrl: toy.url });
         }
         roster = {
           productId: candidate.productId,
@@ -496,11 +586,21 @@ export async function* discoverRosters(opts: RosterOptions): AsyncIterable<SetRo
         break;
       }
 
+      if (!roster && single) {
+        opts.log.info(`  ${single.set}: standalone figure, no roster`);
+        singles.push(single);
+        continue;
+      }
+
       if (roster) {
         yield roster;
       }
     }
   } finally {
     await browser.close();
+  }
+
+  for (const single of singles) {
+    yield single;
   }
 }

@@ -18,8 +18,22 @@ import { chromium } from 'playwright';
 
 const APP = 'http://localhost:8080';
 
-/** From src/data/figures.json. Checked here so a bad catalog fails loudly. */
-const SECRETS = { SKULLPANDA: 24, 'PEACH RIOT': 8, HIRONO: 14, DIMOO: 16 };
+/** From src/data/figures.json. Checked here so a bad catalog fails loudly.
+ *
+ * Every IP in SERIES_ORDER belongs here, including the low counts: POP BEAN
+ * has exactly one because only its DIMOO WORLD × PIXAR wave came from Pop
+ * Mart, and the six waves read from thetoypool.com carry no secret marking at
+ * all (see UNLABELLED_SECRET_SETS in scraper/db/rarity.test.ts). A 1 here is
+ * the honest number, and it will move the day that gap is closed. */
+const SECRETS = {
+  SKULLPANDA: 24,
+  'PEACH RIOT': 8,
+  HIRONO: 14,
+  DIMOO: 16,
+  TINYTINY: 1,
+  'POP BEAN': 1,
+  'SWEET BEAN': 4,
+};
 
 let failures = 0;
 function check(label, ok, detail = '') {

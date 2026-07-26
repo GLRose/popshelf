@@ -6377,5 +6377,1373 @@
     "rarity": "regular",
     "color": "#C77D5A",
     "year": 2024
+  },
+  {
+    "id": "tinytiny-prologue-fight-back",
+    "series": "tinytiny",
+    "set": "Prologue",
+    "name": "Fight back",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "tinytiny-prologue-waiting",
+    "series": "tinytiny",
+    "set": "Prologue",
+    "name": "Waiting",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "tinytiny-prologue-choice",
+    "series": "tinytiny",
+    "set": "Prologue",
+    "name": "Choice",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "tinytiny-prologue-chess-game",
+    "series": "tinytiny",
+    "set": "Prologue",
+    "name": "Chess Game",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "tinytiny-prologue-confine",
+    "series": "tinytiny",
+    "set": "Prologue",
+    "name": "Confine",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "tinytiny-prologue-balance",
+    "series": "tinytiny",
+    "set": "Prologue",
+    "name": "Balance",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "tinytiny-prologue-riddle",
+    "series": "tinytiny",
+    "set": "Prologue",
+    "name": "Riddle",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "tinytiny-prologue-escape",
+    "series": "tinytiny",
+    "set": "Prologue",
+    "name": "Escape",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "tinytiny-prologue-lie",
+    "series": "tinytiny",
+    "set": "Prologue",
+    "name": "Lie",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "tinytiny-prologue-puppet",
+    "series": "tinytiny",
+    "set": "Prologue",
+    "name": "Puppet",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "tinytiny-prologue-glass-house",
+    "series": "tinytiny",
+    "set": "Prologue",
+    "name": "Glass House",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "tinytiny-prologue-born",
+    "series": "tinytiny",
+    "set": "Prologue",
+    "name": "Born",
+    "rarity": "regular",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "tinytiny-prologue-perfect-gift",
+    "series": "tinytiny",
+    "set": "Prologue",
+    "name": "Perfect Gift",
+    "rarity": "secret",
+    "color": "#4E7A9B"
+  },
+  {
+    "id": "tinytiny-the-lie-of-freedom-the-lie-of-freedom",
+    "series": "tinytiny",
+    "set": "The Lie of Freedom",
+    "name": "The Lie of Freedom",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "tinytiny-lullaby-lullaby",
+    "series": "tinytiny",
+    "set": "Lullaby",
+    "name": "Lullaby",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "sweetbean-grow-up-quickly-grow-up-quickly",
+    "series": "sweetbean",
+    "set": "Grow up Quickly",
+    "name": "Grow up Quickly",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-hot-spring-travel-hot-spring-travel",
+    "series": "sweetbean",
+    "set": "Hot Spring Travel",
+    "name": "Hot Spring Travel",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "sweetbean-fruit-world-adventure-rowing-pineapple",
+    "series": "sweetbean",
+    "set": "Fruit World Adventure",
+    "name": "Rowing Pineapple",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "sweetbean-fruit-world-adventure-orange-alchemist",
+    "series": "sweetbean",
+    "set": "Fruit World Adventure",
+    "name": "Orange Alchemist",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "sweetbean-fruit-world-adventure-strawberry-take-off",
+    "series": "sweetbean",
+    "set": "Fruit World Adventure",
+    "name": "Strawberry Take Off",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "sweetbean-fruit-world-adventure-hunter-penguin",
+    "series": "sweetbean",
+    "set": "Fruit World Adventure",
+    "name": "Hunter Penguin",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "sweetbean-fruit-world-adventure-pear-runner",
+    "series": "sweetbean",
+    "set": "Fruit World Adventure",
+    "name": "Pear Runner",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "sweetbean-fruit-world-adventure-cherry-treasure-hunter",
+    "series": "sweetbean",
+    "set": "Fruit World Adventure",
+    "name": "Cherry Treasure Hunter",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "sweetbean-fruit-world-adventure-gardener-grapes",
+    "series": "sweetbean",
+    "set": "Fruit World Adventure",
+    "name": "Gardener Grapes",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "sweetbean-fruit-world-adventure-grass-skiing-lychee",
+    "series": "sweetbean",
+    "set": "Fruit World Adventure",
+    "name": "Grass-skiing Lychee",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "sweetbean-fruit-world-adventure-lemon-diver",
+    "series": "sweetbean",
+    "set": "Fruit World Adventure",
+    "name": "Lemon Diver",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "sweetbean-fruit-world-adventure-watermelon-warrior",
+    "series": "sweetbean",
+    "set": "Fruit World Adventure",
+    "name": "Watermelon Warrior",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "sweetbean-fruit-world-adventure-lazy-banana",
+    "series": "sweetbean",
+    "set": "Fruit World Adventure",
+    "name": "Lazy Banana",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "sweetbean-fruit-world-adventure-peach-princess",
+    "series": "sweetbean",
+    "set": "Fruit World Adventure",
+    "name": "Peach Princess",
+    "rarity": "regular",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "sweetbean-fruit-world-adventure-berry-tunes",
+    "series": "sweetbean",
+    "set": "Fruit World Adventure",
+    "name": "Berry Tunes",
+    "rarity": "secret",
+    "color": "#6FB2A0"
+  },
+  {
+    "id": "sweetbean-bedtime-story-bedtime-story",
+    "series": "sweetbean",
+    "set": "Bedtime Story",
+    "name": "Bedtime Story",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "sweetbean-i-want-a-hug-when-i-m-in-love",
+    "series": "sweetbean",
+    "set": "I Want a Hug",
+    "name": "When I'm in Love",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-i-want-a-hug-when-i-m-sleeping",
+    "series": "sweetbean",
+    "set": "I Want a Hug",
+    "name": "When I'm Sleeping",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-i-want-a-hug-when-i-m-sad",
+    "series": "sweetbean",
+    "set": "I Want a Hug",
+    "name": "When I'm Sad",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-i-want-a-hug-when-i-don-t-want-to-get-up",
+    "series": "sweetbean",
+    "set": "I Want a Hug",
+    "name": "When I Don't Want to Get up",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-i-want-a-hug-when-i-get-something",
+    "series": "sweetbean",
+    "set": "I Want a Hug",
+    "name": "When I Get Something",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-i-want-a-hug-when-i-m-a-little-devil",
+    "series": "sweetbean",
+    "set": "I Want a Hug",
+    "name": "When I'm a Little Devil",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-i-want-a-hug-when-i-m-ambitious",
+    "series": "sweetbean",
+    "set": "I Want a Hug",
+    "name": "When I'm Ambitious",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-i-want-a-hug-before-i-became-numb",
+    "series": "sweetbean",
+    "set": "I Want a Hug",
+    "name": "Before I Became Numb",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-i-want-a-hug-when-i-try-to-be-good",
+    "series": "sweetbean",
+    "set": "I Want a Hug",
+    "name": "When I Try to Be Good",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-i-want-a-hug-when-i-feel-peaceful",
+    "series": "sweetbean",
+    "set": "I Want a Hug",
+    "name": "When I Feel Peaceful",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-i-want-a-hug-when-i-m-sick",
+    "series": "sweetbean",
+    "set": "I Want a Hug",
+    "name": "When I'm Sick",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-i-want-a-hug-when-i-m-angry",
+    "series": "sweetbean",
+    "set": "I Want a Hug",
+    "name": "When I'm Angry",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-i-want-a-hug-when-i-want-a-hug",
+    "series": "sweetbean",
+    "set": "I Want a Hug",
+    "name": "When I Want a Hug",
+    "rarity": "secret",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-easter-bunny-easter-bunny",
+    "series": "sweetbean",
+    "set": "Easter Bunny",
+    "name": "Easter Bunny",
+    "rarity": "regular",
+    "color": "#556070"
+  },
+  {
+    "id": "sweetbean-the-language-of-love-let-s-be-best-friends",
+    "series": "sweetbean",
+    "set": "The Language of Love",
+    "name": "Let's Be Best Friends",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "sweetbean-the-language-of-love-can-t-wait-to-see-you",
+    "series": "sweetbean",
+    "set": "The Language of Love",
+    "name": "Can't Wait to See You",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "sweetbean-the-language-of-love-romantic-letter",
+    "series": "sweetbean",
+    "set": "The Language of Love",
+    "name": "Romantic Letter",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "sweetbean-the-language-of-love-good-night",
+    "series": "sweetbean",
+    "set": "The Language of Love",
+    "name": "Good Night",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "sweetbean-the-language-of-love-for-you",
+    "series": "sweetbean",
+    "set": "The Language of Love",
+    "name": "For You",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "sweetbean-the-language-of-love-i-believe-in-you",
+    "series": "sweetbean",
+    "set": "The Language of Love",
+    "name": "I Believe in You",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "sweetbean-the-language-of-love-morning",
+    "series": "sweetbean",
+    "set": "The Language of Love",
+    "name": "Morning",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "sweetbean-the-language-of-love-have-a-great-day",
+    "series": "sweetbean",
+    "set": "The Language of Love",
+    "name": "Have a Great Day",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "sweetbean-the-language-of-love-you-are-the-best",
+    "series": "sweetbean",
+    "set": "The Language of Love",
+    "name": "You Are the Best",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "sweetbean-the-language-of-love-call-me",
+    "series": "sweetbean",
+    "set": "The Language of Love",
+    "name": "Call Me",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "sweetbean-the-language-of-love-i-need-you",
+    "series": "sweetbean",
+    "set": "The Language of Love",
+    "name": "I Need You",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "sweetbean-the-language-of-love-kiss",
+    "series": "sweetbean",
+    "set": "The Language of Love",
+    "name": "Kiss",
+    "rarity": "regular",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "sweetbean-the-language-of-love-forever-love",
+    "series": "sweetbean",
+    "set": "The Language of Love",
+    "name": "Forever Love",
+    "rarity": "secret",
+    "color": "#C98A3E"
+  },
+  {
+    "id": "sweetbean-your-exclusive-holiday-snowman-bell",
+    "series": "sweetbean",
+    "set": "Your Exclusive Holiday",
+    "name": "Snowman Bell",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-your-exclusive-holiday-honey-bear",
+    "series": "sweetbean",
+    "set": "Your Exclusive Holiday",
+    "name": "Honey Bear",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-your-exclusive-holiday-angel-s-blessing",
+    "series": "sweetbean",
+    "set": "Your Exclusive Holiday",
+    "name": "Angel's Blessing",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-your-exclusive-holiday-collecting-wishes",
+    "series": "sweetbean",
+    "set": "Your Exclusive Holiday",
+    "name": "Collecting Wishes",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-your-exclusive-holiday-star-wish",
+    "series": "sweetbean",
+    "set": "Your Exclusive Holiday",
+    "name": "Star Wish",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-your-exclusive-holiday-kitten-and-yarn-ball",
+    "series": "sweetbean",
+    "set": "Your Exclusive Holiday",
+    "name": "Kitten and Yarn Ball",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-your-exclusive-holiday-snowflake",
+    "series": "sweetbean",
+    "set": "Your Exclusive Holiday",
+    "name": "Snowflake",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-your-exclusive-holiday-gift-delivery",
+    "series": "sweetbean",
+    "set": "Your Exclusive Holiday",
+    "name": "Gift Delivery",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-your-exclusive-holiday-bear-bell",
+    "series": "sweetbean",
+    "set": "Your Exclusive Holiday",
+    "name": "Bear Bell",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-your-exclusive-holiday-gingerbread-friends",
+    "series": "sweetbean",
+    "set": "Your Exclusive Holiday",
+    "name": "Gingerbread Friends",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-your-exclusive-holiday-ski-season",
+    "series": "sweetbean",
+    "set": "Your Exclusive Holiday",
+    "name": "Ski Season",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-your-exclusive-holiday-holiday-snowman",
+    "series": "sweetbean",
+    "set": "Your Exclusive Holiday",
+    "name": "Holiday Snowman",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "sweetbean-your-exclusive-holiday-crystal-ball",
+    "series": "sweetbean",
+    "set": "Your Exclusive Holiday",
+    "name": "Crystal Ball",
+    "rarity": "secret",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-dimoo-world-pixar-dimoo-as-woody",
+    "series": "popbean",
+    "set": "Dimoo World × Pixar",
+    "name": "DIMOO as Woody",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "popbean-dimoo-world-pixar-dimoo-as-buzz-lightyear",
+    "series": "popbean",
+    "set": "Dimoo World × Pixar",
+    "name": "DIMOO as Buzz Lightyear",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "popbean-dimoo-world-pixar-dimoo-as-dash-parr",
+    "series": "popbean",
+    "set": "Dimoo World × Pixar",
+    "name": "DIMOO as Dash Parr",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "popbean-dimoo-world-pixar-dimoo-as-miguel-rivera",
+    "series": "popbean",
+    "set": "Dimoo World × Pixar",
+    "name": "DIMOO as Miguel Rivera",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "popbean-dimoo-world-pixar-dimoo-as-wall-e",
+    "series": "popbean",
+    "set": "Dimoo World × Pixar",
+    "name": "DIMOO as WALL.E",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "popbean-dimoo-world-pixar-dimoo-as-remy",
+    "series": "popbean",
+    "set": "Dimoo World × Pixar",
+    "name": "DIMOO as Remy",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "popbean-dimoo-world-pixar-dimoo-as-lotso",
+    "series": "popbean",
+    "set": "Dimoo World × Pixar",
+    "name": "DIMOO as Lotso",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "popbean-dimoo-world-pixar-dimoo-as-sulley",
+    "series": "popbean",
+    "set": "Dimoo World × Pixar",
+    "name": "DIMOO as Sulley",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "popbean-dimoo-world-pixar-dimoo-as-russell",
+    "series": "popbean",
+    "set": "Dimoo World × Pixar",
+    "name": "DIMOO as Russell",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "popbean-dimoo-world-pixar-dimoo-as-red-panda-mei",
+    "series": "popbean",
+    "set": "Dimoo World × Pixar",
+    "name": "DIMOO as Red Panda Mei",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "popbean-dimoo-world-pixar-dimoo-as-hamm",
+    "series": "popbean",
+    "set": "Dimoo World × Pixar",
+    "name": "DIMOO as Hamm",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "popbean-dimoo-world-pixar-dimoo-as-alien",
+    "series": "popbean",
+    "set": "Dimoo World × Pixar",
+    "name": "DIMOO as Alien",
+    "rarity": "regular",
+    "color": "#A8743E"
+  },
+  {
+    "id": "popbean-dimoo-world-pixar-dimoo-as-alien-special-ver",
+    "series": "popbean",
+    "set": "Dimoo World × Pixar",
+    "name": "DIMOO as Alien (Special Ver.)",
+    "rarity": "secret",
+    "color": "#A8743E"
+  },
+  {
+    "id": "popbean-lucky-charm-crybaby-happiness-red",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Crybaby - Happiness Red",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-dimoo-peach-pink",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Dimoo - Peach Pink",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-hacipupu-hot-pink",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Hacipupu - Hot Pink",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-labubu-bright-orange",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Labubu - Bright Orange",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-lilios-warm-yellow",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "LiLiOS - Warm Yellow",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-molly-lucky-red",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Molly - Lucky Red",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-pino-jelly-pure-silver",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Pino Jelly - Pure Silver",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-pucky-shining-gold",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Pucky - Shining Gold",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-satyr-rory-noble-gold",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Satyr Rory - Noble Gold",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-skullpanda-lucky-blue",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Skullpanda - Lucky Blue",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-sweet-bean-joyful-red",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Sweet Bean - Joyful Red",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-zsiga-passion-red",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Zsiga - Passion Red",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-dimoo-good-luck",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Dimoo - Good Luck",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-hacipupu-sheer-bliss",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Hacipupu - Sheer Bliss",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-labubu-the-best-one",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Labubu - The Best One",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-molly-propitious-omen",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Molly - Propitious Omen",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-pucky-great-fortune",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Pucky - Great Fortune",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-skullpanda-leap-into-success",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Skullpanda - Leap Into Success",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-lucky-charm-sweet-bean-everything-goes-well",
+    "series": "popbean",
+    "set": "Lucky Charm",
+    "name": "Sweet Bean - Everything Goes Well",
+    "rarity": "regular",
+    "color": "#8A7BF0"
+  },
+  {
+    "id": "popbean-fortune-bag-zimomo",
+    "series": "popbean",
+    "set": "Fortune Bag",
+    "name": "Zimomo",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "popbean-fortune-bag-vivicat",
+    "series": "popbean",
+    "set": "Fortune Bag",
+    "name": "ViViCat",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "popbean-fortune-bag-sweet-bean",
+    "series": "popbean",
+    "set": "Fortune Bag",
+    "name": "Sweet Bean",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "popbean-fortune-bag-susumi",
+    "series": "popbean",
+    "set": "Fortune Bag",
+    "name": "Susumi",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "popbean-fortune-bag-skullpanda",
+    "series": "popbean",
+    "set": "Fortune Bag",
+    "name": "Skullpanda",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "popbean-fortune-bag-satyr-rory",
+    "series": "popbean",
+    "set": "Fortune Bag",
+    "name": "Satyr Rory",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "popbean-fortune-bag-pucky",
+    "series": "popbean",
+    "set": "Fortune Bag",
+    "name": "Pucky",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "popbean-fortune-bag-nori",
+    "series": "popbean",
+    "set": "Fortune Bag",
+    "name": "Nori",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "popbean-fortune-bag-molly",
+    "series": "popbean",
+    "set": "Fortune Bag",
+    "name": "Molly",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "popbean-fortune-bag-kaiju-negora",
+    "series": "popbean",
+    "set": "Fortune Bag",
+    "name": "Kaiju Negora",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "popbean-fortune-bag-hacipupu",
+    "series": "popbean",
+    "set": "Fortune Bag",
+    "name": "Hacipupu",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "popbean-fortune-bag-fubaobao",
+    "series": "popbean",
+    "set": "Fortune Bag",
+    "name": "Fubaobao",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "popbean-fortune-bag-dimoo",
+    "series": "popbean",
+    "set": "Fortune Bag",
+    "name": "Dimoo",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "popbean-fortune-bag-crybaby",
+    "series": "popbean",
+    "set": "Fortune Bag",
+    "name": "Crybaby",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "popbean-fortune-bag-bobo-coco",
+    "series": "popbean",
+    "set": "Fortune Bag",
+    "name": "Bobo & Coco",
+    "rarity": "regular",
+    "color": "#3D4C7A"
+  },
+  {
+    "id": "popbean-fruit-platter-dimoo-lime",
+    "series": "popbean",
+    "set": "Fruit Platter",
+    "name": "Dimoo - Lime",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "popbean-fruit-platter-hacipucu-grapefruit",
+    "series": "popbean",
+    "set": "Fruit Platter",
+    "name": "Hacipucu - Grapefruit",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "popbean-fruit-platter-labubu-elizabeth-melon",
+    "series": "popbean",
+    "set": "Fruit Platter",
+    "name": "Labubu - Elizabeth Melon",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "popbean-fruit-platter-labubu-hami-melon",
+    "series": "popbean",
+    "set": "Fruit Platter",
+    "name": "Labubu - Hami Melon",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "popbean-fruit-platter-molly-green-apple",
+    "series": "popbean",
+    "set": "Fruit Platter",
+    "name": "Molly - Green Apple",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "popbean-fruit-platter-molly-red-apple",
+    "series": "popbean",
+    "set": "Fruit Platter",
+    "name": "Molly - Red Apple",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "popbean-fruit-platter-pino-jelly-pitaya-fruit",
+    "series": "popbean",
+    "set": "Fruit Platter",
+    "name": "Pino Jelly - Pitaya Fruit",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "popbean-fruit-platter-pucky-guava",
+    "series": "popbean",
+    "set": "Fruit Platter",
+    "name": "Pucky - Guava",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "popbean-fruit-platter-satyr-rory-orange",
+    "series": "popbean",
+    "set": "Fruit Platter",
+    "name": "Satyr Rory - Orange",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "popbean-fruit-platter-skullpanda-watermelon",
+    "series": "popbean",
+    "set": "Fruit Platter",
+    "name": "Skullpanda - Watermelon",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "popbean-fruit-platter-sweet-bean-lemon",
+    "series": "popbean",
+    "set": "Fruit Platter",
+    "name": "Sweet Bean - Lemon",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "popbean-fruit-platter-zsiga-kiwifruit",
+    "series": "popbean",
+    "set": "Fruit Platter",
+    "name": "Zsiga - Kiwifruit",
+    "rarity": "regular",
+    "color": "#7F9B6E"
+  },
+  {
+    "id": "popbean-lucky-cat-crybaby-good-fortune",
+    "series": "popbean",
+    "set": "Lucky Cat",
+    "name": "Crybaby - Good Fortune",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "popbean-lucky-cat-dimoo-comfy-life",
+    "series": "popbean",
+    "set": "Lucky Cat",
+    "name": "Dimoo - Comfy Life",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "popbean-lucky-cat-hacipupu-treasure",
+    "series": "popbean",
+    "set": "Lucky Cat",
+    "name": "Hacipupu - Treasure",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "popbean-lucky-cat-kubo-rich",
+    "series": "popbean",
+    "set": "Lucky Cat",
+    "name": "Kubo - Rich",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "popbean-lucky-cat-labubu-good-luck",
+    "series": "popbean",
+    "set": "Lucky Cat",
+    "name": "Labubu - Good Luck",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "popbean-lucky-cat-lilios-fortune-cat",
+    "series": "popbean",
+    "set": "Lucky Cat",
+    "name": "LiLiOS - Fortune Cat",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "popbean-lucky-cat-molly-fortune-cat",
+    "series": "popbean",
+    "set": "Lucky Cat",
+    "name": "Molly - Fortune Cat",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "popbean-lucky-cat-nori-best-wishes",
+    "series": "popbean",
+    "set": "Lucky Cat",
+    "name": "Nori - Best Wishes",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "popbean-lucky-cat-nyota-pleasure",
+    "series": "popbean",
+    "set": "Lucky Cat",
+    "name": "Nyota - Pleasure",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "popbean-lucky-cat-pucky-good-omen",
+    "series": "popbean",
+    "set": "Lucky Cat",
+    "name": "Pucky - Good Omen",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "popbean-lucky-cat-satyr-rory-happiness",
+    "series": "popbean",
+    "set": "Lucky Cat",
+    "name": "Satyr Rory - Happiness",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "popbean-lucky-cat-skullpanda-bliss",
+    "series": "popbean",
+    "set": "Lucky Cat",
+    "name": "Skullpanda - Bliss",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "popbean-lucky-cat-sweet-bean-gold",
+    "series": "popbean",
+    "set": "Lucky Cat",
+    "name": "Sweet Bean - Gold",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "popbean-lucky-cat-zsiga-lucky-star",
+    "series": "popbean",
+    "set": "Lucky Cat",
+    "name": "Zsiga - Lucky Star",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "popbean-lucky-cat-dimoo-domi",
+    "series": "popbean",
+    "set": "Lucky Cat",
+    "name": "Dimoo - Domi",
+    "rarity": "regular",
+    "color": "#9B6AB0"
+  },
+  {
+    "id": "popbean-mini-ice-pop-bunny-strawberry",
+    "series": "popbean",
+    "set": "Mini Ice Pop",
+    "name": "Bunny - Strawberry",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "popbean-mini-ice-pop-crybaby-brown-sugar",
+    "series": "popbean",
+    "set": "Mini Ice Pop",
+    "name": "Crybaby - Brown Sugar",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "popbean-mini-ice-pop-dimoo-sea-salt",
+    "series": "popbean",
+    "set": "Mini Ice Pop",
+    "name": "Dimoo - Sea Salt",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "popbean-mini-ice-pop-flying-dongdong-coconut",
+    "series": "popbean",
+    "set": "Mini Ice Pop",
+    "name": "Flying Dongdong - Coconut",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "popbean-mini-ice-pop-hacipupu-sweet-orange",
+    "series": "popbean",
+    "set": "Mini Ice Pop",
+    "name": "Hacipupu - Sweet Orange",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "popbean-mini-ice-pop-labubu-lime",
+    "series": "popbean",
+    "set": "Mini Ice Pop",
+    "name": "Labubu - Lime",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "popbean-mini-ice-pop-molly-vanilla",
+    "series": "popbean",
+    "set": "Mini Ice Pop",
+    "name": "Molly - Vanilla",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "popbean-mini-ice-pop-pucky-taro",
+    "series": "popbean",
+    "set": "Mini Ice Pop",
+    "name": "Pucky - Taro",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "popbean-mini-ice-pop-satyr-rory-lemon",
+    "series": "popbean",
+    "set": "Mini Ice Pop",
+    "name": "Satyr Rory - Lemon",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "popbean-mini-ice-pop-skullpanda-raspberry",
+    "series": "popbean",
+    "set": "Mini Ice Pop",
+    "name": "Skullpanda - Raspberry",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "popbean-mini-ice-pop-sweet-bean-white-peach",
+    "series": "popbean",
+    "set": "Mini Ice Pop",
+    "name": "Sweet Bean - White Peach",
+    "rarity": "regular",
+    "color": "#6E8F5A"
+  },
+  {
+    "id": "popbean-harry-potter-flight-cedric-diggory",
+    "series": "popbean",
+    "set": "Harry Potter Flight",
+    "name": "Cedric Diggory",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "popbean-harry-potter-flight-draco-malfoy",
+    "series": "popbean",
+    "set": "Harry Potter Flight",
+    "name": "Draco Malfoy",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "popbean-harry-potter-flight-fred-weasley",
+    "series": "popbean",
+    "set": "Harry Potter Flight",
+    "name": "Fred Weasley",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "popbean-harry-potter-flight-george-weasley",
+    "series": "popbean",
+    "set": "Harry Potter Flight",
+    "name": "George Weasley",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "popbean-harry-potter-flight-ginny-weasley",
+    "series": "popbean",
+    "set": "Harry Potter Flight",
+    "name": "Ginny Weasley",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "popbean-harry-potter-flight-harry-potter",
+    "series": "popbean",
+    "set": "Harry Potter Flight",
+    "name": "Harry Potter",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "popbean-harry-potter-flight-hermione-granger",
+    "series": "popbean",
+    "set": "Harry Potter Flight",
+    "name": "Hermione Granger",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "popbean-harry-potter-flight-lord-voldemort",
+    "series": "popbean",
+    "set": "Harry Potter Flight",
+    "name": "Lord Voldemort",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "popbean-harry-potter-flight-luna-lovegood",
+    "series": "popbean",
+    "set": "Harry Potter Flight",
+    "name": "Luna Lovegood",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "popbean-harry-potter-flight-neville-longbottom",
+    "series": "popbean",
+    "set": "Harry Potter Flight",
+    "name": "Neville Longbottom",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "popbean-harry-potter-flight-ron-weasley",
+    "series": "popbean",
+    "set": "Harry Potter Flight",
+    "name": "Ron Weasley",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "popbean-harry-potter-flight-rubeus-hagrid",
+    "series": "popbean",
+    "set": "Harry Potter Flight",
+    "name": "Rubeus Hagrid",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "popbean-harry-potter-flight-severus-snape",
+    "series": "popbean",
+    "set": "Harry Potter Flight",
+    "name": "Severus Snape",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "popbean-harry-potter-flight-sirius-black",
+    "series": "popbean",
+    "set": "Harry Potter Flight",
+    "name": "Sirius Black",
+    "rarity": "regular",
+    "color": "#5B8D88"
+  },
+  {
+    "id": "popbean-harry-potter-flight-tom-riddle",
+    "series": "popbean",
+    "set": "Harry Potter Flight",
+    "name": "Tom Riddle",
+    "rarity": "regular",
+    "color": "#5B8D88"
   }
 ]

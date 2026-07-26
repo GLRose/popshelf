@@ -1,0 +1,458 @@
+{
+  "ip": "sweetbean",
+  "sources": {
+    "popmart-roster": {
+      "lastRunAt": "2026-07-26T10:07:41.756Z",
+      "items": {
+        "991:grow-up-quickly": {
+          "figureId": "sweetbean-grow-up-quickly-grow-up-quickly",
+          "sourceUrl": "https://www.popmart.com/us/products/991",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Grow up Quickly\",\"Grow up Quickly\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://prod-america-res.popmart.com/default/20240304_102258_284302__1200x1200.jpg",
+          "imageHash": "357197188a237d7a4eb3860f5c8dccd1684bda1ee645e45b4e13958d083ce61b"
+        },
+        "1269:hot-spring-travel": {
+          "figureId": "sweetbean-hot-spring-travel-hot-spring-travel",
+          "sourceUrl": "https://www.popmart.com/us/products/1269",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Hot Spring Travel\",\"Hot Spring Travel\",\"regular\",null,\"#556070\"]",
+          "imageUrl": "https://prod-america-res.popmart.com/default/20240531_142605_709854____1_____1200x1200.jpg",
+          "imageHash": "e84757c9ae89cf5059dfd160c54df3b958725dd2f89c13c941320b93013c2bf7"
+        },
+        "1545:rowing-pineapple": {
+          "figureId": "sweetbean-fruit-world-adventure-rowing-pineapple",
+          "sourceUrl": "https://www.popmart.com/us/products/1545",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Fruit World Adventure\",\"Rowing Pineapple\",\"regular\",null,\"#6FB2A0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1725329666447____rowing-pineapple____.png",
+          "imageHash": "db3ab034dc740f539c4b4990521244022153d02d6cbcfcc812da2278b6dd25aa"
+        },
+        "1545:orange-alchemist": {
+          "figureId": "sweetbean-fruit-world-adventure-orange-alchemist",
+          "sourceUrl": "https://www.popmart.com/us/products/1545",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Fruit World Adventure\",\"Orange Alchemist\",\"regular\",null,\"#6FB2A0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1725329642329____orange-alchemist____.png",
+          "imageHash": "53e869535d3dafd379e52e3f18c6a94f117585375d08ba1a17b0a3ea0e7bfcb7"
+        },
+        "1545:strawberry-take-off": {
+          "figureId": "sweetbean-fruit-world-adventure-strawberry-take-off",
+          "sourceUrl": "https://www.popmart.com/us/products/1545",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Fruit World Adventure\",\"Strawberry Take Off\",\"regular\",null,\"#6FB2A0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1725329700941____strawberry-take-off____.png",
+          "imageHash": "c9d6c4ddf0b3c24a03d8fd82a971808bc514d7c8c7c754321efe2405812d5574"
+        },
+        "1545:hunter-penguin": {
+          "figureId": "sweetbean-fruit-world-adventure-hunter-penguin",
+          "sourceUrl": "https://www.popmart.com/us/products/1545",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Fruit World Adventure\",\"Hunter Penguin\",\"regular\",null,\"#6FB2A0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1725329688518____hunter-penguin____.png",
+          "imageHash": "c10b67d3ae21b1e2b78ff10ed63188ab3af3e16f22da8d55c6deceb5e2887562"
+        },
+        "1545:pear-runner": {
+          "figureId": "sweetbean-fruit-world-adventure-pear-runner",
+          "sourceUrl": "https://www.popmart.com/us/products/1545",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Fruit World Adventure\",\"Pear Runner\",\"regular\",null,\"#6FB2A0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1725329676540____pear-runner____.png",
+          "imageHash": "eed64d77b3a255505b07e715b42d88cbde52c57deb2616a9a64a974c2c7569fc"
+        },
+        "1545:cherry-treasure-hunter": {
+          "figureId": "sweetbean-fruit-world-adventure-cherry-treasure-hunter",
+          "sourceUrl": "https://www.popmart.com/us/products/1545",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Fruit World Adventure\",\"Cherry Treasure Hunter\",\"regular\",null,\"#6FB2A0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1725329633620____cherry-treasure-hunter____.png",
+          "imageHash": "bb5ef232f3c39d48bc5081da54e985fc0efc2ddff544e069df8f1a4f0fe409de"
+        },
+        "1545:gardener-grapes": {
+          "figureId": "sweetbean-fruit-world-adventure-gardener-grapes",
+          "sourceUrl": "https://www.popmart.com/us/products/1545",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Fruit World Adventure\",\"Gardener Grapes\",\"regular\",null,\"#6FB2A0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1725329623522____gardener-grapes____.png",
+          "imageHash": "cee71078562fafed22e25b81124a327e3d370434bb8c4e9876f8a153abba4895"
+        },
+        "1545:grass-skiing-lychee": {
+          "figureId": "sweetbean-fruit-world-adventure-grass-skiing-lychee",
+          "sourceUrl": "https://www.popmart.com/us/products/1545",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Fruit World Adventure\",\"Grass-skiing Lychee\",\"regular\",null,\"#6FB2A0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1725329614317____grass-skiing-lychee____.png",
+          "imageHash": "27487e381fec867b4ddc45fbe5e3708749378ff530871e3db8100f594b6365db"
+        },
+        "1545:lemon-diver": {
+          "figureId": "sweetbean-fruit-world-adventure-lemon-diver",
+          "sourceUrl": "https://www.popmart.com/us/products/1545",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Fruit World Adventure\",\"Lemon Diver\",\"regular\",null,\"#6FB2A0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1725329582697____lemon-diver____.png",
+          "imageHash": "32885109d39ebe0a836c99b6bdc058b5e410e6d3fb36ab3dca8ff5bad958f013"
+        },
+        "1545:watermelon-warrior": {
+          "figureId": "sweetbean-fruit-world-adventure-watermelon-warrior",
+          "sourceUrl": "https://www.popmart.com/us/products/1545",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Fruit World Adventure\",\"Watermelon Warrior\",\"regular\",null,\"#6FB2A0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1725329598480____watermelon-warrior____.png",
+          "imageHash": "389b7aed85fad644f73f6563a553888c2d61177ad0f825570359025b3bc21496"
+        },
+        "1545:lazy-banana": {
+          "figureId": "sweetbean-fruit-world-adventure-lazy-banana",
+          "sourceUrl": "https://www.popmart.com/us/products/1545",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Fruit World Adventure\",\"Lazy Banana\",\"regular\",null,\"#6FB2A0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1725329565988____lazy-banana____.png",
+          "imageHash": "23d792aeed538f1e4a854bb600844179531bb25bead052fdf54f9b23e11d073e"
+        },
+        "1545:peach-princess": {
+          "figureId": "sweetbean-fruit-world-adventure-peach-princess",
+          "sourceUrl": "https://www.popmart.com/us/products/1545",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Fruit World Adventure\",\"Peach Princess\",\"regular\",null,\"#6FB2A0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1725329555149____peach-princess____.png",
+          "imageHash": "024d7842cfa88482ca2799686c112201e0144431fd0166afa3a152d1dfbba898"
+        },
+        "1545:berry-tunes": {
+          "figureId": "sweetbean-fruit-world-adventure-berry-tunes",
+          "sourceUrl": "https://www.popmart.com/us/products/1545",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Fruit World Adventure\",\"Berry Tunes\",\"secret\",null,\"#6FB2A0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1725329545202____secret____.png",
+          "imageHash": "0c804cdd4798b23085433b8eb6e565d96ad0670c36cd218abf04fb5faa11b4aa"
+        },
+        "1456:bedtime-story": {
+          "figureId": "sweetbean-bedtime-story-bedtime-story",
+          "sourceUrl": "https://www.popmart.com/us/products/1456",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Bedtime Story\",\"Bedtime Story\",\"regular\",null,\"#7F9B6E\"]",
+          "imageUrl": "https://prod-america-res.popmart.com/default/20240829_174802_488567____sweet-bean-bedtime-story-figure_figurine_popmart-us-_details_1_____1200x1200.jpg",
+          "imageHash": "48e8b07b5d0069ffcabd08ceca248ee44c80f9430da5bc9889d76555b1ae8e83"
+        },
+        "2154:when-i-m-in-love": {
+          "figureId": "sweetbean-i-want-a-hug-when-i-m-in-love",
+          "sourceUrl": "https://www.popmart.com/us/products/2154",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"I Want a Hug\",\"When I'm in Love\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1739174179072____when-i-m-in-love_____.png",
+          "imageHash": "56b8b3de28281a6c940fca6b19b908223deb09aa09e9d7056301488b26457346"
+        },
+        "2154:when-i-m-sleeping": {
+          "figureId": "sweetbean-i-want-a-hug-when-i-m-sleeping",
+          "sourceUrl": "https://www.popmart.com/us/products/2154",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"I Want a Hug\",\"When I'm Sleeping\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1739174210818____when-i-m-sleeping____.png",
+          "imageHash": "43e0a8bcc751a7bf58e69b7b4e8fc81753e00106166b9a70f7e897bb356e57bc"
+        },
+        "2154:when-i-m-sad": {
+          "figureId": "sweetbean-i-want-a-hug-when-i-m-sad",
+          "sourceUrl": "https://www.popmart.com/us/products/2154",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"I Want a Hug\",\"When I'm Sad\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1739174228258____when-i-m-sad____.png",
+          "imageHash": "b7192144ab6158c8cbed2e13b07c52431e2bd2ed18c8609b2296f9f114147d62"
+        },
+        "2154:when-i-don-t-want-to-get-up": {
+          "figureId": "sweetbean-i-want-a-hug-when-i-don-t-want-to-get-up",
+          "sourceUrl": "https://www.popmart.com/us/products/2154",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"I Want a Hug\",\"When I Don't Want to Get up\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1739174269349____when-i-don-t-want-to-get-up____.png",
+          "imageHash": "57f8b4efcf18990350e3de64672181cef9a0ab6a7cedf0e9039d2ee6274ce3db"
+        },
+        "2154:when-i-get-something": {
+          "figureId": "sweetbean-i-want-a-hug-when-i-get-something",
+          "sourceUrl": "https://www.popmart.com/us/products/2154",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"I Want a Hug\",\"When I Get Something\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1739174287445____when-i-get-something____.png",
+          "imageHash": "3524915bf4fddc8e71b262d46c40f91a1ff9cb8f322113ec0a185ac353821beb"
+        },
+        "2154:when-i-m-a-little-devil": {
+          "figureId": "sweetbean-i-want-a-hug-when-i-m-a-little-devil",
+          "sourceUrl": "https://www.popmart.com/us/products/2154",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"I Want a Hug\",\"When I'm a Little Devil\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1739174306831____when-i-m-a-little-devil____.png",
+          "imageHash": "516a98979bdb76b110ecee7e6063cb0b0b64ac32c4b384ed85ccece8cf5fc1a5"
+        },
+        "2154:when-i-m-ambitious": {
+          "figureId": "sweetbean-i-want-a-hug-when-i-m-ambitious",
+          "sourceUrl": "https://www.popmart.com/us/products/2154",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"I Want a Hug\",\"When I'm Ambitious\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1739174328197____when-i-m-ambitious____.png",
+          "imageHash": "12316bdc5d275068378d23e347d8e0eafd8b84c29ea39417d3c612c66054c525"
+        },
+        "2154:before-i-became-numb": {
+          "figureId": "sweetbean-i-want-a-hug-before-i-became-numb",
+          "sourceUrl": "https://www.popmart.com/us/products/2154",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"I Want a Hug\",\"Before I Became Numb\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1739174351007____before-i-became-numb____.png",
+          "imageHash": "95ef753665dd9796001c3e05b7055be3c3c0929f2ac34475d7f2acc2bb1f5bfa"
+        },
+        "2154:when-i-try-to-be-good": {
+          "figureId": "sweetbean-i-want-a-hug-when-i-try-to-be-good",
+          "sourceUrl": "https://www.popmart.com/us/products/2154",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"I Want a Hug\",\"When I Try to Be Good\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1739174370658____when-i-try-to-be-good____.png",
+          "imageHash": "3835c3d2b34a7f977bf8b92f58f12e7e4c5453c0a9a062e391443dbdefed8c51"
+        },
+        "2154:when-i-feel-peaceful": {
+          "figureId": "sweetbean-i-want-a-hug-when-i-feel-peaceful",
+          "sourceUrl": "https://www.popmart.com/us/products/2154",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"I Want a Hug\",\"When I Feel Peaceful\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1739174392669____when-i-feel-peaceful____.png",
+          "imageHash": "5e3b5c22d050b46d611c6ecf81d6b38ce7bed91de4eb8dbaa93ad38c111c302b"
+        },
+        "2154:when-i-m-sick": {
+          "figureId": "sweetbean-i-want-a-hug-when-i-m-sick",
+          "sourceUrl": "https://www.popmart.com/us/products/2154",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"I Want a Hug\",\"When I'm Sick\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1739174410593____when-i-m-sick____.png",
+          "imageHash": "48e788b9d739ad85601fab4214c42764f428f477335f2e797e968a3dad08f1e8"
+        },
+        "2154:when-i-m-angry": {
+          "figureId": "sweetbean-i-want-a-hug-when-i-m-angry",
+          "sourceUrl": "https://www.popmart.com/us/products/2154",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"I Want a Hug\",\"When I'm Angry\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1739174432614____when-i-m-angry____.png",
+          "imageHash": "783624fdec5c61b55a17e12813540d052726ceb9f5ea6fd5ac49799a934f139c"
+        },
+        "2154:when-i-want-a-hug": {
+          "figureId": "sweetbean-i-want-a-hug-when-i-want-a-hug",
+          "sourceUrl": "https://www.popmart.com/us/products/2154",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"I Want a Hug\",\"When I Want a Hug\",\"secret\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1739174452209____secret_when-i-want-a-hug____.png",
+          "imageHash": "b8236013c947933bea09a32987b09a7a167e92ac589430ecbc6faec120daafcc"
+        },
+        "2152:easter-bunny": {
+          "figureId": "sweetbean-easter-bunny-easter-bunny",
+          "sourceUrl": "https://www.popmart.com/us/products/2152",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Easter Bunny\",\"Easter Bunny\",\"regular\",null,\"#556070\"]",
+          "imageUrl": "https://prod-america-res.popmart.com/default/20250303_172513_686627____1_sweet-bean-easter-bunny-figure_figurine_details_popmart-us_____1200x1200.jpg",
+          "imageHash": "8592d982121cfb7c653fa612f2ab2ca68ad82874643484fdf4f4a7016aede557"
+        },
+        "2234:let-s-be-best-friends": {
+          "figureId": "sweetbean-the-language-of-love-let-s-be-best-friends",
+          "sourceUrl": "https://www.popmart.com/us/products/2234",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"The Language of Love\",\"Let's Be Best Friends\",\"regular\",null,\"#C98A3E\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1747020936522____let-s-be-best-friends____.png",
+          "imageHash": "3510cf82012dab0c185dce1e01dfe22bc12ba3c516b1127adbcd044e574587b4"
+        },
+        "2234:can-t-wait-to-see-you": {
+          "figureId": "sweetbean-the-language-of-love-can-t-wait-to-see-you",
+          "sourceUrl": "https://www.popmart.com/us/products/2234",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"The Language of Love\",\"Can't Wait to See You\",\"regular\",null,\"#C98A3E\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1747020929840____can-t-wait-to-see-you____.png",
+          "imageHash": "ae59983252b4a812b2a234da6fda1ef1604bff0ef4b6f45519681215b60fb870"
+        },
+        "2234:romantic-letter": {
+          "figureId": "sweetbean-the-language-of-love-romantic-letter",
+          "sourceUrl": "https://www.popmart.com/us/products/2234",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"The Language of Love\",\"Romantic Letter\",\"regular\",null,\"#C98A3E\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1747020921896____romantic-letter____.png",
+          "imageHash": "312123f3981778064ad64ab91ed3131ec16360660faf49f41bbfd02c13189030"
+        },
+        "2234:good-night": {
+          "figureId": "sweetbean-the-language-of-love-good-night",
+          "sourceUrl": "https://www.popmart.com/us/products/2234",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"The Language of Love\",\"Good Night\",\"regular\",null,\"#C98A3E\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1747020915468____good-night____.png",
+          "imageHash": "28c5ac27ecde44504a80b938e7725622d0fb0a99a0dd860b067694f357a020a1"
+        },
+        "2234:for-you": {
+          "figureId": "sweetbean-the-language-of-love-for-you",
+          "sourceUrl": "https://www.popmart.com/us/products/2234",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"The Language of Love\",\"For You\",\"regular\",null,\"#C98A3E\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1747020907836____for-you____.png",
+          "imageHash": "bbf5f9a04fb479b64c680b9ff38869425d787c1403c8ffd2ef850d7adc747720"
+        },
+        "2234:i-believe-in-you": {
+          "figureId": "sweetbean-the-language-of-love-i-believe-in-you",
+          "sourceUrl": "https://www.popmart.com/us/products/2234",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"The Language of Love\",\"I Believe in You\",\"regular\",null,\"#C98A3E\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1747020899578____i-believe-in-you____.png",
+          "imageHash": "e5f9e56ffc085f9ff9ebc895a8671a0f3addeb08f9be4c08594e3fbd294cfe69"
+        },
+        "2234:morning": {
+          "figureId": "sweetbean-the-language-of-love-morning",
+          "sourceUrl": "https://www.popmart.com/us/products/2234",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"The Language of Love\",\"Morning\",\"regular\",null,\"#C98A3E\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1747020892275____morning____.png",
+          "imageHash": "5b0ed66bb7c000977ae50518f6740afcdbcb370631c9c16ebaee4c71d91f5281"
+        },
+        "2234:have-a-great-day": {
+          "figureId": "sweetbean-the-language-of-love-have-a-great-day",
+          "sourceUrl": "https://www.popmart.com/us/products/2234",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"The Language of Love\",\"Have a Great Day\",\"regular\",null,\"#C98A3E\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1747020884697____have-a-great-day____.png",
+          "imageHash": "8fccf01cc9df444f561a81243e5840b9980cffc9a24ef38ae51b38d116cfdb5a"
+        },
+        "2234:you-are-the-best": {
+          "figureId": "sweetbean-the-language-of-love-you-are-the-best",
+          "sourceUrl": "https://www.popmart.com/us/products/2234",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"The Language of Love\",\"You Are the Best\",\"regular\",null,\"#C98A3E\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1747020875820____you-are-the-best____.png",
+          "imageHash": "6ec76ce890ee80190cb284288d6c2d86c1ea248c369fca4ff93501026beeb580"
+        },
+        "2234:call-me": {
+          "figureId": "sweetbean-the-language-of-love-call-me",
+          "sourceUrl": "https://www.popmart.com/us/products/2234",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"The Language of Love\",\"Call Me\",\"regular\",null,\"#C98A3E\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1747020867796____call-me____.png",
+          "imageHash": "39748d7e26f7b54bfe647c8c3469e0937a068b2c0706bba7b7f9ae7709158f9d"
+        },
+        "2234:i-need-you": {
+          "figureId": "sweetbean-the-language-of-love-i-need-you",
+          "sourceUrl": "https://www.popmart.com/us/products/2234",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"The Language of Love\",\"I Need You\",\"regular\",null,\"#C98A3E\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1747020859089____i-need-you____.png",
+          "imageHash": "a3482001b22afd21f74a34e7760c236ad507721b35fc6a02e849a2d7f9248a17"
+        },
+        "2234:kiss": {
+          "figureId": "sweetbean-the-language-of-love-kiss",
+          "sourceUrl": "https://www.popmart.com/us/products/2234",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"The Language of Love\",\"Kiss\",\"regular\",null,\"#C98A3E\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1747020850587____kiss____.png",
+          "imageHash": "c0c5d9cf08edbd9509f7c4a37846444f85dcbf20557e2990f12265475bed1b19"
+        },
+        "2234:forever-love": {
+          "figureId": "sweetbean-the-language-of-love-forever-love",
+          "sourceUrl": "https://www.popmart.com/us/products/2234",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"The Language of Love\",\"Forever Love\",\"secret\",null,\"#C98A3E\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1747020843343____forever-love-secret____.png",
+          "imageHash": "0d1d6a2ec9e9878bbb8fa49233a2747053cdacc256ba69ad3ad0fd800158fbc0"
+        },
+        "4203:snowman-bell": {
+          "figureId": "sweetbean-your-exclusive-holiday-snowman-bell",
+          "sourceUrl": "https://www.popmart.com/us/products/4203",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Your Exclusive Holiday\",\"Snowman Bell\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1761896739673____snowman-bell____.png",
+          "imageHash": "11a46531d9c692792bb64439082d1b36dc88b27161c70cc7c3bdac4286a3cd6d"
+        },
+        "4203:honey-bear": {
+          "figureId": "sweetbean-your-exclusive-holiday-honey-bear",
+          "sourceUrl": "https://www.popmart.com/us/products/4203",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Your Exclusive Holiday\",\"Honey Bear\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1761896708899____honey-bear____.png",
+          "imageHash": "1c75463be492fafe8d391441fcb430e739b4f11f4e639cd32a7112f8214d3162"
+        },
+        "4203:angel-s-blessing": {
+          "figureId": "sweetbean-your-exclusive-holiday-angel-s-blessing",
+          "sourceUrl": "https://www.popmart.com/us/products/4203",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Your Exclusive Holiday\",\"Angel's Blessing\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1761896697162____angel-s-blessing____.png",
+          "imageHash": "770f9f838b564664f0ca000b05647515c4f412fc5a67a331ef02aae73756d9dd"
+        },
+        "4203:collecting-wishes": {
+          "figureId": "sweetbean-your-exclusive-holiday-collecting-wishes",
+          "sourceUrl": "https://www.popmart.com/us/products/4203",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Your Exclusive Holiday\",\"Collecting Wishes\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1761896745116____collecting-wishes____.png",
+          "imageHash": "98c18384e40d8a6af87065fe5dcb849978c154b94413f4d856d0acda0b9122c4"
+        },
+        "4203:star-wish": {
+          "figureId": "sweetbean-your-exclusive-holiday-star-wish",
+          "sourceUrl": "https://www.popmart.com/us/products/4203",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Your Exclusive Holiday\",\"Star Wish\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1761896765376____star-wish____.png",
+          "imageHash": "60fce22ab7cbbdb99243827feaee5a9eaea83e9d5595fe49834ea1a737a68b73"
+        },
+        "4203:kitten-and-yarn-ball": {
+          "figureId": "sweetbean-your-exclusive-holiday-kitten-and-yarn-ball",
+          "sourceUrl": "https://www.popmart.com/us/products/4203",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Your Exclusive Holiday\",\"Kitten and Yarn Ball\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1761896718945____kitten-and-yarn-ball____.png",
+          "imageHash": "b2c5013220f04f081f0f77ff59f99226961e28bc81f91dc3855aba1e7805ae64"
+        },
+        "4203:snowflake": {
+          "figureId": "sweetbean-your-exclusive-holiday-snowflake",
+          "sourceUrl": "https://www.popmart.com/us/products/4203",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Your Exclusive Holiday\",\"Snowflake\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1761896684611____snowflake____.png",
+          "imageHash": "0a22549ce0c76aa357257ef78a5e1962f3a0a00e698665b4e7e672d005cf1d32"
+        },
+        "4203:gift-delivery": {
+          "figureId": "sweetbean-your-exclusive-holiday-gift-delivery",
+          "sourceUrl": "https://www.popmart.com/us/products/4203",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Your Exclusive Holiday\",\"Gift Delivery\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1761896733487____gift-delivery____.png",
+          "imageHash": "f3204d5d63df267e57f04a07b6aab0f19f4e548a2177861fa515c181d934bbfc"
+        },
+        "4203:bear-bell": {
+          "figureId": "sweetbean-your-exclusive-holiday-bear-bell",
+          "sourceUrl": "https://www.popmart.com/us/products/4203",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Your Exclusive Holiday\",\"Bear Bell\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1761896702527____bear-bell____.png",
+          "imageHash": "470ced29bb56ecb2d85c8cb2f01d31602d1de26f8f4b364580b6e0022177670f"
+        },
+        "4203:gingerbread-friends": {
+          "figureId": "sweetbean-your-exclusive-holiday-gingerbread-friends",
+          "sourceUrl": "https://www.popmart.com/us/products/4203",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Your Exclusive Holiday\",\"Gingerbread Friends\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1761896758054____gingerbread-friends____.png",
+          "imageHash": "dd39b178790ad5aa1cd7411a634ad4d67b6478a1bf86b7e7602820e989f46cff"
+        },
+        "4203:ski-season": {
+          "figureId": "sweetbean-your-exclusive-holiday-ski-season",
+          "sourceUrl": "https://www.popmart.com/us/products/4203",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Your Exclusive Holiday\",\"Ski Season\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1761896691216____ski-season____.png",
+          "imageHash": "8ce1729977833c7f51bcedf194cc0ba6e89279ec691998ab4264163dc6fd45f1"
+        },
+        "4203:holiday-snowman": {
+          "figureId": "sweetbean-your-exclusive-holiday-holiday-snowman",
+          "sourceUrl": "https://www.popmart.com/us/products/4203",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Your Exclusive Holiday\",\"Holiday Snowman\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1761896751142____holiday-snowman____.png",
+          "imageHash": "e9381001da2d4420fc87def505a50c288f6080e32b1ff19f3ba2c8062de28eb3"
+        },
+        "4203:crystal-ball": {
+          "figureId": "sweetbean-your-exclusive-holiday-crystal-ball",
+          "sourceUrl": "https://www.popmart.com/us/products/4203",
+          "scrapedAt": "2026-07-26T10:05:59.551Z",
+          "contentHash": "[\"Your Exclusive Holiday\",\"Crystal Ball\",\"secret\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1761896774053____secret_crystal-ball____.png",
+          "imageHash": "c08b1fce1888c81e44b21b4fd16a983d35a1f5d5ab7d0d4a418fd9de06f4cd33"
+        }
+      }
+    }
+  }
+}

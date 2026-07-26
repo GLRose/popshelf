@@ -42,6 +42,8 @@ const BUCKET = 'figure-images';
 const MAX_DIMENSION = 500; // display is ~150px @2x; keep assets lean
 const NEAR_WHITE = 236; // min channel value to be treated as background
 const NEUTRAL = 18; // max channel spread (so only neutral bg is removed, not colored art)
+// Alpha at or under this is already nothing, whatever RGB sits beneath it.
+const ALREADY_TRANSPARENT = 16;
 // Pop Mart's per-figure "style" images are inconsistent: most sets give a
 // clean isolated render on white, but some give a full staged lifestyle photo
 // instead, with no flat background to remove at all. Nothing here reviews a
@@ -111,6 +113,14 @@ async function cutout(bytes: Buffer): Promise<Buffer> {
   const idx = (x: number, y: number) => (y * w + x) * 4;
   const isBg = (x: number, y: number) => {
     const i = idx(x, y);
+    // A pixel that is already transparent is background by definition, and the
+    // RGB left under it is meaningless - encoders put anything there. Pop
+    // Mart's own per-design renders arrive pre-isolated and are inconsistent
+    // about it: most leave white beneath the alpha, but some leave near-black,
+    // and those read as foreground on the colour test alone. That is enough to
+    // fail MIN_BACKGROUND_FRACTION and reject artwork that was already exactly
+    // what we wanted.
+    if (data[i + 3]! <= ALREADY_TRANSPARENT) return true;
     const r = data[i]!;
     const g = data[i + 1]!;
     const b = data[i + 2]!;

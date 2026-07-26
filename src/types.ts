@@ -1,4 +1,13 @@
-export type Series = 'skullpanda' | 'peachriot' | 'hirono' | 'dimoo';
+export type Series =
+  | 'skullpanda'
+  | 'peachriot'
+  | 'hirono'
+  | 'dimoo'
+  | 'tinytiny'
+  // Not a Pop Mart IP but a format: a bean-shaped mini of a character borrowed
+  // from another line. The borrowed character rides in the figure's name.
+  | 'popbean'
+  | 'sweetbean';
 
 export interface Figure {
   /** Stable unique id, e.g. "skullpanda-the-warmth-01" */

@@ -13,6 +13,11 @@ const SERIES_GLYPH: Record<Series, ComponentProps<typeof Ionicons>['name']> = {
   hirono: 'paw',
   peachriot: 'flame',
   dimoo: 'cloud',
+  tinytiny: 'moon',
+  // Not 'ellipse': a bare filled circle on the placeholder gradient reads as a
+  // failed image rather than a deliberate glyph.
+  popbean: 'happy',
+  sweetbean: 'ice-cream',
 };
 
 interface Props {

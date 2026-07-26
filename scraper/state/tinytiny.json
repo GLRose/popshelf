@@ -1,0 +1,130 @@
+{
+  "ip": "tinytiny",
+  "sources": {
+    "popmart-roster": {
+      "lastRunAt": "2026-07-26T10:05:52.161Z",
+      "items": {
+        "2082:fight-back": {
+          "figureId": "tinytiny-prologue-fight-back",
+          "sourceUrl": "https://www.popmart.com/us/products/2082",
+          "scrapedAt": "2026-07-26T10:05:21.650Z",
+          "contentHash": "[\"Prologue\",\"Fight back\",\"regular\",null,\"#4E7A9B\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1738922815344____fight-back____.png",
+          "imageHash": "43b26c5354cd505f285fa33037fcddac3e56b0e56e143f8eb1e5b993d0b7c303"
+        },
+        "2082:waiting": {
+          "figureId": "tinytiny-prologue-waiting",
+          "sourceUrl": "https://www.popmart.com/us/products/2082",
+          "scrapedAt": "2026-07-26T10:05:21.650Z",
+          "contentHash": "[\"Prologue\",\"Waiting\",\"regular\",null,\"#4E7A9B\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1738922823064____waiting____.png",
+          "imageHash": "7c7bf1fd078b03ed46404ec86231d2efc7fc60ed6e5d3187ee756ebf26af17d4"
+        },
+        "2082:choice": {
+          "figureId": "tinytiny-prologue-choice",
+          "sourceUrl": "https://www.popmart.com/us/products/2082",
+          "scrapedAt": "2026-07-26T10:05:21.650Z",
+          "contentHash": "[\"Prologue\",\"Choice\",\"regular\",null,\"#4E7A9B\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1738922830063____choice____.png",
+          "imageHash": "fbb1df5d0594940123f99574b036d6c4078ab333ddfab9c6fca20db599fcff3d"
+        },
+        "2082:chess-game": {
+          "figureId": "tinytiny-prologue-chess-game",
+          "sourceUrl": "https://www.popmart.com/us/products/2082",
+          "scrapedAt": "2026-07-26T10:05:21.650Z",
+          "contentHash": "[\"Prologue\",\"Chess Game\",\"regular\",null,\"#4E7A9B\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1738922836381____chess-game____.png",
+          "imageHash": "2c57015c36062cff26af9575afc443b03fdab2faf209eb7fa78c199d1ef50e11"
+        },
+        "2082:confine": {
+          "figureId": "tinytiny-prologue-confine",
+          "sourceUrl": "https://www.popmart.com/us/products/2082",
+          "scrapedAt": "2026-07-26T10:05:21.650Z",
+          "contentHash": "[\"Prologue\",\"Confine\",\"regular\",null,\"#4E7A9B\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1738922843897____confine____.png",
+          "imageHash": "3604977d13c0a0e8978bb521a4ccab3fae4b7ada0b926ebc7acef61396ea328a"
+        },
+        "2082:balance": {
+          "figureId": "tinytiny-prologue-balance",
+          "sourceUrl": "https://www.popmart.com/us/products/2082",
+          "scrapedAt": "2026-07-26T10:05:21.650Z",
+          "contentHash": "[\"Prologue\",\"Balance\",\"regular\",null,\"#4E7A9B\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1738922849390____balance____.png",
+          "imageHash": "45b07a8e72ce28501cf7da9ac26fe26940f842fe0b06cb04e9245d18b31e53e0"
+        },
+        "2082:riddle": {
+          "figureId": "tinytiny-prologue-riddle",
+          "sourceUrl": "https://www.popmart.com/us/products/2082",
+          "scrapedAt": "2026-07-26T10:05:21.650Z",
+          "contentHash": "[\"Prologue\",\"Riddle\",\"regular\",null,\"#4E7A9B\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1738922857809____riddle____.png",
+          "imageHash": "452295b507850b882b90b50332ef67fb68dd2cde927fc8b1778bd5df868c0f5a"
+        },
+        "2082:escape": {
+          "figureId": "tinytiny-prologue-escape",
+          "sourceUrl": "https://www.popmart.com/us/products/2082",
+          "scrapedAt": "2026-07-26T10:05:21.650Z",
+          "contentHash": "[\"Prologue\",\"Escape\",\"regular\",null,\"#4E7A9B\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1738922864935____escape____.png",
+          "imageHash": "083eb10cb8c6b599b383c616fea9428d9216e3e0a4df9126ee19af8580d22781"
+        },
+        "2082:lie": {
+          "figureId": "tinytiny-prologue-lie",
+          "sourceUrl": "https://www.popmart.com/us/products/2082",
+          "scrapedAt": "2026-07-26T10:05:21.650Z",
+          "contentHash": "[\"Prologue\",\"Lie\",\"regular\",null,\"#4E7A9B\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1738922970312____lie____.png",
+          "imageHash": "055f7ee6740013723a6afb5c63df784dc9a9705200aedcb68ec1502fd9ad5eb3"
+        },
+        "2082:puppet": {
+          "figureId": "tinytiny-prologue-puppet",
+          "sourceUrl": "https://www.popmart.com/us/products/2082",
+          "scrapedAt": "2026-07-26T10:05:21.650Z",
+          "contentHash": "[\"Prologue\",\"Puppet\",\"regular\",null,\"#4E7A9B\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1738922977762____puppet____.png",
+          "imageHash": "e50b8e4b6e8aa541833f5284ac41113db6b4a09899337679cf4fda16028fd9f1"
+        },
+        "2082:glass-house": {
+          "figureId": "tinytiny-prologue-glass-house",
+          "sourceUrl": "https://www.popmart.com/us/products/2082",
+          "scrapedAt": "2026-07-26T10:05:21.650Z",
+          "contentHash": "[\"Prologue\",\"Glass House\",\"regular\",null,\"#4E7A9B\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1738922991047____glass-house____.png",
+          "imageHash": "25d1ec88c6070bc66d9420bfea7b74ea7318adbf4d43ab5ddbdcdc07d9165c63"
+        },
+        "2082:born": {
+          "figureId": "tinytiny-prologue-born",
+          "sourceUrl": "https://www.popmart.com/us/products/2082",
+          "scrapedAt": "2026-07-26T10:05:21.650Z",
+          "contentHash": "[\"Prologue\",\"Born\",\"regular\",null,\"#4E7A9B\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1738923000050____born____.png",
+          "imageHash": "976477dcde97cdc09cbfe1fac9491b82db87945ecdb216e50761fbe6e99858c8"
+        },
+        "2082:perfect-gift": {
+          "figureId": "tinytiny-prologue-perfect-gift",
+          "sourceUrl": "https://www.popmart.com/us/products/2082",
+          "scrapedAt": "2026-07-26T10:05:21.650Z",
+          "contentHash": "[\"Prologue\",\"Perfect Gift\",\"secret\",null,\"#4E7A9B\"]",
+          "imageUrl": "https://global-static.popmart.com/globalAdmin/1738923008354____secret_perfect-gift____.png",
+          "imageHash": "93d0e2e2dcc37fce283afafa577beda0f81d99fe727f7a8b31954f103f232e30"
+        },
+        "3559:the-lie-of-freedom": {
+          "figureId": "tinytiny-the-lie-of-freedom-the-lie-of-freedom",
+          "sourceUrl": "https://www.popmart.com/us/products/3559",
+          "scrapedAt": "2026-07-26T10:05:21.650Z",
+          "contentHash": "[\"The Lie of Freedom\",\"The Lie of Freedom\",\"regular\",null,\"#6FB2A0\"]",
+          "imageUrl": "https://prod-america-res.popmart.com/default/20250829_142809_091660____1_tinytiny-the-lie-of-freedom-figure_figurine_popmart-us_____1200x1200.jpg",
+          "imageHash": "8051d55a75cd2a607c3167751cb122f8724f8e7f8d5b374683a0e3a7e556a255"
+        },
+        "3794:lullaby": {
+          "figureId": "tinytiny-lullaby-lullaby",
+          "sourceUrl": "https://www.popmart.com/us/products/3794",
+          "scrapedAt": "2026-07-26T10:05:21.650Z",
+          "contentHash": "[\"Lullaby\",\"Lullaby\",\"regular\",null,\"#7F9B6E\"]",
+          "imageUrl": "https://prod-america-res.popmart.com/default/20250919_142706_712104____1_tinytiny-lullaby-figure_figurine_details_pop-mart-us_____1200x1200.jpg",
+          "imageHash": "dcfbef45cc6e983a7ff591eebbe77afb10df15f21e8db3047c52d4043ba75c3c"
+        }
+      }
+    }
+  }
+}

@@ -12,6 +12,9 @@ export const Palette = {
   peachriot: '#FF7A9A',
   hirono: '#5B6B8C',
   dimoo: '#4A9DD9',
+  tinytiny: '#B8A6D9',
+  popbean: '#7FBF8F',
+  sweetbean: '#F2C879',
   gold: '#F4B740',
   ink: '#171423',
 } as const;
@@ -37,9 +40,32 @@ export const SERIES: Record<string, SeriesMeta> = {
     label: 'DIMOO',
     accent: Palette.dimoo,
   },
+  tinytiny: {
+    id: 'tinytiny',
+    label: 'TINYTINY',
+    accent: Palette.tinytiny,
+  },
+  popbean: {
+    id: 'popbean',
+    label: 'POP BEAN',
+    accent: Palette.popbean,
+  },
+  sweetbean: {
+    id: 'sweetbean',
+    label: 'SWEET BEAN',
+    accent: Palette.sweetbean,
+  },
 };
 
-export const SERIES_ORDER = ['skullpanda', 'peachriot', 'hirono', 'dimoo'] as const;
+export const SERIES_ORDER = [
+  'skullpanda',
+  'peachriot',
+  'hirono',
+  'dimoo',
+  'tinytiny',
+  'popbean',
+  'sweetbean',
+] as const;
 
 /** Preset shelf ledge colors the user can pick from. */
 export const SHELF_COLORS = [

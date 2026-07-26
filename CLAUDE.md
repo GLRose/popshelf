@@ -177,11 +177,13 @@ Catalog `figure_images` rows left behind are unreachable and undeletable by any 
   There is no Supabase figures table; Supabase holds only `figure_images`, `shelves`, and `favorites`.
 - Provenance and incremental crawl state live in committed sidecars at `scraper/state/<ip>.json`.
   The raw-response cache is gitignored at `scraper/.cache/`.
-- Scope is **popmart.com only**, no fan wikis or collector sites.
-- Cutouts use ML segmentation (`@imgly/background-removal-node`), which replaced the jimp flood-fill and handles staged lifestyle photos as well as clean renders.
-  `MIN_FOREGROUND_FRACTION` (2 percent) guards only against degenerate segmentation from a blank or corrupt source, not against a source-image shape.
+- Scope is **popmart.com only, with one deliberate exception**: `scraper/adapters/toypool.ts` reads thetoypool.com, because POP BEAN has no per-design data on popmart.com at all (see below).
+- Cutouts are an edge-seeded **jimp flood fill** (`cutout()` in `scraper/images/ingest.ts`), not ML segmentation.
+  `@imgly/background-removal-node` was tried and reverted: it is a saliency segmenter, so it ate white *inside* the figure and emitted feathered alpha. The flood fill is connectivity-based (interior white is untouchable by construction) and binary (edges stay crisp).
+  A pixel counts as background if it is already transparent, or if it is near-white and neutral. The transparency clause matters: Pop Mart's own renders arrive pre-isolated but are inconsistent about what RGB they leave under the alpha, and the ones hiding near-black there used to be rejected outright.
+  `MIN_BACKGROUND_FRACTION` (5 percent) is what rejects a staged lifestyle photo, which has no flat background to remove.
   Nothing reviews a cutout before publishing, so a figure with no usable result keeps the placeholder gradient rather than shipping a blank.
-  The in-app upload path is separate and still flood-fill based (`src/lib/images/removeBackground.ts`), where the 5 percent figure does mean "the background wasn't clean white".
+  The in-app upload path is separate and shares the algorithm (`src/lib/images/removeBackground.ts`).
 
 **popmart.com forces a Playwright-driven adapter, not the plain `Fetcher`.**
 The collection listing's public CDN JSON only covers the first few pages, and per-figure names and rarity come only from a signed endpoint gated behind Cloudflare Turnstile plus a proprietary device-fingerprint token.
@@ -189,9 +191,21 @@ The collection listing's public CDN JSON only covers the first few pages, and pe
 This is why `playwright` is a runtime dependency of the scrape script and not just a test dependency.
 `options.collectionId` is optional: the adapter resolves it from popmart.com's own `CHARACTERS` nav by `brandLabel`.
 
-**The collection pager is broken on Pop Mart's side as of 2026-07-25, so `npm run scrape` cannot run.**
+**The collection pager is broken on Pop Mart's side as of 2026-07-25, so the `popmart` adapter cannot run.**
 Their `common/v1/common/get_location_by_ip` answers 500 and the storefront's own JS then dies with an uncaught `TypeError` before it ever requests the product list, in headless and headed Chromium alike, on every country path.
 Nothing in this repo causes it and nothing here can work around it: the pager is the only route to the pages past the CDN snapshot's first three.
+
+**Ingestion is not blocked by that, because of `scraper/adapters/popmartRoster.ts`.**
+The sitemap route the rarity audit always used still works, and it turned out to carry everything an ingest needs: each `toy` in a product's roster has a name, Pop Mart's authoritative `type === 2` secret flag, *and* a per-design render URL that `discoverRosters()` was simply discarding.
+So `popmart-roster` is a thin `SourceAdapter` over that same walk, and it is what tinytiny, sweetbean and popbean are ingested with.
+The one field it cannot supply is `year`, which only ever came from the collection listing.
+
+Two shapes of product need care on this route:
+
+- A **standalone, non-blind-box release** ("TINYTINY LULLABY FIGURE") legitimately has no roster. `allowSingles` turns it into a set of one named after itself, with the first gallery banner as its art.
+  It is gated on the title ending in the *singular* "Figure"/"Figurine", and that gate is load-bearing: a real twelve-design series whose roster failed to load ("Sweet Bean Afternoon Tea Series **Figures**") would otherwise be flattened into a single figure, which is worse than missing because it looks complete.
+- Pop Mart's title casing is per-IP inconsistent - TinyTiny's are wholly uppercase - so `titleCaseIfShouting()` (`scraper/core/text.ts`) cases a set name only when it has no lowercase in it at all.
+  It runs *after* the trailing "Series" is stripped, since that word's own lowercase would otherwise mask the check.
 
 ### Auditing secret labels
 
@@ -207,6 +221,31 @@ The trade is `upTime`, and so a figure's `year`, which only the collection listi
 Pop Mart only publishes what it still sells.
 Twelve delisted sets (skullpanda City of Night, Ancient Castle, The Mare of Animals, L'Impressionnisme, Winter Symphony, Laid Back Tomorrow, The Addams Family, Candy Monster Town, Action Cut, HYPEPANDA, You Found Me, and peachriot Lil Peach Riot Loading) have no roster on any Pop Mart surface in any country, so their secrets came from collector sources instead and are the only labels in the catalog that popmart.com has not confirmed.
 `scraper/db/rarity.test.ts` holds the line from here: one secret per set, with an explicit list of the non-blind-box sets that have none and the handful that ship two or three.
+It carries a third list, `UNLABELLED_SECRET_SETS`, for the POP BEAN waves whose secret nothing can tell us - deliberately not folded into `NO_SECRET_SETS`, because "we do not know" and "there is none" are different claims and only one of them is true here.
+
+### POP BEAN, and what is not in it
+
+POP BEAN is a **format, not an IP**: a bean-shaped mini of a character borrowed from another line (Labubu, Molly, Dimoo, Crybaby, Pucky...).
+It is absent from Pop Mart's own CHARACTERS nav, which is the first sign it is not modelled like the others.
+
+It is one `popbean` series whose sets are the waves, with the borrowed character in the figure name ("Labubu - The Best One").
+The alternative - a series per character - was rejected because it promises mainline catalogs that do not exist: a user tapping MOLLY would find three beans and nothing else.
+`formatFigureName()` in the toypool adapter inserts that separator from a known-character list, longest match first, and passes a name through unchanged when nothing matches (the licensed waves are cast members, not IPs: "Cedric Diggory").
+
+**Coverage is 100 figures across 7 waves, and that is not all of them.** hobbyDB catalogues 525+.
+The shortfall is not laziness, it is that no readable source covers the rest:
+
+- popmart.com answers with an **empty roster for nearly every POP BEAN product** (Lucky Charm, Fortune Bag, Mini Ice Pop, THE MONSTERS Hair Salon, Ice Cream, Winter Romance, Coffee Factory all return `toys: []`). The collaboration waves are the exception - DIMOO WORLD × PIXAR returns a full 13 - which is why `popmart-roster` is still listed as a source for this IP.
+- thetoypool.com covers 6 waves and no more.
+- These waves are therefore sold by Pop Mart but absent from the catalog entirely: Coffee Factory, Bubble Tea, Pajama Party, Baked Bread, Ice Cream, SUSHI, Winter Romance, Macaron Dessert, Goodnight Night Sky, Celebrate This Moment, Going Outing With Me, Pajama Cross Dressing, Fluffy & Cozy, THE MONSTERS Hair Salon, DIMOO WORLD × DISNEY Classic.
+
+Closing that gap means a hobbyDB adapter, which is JS-rendered and so a Playwright job rather than the plain fetch toypool needs.
+
+Two smaller consequences worth knowing:
+
+- The 13 DIMOO WORLD × PIXAR figures have **no artwork**. Their `toy.url` images are staged lifestyle photos on tan and orange backgrounds, so `cutout()` rejects them, which is the guard working correctly. They render the placeholder gradient.
+- **SWEET BEAN is a different thing from POP BEAN** and is its own IP - own character, in the CHARACTERS nav, and its product pages do answer with rosters. It is ingested through `popmart-roster` like TinyTiny.
+  Its Afternoon Tea and × INSTINCTOY Sweet Together series are real multi-design sets whose rosters do not load, so they are absent rather than flattened into one figure each.
 
 ### Two gotchas that will bite
 

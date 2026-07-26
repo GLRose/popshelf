@@ -1,0 +1,802 @@
+{
+  "ip": "popbean",
+  "sources": {
+    "popmart-roster": {
+      "lastRunAt": "2026-07-26T10:08:22.197Z",
+      "items": {
+        "8140:dimoo-as-woody": {
+          "figureId": "popbean-dimoo-world-pixar-dimoo-as-woody",
+          "sourceUrl": "https://www.popmart.com/us/products/8140",
+          "scrapedAt": "2026-07-26T10:07:49.348Z",
+          "contentHash": "[\"Dimoo World × Pixar\",\"DIMOO as Woody\",\"regular\",null,\"#A8743E\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783675824925_bc613ab199b5b023064c3d2e84ffd3da.jpg"
+        },
+        "8140:dimoo-as-buzz-lightyear": {
+          "figureId": "popbean-dimoo-world-pixar-dimoo-as-buzz-lightyear",
+          "sourceUrl": "https://www.popmart.com/us/products/8140",
+          "scrapedAt": "2026-07-26T10:07:49.348Z",
+          "contentHash": "[\"Dimoo World × Pixar\",\"DIMOO as Buzz Lightyear\",\"regular\",null,\"#A8743E\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783675837348_41b66c9c04e9397b196f14c6616caca7.jpg"
+        },
+        "8140:dimoo-as-dash-parr": {
+          "figureId": "popbean-dimoo-world-pixar-dimoo-as-dash-parr",
+          "sourceUrl": "https://www.popmart.com/us/products/8140",
+          "scrapedAt": "2026-07-26T10:07:49.348Z",
+          "contentHash": "[\"Dimoo World × Pixar\",\"DIMOO as Dash Parr\",\"regular\",null,\"#A8743E\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783675849489_842107a4dc15a354caf344f5f77a74df.jpg"
+        },
+        "8140:dimoo-as-miguel-rivera": {
+          "figureId": "popbean-dimoo-world-pixar-dimoo-as-miguel-rivera",
+          "sourceUrl": "https://www.popmart.com/us/products/8140",
+          "scrapedAt": "2026-07-26T10:07:49.348Z",
+          "contentHash": "[\"Dimoo World × Pixar\",\"DIMOO as Miguel Rivera\",\"regular\",null,\"#A8743E\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783675858162_a4f8800b474f8b77821df9e222c424c2.jpg"
+        },
+        "8140:dimoo-as-wall-e": {
+          "figureId": "popbean-dimoo-world-pixar-dimoo-as-wall-e",
+          "sourceUrl": "https://www.popmart.com/us/products/8140",
+          "scrapedAt": "2026-07-26T10:07:49.348Z",
+          "contentHash": "[\"Dimoo World × Pixar\",\"DIMOO as WALL.E\",\"regular\",null,\"#A8743E\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783675871759_da108b7018640b6947ef9d8179d3c991.jpg"
+        },
+        "8140:dimoo-as-remy": {
+          "figureId": "popbean-dimoo-world-pixar-dimoo-as-remy",
+          "sourceUrl": "https://www.popmart.com/us/products/8140",
+          "scrapedAt": "2026-07-26T10:07:49.348Z",
+          "contentHash": "[\"Dimoo World × Pixar\",\"DIMOO as Remy\",\"regular\",null,\"#A8743E\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783675883626_6d3f1db668ed1b41f68ff12d10523231.jpg"
+        },
+        "8140:dimoo-as-lotso": {
+          "figureId": "popbean-dimoo-world-pixar-dimoo-as-lotso",
+          "sourceUrl": "https://www.popmart.com/us/products/8140",
+          "scrapedAt": "2026-07-26T10:07:49.348Z",
+          "contentHash": "[\"Dimoo World × Pixar\",\"DIMOO as Lotso\",\"regular\",null,\"#A8743E\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783675895820_58552cba99b9482f74013dc7eb6adfd1.jpg"
+        },
+        "8140:dimoo-as-sulley": {
+          "figureId": "popbean-dimoo-world-pixar-dimoo-as-sulley",
+          "sourceUrl": "https://www.popmart.com/us/products/8140",
+          "scrapedAt": "2026-07-26T10:07:49.348Z",
+          "contentHash": "[\"Dimoo World × Pixar\",\"DIMOO as Sulley\",\"regular\",null,\"#A8743E\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783675907613_ed78e01977627c97f023110ba1a0aade.jpg"
+        },
+        "8140:dimoo-as-russell": {
+          "figureId": "popbean-dimoo-world-pixar-dimoo-as-russell",
+          "sourceUrl": "https://www.popmart.com/us/products/8140",
+          "scrapedAt": "2026-07-26T10:07:49.348Z",
+          "contentHash": "[\"Dimoo World × Pixar\",\"DIMOO as Russell\",\"regular\",null,\"#A8743E\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783675919582_9202dbff7737af5a05a9b54206d28b7e.jpg"
+        },
+        "8140:dimoo-as-red-panda-mei": {
+          "figureId": "popbean-dimoo-world-pixar-dimoo-as-red-panda-mei",
+          "sourceUrl": "https://www.popmart.com/us/products/8140",
+          "scrapedAt": "2026-07-26T10:07:49.348Z",
+          "contentHash": "[\"Dimoo World × Pixar\",\"DIMOO as Red Panda Mei\",\"regular\",null,\"#A8743E\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783675933670_9eb2319ddc3ba3a3b9da695aec1ccab2.jpg"
+        },
+        "8140:dimoo-as-hamm": {
+          "figureId": "popbean-dimoo-world-pixar-dimoo-as-hamm",
+          "sourceUrl": "https://www.popmart.com/us/products/8140",
+          "scrapedAt": "2026-07-26T10:07:49.348Z",
+          "contentHash": "[\"Dimoo World × Pixar\",\"DIMOO as Hamm\",\"regular\",null,\"#A8743E\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783675954883_6c0d356095fa1924ac0714017516a99c.jpg"
+        },
+        "8140:dimoo-as-alien": {
+          "figureId": "popbean-dimoo-world-pixar-dimoo-as-alien",
+          "sourceUrl": "https://www.popmart.com/us/products/8140",
+          "scrapedAt": "2026-07-26T10:07:49.348Z",
+          "contentHash": "[\"Dimoo World × Pixar\",\"DIMOO as Alien\",\"regular\",null,\"#A8743E\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783675966495_cc88d44aa4c33be330c054acf923f521.jpg"
+        },
+        "8140:dimoo-as-alien-special-ver": {
+          "figureId": "popbean-dimoo-world-pixar-dimoo-as-alien-special-ver",
+          "sourceUrl": "https://www.popmart.com/us/products/8140",
+          "scrapedAt": "2026-07-26T10:07:49.348Z",
+          "contentHash": "[\"Dimoo World × Pixar\",\"DIMOO as Alien (Special Ver.)\",\"secret\",null,\"#A8743E\"]",
+          "imageUrl": "https://prod-global-biz.popmart.com/globalAdmin/1783675986411_8ecc51ea965514c08b8f4344e34dfd78.jpg"
+        }
+      }
+    },
+    "toypool": {
+      "lastRunAt": "2026-07-26T10:10:39.226Z",
+      "items": {
+        "lucky-charm:crybaby-happiness-red": {
+          "figureId": "popbean-lucky-charm-crybaby-happiness-red",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Crybaby - Happiness Red\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnj_Gn-dIlQgp5BsepYuS5dj_9Glbdv1By0HEbK7940gZJGV2m3ZqBfUbBZ4kdQ-L0Le1nZmtoM54qfCqGZrSmH6nv1uzfZp7-7Rw_AmxSiAN1iAZLStMd_wnVWm32-zmTrWTYZ7O-sI8505ZXTg475lF73J_dhzq4rwLHhEZQBw_fH3HzvdzRDuc7QXLd/s1600/Crybaby-Happiness-Red-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "4338de18a93e6f9a707b650854eb76961ef83d7ed87ff77b0a9513260ffd1365"
+        },
+        "lucky-charm:dimoo-peach-pink": {
+          "figureId": "popbean-lucky-charm-dimoo-peach-pink",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Dimoo - Peach Pink\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHkY-pvH6FvJodiPaM1J9xTLfcIzHtH_ZwjlSwrYxSjAu_VK_u3f0Ez3PgAr5tGUuuD2-aZkHLOD40goXiwYnWLIg_1eRR_-5dpHfsAd1_WygNhtyDBfwyzpBqqJ5ltECzLltuNjZlHHOt7JN58nTuaSv7xVAITNiF8kAJD1JNBP2OTsfEOuCe1Pynljg9/s1600/Dimoo-Peach-Pink-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "b30986ad8fe23d09954fb6ed21a8d64656ad4593c2150de82b866157e18e323b"
+        },
+        "lucky-charm:hacipupu-hot-pink": {
+          "figureId": "popbean-lucky-charm-hacipupu-hot-pink",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Hacipupu - Hot Pink\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEos-qnTOUpGprX5etg33tdqcoUSA_LtGUsikrkqVpaG6aR74H3sD25aGDiLT_y2Ef3L8M-m5lewniENcEWFizhJ2Ve5FaP4qa_nyYKZ6lLPBkEnGohWdE82p3EKbDtn3Hlj9cQ9ViNC3Xy1JCizl0GGm_65aIQa2Cv-AoBarqo9G9VX7Sl3_jUEcIph2V/s1600/Hacipupu-Hot-Pink-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "7b0175cd3fee7e857cbf5440d16df7c45183d5ae7c64cd636dda9721b32f0e61"
+        },
+        "lucky-charm:labubu-bright-orange": {
+          "figureId": "popbean-lucky-charm-labubu-bright-orange",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Labubu - Bright Orange\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRs-FTW5sNjBdSPCaQOnOXzzL1MR_8dBt9WJ1LIMo__D6pR86pSbP7kvWjFmfQBDjh_6_FOkrkC9WV5zzusIa-PuUk1TR3hoY0hof1Gbt8jo7uceSz0FuIu5v5Boi9psMJ2uHPOZ6YEpQ-LcSl2oF4CfjERrmplki5r4oq-O9pcM8beinlsmsamir2mOhe/s1600/Labubu-Bright-Orange-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "7cefa11f99bb54ac6135c2525fbbdc600e44d80dd39e2bbe480f41f0c4a3be65"
+        },
+        "lucky-charm:lilios-warm-yellow": {
+          "figureId": "popbean-lucky-charm-lilios-warm-yellow",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"LiLiOS - Warm Yellow\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEihqYO-qV6y-ZKrL2A9LC1Z81OhkxBwy18jEv50Al4EWmsqy4CRePa07-1MIxxf9SuVMhfZMAOEIfD2RRKggX7QfJpKN-i1uJjXzKpF9P-kj-eC0NhUd4QdxHbZChg02uUB-sjUWpc83bzPAv-spaHBuGn8dkKZ6LFpSC4cNh9RUOXehtUdE67pgbk_eJR7/s1600/LiLiOS-Warm-Yellow-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "066d305af39fbf33d272e5241417014c5930539bdf0769b85d3873814f8debd1"
+        },
+        "lucky-charm:molly-lucky-red": {
+          "figureId": "popbean-lucky-charm-molly-lucky-red",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Molly - Lucky Red\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmXo4FCJ9gMtJhW1R1v97MPldXsITUGEYRrz9hxaK3w28p-MIGvFudqV7M9_n-TgsseBdKeViL5GGhhIJSOS9mXa2ZIRf3cC18KRvR3F66qUGapjduJt1Ih7OeBerstBP6u00b3BJPB7WLbrJWBHO6MKyVpwzUJrVrD3XV40ZyGQ_MSF0_n2rLEUCGEXMz/s1600/Molly-Lucky-Red-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "cd5a5cc278212d970a1e5eee3e119b05bfd73585d0a35fda48ab6211710c837a"
+        },
+        "lucky-charm:pino-jelly-pure-silver": {
+          "figureId": "popbean-lucky-charm-pino-jelly-pure-silver",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Pino Jelly - Pure Silver\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLkRwYK2GqQM3_fE8j_tM3lA8slzOWKho_Oh-J-HGdpsvpglylEdH4tGN4xuwDTlU7g6eE_U6LRiJ97oWU350lY2Q7SqOffHUy1KubH9PH8LWLDIUnnESGLdkHxMXmRoiiTWtu1_6xzqUpPFXqmnXxuDOD_Wj_jnGFJYl4ZPgXKiByMkuHB8sgA0nBP4BS/s1600/Pino-Jelly-Pure-Silver-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "abea7fd6f161dc03b654b16b2b4114ad2527af9ecac8a677a3a386c5335087d8"
+        },
+        "lucky-charm:pucky-shining-gold": {
+          "figureId": "popbean-lucky-charm-pucky-shining-gold",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Pucky - Shining Gold\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3Yfz8eEt_fsdNeZ1Z5T0hqKMZ05YXrj5GFtCqqxmpOsMH4UHUc2hOQyxekba-5k-G5WYHfN6tQ5Yczjn7bgKkdVE5a-FXGeScf4uthjM8MM5zBpJooOL31vSLCDhratH0Mb-LBiRPnjoCPkmJdRG1YcRqyI9YD2LseRXnncvo-l0Zu05gOEBHoJkerL42/s1600/Pucky-Shining-Gold-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "ef3c6d639f805b08e0350294979bb1bedc68f217896916ecb161da3e88c5532b"
+        },
+        "lucky-charm:satyr-rory-noble-gold": {
+          "figureId": "popbean-lucky-charm-satyr-rory-noble-gold",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Satyr Rory - Noble Gold\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi45xpQKOPmYWaOhT1IaCdO6DoHYmoYN4BxHdnsL421SjtuDSazDlG0e28fXbXOsqy4QMK9nvKi5uG1AnRwwU3-aFEC6uAZCf71B3MDvofgDUqwYBwyQt5AwOHJS9asNp2fAL_7R95wKwDxx7PSsbigUz3TTkmYpIQjuO8ZAgaZVy0YP5txJLpSLzDcJM2L/s1600/Satyr-Rory-Noble-Gold-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "37c55c6350f6694c7ee208de73e624ca52f07231cc50c7c7eaf957a8beb125c4"
+        },
+        "lucky-charm:skullpanda-lucky-blue": {
+          "figureId": "popbean-lucky-charm-skullpanda-lucky-blue",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Skullpanda - Lucky Blue\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjk3h-t6Vp8AHbXIPhXHsZDuhs_HHJt_j6UONT-iWEBedO0KQOb6pujMLMCe2P2t49hiD_Bk0Sh4k87WCt_-buAt_vFW3Zo2a2u6cAC8Qm9Md15ZFRCtJrMp_TNutwfNQUSccc4pzbJ7fvPHe9mnCeeWXISdPJ3dE48DY8zwdQc62l-DBMylFRA1CRmH8Oa/s1600/Skullpanda-Lucky-Blue-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "b3088618b960f870e16adbd5684fbadd2c99be897b514c7af7fa9af54c26e207"
+        },
+        "lucky-charm:sweet-bean-joyful-red": {
+          "figureId": "popbean-lucky-charm-sweet-bean-joyful-red",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Sweet Bean - Joyful Red\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjj9C8v2TKiZLDJQ2yLAuNGbHF5tZbXRv2iGEsHkhFW_Z7a1qqM8UmC6-xJ_A3m0Nvvs9nQJkEIN88WNujiOS4Qk7tv5-uCzWpEoQ7S1GkkuHtqCzBL-oOBBk6m83EG9YElzFG87NwMo-CAUXgWcm2amzVBc-TK8Jp00KNytFrcYgQPgoqObK-e6AWWXlhH/s1600/Sweet-Bean-Joyful-Red-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "6337b2ac72336f7af80c43ba5799a4b6794319ae2cf2afdb1773a55436900558"
+        },
+        "lucky-charm:zsiga-passion-red": {
+          "figureId": "popbean-lucky-charm-zsiga-passion-red",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Zsiga - Passion Red\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjd9yQUXzkmVPuajKH2ov6v-3a02_jiJ4bIjLRb_fsuYld7oxKYiEUcMuEd1emSX3FdyP5fj-6k66aW6PmvsP4xs5ontRBQiELMml1PTJSk7O-eojSo6ty-X3rjCccyIk8SVQ5gsRlmp1RBfdChkNMxxS_1yo93Zq719OR9Uj_XeRr-Sx7fmcoodCbpEvJp/s1600/Zsiga-Passion-Red-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "58ad2de7fa395331dab5c20fac97b542022ac683dfb7b30bd8ebd760a0826cf9"
+        },
+        "lucky-charm:dimoo-good-luck": {
+          "figureId": "popbean-lucky-charm-dimoo-good-luck",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Dimoo - Good Luck\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7gNnpVxq9YtwuunQk22MbJmP5OKlNFp7x8s5Xnn6E-u0DRLJxJ9JBLmQY7MXesY8VqgoDqjQH1vBzQGEuGOsgdAwFdSDYkPZdvC81He7vx6S7rYqKzBBmX4N7qe4x8sLG-uSG3xp96NqjGEmThvOd4WK0KS97m71PPaLbusZ_xSD0e0G1m7Pu4IakkcJ6/s1600/Dimoo-Good-Luck-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "91bcdf09b98864bc4b4ed7f380a7da5ff436da9af0b4c1771676e875ab028eee"
+        },
+        "lucky-charm:hacipupu-sheer-bliss": {
+          "figureId": "popbean-lucky-charm-hacipupu-sheer-bliss",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Hacipupu - Sheer Bliss\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnn6y9SC728wd4ysb4tXJBrTmG-f6Xiyq3rziPQ53HgQZLESaJTrEG-XNX7asI7yYd9IORLei04MoCY9tTaGuf1gvSEcthdsZUeb-5ku60rgB8c2xyPlzMXiYIMkvPpYKTY_UQ5mZH5-84iTNZ7-ssR7NH9ax7hyphenhyphen5LGq1yEHBPFHEa2W4oNTCmLyUVAfcD/s1600/Hacipupu-Sheer-Bliss-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "ac2f7cec0b5dcd5b64c93e37cfd258579cb5f6077453cb5f8eef66c30e0730a5"
+        },
+        "lucky-charm:labubu-the-best-one": {
+          "figureId": "popbean-lucky-charm-labubu-the-best-one",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Labubu - The Best One\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxJKGzdQ0fmtWZOrG5XQHjtVxbWvC3oGBw6EPbJ0gBPEUUD1PGvvtEcz242hPWiV2nJj9XD5nFU_dwtjPG5jR_VtMSsPViv3WCiBBqQnJvMiidkzCJvO7TdL1v4gBy8SAFBnGvFtTbOqGpjqO0CIMitlUZSunOolh97Z2qtXV0S9jmz2n7Yi0MUIazi6Iz/s1600/Labubu-The-Best-One-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "4157f9455519611ab8b4da9ee2ef043c98b9b302d9e76f688bd7e9c7485d16d2"
+        },
+        "lucky-charm:molly-propitious-omen": {
+          "figureId": "popbean-lucky-charm-molly-propitious-omen",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Molly - Propitious Omen\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6vdYL3x5lLHypWXUlDPGMbsqd0cVCLRK2HcPg0xpJqM6i8kz0toanbMlXSFJW8naAzeeQeQR1GxnK2oBdB_C2nGz0e0USfY1yVIKOpfYFn5NfA3Vl-Kh5h19zUv5WBdBgxGsPlKS1e5mcK0UzBFV9UOaBpUrOxtlOaQrh1knTkAwkSrCGRxXH58_viwC5/s1600/Molly-Propitious-Omen-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "832879b1566199d21eb0a5d5fc1fa447143f7ba5e2c19a19ebc080b20361d36e"
+        },
+        "lucky-charm:pucky-great-fortune": {
+          "figureId": "popbean-lucky-charm-pucky-great-fortune",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Pucky - Great Fortune\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizxLnRkr811D9kN5Q41eepSMMTi2Qj0pT5Xs-KiZsCQBVgYdZhUyW43h5PRN6MHpYlSaUZnHac7P93GkGRjN4-U1f-0Le-nRRUj1Io_-WitDuo67xiTou4ILEpMYanyJY94HZiBjnMXgJBLjyGxR72n4_FijAJL3A4AYfpYUg_0PHFIWp7NSJQOmTynN9K/s1600/Pucky-Great-Fortune-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "a6df857a8a7d344241672df93098bd38f2b551fac86f387e607197a1606d8b76"
+        },
+        "lucky-charm:skullpanda-leap-into-success": {
+          "figureId": "popbean-lucky-charm-skullpanda-leap-into-success",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Skullpanda - Leap Into Success\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiDYBY_hF9MfU5ufE8n61q0Xo6CxFJZm6zmICb8AvYSW2P8dQywoCLycJq6smQMr1TsTlgVTsq5-189CMyYaEXRmr89NQcwMDPhYJllCS9obbZL03TcWYm_TzJwUXe3hGK31VzeOM77ujG5hsml60Bnp2PAwvgvL1jKesmmhzBg3wiv_GYQ5jvydd-12Xs/s1600/Skullpanda-Leap-Into-Success-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "7670341de0cdd8caa36c4eb457a011c358de87af55e9419eeb112e0163cbe9d2"
+        },
+        "lucky-charm:sweet-bean-everything-goes-well": {
+          "figureId": "popbean-lucky-charm-sweet-bean-everything-goes-well",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-charm-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Charm\",\"Sweet Bean - Everything Goes Well\",\"regular\",null,\"#8A7BF0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHA1m6uGZ86SIet36xvJfuPQe5WQfXtU9gdAp2sejkvQJJ7q2WvKZdSHycjC2Xfo3UMyehANmQf1IZE9vM-W9Xd4rq64oIAfoQ9BTNfQhJivB9fOjN11BLR5ykLDR5rz63Cq4Ls8ZI6KUcLmVPZthvUw4u_TAs4-MWk4Qk-hSVxV0ejfABNlb6tyB6Vnik/s1600/Sweet-Bean-Everything-Goes-Well-POP-BEAN-Lucky-Charm-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "01d437e5f751b446b8c3b2b7f1a6e982885a69274acef1e9c9e58e11cb505bd2"
+        },
+        "fortune-bag:zimomo": {
+          "figureId": "popbean-fortune-bag-zimomo",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fortune-bag-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fortune Bag\",\"Zimomo\",\"regular\",null,\"#3D4C7A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-J6vrlba353H9jmOE5OzPbxIlj18vXPaW8kszbrFGg36P25_jUaz213caPCkHVVJzS70vPafLlE-eEbOAqs2C_LYz4WpPGhd2_5ao0aEsyanutN3z1sP2Fqs0PcLoCBKcK1jWCLNvYu2KVVZ3cBxMhf54kN6CjV3eBFsKdfgOoG9nFmKLfjoBmtqMocvM/s1600/Zimomo-POP-BEAN-Fortune-Bag-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "b544e5c1305fb37c30cfef7431117eec3303b55c7d248eb5b16f1e844be3f52d"
+        },
+        "fortune-bag:vivicat": {
+          "figureId": "popbean-fortune-bag-vivicat",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fortune-bag-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fortune Bag\",\"ViViCat\",\"regular\",null,\"#3D4C7A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6Ml0Cbr60HBGJex_tJKNI9w48XYdnzkm_d34BtMIHa7otk-ggpPSZs0mHceOIU0xHuJVStwx_tIxnOe7LbMALuO9WPmaUch3M50QPq1P8EA7X25T0FQBhDHLs1ahF5srIYTG0zSTrDkAnU7D6s7xPUcr_99PngLLShlVhUR1vooV56BKPF_Ua6ZvLV8io/s1600/ViViCat-POP-BEAN-Fortune-Bag-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "79ae620a691d5840604667cf14ce23c37616624c5ba42d7b6d00b9f7806cca7e"
+        },
+        "fortune-bag:sweet-bean": {
+          "figureId": "popbean-fortune-bag-sweet-bean",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fortune-bag-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fortune Bag\",\"Sweet Bean\",\"regular\",null,\"#3D4C7A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGyFIDWVk-ygqCd2sTdH96ALr7bIZBTvxHP6tFuXPmqMaiKX3I46N5y4qKRB8KoVL5kamgqB3SMPNuUU0whGXbWAE_Dlf5ezgdL8R1RptGlgZYFfLYex1Cqt7Ci4kQgoiAM3byAcLP9d2c5sS1th2Wnc2vgZ95Rp5dc9ZoPzecam4i3SMO5vYfH7DqcPyr/s1600/Sweet-Bean-POP-BEAN-Fortune-Bag-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "8ada7552f46078358120a374a4cf1002220a611f92976bd7ec934af34610be0f"
+        },
+        "fortune-bag:susumi": {
+          "figureId": "popbean-fortune-bag-susumi",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fortune-bag-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fortune Bag\",\"Susumi\",\"regular\",null,\"#3D4C7A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjf3FRg-EOvnitCbiGTtI27bxMr2qkL2Rt0rCe8ufbf6jM0Xw6-SPvr5uUJBTdT2TBVeoIeFJO6wdLhRjqq6xJOM-_e2OuCCxt-qknk9MbxgNl2IfO8gsyew0LESl-JNdVHAQE0LC3q9ib941XhiZpLpzuE9RBsN8tch0UC2WK2jRi_TgBxCSpdqjg44X9n/s1600/Susumi-POP-BEAN-Fortune-Bag-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "d5c21ce39d36bde2508527775491c6ea982e9762bf19e89a70a0decbf3ce7da7"
+        },
+        "fortune-bag:skullpanda": {
+          "figureId": "popbean-fortune-bag-skullpanda",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fortune-bag-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fortune Bag\",\"Skullpanda\",\"regular\",null,\"#3D4C7A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjF2iPH8p59l_uForu96I7U0gjI6dvudW2PPZK0np6-lPC7O17WdQitHQDcTWiN99xLWX8NpRxcUIgRCkhzMqGpRtJTudRu5yYbp0LgsYLg8iP3FUXdWsiLyV3HVbJMjtu-zo5jfLiT_oSH_PNDguKqkrxnYOph4yv1VboW0LvDAnKtWOSvaOlimIaIpuJC/s1600/Skullpanda-POP-BEAN-Fortune-Bag-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "a85eddcebca8810e775fcd2ddfc7f9a65a1ad03fdc6224e00052961335b58554"
+        },
+        "fortune-bag:satyr-rory": {
+          "figureId": "popbean-fortune-bag-satyr-rory",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fortune-bag-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fortune Bag\",\"Satyr Rory\",\"regular\",null,\"#3D4C7A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMU1P7Q70zdhB_S4ZYGLZXm7JhNs2hMbkGP-n7rWlSLRxjbDqkxYFi_ETGr5j9G3wNR5Cmqiq3TFfXzAQjLFN-0YN8LS3YKb7H8_ICUEKy-709uuAGrWa-eXWeop834N9U1h_p9S2u31EgLpMFoU6ZeXmmeU2f43Nksnbw0bU6KQefddLB0HVeMoN2Kehg/s1600/Satyr-Rory-POP-BEAN-Fortune-Bag-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "d308a6d95e16889428ac6cb2ae61862b6273f3357d68d3fa971c386d9c10a7ca"
+        },
+        "fortune-bag:pucky": {
+          "figureId": "popbean-fortune-bag-pucky",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fortune-bag-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fortune Bag\",\"Pucky\",\"regular\",null,\"#3D4C7A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYQ7ZYVduxw_5DYHLbDRo9yHXZIRqriN_kOQD73ae5RkyYHS64t8y7MGj2DBOZrZO3x1ji5GFi3BfnVzQKYLUx1UnnzUWYWWd2MTQ30Wt5xnXvFN7_cM39UUUWfiaxXxB3xDz44XDyg042cA1ucVuHY_b4oKSdjIpGWcbJUxMTZCZySutcvC-p_Eijd7GI/s1600/Pucky-POP-BEAN-Fortune-Bag-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "42669853e96d27e652254f2f0b1afd17d6ab47a539842900bcffcaed0e0f56e3"
+        },
+        "fortune-bag:nori": {
+          "figureId": "popbean-fortune-bag-nori",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fortune-bag-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fortune Bag\",\"Nori\",\"regular\",null,\"#3D4C7A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPqsZ8bYKnOTFNcpJLDfXRmGNsP76yJNeZJQlYcCc1IyGTjLvoJZM_EYu09xatQmGkllpYnXZ6FaxxGHXatmlWhRIYFUg0nF9Kiti_U5AolirwHzw7oBQ5BOdW0ptq7HEwk8XF_uEA8410DxioJ5Urt2ZEpZARfAww9WySh3cjr-cqhgqpXcP0k1Xe7CVG/s1600/Nori-POP-BEAN-Fortune-Bag-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "d5c127e38f17465953debb694fe71c2308aa7e3d4cc3e7642b54693bc3db5a18"
+        },
+        "fortune-bag:molly": {
+          "figureId": "popbean-fortune-bag-molly",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fortune-bag-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fortune Bag\",\"Molly\",\"regular\",null,\"#3D4C7A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhv6TCK_mvLsIvxykOBwsyX3RYD2oZXlO_k_4UVrwX0XNCMBOVOIEwadOmrUxxTwUcxsJMlTljQIiJKxPAF9Euy4ufAKYGM5Q2h6VHqQ7GUwAVHzimjW-CEQ0lagCJQkFZnY4eSJdUVLodrAmgTrTd8bDtQa2Xp69srDVLqSJOZVR_xzgHS235NrDdm4_6E/s1600/Molly-POP-BEAN-Fortune-Bag-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "a516ba31d3b6ef3a6b2c8d9eeee98695b9d5201f3ad742ef2cbd317defff175c"
+        },
+        "fortune-bag:kaiju-negora": {
+          "figureId": "popbean-fortune-bag-kaiju-negora",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fortune-bag-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fortune Bag\",\"Kaiju Negora\",\"regular\",null,\"#3D4C7A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWTeQlCvjiwfA_0fy9ktg6WtyXtQivV-UyoQ3tPPOJctITboxEsD21hR2wqW-TApXA2IQ4psTXLPBrR2RTz_NxMEYsIGwXapRuoJLGITB0y-vkCr7GeD-VGqZgv7MRwyv_kjkdEkS1FRs-vkZgzA2GRHcHte4KlCkgDNfJsVledDTtCjXBDqDNtNeHYC7m/s1600/Kaiju-Negora-POP-BEAN-Fortune-Bag-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "85f2b0ae46585b7928083ff2d659b67c561c748be2be62396c4bf2503616beee"
+        },
+        "fortune-bag:hacipupu": {
+          "figureId": "popbean-fortune-bag-hacipupu",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fortune-bag-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fortune Bag\",\"Hacipupu\",\"regular\",null,\"#3D4C7A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOdX71kkmYQQQAU-4xDygMoTD4738opF_i1qSAP3IygtpyINmm9ZpUXdTsj_o_qBXUc7Osr4IFYykr0s0Tn2goqeOel3DzVRSjKzGkT174pSvTG0Atvw531VwAl_eH7RDxOQNQN_uNBBVlWtbjGMv02w_SYCYiVCmsl0exrVs2slN9jl3wLYU-L66oTMTW/s1600/Hacipupu-POP-BEAN-Fortune-Bag-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "e745ad8ba458302a221e2aaf4ece9d18260443b34f179829d03bbd894e5d5bd3"
+        },
+        "fortune-bag:fubaobao": {
+          "figureId": "popbean-fortune-bag-fubaobao",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fortune-bag-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fortune Bag\",\"Fubaobao\",\"regular\",null,\"#3D4C7A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0G93kjlb87ZrD6QBbnj-l4fEQx-T_Ye8MNBtaRRcefp6Lc4dtOn6MwTpUJ6tEgHBqmE6akBav9lZknS8UGvcZbhvif4NJ2TiKhqiJRfliHJHhVPsZGi1TxVq07hS9oCGbfxtdSADAlFcnooN9bBSX7ecpfKBH0WXPaZSxvrq8e1NNYpB1o38vZNPxkvZN/s1600/Fubaobao-POP-BEAN-Fortune-Bag-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "18537ecbfdaa75593fa71dc6548ebe394c37c477549313692b39899a67baf970"
+        },
+        "fortune-bag:dimoo": {
+          "figureId": "popbean-fortune-bag-dimoo",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fortune-bag-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fortune Bag\",\"Dimoo\",\"regular\",null,\"#3D4C7A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRN2GahFu4Zc7heU8sUhNioHSHSgVsKR6CnpigpXEnAntXG8hbSNEBTCNpwvQE-SijADeSWzd76Qm5lPubDvV5E27IaRqkJ69P8G0RMHBFUrLjSyEEcdDm0pAfjGpUVEdtU-bC1SmG0bRRieRPdtIRBg3zID8EWmL6vmA-mPVc2HqMurJSK3e9320kYxnm/s1600/Dimoo-POP-BEAN-Fortune-Bag-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "e8db23d0e5fff66fa010a6f7c939d87373f6726c3d79ff070ad6a1f58de31927"
+        },
+        "fortune-bag:crybaby": {
+          "figureId": "popbean-fortune-bag-crybaby",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fortune-bag-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fortune Bag\",\"Crybaby\",\"regular\",null,\"#3D4C7A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXHFdwMAKqvD-hPqpXePbOMN1wR_0wO6MiLXtBHRo8hd0f90lrV2k3UWFU0smhR2KyOGBD7nbmpwPBCeIzum4g7yq8-3uNPzbk1yuJlBlJMbpMfdahV3eR-H60NbUmWGfQWR5McaTdUe9Cv8RpXTLEB9TKlKwEpCQTj3jRUUavdPWrp52HaOtJ6I_YOEWi/s1600/Crybaby-POP-BEAN-Fortune-Bag-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "b3b93c659545989b8e08ea33fcf51714151950396379391535e844895696c9ea"
+        },
+        "fortune-bag:bobo-coco": {
+          "figureId": "popbean-fortune-bag-bobo-coco",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fortune-bag-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fortune Bag\",\"Bobo & Coco\",\"regular\",null,\"#3D4C7A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgsjcR3mrw267SGYuw_pmUoRsEtkx8-KzCjCH11edZcwARRJlqrs_NddsenHOnnTGX7hzPPBNfPWs3_PmQkNfUOEjt42W6TfO5SJ9g8vuDx4JOzNyOM0mzRHxbivi_YFhtF2hzC1EWY72mq01rGtzBXI_B0o-pfln7QWPr-HICt1-DVAY0seEO-SR8E5WSz/s1600/Bobo-&-Coco-POP-BEAN-Fortune-Bag-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "ceb56209a551c261a31e9f01268953f02c0d7fd7aaa8498521ce1f7af35f1c32"
+        },
+        "fruit-platter:dimoo-lime": {
+          "figureId": "popbean-fruit-platter-dimoo-lime",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fruit-platter-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fruit Platter\",\"Dimoo - Lime\",\"regular\",null,\"#7F9B6E\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitUrGzG5xs7cppH6QG_8RBU7HTQ5W-Ch3ItQBnNinGb3o5gDwQI9IsUXpda4RPbg1d7Wqdm9fcNfB_fMoQw5UYwwEtI3zXTxtRPwx0WtQUY0H9uwUEJKRLZgxINsyB-7OJfoM0IzEmQYVzQhV6qb1AIADE0tHp06802gysQ9USL2pCCdvBgAOM4GgJXjok/s1600/Dimoo-Lime-POP-BEAN-Fruit-Platter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "95e6a2566353ad06a6a3f4b19aa3aabf91b5a738f31c31e11bcabcab4cd46a19"
+        },
+        "fruit-platter:hacipucu-grapefruit": {
+          "figureId": "popbean-fruit-platter-hacipucu-grapefruit",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fruit-platter-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fruit Platter\",\"Hacipucu - Grapefruit\",\"regular\",null,\"#7F9B6E\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkvVXcEQzus2YI-5d_i7NflG1TZCTrVy85410TT-Ub03SYPbQ8l7GCh1VBeweT3yTjyDPZugWA5KwvGPloovt9XTIQVEePZhQTQRF7P8X45Fq-C9DiwfLFXSd1YByKqOddC0FjYL1ZAtY-4shyiQYbU4J9cb4GSDwPD-oAWGq31SWWTN1425MW7z04hh12/s1600/Hacipucu-Grapefruit-POP-BEAN-Fruit-Platter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "da9ed69875ac272375ccd411a8d2eb40c0093f8a29459caa550be0882b62eaf0"
+        },
+        "fruit-platter:labubu-elizabeth-melon": {
+          "figureId": "popbean-fruit-platter-labubu-elizabeth-melon",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fruit-platter-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fruit Platter\",\"Labubu - Elizabeth Melon\",\"regular\",null,\"#7F9B6E\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8zxqfdDTlo7MVPJNwK8u5X3IExKdvQPZsL_F1Ywl-Mm-F7mZe5MuySxu8ZbAXPKsXlcl9lQ0G7E1KHfMH6kfJrpFugZlbpYDzsvi1M0vjYWj5x5v9GMChKympaCSHVy1Ff36ty6kfyulEc_P0eLEIUHSq_OnUxIW_dEqrR-aSRX-Ix_NzsoklXPS0S9tx/s1600/Labubu-Elizabeth-Melon-POP-BEAN-Fruit-Platter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "47cbab4157048979e92cfb0d07c20e3bf0af475195e21f082903c0c61c66f5fd"
+        },
+        "fruit-platter:labubu-hami-melon": {
+          "figureId": "popbean-fruit-platter-labubu-hami-melon",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fruit-platter-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fruit Platter\",\"Labubu - Hami Melon\",\"regular\",null,\"#7F9B6E\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyje6Ax3tww4u_wCaH6RxJFFVZ4_wyfY6WbWTgFUyMb4asm5frdFmEcGsOSIwDFpIo1BOL51GYpLeE2JTiTLus53HZFc5pOdtfemkEbsHnXQkxLy9yigBB7zUc1ixjkvBM_xKnS9_tRNAEQrGkqRISGnQAZLnpcuN9J4oFXUC_W1B3uXYXhAupfz8ySflU/s1600/Labubu-Hami-Melon-POP-BEAN-Fruit-Platter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "e46c442d9dd1074767895bdcb38762b2a655413ee95e9033c8fd51ed15f69e57"
+        },
+        "fruit-platter:molly-green-apple": {
+          "figureId": "popbean-fruit-platter-molly-green-apple",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fruit-platter-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fruit Platter\",\"Molly - Green Apple\",\"regular\",null,\"#7F9B6E\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhX-LDGgJzVkCv3Qiviv10eOiNIMNVpqlumknRsaICxXT1OtXFIvbCa1goqSawQx3lXvwGomCfZ1W1dl-pi7QHfaQxIATaEtNkPs49xjRnpTKSja1OHKHNS7NAUFShsJv3NMuRJyfKsuKxY8qxuPoVu4LcwlVqMYCaVdkRva-MblrXkPs2_O7KTzZhq4Vtt/s1600/Molly-Green-Apple-POP-BEAN-Fruit-Platter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "3a4d5dbfd8a2cb397865f40cd1aac3fe59eac7c976e95b7837954ca9eb691675"
+        },
+        "fruit-platter:molly-red-apple": {
+          "figureId": "popbean-fruit-platter-molly-red-apple",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fruit-platter-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fruit Platter\",\"Molly - Red Apple\",\"regular\",null,\"#7F9B6E\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkQzXmMbZqR500sBbVsAW34vzwEHkRxgd37JQY-Znx5eUBeFJsmH7-V8DFIdkVFeJ8KDQhzhO60Y5bOE8NDq_vCQDmCdqaHJQh1GVwAJvJKYM0tsmQOlLAHW06TUstokKLuxjMw0ZSrgsLMiihZxsPb2bGnTgSLl5vUhlK90gfNcEDBdteBlpVCsDOVFgr/s1600/Molly-Red-Apple-POP-BEAN-Fruit-Platter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "7cbda58d50218dde6cef929bc266b9d066c2fa3e7de10140379f9fc5b5c3fccf"
+        },
+        "fruit-platter:pino-jelly-pitaya-fruit": {
+          "figureId": "popbean-fruit-platter-pino-jelly-pitaya-fruit",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fruit-platter-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fruit Platter\",\"Pino Jelly - Pitaya Fruit\",\"regular\",null,\"#7F9B6E\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdE-CJED6KSFgSzjRGas7Edda7BubWn6mvxlbMXYDjoNdXwn4Fo3dQ2vEbcHziE-IM_OlA4uWrCWn30grABnALh8_8VO0nCoI2XxV33X_3HupBTXjselc802Go5P09CvbWyUnoMI7UJ_iSqPAoMQNmGU1iXDbKv1v4V7_kL4KbKc8ZSifseZ7OuU7DreJP/s1600/Pino-Jelly-Pitaya-Fruit-POP-BEAN-Fruit-Platter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "69c3526880f22d6737f24507f7283bb06af6a47777f826c6fe420eae6b39fbc6"
+        },
+        "fruit-platter:pucky-guava": {
+          "figureId": "popbean-fruit-platter-pucky-guava",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fruit-platter-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fruit Platter\",\"Pucky - Guava\",\"regular\",null,\"#7F9B6E\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZ043ExfOHupDhAl08HvqmTrIVAaKz66IimZFINYaVhmS8Ws0PqN1cR6mu1ERvgIXE3bgGabz_TrfYefbmJ_u9NqCHr2-GRSRQusD39Akf5ZFBVZ7LsD96Bq00On3xbrQMSFZa2XRrjXiZqu16zehoV943FmqseekzTMBZZxIIZdsBPL7azXJRM_4bGrXC/s1600/Pucky-Guava-POP-BEAN-Fruit-Platter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "cae93346d148e4404b140f99c1ab52703b80f2a9d6529ddec760440fc2af66c2"
+        },
+        "fruit-platter:satyr-rory-orange": {
+          "figureId": "popbean-fruit-platter-satyr-rory-orange",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fruit-platter-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fruit Platter\",\"Satyr Rory - Orange\",\"regular\",null,\"#7F9B6E\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvnsBLymnusPLdGEiB6nveJ2sFH0MjnPmollE9XcU00PElb7Z1oHs0rMqydMqEUi0ylPxwunjYlRYdDZK-GG2fhtMfyo13Y_8QseTLjkAXYvJbrkywWF4rA9rZ_55sU1AW4VIgCQfcV1m8jhbo7j-HC5y3liuq4bxXDZlnx4BWtlMe2idFi1pD2KaSQem3/s1600/Satyr-Rory-Orange-POP-BEAN-Fruit-Platter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "60c3b2cfa438ce75083539cec96a0be8230ed88d31ae089bb85d244722c015b0"
+        },
+        "fruit-platter:skullpanda-watermelon": {
+          "figureId": "popbean-fruit-platter-skullpanda-watermelon",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fruit-platter-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fruit Platter\",\"Skullpanda - Watermelon\",\"regular\",null,\"#7F9B6E\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt2yiuEfEnGPEUa-JZmWAcBVOQQL0E5eaRBAAj4-CdUNbo7PmEOOrwgzCZ8Eg-5wvzTdjxqVKw1hNbUYbsTIwhntVy1oxCQJVe3x_L8wQVKnE4y2_SQBq1dWIsUEZ4Yv3hVd72FQyYFuhFsHHNJuH-wlEjPX_oTjZksM4qlv9Ys1pZIIP0e-wcr8-zQsp-/s1600/Skullpanda-Watermelon-POP-BEAN-Fruit-Platter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "45b6e99f7e7a8c0fa1d5fe5626bf0a5cd3478fef739647d3645c2b949a835f82"
+        },
+        "fruit-platter:sweet-bean-lemon": {
+          "figureId": "popbean-fruit-platter-sweet-bean-lemon",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fruit-platter-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fruit Platter\",\"Sweet Bean - Lemon\",\"regular\",null,\"#7F9B6E\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAwCdgdqnmLUVTC5JL_7OiF3pP7s_EDVttWZkbcs3W707INFsaBnZiDj2A5oD6AUZdN5dtys1dsU5bL9ecGoPX1DPLQNUTC6uBl3Eze5jd_4v5txQ5wc7e4jrdQnultK6Fm4FUC4mNOIgifHbZ-E3QIi8oFZfWzpRhCcMu87Q-aqiM8be5pN8vMiyuX3PX/s1600/Sweet-Bean-Lemon-POP-BEAN-Fruit-Platter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "14ad92e319a3ae23dc6f5b25f5abbe6659aa53218fe3efe681e857def2c43649"
+        },
+        "fruit-platter:zsiga-kiwifruit": {
+          "figureId": "popbean-fruit-platter-zsiga-kiwifruit",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-fruit-platter-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Fruit Platter\",\"Zsiga - Kiwifruit\",\"regular\",null,\"#7F9B6E\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgsKMkmkOWzYtss_EJYCIJqzF57fkNp4TtP8RiOcCAY-VqVKqXyGRcsoonSm9X1uo3YzGlSdQDQ2qDMEf2kAHvFVw3deM-s8upVHSdKrimbbKGMxEcnelJVZ4-6ryXFuWU_BSTjeCPQqyDluoZAYFqtn-GEbfGiA5jBhZ9vlWcZygShZjFIrzpRn7OFKzYt/s1600/Zsiga-Kiwifruit-POP-BEAN-Fruit-Platter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "0679ec94c2d508704382390aeee2e567e827abc388f136a833ba0c7215e69b28"
+        },
+        "lucky-cat:crybaby-good-fortune": {
+          "figureId": "popbean-lucky-cat-crybaby-good-fortune",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-cat-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Cat\",\"Crybaby - Good Fortune\",\"regular\",null,\"#9B6AB0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoNqMMrDnVqMm2FBGwAWhRhmD6js2xmfpdH1q8mO3e_kZKeZk_PkEw-MyFOcVm8s6ZJ8NXXW0z_3skjQQSk1OsXCI8Ey35dBQFh0H5E3aNPSNwBaB0k_Q_yJ5FKQJ42hxrFaWztUD52ljAst_JDbnUHExQ3na0qdPHqj2hEfLnqg8mEIm-AF1_TY_5I0dW/s1600/Crybaby-Good-Fortune-Pop-Bean-Lucky-Cat-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "c55903d1cbf04e816b6fe20b663604372126d7387e0f0ed24bb54b85b69229e3"
+        },
+        "lucky-cat:dimoo-comfy-life": {
+          "figureId": "popbean-lucky-cat-dimoo-comfy-life",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-cat-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Cat\",\"Dimoo - Comfy Life\",\"regular\",null,\"#9B6AB0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbfN19o3QLRdftq34YKYRIoGivzXLg81xPvrH3hZR0_TPjC8s6YJNTelyviUUvycSrICLIGMbTVhkiv2o_wbW33kaDmybfwUCJExmJjLQg-4VJ4ouLtm-UD5u13vfa4VHV9dqHSx-uAu4PwKmyfi6RjYBQK1X97sOyF9ANNwdob0-BeqLpaf42iK3JZZK8/s1600/Dimoo-Comfy-Life-Pop-Bean-Lucky-Cat-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "6295b16d242b3f6503db41b6e055895e8431d7a64930603eab4f03a71c9a8ef9"
+        },
+        "lucky-cat:hacipupu-treasure": {
+          "figureId": "popbean-lucky-cat-hacipupu-treasure",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-cat-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Cat\",\"Hacipupu - Treasure\",\"regular\",null,\"#9B6AB0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWaEsPPicI8q-_VXUeMRtW0i0vwKoutzEdJx3Cm4dJ4nbW2bxk1K_OLCftIwmmh3dJGDNLgAzGBlzjBcv8IsCt_HXTm0d-MwcDa-vJK8k7LAMYL81Sd7VPpRiGSf8E95vKE1ahNjh-TUgrzWs3vgjSezsMuvv3LPXwf66ZdeaLpTR_0xBoeLZBsm7vN2Sh/s1600/Hacipupu-Treasure-Pop-Bean-Lucky-Cat-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "4cc0e4db374278563bf5dd88ee7f4fa15165d92909333c389ed123395c085745"
+        },
+        "lucky-cat:kubo-rich": {
+          "figureId": "popbean-lucky-cat-kubo-rich",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-cat-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Cat\",\"Kubo - Rich\",\"regular\",null,\"#9B6AB0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUbt4t5W75ZdBbEocRPccEm7mm6xF1UbFzT0EUx90nNm3q2hfAE31YvsoZiuWw2xqVtH_7KBsSNhFLKriwD7rt-kQzmsJfZVcthA86G534xc_JBdnOQgDAWMFnPrPA8fKk16LByOU6HJflXdqy_qMwdkxkgj7NRkWsnSKKfVe3y9fAbLGbsZe0wN-LMPYq/s1600/Kubo-Rich-Pop-Bean-Lucky-Cat-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "b811fa174d4bb39eac5dc56b8a47fd2bc38c6c5118098819eb35ec44ec73f70b"
+        },
+        "lucky-cat:labubu-good-luck": {
+          "figureId": "popbean-lucky-cat-labubu-good-luck",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-cat-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Cat\",\"Labubu - Good Luck\",\"regular\",null,\"#9B6AB0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHC-L5g161S401nqMo-nr0B8ZJmQOvW8_Dg7Vi6HMhdhiPzN7tTCjJIyUV_l6c_5MBTelkasgmjn2fqNHrKbVRTY7m1tGduGhsMbkTGkgQfru89FxrdVf3dhbZD1Ggav4e23GMT0uU5FpdGZPp7cuNjH1-L9ky3OiXt61EdKiuKmKwQv-5zU4re9xhyKfg/s1600/Labubu-Good-Luck-Pop-Bean-Lucky-Cat-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "cc0ba19622b15334738e695d142148b935a206b483471ce2e54f1e60c7c4a904"
+        },
+        "lucky-cat:lilios-fortune-cat": {
+          "figureId": "popbean-lucky-cat-lilios-fortune-cat",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-cat-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Cat\",\"LiLiOS - Fortune Cat\",\"regular\",null,\"#9B6AB0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3gys1HcuKV7QBdnQa7l5ytDauNFULN53PrVYdFHffFoLEfBzHqurIHifq81Yg6O6THvHxuzdAK-n6fFCarFezjVg5AW4GGjlQkW0i7LMI1-yo5iNxus_VeFkylKsNmxwnbHxt4ae8_PWocalMKhQkY66m_7vdjiphN7eUWdi7sPzxEqCGjY46YYvq_Mft/s1600/LiLiOS-Fortune-Cat-Pop-Bean-Lucky-Cat-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "559685060ce815b9649530d4dc37838fd3f0384e361e6fde6c5f3dc1deb78cad"
+        },
+        "lucky-cat:molly-fortune-cat": {
+          "figureId": "popbean-lucky-cat-molly-fortune-cat",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-cat-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Cat\",\"Molly - Fortune Cat\",\"regular\",null,\"#9B6AB0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJkc04Tf7gq8XE3qt-iK7Z34CnVoAN91ITdjkTUnAkziTaTAz5uIKXlXSuGyy-a_Bb7JY4rKtFng_g5FSxrJFfeGW0yYZ-lH1DxImNdOy9ISxY6ERTQRiBCKqO7sxm6_4NTbn77DUHauF2qt-431tdbhR_2JazhrDMWEa0HdxGt4lCl6CMF1bVjmXXOrlR/s1600/Molly-Fortune-Cat-Pop-Bean-Lucky-Cat-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "e85bc2d75d2177bb275c8ff7fdc16a654673031d1e718e447379035ff5fdd3ce"
+        },
+        "lucky-cat:nori-best-wishes": {
+          "figureId": "popbean-lucky-cat-nori-best-wishes",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-cat-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Cat\",\"Nori - Best Wishes\",\"regular\",null,\"#9B6AB0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtFsnwG_Ki0dUMlAZidkL3rdorgxs8vNGyNXHnwtl4UXtieI6-q2MlGFCGTNGXM-I6io4Ms3jmE6knvqwhcydVRdoLkWd-Xi4DKmEjABoEgP-QLyJqS6GJnFT3au8vEfRzKKmKIpmxs7dzijRlc5IWdRLilc0uibFZORWHxiPnX4iMELg8oFLHjQG3-lZ9/s1600/Nori-Best-Wishes-Pop-Bean-Lucky-Cat-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "a8e187afad18d4cbb61f953c557206d7f221b4ee0f91d8fda2fc24bc7298c50a"
+        },
+        "lucky-cat:nyota-pleasure": {
+          "figureId": "popbean-lucky-cat-nyota-pleasure",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-cat-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Cat\",\"Nyota - Pleasure\",\"regular\",null,\"#9B6AB0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAc-u8HX5ktA0WSl7LcyRCnlRSOpVSDh7VAb-mzWUyLaQDPjoBGy1umWhNOxEsLyOnGpMzszdKmEo4aNAKpuHgZIODPnT2cARt-LEL2Cb2PXq491IPxtB_OV9oPURlXn7mpSAZKZsscLshytrgHwupJIWIu_1fLKceL70Tw13YHkyebl8Qi2OfE_5-_nQB/s1600/Nyota-Pleasure-Pop-Bean-Lucky-Cat-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "f24fbf402292b9934a993d9d5b9ea704a9fce3b0b55be8ba12750433a5bc277d"
+        },
+        "lucky-cat:pucky-good-omen": {
+          "figureId": "popbean-lucky-cat-pucky-good-omen",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-cat-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Cat\",\"Pucky - Good Omen\",\"regular\",null,\"#9B6AB0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnSEujyklFldPtZfkfMqTP_DaP_eqJNDiTEiIXatHCrKrDGt8TGBe15IO8Ta-T_tJXuL49nqDt2lCtnRSbqTc1wMW0fLcaYmwigIi-XgbqhfqRxAes1fWzpha98xxPGdFw_fhyPz79NLq0u6bAKV6_9ZOq7dC-oOIPC6Zxl39NgkR4MmEFSA7w6ema3G31/s1600/Pucky-Good-Omen-Pop-Bean-Lucky-Cat-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "545dcb51d8923ae2092f6bc212c69d6b50c0c1b5981ae5a28d7b529e7e37118a"
+        },
+        "lucky-cat:satyr-rory-happiness": {
+          "figureId": "popbean-lucky-cat-satyr-rory-happiness",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-cat-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Cat\",\"Satyr Rory - Happiness\",\"regular\",null,\"#9B6AB0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh10tkgF-6MPXcFyAkyeo8kvJKS717G0Kil7ktizU40KKKMeEzgzkV27rtcNpJT8Kn_uzSAyBwhGxxKq_BDA17fiiBvwcsjDmAqvNWm64BWHO41vePNdIyqLkPbIzgrVSd88cJOFJRE3BUj2fw049zQTwK48LAKy9vLp3GPwfcFHhUK7uiRdHTetEEacUuc/s1600/Satyr-Rory-Happiness-Pop-Bean-Lucky-Cat-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "a5837b4d2d6ab63d4227e004c6270a37b7791869da1fc26555399cf1b8fe4075"
+        },
+        "lucky-cat:skullpanda-bliss": {
+          "figureId": "popbean-lucky-cat-skullpanda-bliss",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-cat-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Cat\",\"Skullpanda - Bliss\",\"regular\",null,\"#9B6AB0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQXiv0UE8GcG91RYiVEp-XSN1JJOTBHkSOKlZNysl6-dpN-UXMBF68oi_SuC52-yVoCbW2PcxVERJLpTZnU2_AB5Q7k6y6UFUmtsAOrkyVwYp6aoExO9yh_1rXQvFfH4wSmBbrGv32-TpoO5aY8D0o-6upninJUavGuwztv_Bkcp1hVJjQQGAkjXAzcxBS/s1600/Skullpanda-Bliss-Pop-Bean-Lucky-Cat-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "ae04ade1a74e9aacf27ddd7b450a5a9ef872f132e07e72204b66dbc51b37e81d"
+        },
+        "lucky-cat:sweet-bean-gold": {
+          "figureId": "popbean-lucky-cat-sweet-bean-gold",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-cat-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Cat\",\"Sweet Bean - Gold\",\"regular\",null,\"#9B6AB0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3dyWdB_QUkxiGBC8OMJuOPYlguEA5qbfN47cFYg6-B-twQc5sforV8GkvVquGMjLY1zISkrqiUULH1xhBLVE16eIDxJXPm3b-fYtlfor47uCVcjKTqpUJXLoOJ9C4qbpI5kTEM-g87iSItSgR6OL1mvvdIVlqcmD5uYBYIdwMUfql0KlLY4SXpat9i1Jj/s1600/Sweet-Bean-Gold-Pop-Bean-Lucky-Cat-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "1d0c9123f667121a3d832176a82fc11c7c5dc98894e4826cebf70329ddfa7347"
+        },
+        "lucky-cat:zsiga-lucky-star": {
+          "figureId": "popbean-lucky-cat-zsiga-lucky-star",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-cat-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Cat\",\"Zsiga - Lucky Star\",\"regular\",null,\"#9B6AB0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvi6gtNcY0nydwPhWrncdkfo8z11uAi3d0hCRXi3h4ZCjWDyPEJMLNa3Xu8NqnltCxwidQCjd9KgZ3KuGpGgxd3fd-JMazx9R1l-7MNi6Xz8U9psnGoOA-NPvC36YbE96U9B-kOY5ichXSMw__P-ZI0mTuIU_kWmVkR8W35gf3pngA8sgiqH0M9WB23i0m/s1600/Zsiga-Lucky-Star-Pop-Bean-Lucky-Cat-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "0df96dcc45dce347d61f568177392ebb2db291b93e020070cd7e4df9a3af4ac6"
+        },
+        "lucky-cat:dimoo-domi": {
+          "figureId": "popbean-lucky-cat-dimoo-domi",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-lucky-cat-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Lucky Cat\",\"Dimoo - Domi\",\"regular\",null,\"#9B6AB0\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdqqqMz8lF8yV508HzK-zOVf2fh-O9ILEe7h6KsQktmHDbnMufuIHAjhBjzAe937mzaSqaZhzLVt2exP4PIuXM1E0mWGpy8nLbixPX1rzb5ROkEH6Zk8CwwaAlmuwQdekJS2lrxgI-uHeLoyFyn9KRoNRgW4MWQ-5eRGA6uogfd-wJqJe0TwSRQ1DkGdcw/s1600/Dimoo-Domi-Pop-Bean-Lucky-Cat-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "1e7aaa89e5e6129df646d3d4b24c8b5b18a32c65ad3cdbf50c3136f4d45b99da"
+        },
+        "mini-ice-pop:bunny-strawberry": {
+          "figureId": "popbean-mini-ice-pop-bunny-strawberry",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-mini-ice-pop-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Mini Ice Pop\",\"Bunny - Strawberry\",\"regular\",null,\"#6E8F5A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdyO6e0D7c-9HtBZefR6SIMWMfY6w60s0EL1zd4tUfjxKOKm73rOxeF7GWPg9rQVem6duW7WtEZY7GF8iDMyNxwoVAbtbtQYhEf8ugL5yb9GXJUHcpwRj_O1EvebmiPP9AZBsPlSWgnCivoTivDG6ltkgS9dJNIXP-VIrh-ln7oh09ocjSuURdMw6xMQhp/s1600/Bunny-Strawberry-POP-BEAN-Mini-Ice-Pop-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "91ab29c68c6bdb6b30aa8b08ecbd7927f34fc8b21ba4a05f6016ecfe84c738b7"
+        },
+        "mini-ice-pop:crybaby-brown-sugar": {
+          "figureId": "popbean-mini-ice-pop-crybaby-brown-sugar",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-mini-ice-pop-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Mini Ice Pop\",\"Crybaby - Brown Sugar\",\"regular\",null,\"#6E8F5A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQKi-2_cSrkwlx6RtPcleZTQGjopBoIKbO8FQvIYASpj2-Z6CjY4PLAgDbG6cEzR04mKMTlpvCI9oRfW3QNY2y1lAyhWTo1KSGVUR7WyL_i4X58XraSSEpVpOdJHeMkoKKnQuikTaoo2P8_gZMe21gH4wJqDhVXvu0R15abIbKjVWeg5UoW0pbMPdPZWUl/s1600/Crybaby-Brown-Sugar-POP-BEAN-Mini-Ice-Pop-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "cac4bd1ab92edba5184c1efa97102244b63761b19b6dc38f73e4a9a9a543b649"
+        },
+        "mini-ice-pop:dimoo-sea-salt": {
+          "figureId": "popbean-mini-ice-pop-dimoo-sea-salt",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-mini-ice-pop-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Mini Ice Pop\",\"Dimoo - Sea Salt\",\"regular\",null,\"#6E8F5A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTuJzbIc78kzp_1wP0eZ4DU0I8eXRq4iAc2h699IJ1f3cWh7Cifp15cIjgDbtxGUDD4ZG1LvkxZMSul8EminBPHquY7GJLLc-OkNEI_n4RI2APw_zSjpdUjBflPezwwJDzAafso3EQGuDoxRfg5iLWzBFJVfX8lQHh0eU5bEhYD4anWChajf5XNjXnY1Pw/s1600/Dimoo-Sea-Salt-POP-BEAN-Mini-Ice-Pop-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "6f9df5467f6108758f8a809310fab48a4b56a740c2f3b664efe3a5dad7fbbdf7"
+        },
+        "mini-ice-pop:flying-dongdong-coconut": {
+          "figureId": "popbean-mini-ice-pop-flying-dongdong-coconut",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-mini-ice-pop-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Mini Ice Pop\",\"Flying Dongdong - Coconut\",\"regular\",null,\"#6E8F5A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgaFAU6besqUrfoBJA4IdD6n5gnIsCxxFLlNqOriyZGCvAmJ22rHuWeebi5Rhl4xPMBuAxZFkJznuAw3j4GhhBW0rDg7LUF0G9sPBk6ASpbZYKTdXhVSlyvMmRDlTgFy1oVYHn8FIR3-jOl66APLsn5Ze7jLKx89JJKeDDFX4q_J4QQpLASMApayOZgtps0/s1600/Flying-Dongdong-Coconut-POP-BEAN-Mini-Ice-Pop-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "2ae56e02112cda987f514ddae8e554fd973fe12aea416ba9a395fe05f28828ed"
+        },
+        "mini-ice-pop:hacipupu-sweet-orange": {
+          "figureId": "popbean-mini-ice-pop-hacipupu-sweet-orange",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-mini-ice-pop-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Mini Ice Pop\",\"Hacipupu - Sweet Orange\",\"regular\",null,\"#6E8F5A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitf7SXQK4n9BRs3bEjQKM9TQodNyZcFqrIWvCU4FDLR4CuK-pOMvay61iL1AfUIIxkillf-QGuseE86fNUeEunXkjoXFDZ1IeJD-I-lqaJVGgbtXXbvu0GdObhAgCgEbD27h_isaPqsY-frpEFtfuIbi4aQdXuQCESTFvGTcbFYSSnALxhFvAKyePdEPUl/s1600/Hacipupu-Sweet-Orange-POP-BEAN-Mini-Ice-Pop-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "d75f8c648848d72d22acae54105a920d01b15efadbc1bcb442fb2ba0d09a4b9f"
+        },
+        "mini-ice-pop:labubu-lime": {
+          "figureId": "popbean-mini-ice-pop-labubu-lime",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-mini-ice-pop-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Mini Ice Pop\",\"Labubu - Lime\",\"regular\",null,\"#6E8F5A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbrzMcEEvrBb91F3TABn595SvtNPSJbuZCv6S-h1E5AtOPsr9tqNX3-mHVMqQsNyrP2fodwLEr6ypaXGRTNbtE9UZGTRbY8Ixhv72IBskrzg2cDdFaDRvM1M6jtHN7A5CrSNT2FXFJeshpMl8qT-Iv6VS-17x6Cft8i7zAgO6WVaHazWtPft7wAhdCS_L1/s1600/Labubu-Lime-POP-BEAN-Mini-Ice-Pop-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "64f8704b75b10fea6547283024595ea34b6cb70d9d6511eafe5ba293abe2eb10"
+        },
+        "mini-ice-pop:molly-vanilla": {
+          "figureId": "popbean-mini-ice-pop-molly-vanilla",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-mini-ice-pop-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Mini Ice Pop\",\"Molly - Vanilla\",\"regular\",null,\"#6E8F5A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEio0U5nlzj8tvES6uk4tsLFEjSddZScVHEDpATuuVCfPzXBKbYUZ_Moafg4ZWdelHHBUYUktTGjKq8n26DBTl1GXc4mMrSqIofqnyxyixqwcev-b8bfTU45udS9x0bSnQQepVR-VeCPJ3_PdykvZYxcCWnrg75EuLkLTZLU9hNlTgMmPPQsEW6BfAIfQhEz/s1600/Molly-Vanilla-POP-BEAN-Mini-Ice-Pop-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "11afeee137384dad24d93fc22bd4c9bd2cf5a24af6ce79f98c150bb999791a68"
+        },
+        "mini-ice-pop:pucky-taro": {
+          "figureId": "popbean-mini-ice-pop-pucky-taro",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-mini-ice-pop-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Mini Ice Pop\",\"Pucky - Taro\",\"regular\",null,\"#6E8F5A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2Um_8OAInRRlDHOIkr7OONdJS3BidU2YrxwpXaeJuJJJtOO842HlvSh7_vCssEXrrFnx7B8ssxgyok7Fs-Cbw-klvZB1r0jRC3MNIOvgUjSgIix99jvNIg3hscpmzLsaT5isVFz966ymEo0rfo84Fj0H92CYfknypmGgrt62sa86HpVWHWVdmSwIfWB26/s1600/Pucky-Taro-POP-BEAN-Mini-Ice-Pop-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "d5d8ed86853bf31183cb8e05cfa5cb8ebb8ca16c9a6d716050d851e06b901a5b"
+        },
+        "mini-ice-pop:satyr-rory-lemon": {
+          "figureId": "popbean-mini-ice-pop-satyr-rory-lemon",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-mini-ice-pop-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Mini Ice Pop\",\"Satyr Rory - Lemon\",\"regular\",null,\"#6E8F5A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-idp2q6cR55XsX3SOBofPqEfoyfOmoksNrewwHwhP1-wH3dZ-VU7c_ytQTqHXzxaqejvs5wctpj8K6rAMI6Tbv9QBsqYnDGgifCKKxmUse1JDiqW52waL0_s8hJaZC4OvKfC7RPpb54yZwLQRTZwKAiK7krvGZwdXr5F7dDpX3pcZ0yWB3w9-JASB9WKx/s1600/Satyr-Rory-Lemon-POP-BEAN-Mini-Ice-Pop-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "7658ea8368165ba57721e7caecf5adff3668505d814f3d81c818c7e07530f9cf"
+        },
+        "mini-ice-pop:skullpanda-raspberry": {
+          "figureId": "popbean-mini-ice-pop-skullpanda-raspberry",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-mini-ice-pop-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Mini Ice Pop\",\"Skullpanda - Raspberry\",\"regular\",null,\"#6E8F5A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixuFxjpGnAM_QysOvKcqLkN9DXOxJ7-kCndLfO9R9jtGLgnp9lFwZw6ru26ClFcFQsnkcYFVbXybMhQKQIiYqiiv9-iAT7WILEhL-pD6P1TkytZ8eQZAYelyk7twvh2iduE5c_c3iLc_Ti2bA6s_UC2Kpq0Tyjc2qgdIDUuTBQ2JiIFdu3mHEyCQN8NzKx/s1600/Skullpanda-Raspberry-POP-BEAN-Mini-Ice-Pop-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "3026b70a26ca0632bc972f9ea1983e89a01ac02f3ca3aff91549f0a94d1f198b"
+        },
+        "mini-ice-pop:sweet-bean-white-peach": {
+          "figureId": "popbean-mini-ice-pop-sweet-bean-white-peach",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/pop-mart/pop-bean-mini-ice-pop-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Mini Ice Pop\",\"Sweet Bean - White Peach\",\"regular\",null,\"#6E8F5A\"]",
+          "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5_ltt7IE4jxaW80ctihgikLPStnOpemnyZJg1D4Z8fOFJozk80lAUdVxtIi7jeJscjiM3BUIxaMJglRjPhKB5Iv8HJt0sPBvHPhh-fGFlJLWAZI5lqyOYf4iTmWMGO_e5ETSw0l0tMc7SF2o6TfaD-LIcaFjricRHi4cr93pZ2d0UL5JoZhvUO910f8TN/s1600/Sweet-Bean-White-Peach-POP-BEAN-Mini-Ice-Pop-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "ef0d58775a3293aa3b9beed283c1b0d442abda7c90072aea0f1fbf44ed4c9f3f"
+        },
+        "harry-potter-flight:cedric-diggory": {
+          "figureId": "popbean-harry-potter-flight-cedric-diggory",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/licensed-series/pop-bean-harry-potter-flight-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Harry Potter Flight\",\"Cedric Diggory\",\"regular\",null,\"#5B8D88\"]",
+          "imageUrl": "https://1.bp.blogspot.com/-0t9-IQThotQ/ZjS_BkYHKkI/AAAAAAACTdc/Lku93H3iy54UdP2RYyM0tVqt58yCt04ZgCNcBGAsYHQ/s1600/Cedric-Diggory-Pop-Bean-Flight-Series-Harry-Potter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "ee669c3ed142b5a86b192985831584a8959db7d6102b9992fde3eb332c55237d"
+        },
+        "harry-potter-flight:draco-malfoy": {
+          "figureId": "popbean-harry-potter-flight-draco-malfoy",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/licensed-series/pop-bean-harry-potter-flight-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Harry Potter Flight\",\"Draco Malfoy\",\"regular\",null,\"#5B8D88\"]",
+          "imageUrl": "https://1.bp.blogspot.com/-s1y_6SOTDoI/ZjS_BjuHIlI/AAAAAAACTdk/_BubN9YjeQkiL-AbAONi0GxoExxwisbwwCNcBGAsYHQ/s1600/Draco-Malfoy-Pop-Bean-Flight-Series-Harry-Potter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "221fdffbd281efbb4e895fc31dce52870bbf6578dffd4be0a92fd0bb263a6b39"
+        },
+        "harry-potter-flight:fred-weasley": {
+          "figureId": "popbean-harry-potter-flight-fred-weasley",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/licensed-series/pop-bean-harry-potter-flight-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Harry Potter Flight\",\"Fred Weasley\",\"regular\",null,\"#5B8D88\"]",
+          "imageUrl": "https://1.bp.blogspot.com/-1JEQG47MNWI/ZjS_CDKQZjI/AAAAAAACTds/iQmj2kX7OzsaTgeMEDYCrB5lVVZZJ3wfACNcBGAsYHQ/s1600/Fred-Weasley-Pop-Bean-Flight-Series-Harry-Potter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "db36ee9b1a94697a612e320fa616e4dff1bbdc9935e5f9e0fa7bb1c665fbf71e"
+        },
+        "harry-potter-flight:george-weasley": {
+          "figureId": "popbean-harry-potter-flight-george-weasley",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/licensed-series/pop-bean-harry-potter-flight-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Harry Potter Flight\",\"George Weasley\",\"regular\",null,\"#5B8D88\"]",
+          "imageUrl": "https://1.bp.blogspot.com/-98BhQ8s8XFM/ZjS_B7QLo0I/AAAAAAACTdo/-53-F2LRifECiLYLKhvtPDlWL46-lftrACNcBGAsYHQ/s1600/George-Weasley-Pop-Bean-Flight-Series-Harry-Potter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "0d8f4646e9ae3ee892ae6959faa8616299bb40861c01bcd716bf17eaf13b7188"
+        },
+        "harry-potter-flight:ginny-weasley": {
+          "figureId": "popbean-harry-potter-flight-ginny-weasley",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/licensed-series/pop-bean-harry-potter-flight-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Harry Potter Flight\",\"Ginny Weasley\",\"regular\",null,\"#5B8D88\"]",
+          "imageUrl": "https://1.bp.blogspot.com/-oc2EM52r9_A/ZjS_CACUecI/AAAAAAACTdw/CZEH85-GZz0DT5HuMvNTU280ZxvdjK1IACNcBGAsYHQ/s1600/Ginny-Weasley-Pop-Bean-Flight-Series-Harry-Potter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "52fb017777b5308a10bcb6d4b7b0d637e8266619d70840edf45a26ec407004d4"
+        },
+        "harry-potter-flight:harry-potter": {
+          "figureId": "popbean-harry-potter-flight-harry-potter",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/licensed-series/pop-bean-harry-potter-flight-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Harry Potter Flight\",\"Harry Potter\",\"regular\",null,\"#5B8D88\"]",
+          "imageUrl": "https://1.bp.blogspot.com/-O03AgeoQbW8/ZjS_CVjXJ8I/AAAAAAACTd0/X54KoTleH7oyZisQjKxSreA0I2a9NXNKgCNcBGAsYHQ/s1600/Harry-Potter-Pop-Bean-Flight-Series-Harry-Potter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "7bdf70efbc88eebe12130a36aa6c73603130ab369e9069a2f50056d166074310"
+        },
+        "harry-potter-flight:hermione-granger": {
+          "figureId": "popbean-harry-potter-flight-hermione-granger",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/licensed-series/pop-bean-harry-potter-flight-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Harry Potter Flight\",\"Hermione Granger\",\"regular\",null,\"#5B8D88\"]",
+          "imageUrl": "https://1.bp.blogspot.com/-ESUCXaKIZCQ/ZjS_Cni_9nI/AAAAAAACTd4/bvCEwPxJKOQj5EZbu_7WcgZ7FNRaCrUaACNcBGAsYHQ/s1600/Hermione-Granger-Pop-Bean-Flight-Series-Harry-Potter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "9065b5a20031644a3e935495eb4e931b91fa5f696239669ce671b7429a4e94ee"
+        },
+        "harry-potter-flight:lord-voldemort": {
+          "figureId": "popbean-harry-potter-flight-lord-voldemort",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/licensed-series/pop-bean-harry-potter-flight-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Harry Potter Flight\",\"Lord Voldemort\",\"regular\",null,\"#5B8D88\"]",
+          "imageUrl": "https://1.bp.blogspot.com/-T2K8wgpSvaE/ZjS_C-EWsAI/AAAAAAACTeE/xAfjMOAgPCIdy7tBrJEzDAom8-7rdFTZQCNcBGAsYHQ/s1600/Lord-Voldemort-Pop-Bean-Flight-Series-Harry-Potter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "7f1f5d42c3425b0e5031719e032134afb3c2ec6ae1e2f25d663b03a3a2309112"
+        },
+        "harry-potter-flight:luna-lovegood": {
+          "figureId": "popbean-harry-potter-flight-luna-lovegood",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/licensed-series/pop-bean-harry-potter-flight-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Harry Potter Flight\",\"Luna Lovegood\",\"regular\",null,\"#5B8D88\"]",
+          "imageUrl": "https://1.bp.blogspot.com/-79PNWFM4Pos/ZjS_CwMjtrI/AAAAAAACTd8/UFQbFKE9GFIVaL2qe0HnWBCOrr5zOzgtgCNcBGAsYHQ/s1600/Luna-Lovegood-Pop-Bean-Flight-Series-Harry-Potter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "dd5e24a3d3db0a5dd8bced1b254cdf1854fe8304eec72d8806d65aa547bc8875"
+        },
+        "harry-potter-flight:neville-longbottom": {
+          "figureId": "popbean-harry-potter-flight-neville-longbottom",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/licensed-series/pop-bean-harry-potter-flight-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Harry Potter Flight\",\"Neville Longbottom\",\"regular\",null,\"#5B8D88\"]",
+          "imageUrl": "https://1.bp.blogspot.com/-sdxvxCqeMLg/ZjS_C2hx06I/AAAAAAACTeA/rMWpoz5htgk-hyMd0hRoSWdHELjARyn_QCNcBGAsYHQ/s1600/Neville%2BLongbottom-Pop-Bean-Flight-Series-Harry-Potter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "8e1f52d91934aff5bdae5bc212fb9f79f9e61e2c7186fcad1cc41b2d524e69c7"
+        },
+        "harry-potter-flight:ron-weasley": {
+          "figureId": "popbean-harry-potter-flight-ron-weasley",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/licensed-series/pop-bean-harry-potter-flight-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Harry Potter Flight\",\"Ron Weasley\",\"regular\",null,\"#5B8D88\"]",
+          "imageUrl": "https://1.bp.blogspot.com/-Yw0q3dgMf3g/ZjS_DD9OrWI/AAAAAAACTeI/LmVut2aOAJUB5oCvqVdY6yDHd-LqZnbJACNcBGAsYHQ/s1600/Ron-Weasley-Pop-Bean-Flight-Series-Harry-Potter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "13f5820ea9b63221023b02aa122408047dec8a9fc521c0563ce437d1551f0150"
+        },
+        "harry-potter-flight:rubeus-hagrid": {
+          "figureId": "popbean-harry-potter-flight-rubeus-hagrid",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/licensed-series/pop-bean-harry-potter-flight-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Harry Potter Flight\",\"Rubeus Hagrid\",\"regular\",null,\"#5B8D88\"]",
+          "imageUrl": "https://1.bp.blogspot.com/-bqG_eIj1fy8/ZjS_DN3-YMI/AAAAAAACTeM/leD4tK-nPQUlOclZss6Q2VIWbuw9FxLSgCNcBGAsYHQ/s1600/Rubeus-Hagrid-Pop-Bean-Flight-Series-Harry-Potter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "fcd3850e8fb94132b4f38837d0d6d1fcb810d8778e1e8466adae1c7d78792562"
+        },
+        "harry-potter-flight:severus-snape": {
+          "figureId": "popbean-harry-potter-flight-severus-snape",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/licensed-series/pop-bean-harry-potter-flight-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Harry Potter Flight\",\"Severus Snape\",\"regular\",null,\"#5B8D88\"]",
+          "imageUrl": "https://1.bp.blogspot.com/-VdYZAkfMJK4/ZjS_DSRCbmI/AAAAAAACTeQ/ksj6qEoED9EzaYhc5JSGaIzk1lrZ54dLwCNcBGAsYHQ/s1600/Severus-Snape-Pop-Bean-Flight-Series-Harry-Potter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "b23393b579240e3c2f5da4850b46aef818ffa96a80e2215eb87087f56f1e277e"
+        },
+        "harry-potter-flight:sirius-black": {
+          "figureId": "popbean-harry-potter-flight-sirius-black",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/licensed-series/pop-bean-harry-potter-flight-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Harry Potter Flight\",\"Sirius Black\",\"regular\",null,\"#5B8D88\"]",
+          "imageUrl": "https://1.bp.blogspot.com/-0_d8IjfLYWA/ZjS_DWFp0AI/AAAAAAACTeU/gUwPz7ROOjINwZkKKidjK8lehogDC1UEwCNcBGAsYHQ/s1600/Sirius-Black-Pop-Bean-Flight-Series-Harry-Potter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "f9057e733699c233266898c1546de27d57d3598c29db8381a9ab1617b31b0200"
+        },
+        "harry-potter-flight:tom-riddle": {
+          "figureId": "popbean-harry-potter-flight-tom-riddle",
+          "sourceUrl": "https://thetoypool.com/pop-mart/series/licensed-series/pop-bean-harry-potter-flight-series/",
+          "scrapedAt": "2026-07-26T10:08:22.197Z",
+          "contentHash": "[\"Harry Potter Flight\",\"Tom Riddle\",\"regular\",null,\"#5B8D88\"]",
+          "imageUrl": "https://1.bp.blogspot.com/-wyV2HyA8bS8/ZjS_Dk5ZCQI/AAAAAAACTec/kyBpEZUYApwM0-nCDrp4bqCzIAeAnqXQgCNcBGAsYHQ/s1600/Tom-Riddle-Pop-Bean-Flight-Series-Harry-Potter-Series-Pop-Mart-Figure-1.jpg",
+          "imageHash": "59e6e2025271c7c1c67fc363ffbc93811e373918de081aa292c5a14e262e4bc3"
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Images still needed
 
-137 of 782 figures have no image yet and render the placeholder.
+105 of 938 figures have no image yet and render the placeholder.
 
 Figure images live in Supabase, not in this repo - see `supabase/schema.sql`.
 
@@ -9,53 +9,6 @@ Figure images live in Supabase, not in this repo - see `supabase/schema.sql`.
 ```
 npm run cutout && npm run upload:catalog
 ```
-
-## hirono - Shelter (1)
-
-- [ ] `hirono-shelter-bird-cage.png` - Bird Cage
-
-## hirono - Hirono × Le Petit Prince (14)
-
-- [ ] `hirono-hirono-le-petit-prince-the-king.png` - The King
-- [ ] `hirono-hirono-le-petit-prince-the-conceited-man.png` - The Conceited Man
-- [ ] `hirono-hirono-le-petit-prince-the-tippler.png` - The Tippler
-- [ ] `hirono-hirono-le-petit-prince-the-businessman.png` - The Businessman
-- [ ] `hirono-hirono-le-petit-prince-the-lamplighter.png` - The Lamplighter
-- [ ] `hirono-hirono-le-petit-prince-the-geographer.png` - The Geographer
-- [ ] `hirono-hirono-le-petit-prince-the-fox.png` - The Fox
-- [ ] `hirono-hirono-le-petit-prince-the-rose.png` - The Rose
-- [ ] `hirono-hirono-le-petit-prince-the-snake.png` - The Snake
-- [ ] `hirono-hirono-le-petit-prince-the-little-prince.png` - The Little Prince
-- [ ] `hirono-hirono-le-petit-prince-the-merchant.png` - The Merchant
-- [ ] `hirono-hirono-le-petit-prince-the-switchman.png` - The Switchman
-- [ ] `hirono-hirono-le-petit-prince-the-pilot.png` - The Pilot _(secret)_
-- [ ] `hirono-hirono-le-petit-prince-the-little-prince-special-edition.png` - The Little Prince (Special Edition) _(secret)_
-
-## hirono - Mist-Walker (7)
-
-- [ ] `hirono-mist-walker-the-soul-corroder.png` - The Soul Corroder
-- [ ] `hirono-mist-walker-the-wingless-follower.png` - The Wingless Follower
-- [ ] `hirono-mist-walker-the-backlit-messenger.png` - The Backlit Messenger
-- [ ] `hirono-mist-walker-the-unfallen-wing.png` - The Unfallen Wing
-- [ ] `hirono-mist-walker-the-gap-glimmer-wanderer.png` - The Gap-Glimmer Wanderer
-- [ ] `hirono-mist-walker-the-primordial-grace.png` - The Primordial Grace
-- [ ] `hirono-mist-walker-the-tempered-aegis.png` - The Tempered Aegis _(secret)_
-
-## hirono - Road Journal (7)
-
-- [ ] `hirono-road-journal-into-fogwild.png` - Into Fogwild
-- [ ] `hirono-road-journal-lost-in-the-night.png` - Lost In The Night
-- [ ] `hirono-road-journal-frostfall-hour.png` - Frostfall Hour
-- [ ] `hirono-road-journal-woven-woods.png` - Woven Woods
-- [ ] `hirono-road-journal-grey-gravel.png` - Grey Gravel
-- [ ] `hirono-road-journal-city-dust-afloat.png` - City Dust Afloat
-- [ ] `hirono-road-journal-highway-imprint.png` - Highway Imprint _(secret)_
-
-## hirono - Listening; Saying; Seeing (3)
-
-- [ ] `hirono-listening-saying-seeing-listening.png` - Listening
-- [ ] `hirono-listening-saying-seeing-saying.png` - Saying
-- [ ] `hirono-listening-saying-seeing-seeing.png` - Seeing
 
 ## hirono - 200% (6)
 
@@ -66,30 +19,19 @@ npm run cutout && npm run upload:catalog
 - [ ] `hirono-200-reshape.png` - Reshape
 - [ ] `hirono-200-keith-haring.png` - Keith Haring
 
-## hirono - Special Editions (12)
+## hirono - Special Editions (8)
 
 - [ ] `hirono-special-editions-elephant-in-the-room.png` - Elephant in the Room
 - [ ] `hirono-special-editions-merry-christmas-mr-hirono.png` - Merry Christmas Mr. Hirono
 - [ ] `hirono-special-editions-little-prank.png` - Little Prank
-- [ ] `hirono-special-editions-the-pianist.png` - The Pianist
 - [ ] `hirono-special-editions-search-for-aliens.png` - Search for Aliens
 - [ ] `hirono-special-editions-orange-soda.png` - Orange Soda
-- [ ] `hirono-special-editions-doll-panda.png` - Doll Panda
-- [ ] `hirono-special-editions-coffee.png` - Coffee
 - [ ] `hirono-special-editions-before-the-snow-melts.png` - Before the Snow Melts
-- [ ] `hirono-special-editions-floating-market.png` - Floating Market
 - [ ] `hirono-special-editions-summer-time.png` - Summer Time
 - [ ] `hirono-special-editions-the-fleeting-years.png` - The Fleeting Years
 
-## hirono - Blister Series (8)
+## hirono - Blister Series (1)
 
-- [ ] `hirono-blister-series-wandering.png` - Wandering
-- [ ] `hirono-blister-series-persona-lang-solo-exhibition.png` - Persona (Lang Solo Exhibition)
-- [ ] `hirono-blister-series-shanghai-monster.png` - Shanghai Monster
-- [ ] `hirono-blister-series-halloween-special.png` - Halloween Special
-- [ ] `hirono-blister-series-halloween-special-china-edition.png` - Halloween Special (China Edition)
-- [ ] `hirono-blister-series-banger.png` - Banger
-- [ ] `hirono-blister-series-stray-panda.png` - Stray Panda
 - [ ] `hirono-blister-series-simper.png` - Simper
 
 ## hirono - Plush & Pendants (5)
@@ -100,9 +42,8 @@ npm run cutout && npm run upload:catalog
 - [ ] `hirono-plush-pendants-back-to-play-bear.png` - Back to Play - Bear
 - [ ] `hirono-plush-pendants-back-to-play-dino.png` - Back to Play - Dino
 
-## hirono - Collaborations (9)
+## hirono - Collaborations (7)
 
-- [ ] `hirono-collaborations-hirono-snoopy.png` - Hirono × Snoopy
 - [ ] `hirono-collaborations-hirono-keith-haring.png` - Hirono × Keith Haring
 - [ ] `hirono-collaborations-hirono-vans.png` - Hirono × Vans
 - [ ] `hirono-collaborations-hirono-gary-baseman.png` - Hirono × Gary Baseman
@@ -110,7 +51,6 @@ npm run cutout && npm run upload:catalog
 - [ ] `hirono-collaborations-hirono-dead-silence.png` - Hirono × Dead Silence
 - [ ] `hirono-collaborations-hirono-stefanie-sun-weather-with-you.png` - Hirono × Stefanie Sun (Weather With You)
 - [ ] `hirono-collaborations-hirono-stefanie-sun-aut-nihilo.png` - Hirono × Stefanie Sun (Aut Nihilo)
-- [ ] `hirono-collaborations-hirono-polar-symbiosis.png` - Hirono × Polar (Symbiosis)
 
 ## dimoo - WORLD × PIXAR (12)
 
@@ -206,4 +146,20 @@ npm run cutout && npm run upload:catalog
 - [ ] `dimoo-retro-dreamworld.png` - Dreamworld _(secret)_
 - [ ] `dimoo-retro-daytime.png` - Daytime _(secret)_
 - [ ] `dimoo-retro-dark-night.png` - Dark Night _(secret)_
+
+## popbean - Dimoo World × Pixar (13)
+
+- [ ] `popbean-dimoo-world-pixar-dimoo-as-woody.png` - DIMOO as Woody
+- [ ] `popbean-dimoo-world-pixar-dimoo-as-buzz-lightyear.png` - DIMOO as Buzz Lightyear
+- [ ] `popbean-dimoo-world-pixar-dimoo-as-dash-parr.png` - DIMOO as Dash Parr
+- [ ] `popbean-dimoo-world-pixar-dimoo-as-miguel-rivera.png` - DIMOO as Miguel Rivera
+- [ ] `popbean-dimoo-world-pixar-dimoo-as-wall-e.png` - DIMOO as WALL.E
+- [ ] `popbean-dimoo-world-pixar-dimoo-as-remy.png` - DIMOO as Remy
+- [ ] `popbean-dimoo-world-pixar-dimoo-as-lotso.png` - DIMOO as Lotso
+- [ ] `popbean-dimoo-world-pixar-dimoo-as-sulley.png` - DIMOO as Sulley
+- [ ] `popbean-dimoo-world-pixar-dimoo-as-russell.png` - DIMOO as Russell
+- [ ] `popbean-dimoo-world-pixar-dimoo-as-red-panda-mei.png` - DIMOO as Red Panda Mei
+- [ ] `popbean-dimoo-world-pixar-dimoo-as-hamm.png` - DIMOO as Hamm
+- [ ] `popbean-dimoo-world-pixar-dimoo-as-alien.png` - DIMOO as Alien
+- [ ] `popbean-dimoo-world-pixar-dimoo-as-alien-special-ver.png` - DIMOO as Alien (Special Ver.) _(secret)_
 
